@@ -1,0 +1,128 @@
+.modal
+	z-index: 10001
+	.modal-dialog
+		margin-top: 100px
+		border-radius: 5px
+		box-shadow: 0 2px 8px #333333
+
+	.modal-content
+		border-radius: 5px
+		border: 1px solid #3A7C9F
+
+	.modal-header
+		background-color: #3A7C9F
+		color: white
+		height: 40px
+		padding: 1px 0
+		border-top-left-radius: 5px
+		border-top-right-radius: 5px
+
+		.modal-title
+			margin-top: 5px
+			margin-left: 36px
+
+		.modal-menu-button
+			-webkit-appearance: none
+			cursor: pointer
+			float: right
+			filter: alpha(opacity=20)
+			background-color: #418CB4
+			border: 0
+			border-radius: 5px 0 0 0
+			transition: all .3s
+			opacity: 1.0
+			color: #fff
+			text-shadow: none
+			margin-top: -2px
+			font-size: 1.7em
+			&:hover, &:active, &:focus
+				background-color: #316584
+
+		.modal-close-button
+			background-color: #438EB7
+			border-radius: 0 5px 0 0
+			transition: all .3s
+			opacity: 1.0
+			color: white
+			text-shadow: none
+			font-size: 1.9em
+			padding: 6px 8px
+			&:hover, &:active, &:focus
+				background-color: #316584
+
+		.dropdown-menu
+			margin-top: 37px
+			border-radius: 0 0 5px 5px
+
+	.modal-body
+		.form-group
+			.input-group-addon
+				color: #2C8DC8
+
+			.join-modal-input
+				min-width: 85px
+				text-align: left
+
+		.input-group
+			margin-bottom: -1px
+
+			.message-modal-input-message
+				border-radius: 0 0 0 5px
+
+		.button-cancel
+			background-color: #438EB7
+			border-radius: 5px
+			padding: 3px 8px
+			color: white
+			transition: all .3s
+			box-shadow: 0 1px 3px #666666
+			&:hover, &:active, &:focus
+				background-color: #316584
+
+		.button-default
+			background-color: #438EB7
+			border-radius: 5px
+			padding: 3px 8px
+			color: white
+			transition: all .3s
+			box-shadow: 0 1px 3px #666666
+			&:hover, &:active, &:focus
+				background-color: #316584
+
+		.button-primary
+			background-color: #438EB7
+			font-size: 14px
+			border-radius: 0 0 5px 0
+			padding: 6px 30px
+			margin-right: -1px
+			color: white
+			transition: all .3s
+			&:hover, &:active, &:focus
+				background-color: #3d81a6
+
+		.idle-button-continue, .idle-button-logout
+			margin-left: auto
+			margin-right: auto
+
+		.modal-file-button
+			margin-left: 52px
+
+		.modal-file-text
+			font-size: 1.3em
+			font-weight: 300
+
+	@media (max-width: 767px)
+		.modal-dialog
+			margin-top: 25px !important
+
+	.modal-footer
+		padding: 10px 30px
+		.button-cancel
+			background-color: #438EB7
+			border-radius: 5px
+			padding: 3px 8px
+			color: white
+			transition: all .3s
+			box-shadow: 0 1px 3px #666666
+			&:hover, &:active, &:focus
+				background-color: #316584

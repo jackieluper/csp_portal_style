@@ -1,0 +1,121 @@
+// DEVELOPER FORUM
+
+https://social.msdn.microsoft.com/Forums/en-US/home?category=microsoftpartnercenter
+
+// STEP 1 - Setup the Integration Sandbox
+
+https://msdn.microsoft.com/en-us/library/partnercenter/dn974936.aspx
+
+https://msdn.microsoft.com/en-us/library/partnercenter/mt267552.aspx
+
+https://partnercenter.microsoft.com/en-us/pc/AccountSettings/PartnerProfile
+
+// STEP 2 - Get a Token
+
+https://msdn.microsoft.com/en-us/library/partnercenter/dn974937.aspx
+
+POST https://login.microsoftonline.com/managedsolutioncsptesting.onmicrosoft.com/oauth2/token?api-version=1.6
+
+https://login.microsoftonline.com
+https://graph.windows.net
+
+
+
+Integration sandbox
+
+We've created your integration sandbox account. Sandbox accounts are only for integration testing. Sign in to Partner Center with your sandbox account to set up API access. Learn more
+
+Account ID
+
+22e38d40-62cb-47c4-afdf-19421c5522c0
+
+Sandbox domain
+
+managedsolutioncsptesting.onmicrosoft.com
+
+
+https://graph.windows.net/managedsolutioncsptesting.onmicrosoft.com/users?api-version=1.6
+https://graph.windows.net/22e38d40-62cb-47c4-afdf-19421c5522c0/users?api-version=1.6
+
+
+
+// goal: access the CREST API
+
+// register a Microsoft Azure Active Directory app
+
+// create a new app with default settings
+
+// Primary Partner Center account (real account)
+
+// Integration sandbox account (fake account)
+
+
+The CREST API uses Azure Active Directory for security. Each time you use the CREST API, you need to generate Azure AD security tokens (one for testing in the integration sandbox, and one to use with real accounts). You also need to generate an SA_Token and Customer_Token to access specific resources (like customer accounts, subscriptions, orders, or profiles). For more information, see CREST authentication.
+
+// AD
+
+// OAuth 2
+
+// GET, POST, PATCH, DELETE
+
+// Odata v3
+
+// list users
+search users
+list groups
+search groups
+group/role membership
+subscribed services
+update users
+update groups
+provisioning users
+de-provisioning users
+
+https://graph.windows.net/[domain|OBJID]/users?api-version=2013-04-05&$filter=state eq 'WA'
+
+https://graphexplorer.cloudapp.net/
+
+https://graph.windows.net/graphdir1.onmicrosoft.com/users/3747625ea4@GraphDir1.onmicrosoft.com
+
+// contact oauth endpoint?
+
+// include token in auth header
+
+// getting the auth token
+
+Content-Type: application/x-www-form-urlencoded
+https://login.windows.net/company/oauth2/token?api-version=1.0
+grant_type=client_credentials&resource=https%3a%2f...windows.net&client_id=345904590&client_secret=4589345983589
+
+// retrieve access_token from auth request
+
+
+Azure Management Portal
+Active Directory/Applications
+
+// getting user info with a token
+
+https://graph.windows.net/company/users?api-version=2013-04-05
+Authorization: Bearer fdlkjdflgkjdfg
+Content-Type: Application/JSON;odata=minimalmetadata
+
+https://github.com/Azure-Samples/active-directory-php-graphapi-web
+
+// token
+// tenantName
+// 
+
+portal.microsoftonline.com
+
+https://azure.microsoft.com/en-us/
+
+https://portal.azure.com/
+
+
+
+
+
+
+
+
+

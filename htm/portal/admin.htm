@@ -1,0 +1,105 @@
+<!--
+Author: Jason B. Smith
+Date: 2/09/16
+Managed Solution
+-->
+<head>
+    <title>Administration</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+      <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
+      <script src='../lib/ms-style-menu.js'></script>     
+</head>
+<body>
+<div id="horizontalNav">
+    <div id="horizontalNavWrapper">
+        <ul>
+            <li>Products</li>
+        </ul>
+    </div>
+</div>
+<nav class="menu">
+    <a href="#" class="nav-toggle-btn">Menu</a>
+    <ul>
+        <li><img class="icon" src="../img/icons/software.png" alt="Software" ><a href="products.htm">Products</a><br></li>
+        <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.htm">Checkout</a><br></li>
+        <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
+        <li><img class="icon" src="../img/icons/Admin.png" alt="Software" ><a href="admin.htm">Administration</a><br></li>
+        <li><img class="icon" src="../img/icons/contact.jpg" alt="Software" ><a href="contactUs.htm">Contact us</a><br></li>
+        <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="login_page.htm">Logout</a><br></li>
+    </ul>
+</nav>
+<div class="content">
+    <div class="page-header">
+        <h2>Administration</h2>
+    </div>
+                <?php
+                    require("../controllers/config.php");
+                    $result= $conn->query("select id, customer_name, primary_domain, relationship, is_provised, discount, active from customer");
+                    error_reporting(E_ALL ^ E_NOTICE);
+
+                    while($row = $result->fetch_assoc())
+                    {
+                    $custID = $row['id'];
+                    $discount = $row['discount'];
+                    $custName = $row['customer_name'];
+                    $primDomain = $row['primary_domain'];
+                    $custRelationship = $row['relationship'];
+                    
+                    
+                    if($row['is_provised']== 1){
+                        $provision = Y;
+                        }
+                    else{
+                        $provision = N;
+                    }
+                    ?>
+                    <form method="post" action="../controllers/admin-changes.php">
+                        <table class="adminTable" id="adminTable">
+                            <tr class="ui-widget-header ">
+                                <th>Company Name</th>
+                                <th>Primary Domain Name</th>
+                                <th>Relationship</th>
+                                <th>Allow Provisional Credit</th>
+                                <th>Discount %</th>
+                                <th>Remove Customer</th>
+                                <th>Apply Changes</th>
+                            </tr>
+                            <tr>
+                            <?php
+                            if($row['active'] == 1){
+                            ?>
+                                <td ><?php echo $custName ?></td>
+                                <td><?php echo $primDomain ?></td>
+                                <td><?php echo $custRelationship ?></td>
+                                <td><input name="provision" id="provision" color="black" type="text" pattern="[N-Nn-nY-Yy-y]{1}" onkeydown="validateProv(this)" value=<?php echo $provision ?> maxlength="1" ></td>
+                                <td><input name="discount" id="discount" color="black" type="number" step="0.5" value=<?php echo $discount ?> min="0" max="100"></td>
+                                <?php echo '<td><a href="../controllers/remove-customer.php?id='.$custID.'" >Delete</a></td>'; ?> 
+                                <td><button type="submit" name="custID" value=<?php echo $custID ?> class="applyChanges" id="submit">Apply Changes</button></td>                 
+                            </tr>
+                        </table>
+                    </form>
+                   
+                    <?php
+                    }                    
+                    }
+                    ?>
+         
+</div>
+    <script type="text/javascript">
+        function validateProv(){
+            var reg = new RegExp (/[N-Nn-nY-Yy-y]{1}/);
+            var provision = $("#provision").val();
+            var prov = document.getElementById('provision');
+            
+        if(!provision.match(reg)){
+            prov.setCustomValidity("Input can only be Y or N");
+        }
+        else{
+            prov.setCustomValidity("");
+        }
+    }
+    </script>

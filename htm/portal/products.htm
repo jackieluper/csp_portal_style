@@ -1,0 +1,133 @@
+<!--
+Author: Jason B. Smith
+Date: 2/09/16
+Managed Solution
+-->
+<?php
+session_start();
+?>
+<head>
+    <title>Products</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>      
+      <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
+      <script src='../../js/ms-style-menu.js'></script>
+      <script src='../../js/ms-style-cart.js'></script>
+      <script src='../../js/main.js'></script>
+</head>
+<div id="horizontalNav">
+    <div id="horizontalNavWrapper">
+        <ul>
+            <li>Products</li>
+        </ul>
+    </div>
+</div>
+<nav class="menu">
+    <a href="#" class="nav-toggle-btn">Menu</a>
+    <ul>
+        <li><img class="icon" src="../img/icons/software.png" alt="Software" ><a href="products.htm">Products</a><br></li>
+        <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.htm">Checkout</a><br></li>
+        <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
+        <li><img class="icon" src="../img/icons/Admin.png" alt="Software" ><a href="admin.htm">Administration</a><br></li>
+        <li><img class="icon" src="../img/icons/contact.jpg" alt="Software" ><a href="contactUs.htm">Contact us</a><br></li>
+        <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="login_page.htm">Logout</a><br></li>
+    </ul>
+</nav>
+<nav class="sidecart">
+    <a href="#" class="cart-toggle-btn">Cart</a>
+    <table class="ui-widget ui-widget-content" id='cartTable'>
+        <thead>
+            <tr class="ui-widget-header ">
+                <th>Item</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                require("../controllers/config.php");
+                $result= $conn->query("select items, msrp, qty from cart");
+                error_reporting(E_ALL ^ E_NOTICE);
+ 
+                while($row = $result->fetch_assoc())
+                {
+                $items = $row['items'];
+                echo '<tr>';
+                echo '<td>','<span>',$row['items'],'</span>', '</td>','<td>', $row['msrp'],'</td>','<td>', $row['qty'],'</td>','<td>', '<a href="../controllers/remove-from-cart.php?id='.$items.'" >Delete</a>','</td>';      
+                $total += $row['msrp'] * $row['qty'];
+                }
+                echo '</tr>';
+                echo '<tr>';
+                echo '<td>Total Price</td>','<td colspan="3">$'.number_format($total,2).'</td>';
+            ?>
+        </tbody>
+        <tr>
+            <td colspan="4"><a href="checkout.htm""><button type="button" class="checkoutButton">Checkout</button></a></td>
+        </tr>
+    </table>
+</nav>
+<div class="content">
+    <div class="page-header">
+        <h2>TOP OFFERS <small>Welcome 
+                <?php 
+                echo $_SESSION['user']; ?>
+            </small></h2>
+    </div>
+        <table class="products" >
+            <tr>
+                <th>Microsoft Office 365</th>
+                <th>Microsoft EMS</th>
+                <th>Windows 7 Ultimate</th>
+            </tr>
+            <tr>
+                <td><img src="../img/products/office365.jpg" alt="Office 365"><br>
+                Price $19.99</td>
+                <td><img src="../img/products/EMS.jpg" alt="Microsoft Enterprise Mobility Suite"><br>
+                Price $19.99</td>
+                <td><img src="../img/products/7ultimate.jpg" alt="Windows 7 Ultimate"><br>
+                Price $19.99</td>
+            </tr>
+            <tr>
+                <td><a href="../controllers/add-to-cart.php?id=12314455">Add to Cart</a></td>
+                <td><a href="../controllers/add-to-cart.php?id=Microsoft Enterprise Mobility Suite">Add to Cart</a></td>
+                <td><a href="../controllers/add-to-cart.php?id=Windows 7">Add to Cart</a></td>
+            </tr>
+        </table>
+        <div class="page-header">
+            <h2>CATALOG</h2>
+        </div>
+        <table class="products" >
+            <tr>
+                <th>Microsoft Outlook 2013</th>
+                <th>Microsoft Groove 2007</th>
+                <th>Microsoft Office 365<br>
+                    Enterprise</th>
+                 <th>Microsoft CRM</th>
+                 <th>Microsoft Office<br>
+                 for Mac</th>
+            </tr>
+            <tr>
+                <td><img src="../img/products/outlook2013.jpg" alt="Microsoft Outlook 2013" width="175" height="175"><br>
+                Price $19.99</td>
+                <td><img src="../img/products/groove2007.jpg" alt="Microsoft Groove 2007" width="175" height="175"><br>
+                Price $19.99</td>
+                <td><img src="../img/products/enterprise.jpg" alt="Microsoft Office 365 for the Enterprise" width="175" height="175"><br>
+                Price $19.99</td>
+                 <td><img src="../img/products/CRM.jpg" alt="Microsoft CRM" width="175" height="175"><br>
+                Price $19.99</td>
+                  <td><img src="../img/products/officemac.jpg" alt="Microsoft Office for Mac" width="175" height="175"><br>
+                Price $19.99</td>
+            </tr>
+            <tr>
+                <td><a href="../controllers/add-to-cart.php?id=Microsoft Outlook 2013">Add to Cart</a></td>
+                <td><a href="../controllers/add-to-cart.php?id=Microsoft Groove 2007">Add to Cart</a></td>
+                <td><a href="../htm/controllers/add-to-cart.php?id=Microsoft Office 365 for the Enterprise">Add to Cart</a></td>
+                <td><a href="../controllers/add-to-cart.php?id=Microsft CRM">Add to Cart</a></td>
+                <td><a href="../controllers/add-to-cart.php?id=Microsoft Office for Mac">Add to Cart</a></td>
+            </tr>
+        </table>
+</div>

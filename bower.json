@@ -1,0 +1,40 @@
+{
+  "name": "billing_portal",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Managed-Solution/billing_portal",
+  "authors": [
+    "Christian Boynton <cboynton@managedsolution.com>"
+  ],
+  "description": "Managed Solution Billing Portal",
+  "main": "config.js",
+  "keywords": [
+    "managed",
+    "solution",
+	"billing",
+	"portal"
+  ],
+  "license": "none",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.4",
+    "modernizr": "~2.8.3",
+    "html5shiv": "~3.7.2",
+    "respond": "~1.4.2",
+    "fontawesome": "~4.3.0",
+    "requirejs": "~2.1.17",
+    "requirejs-text": "~2.0.13",
+    "require-css": "~0.1.8",
+    "backbone": "~1.2.1",
+    "loglevel": "~1.3.1",
+    "moment": "~2.10.6"
+  }
+}

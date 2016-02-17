@@ -1,0 +1,18 @@
+cboynton@managedsolutioncsptesting.onmicrosoft.com
+H+]jkz]5
+xgnzZWaeX3j3
+
+API
+Unregister
+To use the CREST API, you need this information. Learn more
+Registered Azure AD app
+App namePartner Center API
+App ID c9d95c0e-8d97-4bba-b3a1-05bad83f7300
+Account ID22e38d40-62cb-47c4-afdf-19421c5522c0
+Commerce ID22e38d40-62cb-47c4-afdf-19421c5522c0
+Key management
+  Add
+ Please copy and store the key value. You won’t be able to retrieve it after you leave this page.
+Duration	Created	Expires on	Key	
+1 year	10/14/2015	10/14/2016	57XG8v8o7AsTzaYd4ndijEtw5EvQM+c1RZ5ubVzVlrk=	Delete
+

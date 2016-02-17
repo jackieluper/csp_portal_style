@@ -1,0 +1,21 @@
+# mac files
+.DS_Store
+
+# editor files
+.idea
+
+# 3rd party js libs
+js/lib
+
+# html files
+*.html
+
+# js files
+*.js
+*.js.map
+
+# css files
+*.css
+*.css.map
+
+/nbproject/private/

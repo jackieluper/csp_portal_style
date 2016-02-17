@@ -1,0 +1,28 @@
+{
+	"name":"qmuni/api",
+	"description":"Qmuni API, a PHP TAMP REST implementation",
+	"keywords":["qmuni","rest","api"],
+	"homepage":"http://github.com/qmuni/qmuni_api",
+	"license":"none",
+	"authors":[
+		{
+			"name":"Christian Boynton",
+			"email":"cboynton@cweil.com"
+		}
+	],
+	"config":{
+		"vendor-dir":"lib"
+	},
+	"repositories": [{
+		"type": "vcs",
+		"url": "https://github.com/tuupola/slim-fake-mcrypt.git"
+	}],
+	"require": {
+		"tuupola/slim-fake-mcrypt": "dev-master",
+		"php":">=5.5.0",
+		"slim/slim":"2.*",
+		"yzalis/identicon": "1.*"
+	},
+	"minimum-stability":"dev",
+	"prefer-stable":true
+}
