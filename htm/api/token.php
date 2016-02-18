@@ -19,6 +19,7 @@ curl_setopt($stCurl, CURLOPT_RETURNTRANSFER, 1);
 
 $checkCurl = curl_exec($stCurl);
 
+var_dump($checkCurl);
 
 curl_close($stCurl);
 print_r($checkCurl);
