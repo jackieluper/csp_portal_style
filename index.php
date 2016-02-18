@@ -12,6 +12,7 @@ and open the template in the editor.
     <body>
         <?php
         header('Location: htm/portal/login_page.htm');
+        echo 'hello'
         ?>
     </body>
 </html>

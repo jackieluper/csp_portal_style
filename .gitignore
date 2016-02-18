@@ -10,12 +10,5 @@ js/lib
 # html files
 *.html
 
-# js files
-*.js
-*.js.map
-
-# css files
-*.css
-*.css.map
 
 /nbproject/private/
