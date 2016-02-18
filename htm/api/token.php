@@ -22,7 +22,6 @@ $checkCurl = curl_exec($stCurl);
 
 curl_close($stCurl);
 print_r($checkCurl);
-echo json_decode($checkCurl);
 /*
 $data = array(
     'grant_type' => 'authroization_code',    
