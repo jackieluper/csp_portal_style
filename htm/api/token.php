@@ -8,7 +8,7 @@ $key = 'rW2Mvtwa2Pkc0Bt2iI43eHDNoZmDwOsvhUE5hapsGlM=';
 
 
 $stCurl = curl_init();
-curl_setopt($stCurl, CURLOPT_URL, 'https://common/oauth2/authorize?response_type=code&client_id='. $clientId . '&redirect_uri=http://localhost/billing_portal_php/htm/api/token.php');
+curl_setopt($stCurl, CURLOPT_URL, 'https://common/oauth2/authorize?response_type=code&client_id='. $clientId . '&redirect_uri=http://104.40.59.186/billing_portal/htm/api/token.php');
 curl_setopt($stCurl, CURLOPT_PORT, 443);
 curl_setopt($stCurl, CURLOPT_VERBOSE, 0);
 curl_setopt($stCurl, CURLOPT_HEADER, 0);
