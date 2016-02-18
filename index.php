@@ -10,14 +10,8 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <form action="htm/api/add.php" method="post" id="add">
-            <input type="text" name="first">
-            <input type="text" name="second">
-            <input type="submit" value="Work this out">
-        </form>
-        
-        
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
-        <script src="js/global.js"></script>
+        <?php
+        header('Location: htm/portal/login_page.htm');
+        ?>
     </body>
 </html>
