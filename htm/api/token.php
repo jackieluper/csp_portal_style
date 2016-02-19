@@ -3,7 +3,7 @@
 $domain = 'managedsolutioncsptesting.onmicrosoft.com';
 $resource = 'https://graph.windows.net';
 $url = '//login.windows.net/' . $domain . '.onmicrosoft.com/oauth2/token?api-version=1.0';
-$clientId = '1aa67243-0a91-49ca-9689-9880f15172cf';
+$clientId = 'c9d95c0e-8d97-4bba-b3a1-05bad83f7300';
 $key = 'rW2Mvtwa2Pkc0Bt2iI43eHDNoZmDwOsvhUE5hapsGlM=';
 
 
