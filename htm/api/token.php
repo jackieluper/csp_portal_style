@@ -30,7 +30,11 @@ curl_close($stCurl);
 print_r($stCurl);
  */
  
-$content = "'grant_type = ' . $clientCred . ' & resource = https : //graph.windows.net&client_id=' . $clientId . '&client_secret=' . $key . ";
+$content =  'https://login.windows.net/managedsolutioncsptesting.onmicrosoft.com/oauth2/token?api-version=1.0 HTTP/1.1' . http_build_query(array(
+    'grant_type = '=> $clientCred,
+    ' & resource = https : //graph.windows.net&client_id=' => $clientId,
+    '&client_secret=' => $key
+        ));
 $data = array(
     'grant_type' => $clientCred,    
     'resource' => $resource,
