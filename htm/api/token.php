@@ -54,7 +54,7 @@ class AccessTokenAuthentication {
             //Decode the returned JSON string.
             $objResponse = json_decode($strResponse);
             
-            print 'token_type: ' . $objResponse->token_type;
+            echo 'token_type: ' . $objResponse->token_type . '<br>';
             print_r($objResponse->access_token);
             
             
