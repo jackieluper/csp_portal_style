@@ -32,7 +32,7 @@ print_r($stCurl);
  
 
 $data = array(
-    'grant_type' => $clientCred . $key,    
+    'grant_type' => $clientCred,    
     'resource' => $resource,
     'client_id' => $clientId,
     'client_secret' => $key
