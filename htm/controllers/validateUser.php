@@ -5,16 +5,14 @@ Managed Solution
 -->
 <?php
 session_start();
-   
- if (isset($_POST['userID'])) {
+header("Refresh:2; url=../../htm/api/token.php", true, 303);
+
+if (isset($_POST['userID'])) {
     $_SESSION['username'] = $_POST['userID'];
 
     // Use the following code to print out the variables.
-    echo 'Session: '.$_SESSION['username'];
+    echo 'Session: ' . $_SESSION['username'];
     echo '<br>';
-    echo 'POST: '.$_POST['userID'];
-    header( "Refresh:2; url=../../htm/api/token.php", true, 303);
+    echo 'POST: ' . $_POST['userID'];
 }
-
-  
 ?>
