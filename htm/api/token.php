@@ -18,7 +18,7 @@ $authHeader = "Authorization: Bearer " . $accessToken;
 
 class AccessTokenAuthentication {
 
-    function getTokens($grantType, $resource, $clientID, $clientSecret, $authUrl) {
+    function getTokens($authUrl, $grantType, $resource, $clientID, $clientSecret) {
         try {
             //Initialize the Curl Session.
             $ch = curl_init();
@@ -55,7 +55,7 @@ class AccessTokenAuthentication {
             $objResponse = json_decode($strResponse);
             var_dump($objResponse);
             var_dump($strResponse);
-            
+
             if ($objResponse->error) {
                 throw new Exception($objResponse->error_description);
             }
@@ -64,4 +64,5 @@ class AccessTokenAuthentication {
             echo "Exception-" . $e->getMessage();
         }
     }
+
 }
