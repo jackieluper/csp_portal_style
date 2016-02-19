@@ -15,6 +15,7 @@
     //Create the authorization Header string.
     $authHeader = "Authorization: Bearer ". $accessToken;
     
+   
 class AccessTokenAuthentication {
     /*
      * Get the access token.
@@ -51,7 +52,7 @@ class AccessTokenAuthentication {
             //CURLOPT_SSL_VERIFYPEER- Set FALSE to stop cURL from verifying the peer's certificate.
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             //Execute the  cURL session.
-            echo $strResponse = curl_exec($ch);
+            $strResponse = curl_exec($ch);
             //Get the Error Code returned by Curl.
             $curlErrno = curl_errno($ch);
             if($curlErrno){
@@ -61,13 +62,15 @@ class AccessTokenAuthentication {
             //Close the Curl Session.
             curl_close($ch);
             //Decode the returned JSON string.
-            echo $objResponse = json_decode($strResponse);
+            $objResponse = json_decode($strResponse);
             if ($objResponse->error){
                 throw new Exception($objResponse->error_description);
             }
             return $objResponse->access_token;
+            
         } catch (Exception $e) {
             echo "Exception-".$e->getMessage();
         }
+        var_dump($objResponse);
     }
 }
