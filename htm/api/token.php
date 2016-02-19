@@ -1,10 +1,12 @@
 <?php
 
 $domain = 'managedsolutioncsptesting.onmicrosoft.com';
-$resource = 'https://graph.windows.net';
-$url = '//login.windows.net/' . $domain . '.onmicrosoft.com/oauth2/token?api-version=1.0';
+$authString = "https://login.microsoftonline.com/" . $domain;
 $clientId = 'c9d95c0e-8d97-4bba-b3a1-05bad83f7300';
 $key = 'rW2Mvtwa2Pkc0Bt2iI43eHDNoZmDwOsvhUE5hapsGlM=';
+$clientCred = $clientId . $key;
+$resource = 'https://graph.windows.net';
+$token;
 
 /*
 $stCurl = curl_init();
@@ -30,8 +32,8 @@ print_r($stCurl);
  
 
 $data = array(
-    'grant_type' => 'authroization_code',    
-    'resource' => $url,
+    'grant_type' => $clientCred . $key,    
+    'resource' => $resource,
     'client_id' => $clientId,
     'client_secret' => $key
 );
@@ -48,7 +50,7 @@ curl_setopt($tuCurl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($tuCurl, CURLOPT_POSTFIELDS, $data);
 curl_setopt($tuCurl, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Content-length: " . sizeof($data)));
 
-$tuData = curl_exec($tuCurl);
+$token = curl_exec($tuCurl);
 if (!curl_errno($tuCurl)) {
     $info = curl_getinfo($tuCurl);
     echo 'Took ' . $info['total_time'] . ' seconds to send a request to ' . $info['url'];
@@ -57,5 +59,5 @@ if (!curl_errno($tuCurl)) {
 }
 
 curl_close($tuCurl);
-print_r($tuData);
+print_r($token);
 ?> 
