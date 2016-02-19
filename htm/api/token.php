@@ -65,7 +65,10 @@ class AccessTokenAuthentication {
             if ($objResponse->error) {
                 throw new Exception($objResponse->error_description);
             }
-            return $objResponse->access_token;
+            else{
+                return $objResponse->access_token;
+                header('Location: ../controllers/validateUser.php');
+            }
             
         } catch (Exception $e) {
             echo "Exception-" . $e->getMessage();
