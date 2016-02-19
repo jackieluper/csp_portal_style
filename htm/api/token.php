@@ -4,7 +4,7 @@ $clientID = "c9d95c0e-8d97-4bba-b3a1-05bad83f7300";
 //Client Secret key of the application.
 $clientSecret = "rW2Mvtwa2Pkc0Bt2iI43eHDNoZmDwOsvhUE5hapsGlM=";
 //OAuth Url.
-$authUrl = "https://login.microsoftonline.com/managedsolutioncsptesting.onmicrosoft.com";
+$authUrl = "https://login.microsoftonline.com/manFagedsolutioncsptesting.onmicrosoft.com";
 //Application Scope Url
 $resource = "https://graph.windows.net";
 //Application grant type
@@ -51,7 +51,7 @@ function getTokens($grantType, $resource, $clientID, $clientSecret, $authUrl) {
         curl_close($ch);
         //Decode the returned JSON string.
         $objResponse = json_decode($strResponse);
-        var_dump($objResponse);
+        
         if ($objResponse->error) {
             throw new Exception($objResponse->error_description);
         }
