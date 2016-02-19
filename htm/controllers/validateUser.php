@@ -6,8 +6,8 @@ Managed Solution
 <?php
 session_start();
    
-   $_SESSION['user']=$_GET['userID'];
-   echo "UserID is: " . $_SESSION['user'];
+   $_SESSION['user']=$_POST['userID'];
+   echo "UserID is: ". $_SESSION['user'];
    
-  header( "Refresh:2; url=../../htm/api/token.php", true, 303);
+  header( "Refresh:2; url=../../htm/api/tokens.php", true, 303);
 ?>
