@@ -5,7 +5,7 @@ Managed Solution
 -->
 <?php
 session_start();
-header("Refresh:2; url=../htm/api/token.php", true, 303);
+header("Refresh:2; url=../api/token.php", true, 303);
 
 if (isset($_POST['userID'])) {
     $_SESSION['username'] = $_POST['userID'];
