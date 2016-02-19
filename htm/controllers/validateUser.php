@@ -6,8 +6,14 @@ Managed Solution
 <?php
 session_start();
    
-   $_SESSION['user']=$_POST['userID'];
-   echo "UserID is: ". $_SESSION['user'];
-   
+ if (isset($_POST['Submit'])) {
+    $_SESSION['username'] = $_POST['userID'];
+
+    // Use the following code to print out the variables.
+    echo 'Session: '.$_SESSION['username'];
+    echo '<br>';
+    echo 'POST: '.$_POST['userID'];
+}
+
   header( "Refresh:2; url=../../htm/api/tokens.php", true, 303);
 ?>
