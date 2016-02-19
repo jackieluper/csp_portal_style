@@ -12,7 +12,7 @@ $grantType = "client_credentials";
 //Create the AccessTokenAuthentication object.
 $authObj = new AccessTokenAuthentication();
 //Get the Access token.
-$accessToken = $authObj->getTokens($grantType, $resource, $clientID, $clientSecret, $authUrl);
+$accessToken = $authObj->getTokens($grantType, $scopeUrl, $clientID, $clientSecret, $authUrl);
 //Create the authorization Header string.
 $authHeader = "Authorization: Bearer " . $accessToken;
 
