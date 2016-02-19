@@ -6,7 +6,7 @@ Managed Solution
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "Lgv98011*%";
+$password = "Ltd6530*%";
 $dbname = "discount_estimates";
 
 // Create connection
