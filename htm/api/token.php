@@ -30,13 +30,13 @@ class AccessTokenAuthentication {
                 'client_secret' => $clientSecret
             );
             //Create an Http Query.//
-            $paramArr = http_build_query($paramArr);
+            $data = http_build_query($paramArr);
             //Set the Curl URL.
             curl_setopt($ch, CURLOPT_URL, $authUrl);
             //Set HTTP POST Request.
             curl_setopt($ch, CURLOPT_POST, TRUE);
             //Set data to POST in HTTP "POST" Operation.
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $paramArr);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             //CURLOPT_RETURNTRANSFER- TRUE to return the transfer as a string of the return value of curl_exec().
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             //CURLOPT_SSL_VERIFYPEER- Set FALSE to stop cURL from verifying the peer's certificate.
@@ -51,9 +51,10 @@ class AccessTokenAuthentication {
             }
             //Close the Curl Session.
             curl_close($ch);
-            //Decode the returned JSON string.
+            //Decode the returned JSON string. //echo out the response
             $objResponse = json_decode($strResponse);
-            echo $objResponse;
+            print_r($objResponse);
+            print_r($strResponse);
             
             if ($objResponse->error) {
                 throw new Exception($objResponse->error_description);
