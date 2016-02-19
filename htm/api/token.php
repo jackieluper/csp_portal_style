@@ -16,6 +16,8 @@ $accessToken = $authObj->getTokens($grantType, $resource, $clientID, $clientSecr
 //Create the authorization Header string.
 $authHeader = "Authorization: Bearer " . $accessToken;
 
+function getTokens($grantType, $resource, $clientID, $clientSecret, $authUrl) {
+    try {
         //Initialize the Curl Session.
         $ch = curl_init();
         //Create the request Array.
@@ -53,5 +55,7 @@ $authHeader = "Authorization: Bearer " . $accessToken;
         if ($objResponse->error) {
             throw new Exception($objResponse->error_description);
         }
- 
-
+    } catch (Exception $e) {
+        echo "Exception-" . $e->getMessage();
+    }
+}
