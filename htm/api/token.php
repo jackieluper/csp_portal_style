@@ -4,7 +4,7 @@ $domain = 'managedsolutioncsptesting.onmicrosoft.com';
 $authString = "https://login.microsoftonline.com/" . $domain;
 $clientId = 'c9d95c0e-8d97-4bba-b3a1-05bad83f7300';
 $key = 'rW2Mvtwa2Pkc0Bt2iI43eHDNoZmDwOsvhUE5hapsGlM=';
-$clientCred = $clientId . $key;
+$clientCred = $clientId . ' ' . $key;
 $resource = 'https://graph.windows.net';
 $token;
 
@@ -59,8 +59,7 @@ if (!curl_errno($tuCurl)) {
 }
 
 curl_close($tuCurl);
-var_dump($token) . ' token <br>';
-var_dump($data) . ' data <br>';
-var_dump($content) . ' content <br>';
-print_r($token);
+var_dump($token) . '<br>';
+var_dump($data) . '<br>';
+var_dump($content) . '<br>';
 ?> 
