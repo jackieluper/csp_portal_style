@@ -12,14 +12,10 @@ $grantType = "client_credentials";
 //Create the AccessTokenAuthentication object.
 $authObj = new AccessTokenAuthentication();
 //Get the Access token.
-$accessToken = $authObj->getTokens($grantType, $resource, $clientID, $clientSecret);
+$accessToken = $authObj->getTokens($grantType, $resource, $clientID, $clientSecret, $authUrl);
 //Create the authorization Header string.
 $authHeader = "Authorization: Bearer " . $accessToken;
 
-class AccessTokenAuthentication {
-
-    function getTokens($grantType, $resource, $clientID, $clientSecret) {
-        try {
             //Initialize the Curl Session.
             $ch = curl_init();
             //Create the request Array.
@@ -46,7 +42,7 @@ class AccessTokenAuthentication {
             //Get the Error Code returned by Curl.
             $curlErrno = curl_errno($ch);
             if ($curlErrno) {
-                 $curlError = curl_error($ch);
+                $curlError = curl_error($ch);
                 throw new Exception($curlError);
             }
             //Close the Curl Session.
@@ -54,14 +50,8 @@ class AccessTokenAuthentication {
             //Decode the returned JSON string.
             $objResponse = json_decode($strResponse);
             var_dump(json_decode($objResponse));
-            
             if ($objResponse->error) {
                 throw new Exception($objResponse->error_description);
             }
             print_r($objResponse->access_token);
-        } catch (Exception $e) {
-            echo "Exception-" . $e->getMessage();
-        }
-    }
-
-}
+?>
