@@ -7,7 +7,7 @@ Managed Solution
 session_start();
    
    $_SESSION['user']=$_GET['userID'];
-   echo "UserID is: ". $_SESSION['user'];
+   echo "UserID is: " . $_SESSION['user'];
    
   header( "Refresh:2; url=../../htm/api/token.php", true, 303);
 ?>
