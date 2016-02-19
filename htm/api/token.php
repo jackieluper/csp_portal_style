@@ -54,7 +54,7 @@ class AccessTokenAuthentication {
             //Decode the returned JSON string.
             $objResponse = json_decode($strResponse);
             
-            echo 'TOKEN TYP;E: ' . $objResponse->token_type . '<br>';
+            echo 'TOKEN TYPE: ' . $objResponse->token_type . '<br>';
             echo 'EXPIRES IN: ' . $objResponse->expires_in . '<br>';
             echo 'EXPIRES ON: ' . $objResponse->expires_on . '<br>';
             echo 'NOT BEFORE: ' . $objResponse->not_before . '<br>';
