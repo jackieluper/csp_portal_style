@@ -3,7 +3,7 @@
     //Client Secret key of the application.
     $clientSecret = "rW2Mvtwa2Pkc0Bt2iI43eHDNoZmDwOsvhUE5hapsGlM=";
     //OAuth Url.
-    $authUrl      = "https://login.microsoftonline.com/managedsolutioncsptesting.onmicrosoft.com";
+    $authUrl      = "https://login.microsoftonline.com/manFagedsolutioncsptesting.onmicrosoft.com";
     //Application Scope Url
     $resource     = "https://graph.windows.net";
     //Application grant type
@@ -66,11 +66,10 @@ class AccessTokenAuthentication {
             if ($objResponse->error){
                 throw new Exception($objResponse->error_description);
             }
-            return $objResponse->access_token;
+            print_r($objResponse->access_token);
             
         } catch (Exception $e) {
             echo "Exception-".$e->getMessage();
         }
-        var_dump($objResponse);
     }
 }
