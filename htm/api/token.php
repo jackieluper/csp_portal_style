@@ -46,7 +46,7 @@ class AccessTokenAuthentication {
             //Get the Error Code returned by Curl.
             $curlErrno = curl_errno($ch);
             if ($curlErrno) {
-                $curlError = curl_error($ch);
+                 echo $curlError = curl_error($ch);
                 throw new Exception($curlError);
             }
             //Close the Curl Session.
