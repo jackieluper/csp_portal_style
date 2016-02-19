@@ -5,7 +5,7 @@ $authString = "https://login.microsoftonline.com/" . $domain;
 $clientId = 'c9d95c0e-8d97-4bba-b3a1-05bad83f7300';
 $key = 'rW2Mvtwa2Pkc0Bt2iI43eHDNoZmDwOsvhUE5hapsGlM=';
 $clientCred = $clientId . $key;
-$resource = "https://graph.windows.net&client_id=' . $clientId . '&client_secret=' . $key .";
+$resource = 'https://graph.windows.net';
 $token;
 
 /*
@@ -31,9 +31,11 @@ print_r($stCurl);
  */
  
 $data = array(
-    'grant_type' => $clientCred,
-    'resource' => $resource
-   );
+    'grant_type' => $clientCred,    
+    'resource' => $resource,
+    'client_id' => $clientId,
+    'client_secret' => $key
+);
  
 $tuCurl = curl_init();
 curl_setopt($tuCurl, CURLOPT_URL, 'https://login.windows.net/managedsolutioncsptesting.onmicrosoft.com/oauth2/token?api-version=1.0 HTTP/1.1');
