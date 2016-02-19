@@ -13,7 +13,8 @@ session_start();
     echo 'Session: '.$_SESSION['username'];
     echo '<br>';
     echo 'POST: '.$_POST['userID'];
+    header( "Refresh:2; url=../../htm/api/token.php", true, 303);
 }
 
-  header( "Refresh:2; url=../../htm/api/token.php", true, 303);
+  
 ?>
