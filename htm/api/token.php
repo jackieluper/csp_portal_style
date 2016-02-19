@@ -53,7 +53,7 @@ class AccessTokenAuthentication {
             curl_close($ch);
             //Decode the returned JSON string.
             $objResponse = json_decode($strResponse);
-            var_dump(json_decode($objResponse));
+            echo $objResponse;
             
             if ($objResponse->error) {
                 throw new Exception($objResponse->error_description);
