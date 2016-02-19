@@ -37,7 +37,7 @@ $data = array(
     'client_id' => $clientId,
     'client_secret' => $key
 );
- 
+$content = json_encode($data);
 $tuCurl = curl_init();
 curl_setopt($tuCurl, CURLOPT_URL, 'https://login.windows.net/managedsolutioncsptesting.onmicrosoft.com/oauth2/token?api-version=1.0');
 curl_setopt($tuCurl, CURLOPT_PORT, 443);
@@ -48,7 +48,7 @@ curl_setopt($tuCurl, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($tuCurl, CURLOPT_POST, 1);
 curl_setopt($tuCurl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($tuCurl, CURLOPT_POSTFIELDS, $data);
-curl_setopt($tuCurl, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Content-length: " . sizeof($data)));
+curl_setopt($tuCurl, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Content-length: " . sizeof($content)));
 
 $token = curl_exec($tuCurl);
 if (!curl_errno($tuCurl)) {
