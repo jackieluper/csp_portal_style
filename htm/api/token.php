@@ -4,7 +4,7 @@ $clientID = "c9d95c0e-8d97-4bba-b3a1-05bad83f7300";
 //Client Secret key of the application.
 $clientSecret = "rW2Mvtwa2Pkc0Bt2iI43eHDNoZmDwOsvhUE5hapsGlM=";
 //OAuth Url.
-$authUrl = "https://login.microsoftonline.com/manFagedsolutioncsptesting.onmicrosoft.com";
+$authUrl = "https://login.microsoftonline.com/managedsolutioncsptesting.onmicrosoft.com";
 //Application Scope Url
 $resource = "https://graph.windows.net";
 //Application grant type
@@ -12,11 +12,10 @@ $grantType = "client_credentials";
 //Create the AccessTokenAuthentication object.
 $authObj = new AccessTokenAuthentication();
 //Get the Access token.
-$accessToken = $authObj->getTokens($grantType, $scopeUrl, $clientID, $clientSecret, $authUrl);
+$accessToken = $authObj->getTokens($grantType, $resource, $clientID, $clientSecret, $authUrl);
 //Create the authorization Header string.
 $authHeader = "Authorization: Bearer " . $accessToken;
 
-function getTokens($grantType, $resource, $clientID, $clientSecret, $authUrl) {
     try {
         //Initialize the Curl Session.
         $ch = curl_init();
@@ -58,4 +57,4 @@ function getTokens($grantType, $resource, $clientID, $clientSecret, $authUrl) {
     } catch (Exception $e) {
         echo "Exception-" . $e->getMessage();
     }
-}
+
