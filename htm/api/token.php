@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION['user']=$_POST['userID'];
 
 $clientID = "1aa67243-0a91-49ca-9689-9880f15172cf";
 //Client Secret key of the application.
