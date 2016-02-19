@@ -38,7 +38,7 @@ $data = array(
 );
  
 $tuCurl = curl_init();
-curl_setopt($tuCurl, CURLOPT_URL, '//login.windows.net/managedsolutioncsptesting.onmicrosoft.com/oauth2/token?api-version=1.0 HTTP/1.1');
+curl_setopt($tuCurl, CURLOPT_URL, 'http://login.windows.net/managedsolutioncsptesting.onmicrosoft.com/oauth2/token?api-version=1.0 HTTP/1.1');
 curl_setopt($tuCurl, CURLOPT_PORT, 443);
 curl_setopt($tuCurl, CURLOPT_VERBOSE, 0);
 curl_setopt($tuCurl, CURLOPT_HEADER, 0);
