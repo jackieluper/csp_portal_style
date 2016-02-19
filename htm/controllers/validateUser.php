@@ -5,7 +5,7 @@ Managed Solution
 -->
 <?php
 session_start();
-header("Location: ../api/token.php", true, 303);
+header("Location: ../api/token.php");
 
 if (isset($_POST['userID'])) {
     $_SESSION['username'] = $_POST['userID'];
