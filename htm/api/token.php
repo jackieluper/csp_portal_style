@@ -31,8 +31,8 @@ print_r($stCurl);
  */
  
 $data = array(
-    'grant_type = ' => $clientCred,    
-    '& resource = ' => $resource,
+    'grant_type=' => $clientCred,    
+    '&resource=' => $resource,
     '&client_id' => $clientId,
     '&client_secret' => $key
 );
