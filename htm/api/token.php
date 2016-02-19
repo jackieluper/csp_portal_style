@@ -12,11 +12,13 @@ $grantType = "client_credentials";
 //Create the AccessTokenAuthentication object.
 $authObj = new AccessTokenAuthentication();
 //Get the Access token.
-
+$accessToken = $authObj->getTokens($grantType, $scopeUrl, $clientID, $clientSecret, $authUrl);
+//Create the authorization Header string.
+$authHeader = "Authorization: Bearer " . $accessToken;
 
 class AccessTokenAuthentication {
 
-    function getTokens($authUrl, $grantType, $resource, $clientID, $clientSecret) {
+    function getTokens($grantType, $resource, $clientID, $clientSecret, $authUrl) {
         try {
             //Initialize the Curl Session.
             $ch = curl_init();
@@ -30,7 +32,7 @@ class AccessTokenAuthentication {
             //Create an Http Query.//
             $data = http_build_query($paramArr);
             //Set the Curl URL.
-            curl_setopt($ch, CURLOPT_URL, $authUrl);
+            curl_setopt($ch, CURLOPT_URL, 'https://login.windows.net/managedsolutioncsptesting.onmicrosoft.com/oauth2/token?api-version=1.0');
             //Set HTTP POST Request.
             curl_setopt($ch, CURLOPT_POST, TRUE);
             //Set data to POST in HTTP "POST" Operation.
@@ -49,15 +51,12 @@ class AccessTokenAuthentication {
             }
             //Close the Curl Session.
             curl_close($ch);
-            //Decode the returned JSON string. //echo out the response
+            //Decode the returned JSON string.
             $objResponse = json_decode($strResponse);
-            var_dump($objResponse);
-            var_dump($strResponse);
-
             if ($objResponse->error) {
                 throw new Exception($objResponse->error_description);
             }
-            print_r($objResponse->access_token);
+            return $objResponse->access_token;
         } catch (Exception $e) {
             echo "Exception-" . $e->getMessage();
         }
