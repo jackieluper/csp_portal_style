@@ -54,6 +54,7 @@ class AccessTokenAuthentication {
             //Decode the returned JSON string.
             $objResponse = json_decode($strResponse);
             var_dump(json_decode($objResponse));
+            
             if ($objResponse->error) {
                 throw new Exception($objResponse->error_description);
             }
