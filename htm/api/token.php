@@ -12,14 +12,10 @@ $grantType = "client_credentials";
 //Create the AccessTokenAuthentication object.
 $authObj = new AccessTokenAuthentication();
 //Get the Access token.
-$accessToken = $authObj->getTokens($authUrl, $grantType, $resource, $clientID, $clientSecret);
+$accessToken = $authObj($grantType, $resource, $clientID, $clientSecret);
 //Create the authorization Header string.
 $authHeader = "Authorization: Bearer " . $accessToken;
 
-class AccessTokenAuthentication {
-
-    function getTokens($authUrl, $grantType, $resource, $clientID, $clientSecret) {
-        try {
             //Initialize the Curl Session.
             $ch = curl_init();
             //Create the request Array.
@@ -59,10 +55,4 @@ class AccessTokenAuthentication {
             if ($objResponse->error) {
                 throw new Exception($objResponse->error_description);
             }
-            print_r($objResponse->access_token);
-        } catch (Exception $e) {
-            echo "Exception-" . $e->getMessage();
-        }
-    }
-
-}
+            print_r($objResponse->access_token); 
