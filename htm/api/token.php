@@ -16,14 +16,16 @@ curl_setopt($stCurl, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($stCurl, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($stCurl, CURLOPT_RETURNTRANSFER, 1);
 
-
 $checkCurl = curl_exec($stCurl);
-
-var_dump($checkCurl);
-
-echo json_decode($checkCurl);
+if (!curl_errno($stCurl)) {
+    $info = curl_getinfo($stCurl);
+    echo 'Took ' . $info['total_time'] . ' seconds to send a request to ' . $info['url'];
+} else {
+    echo 'Curl error: ' . curl_error($stCurl);
+}
 
 curl_close($stCurl);
+print_r($stCurl);
 /*
 $data = array(
     'grant_type' => 'authroization_code',    
