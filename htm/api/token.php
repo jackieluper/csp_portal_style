@@ -59,5 +59,8 @@ if (!curl_errno($tuCurl)) {
 }
 
 curl_close($tuCurl);
+var_dump($token) . ' token <br>';
+var_dump($data) . ' data <br>';
+var_dump($content) . ' content <br>';
 print_r($token);
 ?> 
