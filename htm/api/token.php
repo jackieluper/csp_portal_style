@@ -51,7 +51,7 @@ class AccessTokenAuthentication {
             //CURLOPT_SSL_VERIFYPEER- Set FALSE to stop cURL from verifying the peer's certificate.
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             //Execute the  cURL session.
-            $strResponse = curl_exec($ch);
+            echo $strResponse = curl_exec($ch);
             //Get the Error Code returned by Curl.
             $curlErrno = curl_errno($ch);
             if($curlErrno){
