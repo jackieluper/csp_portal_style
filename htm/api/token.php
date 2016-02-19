@@ -12,47 +12,43 @@ $grantType = "client_credentials";
 //Create the AccessTokenAuthentication object.
 $authObj = new AccessTokenAuthentication();
 //Get the Access token.
-$accessToken = $authObj($grantType, $resource, $clientID, $clientSecret);
-//Create the authorization Header string.
-$authHeader = "Authorization: Bearer " . $accessToken;
+//Initialize the Curl Session.
+$ch = curl_init();
+//Create the request Array.
+$paramArr = array(
+    'grant_type' => $grantType,
+    'resource' => $resource,
+    'client_id' => $clientID,
+    'client_secret' => $clientSecret
+);
+//Create an Http Query.//
+$data = http_build_query($paramArr);
+//Set the Curl URL.
+curl_setopt($ch, CURLOPT_URL, $authUrl);
+//Set HTTP POST Request.
+curl_setopt($ch, CURLOPT_POST, TRUE);
+//Set data to POST in HTTP "POST" Operation.
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+//CURLOPT_RETURNTRANSFER- TRUE to return the transfer as a string of the return value of curl_exec().
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+//CURLOPT_SSL_VERIFYPEER- Set FALSE to stop cURL from verifying the peer's certificate.
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+//Execute the  cURL session.
+$strResponse = curl_exec($ch);
+//Get the Error Code returned by Curl.
+$curlErrno = curl_errno($ch);
+if ($curlErrno) {
+    $curlError = curl_error($ch);
+    throw new Exception($curlError);
+}
+//Close the Curl Session.
+curl_close($ch);
+//Decode the returned JSON string. //echo out the response
+$objResponse = json_decode($strResponse);
+var_dump($objResponse);
+var_dump($strResponse);
 
-            //Initialize the Curl Session.
-            $ch = curl_init();
-            //Create the request Array.
-            $paramArr = array(
-                'grant_type' => $grantType,
-                'resource' => $resource,
-                'client_id' => $clientID,
-                'client_secret' => $clientSecret
-            );
-            //Create an Http Query.//
-            $data = http_build_query($paramArr);
-            //Set the Curl URL.
-            curl_setopt($ch, CURLOPT_URL, $authUrl);
-            //Set HTTP POST Request.
-            curl_setopt($ch, CURLOPT_POST, TRUE);
-            //Set data to POST in HTTP "POST" Operation.
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-            //CURLOPT_RETURNTRANSFER- TRUE to return the transfer as a string of the return value of curl_exec().
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            //CURLOPT_SSL_VERIFYPEER- Set FALSE to stop cURL from verifying the peer's certificate.
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            //Execute the  cURL session.
-            $strResponse = curl_exec($ch);
-            //Get the Error Code returned by Curl.
-            $curlErrno = curl_errno($ch);
-            if ($curlErrno) {
-                $curlError = curl_error($ch);
-                throw new Exception($curlError);
-            }
-            //Close the Curl Session.
-            curl_close($ch);
-            //Decode the returned JSON string. //echo out the response
-            $objResponse = json_decode($strResponse);
-            var_dump($objResponse);
-            var_dump($strResponse);
-
-            if ($objResponse->error) {
-                throw new Exception($objResponse->error_description);
-            }
-            print_r($objResponse->access_token); 
+if ($objResponse->error) {
+    throw new Exception($objResponse->error_description);
+}
+print_r($objResponse->access_token);
