@@ -48,14 +48,14 @@ Managed Solution
         <tbody>
             <?php
                 require("../controllers/config.php");
-                $result= $conn->query("select items, msrp, qty from cart");
+                $result= $conn->query("select items,item_name, msrp, qty from cart");
                 error_reporting(E_ALL ^ E_NOTICE);
                 
                 while($row = $result->fetch_assoc())
                 {
                 $items = $row['items'];
                 '<tr>';
-                echo '<td>','<span>',$row['items'],'</span>', '</td>','<td>', $row['msrp'],'</td>','<td>', $row['qty'],'</td>','<td>', '<a href="../controllers/remove-from-checkout.php?id='.$items.'" >Delete</a>','</td>';      
+                echo '<td>','<span>',$row['item_name'],'</span>', '</td>','<td>', $row['msrp'],'</td>','<td>', $row['qty'],'</td>','<td>', '<a href="../controllers/remove-from-checkout.php?id='.$items.'" >Delete</a>','</td>';      
                 $total += $row['msrp'] * $row['qty'];
                 }
                 echo '</tr>';
