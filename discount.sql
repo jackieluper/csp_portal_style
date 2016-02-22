@@ -57,12 +57,13 @@ CREATE TABLE `cart` (
   `customer_id` int(11) NOT NULL,
   `saved_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `items` int(11) DEFAULT NULL,
+  `item_name` varchar(255) DEFAULT NULL,
   `our_cost` decimal(12,3) DEFAULT NULL,
   `msrp` decimal(6,2) DEFAULT NULL,
   `proposed_cost` decimal(12,3) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -340,4 +341,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-19 14:32:01
+-- Dump completed on 2016-02-22 11:49:40
