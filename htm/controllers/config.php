@@ -4,7 +4,7 @@ Date: 2/17/16
 Managed Solution
 -->
 <?php
-$servername = "http://104.40.59.186/";
+$servername = "104.40.59.186";
 $username = "root";
 $password = "Ltd6530*%";
 $dbname = "discount_estimates";
