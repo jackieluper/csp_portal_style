@@ -34,7 +34,7 @@ $sql3 = "SELECT qty from cart where items='".$offerID."'";
 $result3 = $conn->query($sql3);
 
 
-$sql2 = "INSERT INTO cart (customer_id, items, our_cost, msrp, proposed_cost, qty) 
+$sql2 = "INSERT INTO cart (customer_id, item_name, our_cost, msrp, proposed_cost, qty) 
 VALUES ('$custID', '$offerID', '$listPrice', '$erpPrice', '$erpPrice', '1')" or die(mysql_error());
 
 if($result3->num_rows > 0){
