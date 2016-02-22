@@ -3,6 +3,7 @@ Author: Jason B. Smith
 Date: 2/17/16
 Managed Solution
 */
+
 //Password check
 function validate() {
   var password1 = $("#password").val();
