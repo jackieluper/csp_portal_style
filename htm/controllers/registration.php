@@ -4,7 +4,8 @@ Date: 2/17/16
 Managed Solution
 -->
 <?php
-header( "Refresh:5; url=../../htm/portal/login_page.htm", true, 303);
+
+
 ?>
 <head>
     <title>Success</title>
@@ -15,24 +16,7 @@ header( "Refresh:5; url=../../htm/portal/login_page.htm", true, 303);
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
       <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
       
-      <script type="text/javascript">
-
-        (function () {
-            var timeLeft = 5,
-                cinterval;
-
-            var timeDec = function (){
-                timeLeft--;
-                document.getElementById('countdown').innerHTML = timeLeft;
-                if(timeLeft === 0){
-                    clearInterval(cinterval);
-                }
-            };
-
-            cinterval = setInterval(timeDec, 1000);
-        })();
-
-        </script>
+    
 </head>
 <div class="header-white"></div>
 <div class="ss-stand-alone">

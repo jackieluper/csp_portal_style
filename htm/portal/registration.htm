@@ -41,7 +41,7 @@ Managed Solution
     <div class="page-header">
         <h2>ACCOUNT INFORMATION <br><small>You will need to <strong>AUTHORIZE MANAGED SOLUTION</strong> to be your cloud service provider.</small></h2>
     </div>
-    <form class="regForm" id="formRegistration" action="../controllers/registration.php" method="post">
+    <form class="regForm" id="formRegistration" action="../controllers/add-cust.php" method="post">
         <table class="regTop">
             <tr>
                 <th class="regTbl">Company Name *</th>
@@ -49,12 +49,12 @@ Managed Solution
                 <th class="regTbl">Primary Domain Name 1 *</th>
             </tr>
             <tr>
-                <td class="row1"><input class="form-control" type="text" name="companyName" placeholder="required" required autofocus></td>
-                <td class="row1"><select class="form-control" name="businessType" required >
+                <td class="row1"><input class="form-control" type="text" id='companyName' name="companyName" placeholder="required" required autofocus></td>
+                <td class="row1"><select class="form-control" id='businessType' name="businessType" required >
                     <option>Commercial</option>
                     <option>Government</option>
                     </select></td>
-                    <td class="row1"><input class="form-control" type="text" name="domainName" placeholder="required" required></td>
+                    <td class="row1"><input class="form-control" type="text" id='domainName' name="domainName" placeholder="required" required></td>
                     <td class="row1" colspan="2"><label class="micExt">.onmicrosoft.com</label></td>
             </tr>
             <tr>
@@ -63,9 +63,9 @@ Managed Solution
                 <th class="regTbl"> City *</th>
             </tr>
             <tr>
-                <td class="row2"><input class="form-control" type="text" name="address1" placeholder="required" required></td>
+                <td class="row2"><input class="form-control" type="text" id='address1' name="address1" placeholder="required" required></td>
                 <td class="row2"><input class="form-control" id="password" type="password" name="password" placeholder="required" onkeyup="validate(this.value)" required></td>
-                <td class="row2"><input class="form-control" type="text" name="city" required></td>
+                <td class="row2"><input class="form-control" type="text" id='city' name="city" required></td>
             </tr>
             <tr>
                 <th class="regTbl">Address Line 2</th>
@@ -74,7 +74,7 @@ Managed Solution
                 <th class="regTbl">Zip Code *</th>
             </tr>
             <tr >
-                <td class="row3"><input class="form-control" type="text" name="address2" placeholder="required" ></td>
+                <td class="row3"><input class="form-control" type="text" id='address2' name="address2" placeholder="required" ></td>
                 <td class="row3"><input class="form-control" id="confirmPass" type="password" name="confirmPass" onkeyup="passMatch(this)" placeholder="required" required></td>
                 <td class="row3">
                     <select class="countrySelect" onchange="print_state('state',this.selectedIndex);" id="country" name ="country" required></select>
@@ -98,10 +98,10 @@ Managed Solution
                 <th class="regTbl2">Accept Delegation *</th>
             </tr>
             <tr>
-                <td class="row4"><input class="form-control" type="text" name="fname" placeholder="required" required></td>
-                <td class="row4"><input class="form-control" type="text" name="lname" placeholder="required" required></td>
+                <td class="row4"><input class="form-control" type="text" id='fname' name="fname" placeholder="required" required></td>
+                <td class="row4"><input class="form-control" type="text" id='lname' name="lname" placeholder="required" required></td>
                 <td class="row4"><div class="checkbox">
-                    <label><input type="checkbox" id="cb-delegation" value="" data-toggle="modal" data-target="#myModal" required>Authorize Managed Solution to be your Cloud Service Provider!</label>
+                        <label><input type="checkbox" id="cb-delegation" name="delegation" value="accepted" data-toggle="modal" data-target="#myModal" required>Authorize Managed Solution to be your Cloud Service Provider!</label>
                     </div></td>
             </tr>
              <tr>
@@ -138,7 +138,7 @@ Managed Solution
 
                       </div>
                     </div>
-    <button class="regBtn" type="submit" form="formRegistration" value="Submit">Submit</button>
+    <button class="regBtn" type="submit" name="submit" form="formRegistration" value="Submit">Submit</button>
     <button class="resetBtn" type="reset" form="formRegistration" value="Reset">Reset</button>
 </div>
 
