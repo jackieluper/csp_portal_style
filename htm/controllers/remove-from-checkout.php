@@ -13,7 +13,7 @@ echo $item;
 $sql = "DELETE FROM cart WHERE items='".$item."'";
 
 if ($conn->query($sql) === TRUE) {
-    header('Location: ../portal/checkout.htm');
+    header('Location: ../portal/checkout.phtml');
 } else {
     echo "Error deleting record: " . $conn->error;
 }
