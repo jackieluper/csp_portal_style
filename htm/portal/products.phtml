@@ -60,6 +60,7 @@ session_start();
                 echo '<td>','<span>',$row['item_name'],'</span>', '</td>','<td>', $row['msrp'],'</td>','<td>', $row['qty'],'</td>','<td>', '<a href="../controllers/remove-from-cart.php?id='.$items.'" >Delete</a>','</td>';      
                 $total += $row['msrp'] * $row['qty'];
                 }
+                
                 echo '</tr>';
                 echo '<tr>';
                 echo '<td>Total Price</td>','<td colspan="3">$'.number_format($total,2).'</td>';
