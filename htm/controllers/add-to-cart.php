@@ -9,13 +9,12 @@ session_start();
 
 $offerID = $_GET['id'];
 
-$sql = "SELECT customer_id from user WHERE username='".$_SESSION['user']."'";
+$sql = "SELECT customer_id from user WHERE username='".$_SESSION['username']."'";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
     while($row = $result->fetch_assoc()){        
-        $custID = $row['customer_id'];        
-        echo $custID, ' ', "<br>";
+        $custID = $row['customer_id'];
     }
 }
 
@@ -26,16 +25,22 @@ if($result1->num_rows > 0){
     while($row = $result1->fetch_assoc()){        
        $listPrice = $row['list_price'];
        $erpPrice = $row['erp_price'];
-       echo $listPrice, " ", $erpPrice, "<br>";
     }
 }
 
 $sql3 = "SELECT qty from cart where items='".$offerID."'";
 $result3 = $conn->query($sql3);
 
+$sql5 = "SELECT display_name from offer where sku='" .$offerID."'";
+$result5 = $conn->query($sql5);
 
-$sql2 = "INSERT INTO cart (customer_id, item_name, our_cost, msrp, proposed_cost, qty) 
-VALUES ('$custID', '$offerID', '$listPrice', '$erpPrice', '$erpPrice', '1')" or die(mysql_error());
+if($result5->num_rows > 0){
+    while($row = $result5->fetch_assoc()){        
+       $offerName = $row['display_name'];
+    }
+}
+$sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty) 
+VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '1')" or die(mysql_error());
 
 if($result3->num_rows > 0){
     while($row = $result3->fetch_assoc()){        
@@ -57,4 +62,6 @@ else{
 }
 
 $conn->close();
+
+
 ?>

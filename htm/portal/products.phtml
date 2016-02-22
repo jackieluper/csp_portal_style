@@ -50,14 +50,14 @@ session_start();
         <tbody>
             <?php
                 require("../controllers/config.php");
-                $result= $conn->query("select items, msrp, qty from cart");
+                $result= $conn->query("select item_name, msrp, qty from cart");
                 error_reporting(E_ALL ^ E_NOTICE);
                 
                 while($row = $result->fetch_assoc())
                 {
                 $items = $row['items'];
                 echo '<tr>';
-                echo '<td>','<span>',$row['items'],'</span>', '</td>','<td>', $row['msrp'],'</td>','<td>', $row['qty'],'</td>','<td>', '<a href="../controllers/remove-from-cart.php?id='.$items.'" >Delete</a>','</td>';      
+                echo '<td>','<span>',$row['item_name'],'</span>', '</td>','<td>', $row['msrp'],'</td>','<td>', $row['qty'],'</td>','<td>', '<a href="../controllers/remove-from-cart.php?id='.$items.'" >Delete</a>','</td>';      
                 $total += $row['msrp'] * $row['qty'];
                 }
                 echo '</tr>';
@@ -92,7 +92,7 @@ session_start();
                 Price $19.99</td>
             </tr>
             <tr>
-                <td><a href="../controllers/add-to-cart.php?id=Microsoft Office 365">Add to Cart</a></td>
+                <td><a href="../controllers/add-to-cart.php?id=123456789">Add to Cart</a></td>
                 <td><a href="../controllers/add-to-cart.php?id=Microsoft Enterprise Mobility Suite">Add to Cart</a></td>
                 <td><a href="../controllers/add-to-cart.php?id=Windows 7">Add to Cart</a></td>
             </tr>
