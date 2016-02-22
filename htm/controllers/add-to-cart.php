@@ -50,7 +50,7 @@ if($result3->num_rows > 0){
 }
 else if($conn->query($sql2) === TRUE){
     echo 'New record created successfully';
-    header('Location: ../portal/products.htm');
+    header('Location: ../portal/products.phtml');
 }
 else{
     echo "Error: " .$sql2 . "<br>". $conn->error;
