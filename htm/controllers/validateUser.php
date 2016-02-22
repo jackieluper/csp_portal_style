@@ -17,7 +17,7 @@ if (isset($_POST['userID'])) {
     echo 'Session: ' . $_SESSION['username'];
     echo '<br>';
     echo 'POST: ' . $_POST['userID'];
-    header("Location: ../controllers/config.php");
+    header("Location: ../portal/products.php");
 }
 
 $clientID = "1aa67243-0a91-49ca-9689-9880f15172cf";
