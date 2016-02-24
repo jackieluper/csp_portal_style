@@ -15,12 +15,10 @@ $grantType = "client_credentials";
 $authObj = new AccessTokenAuthentication();
 //Get the Access token.
 $accessToken = $authObj->getTokens($grantType, $resource, $clientID, $clientSecret, $authUrl);
-//Create the authorization Header string.
-$authHeader = "Authorization: Bearer " . $accessToken;
 
 class AccessTokenAuthentication {
 
-    function getTokens($grantType, $resource, $clientID, $clientSecret, $authUrl) {
+    function getTokens($grantType, $resource, $clientID, $clientSecret) {
         try {
             //Initialize the Curl Session.
             $ch = curl_init();
@@ -56,10 +54,10 @@ class AccessTokenAuthentication {
             //Decode the returned JSON string.
             $objResponse = json_decode($strResponse);
 
-            if ($objResponse->error) {
+            if (isset($objResponse->error)) {
                 throw new Exception($objResponse->error_description);
             }
-            $_SESSION['token'] = $objResponse->access_token;
+           $_SESSION['azureToken'] = $objResponse->access_token;
             return $objResponse->access_token;
         } catch (Exception $e) {
             echo "Exception-" . $e->getMessage();
