@@ -29,15 +29,14 @@ try {
 
     //Initialize the Curl Session.
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "https://api.cp.microsoft.com/customers/get-by-identity?provider=AAD&type=tenant&tid=22e38d40-62cb-47c4-afdf-19421c5522c0");
+    curl_setopt($ch, CURLOPT_URL, 'https://api.cp.microsoft.com/customers/get-by-identity?provider=AAD&type=tenant&tid=22e38d40-62cb-47c4-afdf-19421c5522c0');
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, $header);
     $strResponse = curl_exec($ch);
     echo curl_error($ch) . '<br>';
     curl_close($ch);
     $ridResponse = json_decode($strResponse);
-    var_dump($ridResponse);
     echo 'ID: ' . $ridResponse['id'];
     return $ridResponse;
 } catch (Exception $e) {
