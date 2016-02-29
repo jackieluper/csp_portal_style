@@ -1,5 +1,7 @@
 <?php
-session_start();
+
+include 'token.php';
+
 $token = $_SESSION['azureToken'];
 $request = "grant_type=client_credentials";
 try {
