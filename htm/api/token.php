@@ -1,10 +1,10 @@
 <?php
 
 //client id is our app id TODO: NEEDS TO BE CHANGED TO OUR APP ID ON CSP API WHEN WE GO LIVE
-$clientID = "1aa67243-0a91-49ca-9689-9880f15172cf";
+$clientID = "c9d95c0e-8d97-4bba-b3a1-05bad83f7300";
 //TODO CLIENT SECRET KEY NEEDS TO BE CHANGED AS WELL WHEN WE GO LIVE
 //Client Secret key of the application.
-$clientSecret = "rW2Mvtwa2Pkc0Bt2iI43eHDNoZmDwOsvhUE5hapsGlM=";
+$clientSecret = "RqK2qX3TEFfTMrluU3BRQh0lKhgsvbaVqbyZvmax/3g=";
 //OAuth Url.
 $authUrl = "https://login.microsoftonline.com/managedsolutioncsptesting.onmicrosoft.com";
 //Application Scope Url
@@ -32,7 +32,7 @@ class AccessTokenAuthentication {
             //Create an Http Query.//
             $data = http_build_query($paramArr);
             //Set the Curl URL.
-            curl_setopt($ch, CURLOPT_URL, 'https://login.windows.net/managedsolutioncsptesting.onmicrosoft.com/oauth2/token?api-version=1.0');
+            curl_setopt($ch, CURLOPT_URL, 'https://login.windows.net/managedsolutioncsptesting.onmicrosoft.com/oauth2/token?api-version=1.6');
             //Set HTTP POST Request.
             curl_setopt($ch, CURLOPT_POST, TRUE);
             //Set data to POST in HTTP "POST" Operation.
@@ -57,8 +57,7 @@ class AccessTokenAuthentication {
             if (isset($objResponse->error)) {
                 throw new Exception($objResponse->error_description);
             }
-           $_SESSION['azureToken'] = $objResponse->access_token;
-            return $objResponse->access_token;
+          $_SESSION['azureToken'] = $objResponse->access_token;
         } catch (Exception $e) {
             echo "Exception-" . $e->getMessage();
         }

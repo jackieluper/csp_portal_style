@@ -5,6 +5,16 @@ Managed Solution
 -->
 <?php
 session_start();
+require("../controllers/config.php");
+$resultCust = $conn->query("select customer_id from user where username='" . $_SESSION['username'] . "'");
+while ($row = $resultCust->fetch_assoc()) {
+    $custID = $row['customer_id'];
+}
+$resultEntity = $conn->query("select entity_type from customer where id='" . $custID . "'");
+while ($row = $resultEntity->fetch_assoc()) {
+    $entity = $row['entity_type'];
+}
+error_reporting(E_ALL ^ E_NOTICE);
 ?>
 <head>
     <title>Products</title>
@@ -38,7 +48,7 @@ session_start();
 </nav>
 <nav class="sidecart">
     <a href="#" class="cart-toggle-btn">Cart</a>
-    <table class="ui-widget ui-widget-content" id='cartTable'>
+    <table class="cartTable" >
         <thead>
             <tr class="ui-widget-header ">
                 <th>Item</th>
@@ -49,84 +59,153 @@ session_start();
         </thead>
         <tbody>
             <?php
-            require("../controllers/config.php");
             $result = $conn->query("select items, item_name, msrp, qty from cart");
             error_reporting(E_ALL ^ E_NOTICE);
 
             while ($row = $result->fetch_assoc()) {
                 $items = $row['items'];
-                echo '<tr>';
-                echo '<td>', '<span>', $row['item_name'], '</span>', '</td>', '<td>', $row['msrp'], '</td>', '<td>', $row['qty'], '</td>', '<td>', '<a href="../controllers/remove-from-cart.php?id=' . $items . '" >Delete</a>', '</td>';
+                $name = $row['item_name'];
+                $msrp = $row['msrp'];
+                $qty = $row['qty'];
                 $total += $row['msrp'] * $row['qty'];
+                ?>
+                <tr>
+                    <td><span><?php echo $name ?></span></td>
+                    <td><?php echo $msrp ?></td>
+                    <td ><input name="qty" id="qtyCart" type="number" step="1" value=<?php echo $qty ?> min="0" max="100" style="color:#fff;"></td>
+                    <td><a href="../controllers/remove-from-cart.php?id=<?php echo $items ?>">Delete</a></td>
+                </tr>
+                <?php
             }
 
-            echo '</tr>';
-            echo '<tr>';
-            echo '<td>Total Price</td>', '<td colspan="3">$' . number_format($total, 2) . '</td>';
+            function qtyAdj() {
+                $total = $msrp * $qty;
+            }
             ?>
+            <tr>
+                <td>TOTAL</td>
+                <td colspan="3"><?php echo number_format($total, 2) ?></td>
+            </tr>
         </tbody>
         <tr>
-            <td colspan="4"><a href="checkout.phtml""><button type="button" class="checkoutButton">Checkout</button></a></td>
+            <td colspan="4"><a href="checkout.phtml"><button type="button" class="checkoutButton">Checkout</button></a></td>
         </tr>
     </table>
 </nav>
 <div class="content">
     <div class="page-header">
         <h2>TOP OFFERS <small>Welcome 
-                <?php echo $_SESSION['username']; ?>
+<?php echo $_SESSION['username']; ?>
             </small></h2>
     </div>
     <table class="products" >
-        <tr>
-            <th>Microsoft Office 365</th>
-            <th>Microsoft EMS</th>
-            <th>Windows 7 Ultimate</th>
+        <tr >
+            <?php
+            if ($entity === 'Corporate') {
+                $offer1 = '55';
+                $offer2 = '11';
+                $offer3 = '36';
+                $resultOffer1 = $conn->query("select offer.display_name, erp_price from offer, offer_price where offer.id='$offer1' and offer_id='$offer1'");
+                error_reporting(E_ALL ^ E_NOTICE);
+                while ($row = $resultOffer1->fetch_assoc()) {
+                    $name1 = $row['display_name'];
+                    $price1 = $row['erp_price'];
+                }
+                $resultOffer2 = $conn->query("select offer.display_name, erp_price from offer, offer_price where offer.id='$offer2' and offer_id='$offer2'");
+                error_reporting(E_ALL ^ E_NOTICE);
+                while ($row = $resultOffer2->fetch_assoc()) {
+                    $name2 = $row['display_name'];
+                    $price2 = $row['erp_price'];
+                }
+                $resultOffer3 = $conn->query("select offer.display_name, erp_price from offer, offer_price where offer.id='$offer3' and offer_id='$offer3'");
+                error_reporting(E_ALL ^ E_NOTICE);
+                while ($row = $resultOffer3->fetch_assoc()) {
+                    $name3 = $row['display_name'];
+                    $price3 = $row['erp_price'];
+                }
+                ?>
+                <td><img width="200px" height="200px"  src="../img/products/officeE3.png" alt="Office 365 E3" ><br>
+                    <strong><?php echo $name1 ?> </strong><br><br>
+                    <strong>$<?php echo number_format($price1, 2) ?></strong>
+                </td>
+                <td><img width="200px" height="200px" src="../img/products/EMS.jpg" alt="Microsoft Enterprise Mobility Suite" id='<?php echo $offer2 ?>'><br>
+                    <strong><?php echo $name2 ?> </strong><br><br>
+                    <strong>$<?php echo number_format($price2, 2) ?></strong>
+                </td>
+                <td><img height="200px" src="../img/products/crmOnline.jpg" alt="Windows 7 Ultimate" id="<?php echo $offer3 ?>"><br>
+                    <strong><?php echo $name3 ?> </strong><br><br>
+                    <strong>$<?php echo number_format($price3, 2) ?></strong>
+                </td>
+                <?php
+            } else if ($entity === 'Government') {
+                $offer1 = '56';
+                $offer2 = '12';
+                $offer3 = '37';
+                $resultOffer1 = $conn->query("select offer.display_name, erp_price from offer, offer_price where offer.id='$offer1' and offer_id='$offer1'");
+                error_reporting(E_ALL ^ E_NOTICE);
+                while ($row = $resultOffer1->fetch_assoc()) {
+                    $name1 = $row['display_name'];
+                    $price1 = $row['erp_price'];
+                }
+                $resultOffer2 = $conn->query("select offer.display_name, erp_price from offer, offer_price where offer.id='$offer2' and offer_id='$offer2'");
+                error_reporting(E_ALL ^ E_NOTICE);
+                while ($row = $resultOffer2->fetch_assoc()) {
+                    $name2 = $row['display_name'];
+                    $price2 = $row['erp_price'];
+                }
+                $resultOffer3 = $conn->query("select offer.display_name, erp_price from offer, offer_price where offer.id='$offer3' and offer_id='$offer3'");
+                error_reporting(E_ALL ^ E_NOTICE);
+                while ($row = $resultOffer3->fetch_assoc()) {
+                    $name3 = $row['display_name'];
+                    $price3 = $row['erp_price'];
+                }
+                ?>
+                <td><img width="200px" height="200px"  src="../img/products/officeE3.png" alt="Office 365 E3" ><br>
+                    <strong><?php echo $name1 ?> </strong><br><br>
+                    <strong>$<?php echo number_format($price1, 2) ?></strong>
+                </td>
+                <td><img width="200px" height="200px" src="../img/products/EMS.jpg" alt="Microsoft Enterprise Mobility Suite" id='<?php echo $offer2 ?>'><br>
+                    <strong><?php echo $name2 ?> </strong><br><br>
+                    <strong>$<?php echo number_format($price2, 2) ?></strong>
+                </td>
+                <td><img height="200px" src="../img/products/crmOnline.jpg" alt="Windows 7 Ultimate" id="<?php echo $offer3 ?>"><br>
+                    <strong><?php echo $name3 ?> </strong><br><br>
+                    <strong>$<?php echo number_format($price3, 2) ?></strong>
+                </td>
+            <?php }
+            ?>
         </tr>
         <tr>
-            <td><img src="../img/products/office365.jpg" alt="Office 365"><br>
-                Price $19.99</td>
-            <td><img src="../img/products/EMS.jpg" alt="Microsoft Enterprise Mobility Suite"><br>
-                Price $19.99</td>
-            <td><img src="../img/products/7ultimate.jpg" alt="Windows 7 Ultimate"><br>
-                Price $19.99</td>
-        </tr>
-        <tr>
-            <td><a href="../controllers/add-to-cart.php?id=123456789">Add to Cart</a></td>
-            <td><a href="../controllers/add-to-cart.php?id=Microsoft Enterprise Mobility Suite">Add to Cart</a></td>
-            <td><a href="../controllers/add-to-cart.php?id=Windows 7">Add to Cart</a></td>
+            <td><a href="../controllers/add-to-cart.php?id=<?php echo $offer1 ?>">Add to Cart</a></td>
+            <td><a href="../controllers/add-to-cart.php?id=<?php echo $offer2 ?>">Add to Cart</a></td>
+            <td><a href="../controllers/add-to-cart.php?id=<?php echo $offer3 ?>">Add to Cart</a></td>
         </tr>
     </table>
     <div class="page-header">
         <h2>CATALOG</h2>
     </div>
-    <table class="products" >
+    <table class="catalog" >
         <tr>
-            <th>Microsoft Outlook 2013</th>
-            <th>Microsoft Groove 2007</th>
-            <th>Microsoft Office 365<br>
-                Enterprise</th>
-            <th>Microsoft CRM</th>
-            <th>Microsoft Office<br>
-                for Mac</th>
-        </tr>
-        <tr>
-            <td><img src="../img/products/outlook2013.jpg" alt="Microsoft Outlook 2013" width="175" height="175"><br>
-                Price $19.99</td>
-            <td><img src="../img/products/groove2007.jpg" alt="Microsoft Groove 2007" width="175" height="175"><br>
-                Price $19.99</td>
-            <td><img src="../img/products/enterprise.jpg" alt="Microsoft Office 365 for the Enterprise" width="175" height="175"><br>
-                Price $19.99</td>
-            <td><img src="../img/products/CRM.jpg" alt="Microsoft CRM" width="175" height="175"><br>
-                Price $19.99</td>
-            <td><img src="../img/products/officemac.jpg" alt="Microsoft Office for Mac" width="175" height="175"><br>
-                Price $19.99</td>
-        </tr>
-        <tr>
-            <td><a href="../controllers/add-to-cart.php?id=Microsoft Outlook 2013">Add to Cart</a></td>
-            <td><a href="../controllers/add-to-cart.php?id=Microsoft Groove 2007">Add to Cart</a></td>
-            <td><a href="../htm/controllers/add-to-cart.php?id=Microsoft Office 365 for the Enterprise">Add to Cart</a></td>
-            <td><a href="../controllers/add-to-cart.php?id=Microsft CRM">Add to Cart</a></td>
-            <td><a href="../controllers/add-to-cart.php?id=Microsoft Office for Mac">Add to Cart</a></td>
-        </tr>
+            <?php
+            $result1 = $conn->query("select offer.id, offer.display_name, offer.license_agreement_type, offer.purchase_unit, offer.sku, offer_price.erp_price from offer, offer_price where offer.id=offer_price.id");
+            error_reporting(E_ALL ^ E_NOTICE);
+            while ($row = $result1->fetch_assoc()) {
+                $display_name = $row['display_name'];
+                $erp = $row['erp_price'];
+                $purchase_unit = $row['purchase_unit'];
+                $id = $row['id'];
+
+                if ($row['license_agreement_type'] == $entity) {
+                    ?>
+                    <th><?php echo $display_name ?></th>
+                    <td><?php echo $erp ?></td>
+                    <td><?php echo $purchase_unit ?><td>
+                    <td><a href="../controllers/add-to-cart.php?id=<?php echo $id ?>">Add to Cart</a></td>
+                </tr>
+                <?php
+            }
+        }
+        ?>
+
     </table>
 </div>

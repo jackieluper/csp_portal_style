@@ -1,6 +1,9 @@
 <?php
+
 session_start();
-$token = $_SESSION['azureToken'];
+require('sa-token.php');
+
+echo $token = $_SESSION['sa_token'];
 $request = "grant_type=client_credentials";
 try {
 
@@ -23,7 +26,7 @@ try {
 
     $objResponse = json_decode($result);
      $_SESSION['sa_token'] = $objResponse->access_token;
-     echo 'satoken: ' . $_SESSION['sa_token'] . '<br>';
+     
 } catch (Exception $e) {
     echo "Exception-" . $e->getMessage();
 }

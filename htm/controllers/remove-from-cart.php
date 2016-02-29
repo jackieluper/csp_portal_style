@@ -9,13 +9,12 @@ require("config.php");
 session_start();
 //getting item id to be removed from cart
 $item = $_GET['id'];
-echo $item;
+echo 'ITEM IS:' . $item;
 //deletes from cart
-$sql = "DELETE FROM cart WHERE items='".$item."'";
+$sql = "DELETE FROM cart WHERE items='" . $item . "'";
 //if: success else: error
 if ($conn->query($sql) === TRUE) {
     header('Location: ../portal/products.phtml');
-    
 } else {
     echo "Error deleting record: " . $conn->error;
 }

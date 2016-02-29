@@ -32,7 +32,7 @@ Managed Solution
         <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
     </ul>
 </nav>
-<div class="content">
+<div class="contentCheckout">
     <div class="page-header">
         <h2>CHECKOUT</h2>
     </div>
@@ -54,7 +54,11 @@ Managed Solution
             while ($row = $result->fetch_assoc()) {
                 $items = $row['items'];
                 '<tr>';
-                echo '<td>', '<span>', $row['item_name'], '</span>', '</td>', '<td>', $row['msrp'], '</td>', '<td>', $row['qty'], '</td>', '<td>', '<a href="../controllers/remove-from-checkout.php?id=' . $items . '" >Delete</a>', '</td>';
+                echo '<td>', '<span>', $row['item_name'], '</span>', '</td>',
+                        '<td>', $row['msrp'], '</td>', 
+                        '<td>', $row['qty'], '</td>', 
+                        '<td>', '<a href="../controllers/remove-from-checkout.php?id=' . $items . '" >Delete</a>', '</td>',
+                        '</tr>';
                 $total += $row['msrp'] * $row['qty'];
             }
             echo '</tr>';
