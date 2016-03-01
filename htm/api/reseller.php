@@ -3,7 +3,8 @@
 session_start();
 include 'sa-token.php';
 $token = $_SESSION['sa_token'];
-
+echo 'Azure Token: ' . $_SESSION['azureToken'] . '<br>';
+echo 'SA Token: ' . $_SESSION['sa_token'] . '<br>';
 function getGUID() {
 
     mt_srand((double) microtime() * 10000); //optional for php 4.2.0 and up.
@@ -33,7 +34,7 @@ try {
 
     //Initialize the Curl Session.
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://api.cp.microsoft.com/customers/get-by-identity?provider=AAD&type=tenant&tid=22e38d40-62cb-47c4-afdf-19421c5522c0');
+    curl_setopt($ch, CURLOPT_URL, "https://api.cp.microsoft.com/customers/get-by-identity?provider=AAD&type=tenant&tid=22e38d40-62cb-47c4-afdf-19421c5522c0");
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, $header);
