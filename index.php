@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        header('Location: htm/portal/login_page.htm');
+        header('Location: htm/api/token.php');
         ?>
     </body>
 </html>
