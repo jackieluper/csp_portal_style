@@ -24,8 +24,7 @@ try {
 
 
     $objResponse = json_decode($result);
-     $_SESSION['sa_token'] = $objResponse->access_token;
-     echo 'satoken: ' . $_SESSION['sa_token'] . '<br>';
+    $_SESSION['sa_token'] = $objResponse->access_token;
 } catch (Exception $e) {
     echo "Exception-" . $e->getMessage();
 }

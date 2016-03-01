@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'sa-token.php';
 $token = $_SESSION['sa_token'];
 
 function getGUID() {
@@ -16,29 +17,25 @@ function getGUID() {
     return $uuid;
 }
 
-try {
 
-    $guid = (string) getGUID();
-    $guidCor = (string) getGUID();
+    $guid = getGUID();
+    $guidCor = getGUID();
     $header = array();
-    $header[] = "Accept: application/json";
-    $header[] = "api-version : 2015-03-31";
-    $header[] = "x-ms-correlation-id $guidCor";
-    $header[] = "x-ms-tracking-id : $guid";
-    $header[] = "Authorization : Bearer $token";
+    $header[] = "api-version: 2015-03-31";
+    $header[] = "Authorization: Bearer $token";
+    $header[] = "Accept: application/json";    
+    $header[] = "x-ms-correlation-id: $guidCor";
+    $header[] = "x-ms-tracking-id: $guid";
+   
 
     //Initialize the Curl Session.
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://api.cp.microsoft.com/customers/get-by-identity?provider=AAD&type=tenant&tid=22e38d40-62cb-47c4-afdf-19421c5522c0');
+    curl_setopt($ch, CURLOPT_URL, "https://api.cp.microsoft.com/customers/get-by-identity?provider=AAD&type=tenant&tid=22e38d40-62cb-47c4-afdf-19421c5522c0");
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, $header);
     $strResponse = curl_exec($ch);
     echo curl_error($ch) . '<br>';
     curl_close($ch);
-    $ridResponse = json_decode($strResponse);
-    echo 'ID: ' . $ridResponse['id'];
-    return $ridResponse;
-} catch (Exception $e) {
-    echo "Exception-" . $e->getMessage();
-}
+    $objResponse = json_decode($strResponse);
+    echo 'ID: ' . print_r($strResponse);

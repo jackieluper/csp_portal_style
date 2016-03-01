@@ -1,5 +1,6 @@
 <?php
-
+session_destroy();
+session_start();
 //client id is our app id TODO: NEEDS TO BE CHANGED TO OUR APP ID ON CSP API WHEN WE GO LIVE
 $clientID = "c9d95c0e-8d97-4bba-b3a1-05bad83f7300";
 //TODO CLIENT SECRET KEY NEEDS TO BE CHANGED AS WELL WHEN WE GO LIVE
