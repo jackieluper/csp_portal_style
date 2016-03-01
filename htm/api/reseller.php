@@ -20,8 +20,8 @@ function getGUID() {
 
 try {
 
-    $guid = (string) getGUID();
-    $guidCor = (string) getGUID();
+    $guid = getGUID();
+    $guidCor = getGUID();
     $header = array();
     $header[] = "api-version : 2015-03-31";
     $header[] = "Authorization : Bearer $token";
