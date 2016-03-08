@@ -9,10 +9,17 @@ Managed Solution
 require("config.php");
 session_start();
 
+$transactionId = 1;
 //getting the offer id which is the id of the item selected
 $offerID = $_GET['id'];
-echo 'offer id is: ' . $offerID . '<br>';
+//getting last transaction id
 
+$sqlGetTran = "SELECT transaction_id FROM transactions ORDER BY transaction_id DESC LIMIT 1";
+$tranResult = $conn->query($sqlGetTran);
+
+if ($tranResult->num_rows > 0){
+    $transactionId = $row['transaction_id'];
+}
 //setting query to get customer id for the user that has logged on
 $sql = "SELECT customer_id from user WHERE username='" . $_SESSION['username'] . "'";
 $result = $conn->query($sql);
@@ -23,6 +30,15 @@ if ($result->num_rows > 0) {
         $custID = $row['customer_id'];
     }
 }
+
+$sqlId = "SELECT sku from offer WHERE id='" . $offerID . "'";
+$resultId = $conn->query($sqlId);
+if($resultId->num_rows > 0){
+    while($row = $resultId->fetch_assoc()){
+        $offerSku = $row['sku'];
+    }
+}
+
 //setting query to get our price, and resale price for the offer selected
 $sql1 = "SELECT list_price, erp_price from offer_price WHERE id='" . $offerID . "'";
 $result1 = $conn->query($sql1);
@@ -40,15 +56,16 @@ $result3 = $conn->query($sql3);
 //setting query to get the display name from offers
 $sql5 = "SELECT display_name from offer where id='" . $offerID . "'";
 $result5 = $conn->query($sql5);
+
 //grabbing the display name from offers
 if ($result5->num_rows > 0) {
     while ($row = $result5->fetch_assoc()) {
-        echo 'Offer Name: ' . $offerName = $row['display_name'] . '<br>';
+        $offerName = $row['display_name'];
     }
 }
 //query to add the selected item to the cart with corresponding customer info
-$sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty) 
-VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '1')" or die(mysql_error());
+$sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, sku) 
+VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '1', '$transactionId', '$offerSku')" or die(mysql_error());
 //if they already have in cart increment qty 
 if ($result3->num_rows > 0) {
     while ($row = $result3->fetch_assoc()) {

@@ -44,14 +44,15 @@ function createCust($saToken, $resellerId, $guid, $guidCor) {
         $email = $_SESSION['email'] = $_POST['email'];
         $phone = $_SESSION['phone'] = $_POST['phoneNum'];
 
-        $header[] = "Authorization: Bearer $saToken";
+        $header[] = "Accept: application/json";
         $header[] = "api-version: 2015-03-31";
-        $header[] = "Content-Type: application/json";        
+        $header[] = "Content-Type: application/json";
+        $header[] = "Authorization: Bearer $saToken";
         $header[] = "x-ms-correlation-id $guidCor";
         $header[] = "x-ms-tracking-id: $guid";
 
         $paramArr = array(
-            "domain_prefix" => "$domainName",
+            "domain_prefix" => $domainName,
             "user_name" => $email,
             "password" => $pass,
             "profile" => array(
@@ -68,23 +69,23 @@ function createCust($saToken, $resellerId, $guid, $guidCor) {
                     "postal_code" => $zip,
                     "country" => "US"
                 ),
-                "type" => $businessType
+                "type"=>"organization"
             )
         );
 
         $data = json_encode($paramArr);
         $cust = curl_init();
-        curl_setopt($cust, CURLOPT_URL, 'https://api.cp.microsoft.com/22e38d40-62cb-47c4-afdf-19421c5522c0/customers/create-reseller-customer');
-        curl_setopt($cust, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($cust, CURLOPT_URL, "https://api.cp.microsoft.com/$resellerId/customers/create-reseller-customer");
+        curl_setopt($cust, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($cust, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($cust, CURLOPT_POST, 1);
+        curl_setopt($cust, CURLOPT_POST, true);
         curl_setopt($cust, CURLOPT_POSTFIELDS, $data);
         curl_setopt($cust, CURLOPT_HTTPHEADER, $header);
         $strResponse = curl_exec($cust);
         curl_close($cust);
-//Decode the returned JSON string.
+        
         $custResponse = json_decode($strResponse);
-        var_dump($strResponse);
+        var_dump($custResponse);
         if ($custResponse->error_code) {
             throw new Exception($custResponse->message);
         }

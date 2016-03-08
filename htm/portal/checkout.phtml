@@ -48,6 +48,8 @@ Managed Solution
         <tbody>
             <?php
             require("../controllers/config.php");
+            session_start();
+            
             $result = $conn->query("select items,item_name, msrp, qty from cart");
             error_reporting(E_ALL ^ E_NOTICE);
 
@@ -55,16 +57,35 @@ Managed Solution
                 $items = $row['items'];
                 '<tr>';
                 echo '<td>', '<span>', $row['item_name'], '</span>', '</td>',
-                        '<td>', $row['msrp'], '</td>', 
-                        '<td>', $row['qty'], '</td>', 
-                        '<td>', '<a href="../controllers/remove-from-checkout.php?id=' . $items . '" >Delete</a>', '</td>',
-                        '</tr>';
-                $total += $row['msrp'] * $row['qty'];
+                '<td>', $row['msrp'], '</td>',
+                '<td>', $row['qty'], '</td>',
+                '<td >', '<a href="../controllers/remove-from-checkout.php?id=' . $items . '" ><strong>Delete</strong></a>', '</td>',
+                '</tr>';
+                $total1 += $row['msrp'] * $row['qty'];
+            }
+            //Calculate customer discount if any
+            $sqlDiscount = "Select discount from customer where id='" . $_SESSION['custId'] . "'";
+            $resultDiscount = $conn->query($sqlDiscount);
+            if ($resultDiscount->num_rows > 0) {
+                while ($row = $resultDiscount->fetch_assoc()) {
+                    $discount = $row['discount'];
+                    $discountDec = $discount / 100;
+                    $discountNum = $total1 * $discountDec;
+                    $total = $total1 - $discountNum;
+                    $_SESSION['discountNum'] = $discountNum;
+                    $_SESSION['discountPer'] = $discount;
+                }
             }
             echo '</tr>';
             echo '<tr>';
-            echo '<td class="total" colspan="3" >Total Price:</td>', '<td colspan="1">' . number_format($total, 2) . '</td>'
+            echo '<td class="total" colspan="3" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Discount Savings:</td>', '<td colspan="1" style="background-color: #65B1E4">'. "$" . number_format($discountNum, 2) . '</td>';
+            echo '</tr>';
+            echo '<tr>';
+            echo '<td class="total" colspan="3" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Total Price:</td>', '<td colspan="1" style="background-color: #65B1E4">'. "$" . number_format($total, 2) . '</td>';
             ?>
+            <tr>
+                <td colspan="4" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right"><a href="../controllers/billing.phtml"><button type="button" class="checkoutButton">Checkout</button></a></td>
+            </tr>
         </tbody>
     </table>
-</div>
+</div>z

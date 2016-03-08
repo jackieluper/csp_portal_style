@@ -1,9 +1,23 @@
 <?php
 
+include 'config.php';
+session_start();
+
 // API Setup parameters
 $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
 $APIKey = 'CkdE324pr5pYCn5B6aMyVpW2z7qtBK6M';
 
+//Getting transaction ID to add to reciept for customer reference
+//TODO NOT GETTING TRAN ID
+$sqlTran = "SELECT transaction_id FROM cart WHERE customer_id='" . $_SESSION['custId'] . "'";
+$resultTran = $conn->query($sqlTran);
+if ($resultTran->num_rows > 0) {
+    while ($row = $resultTran->fetch_assoc()) {
+        $tranId = $row['transaction_id'];
+    }
+} else {
+    echo "Failed no TRANSACTION ID FOUND!";
+}
 
 // If there is no POST data or a token-id, print the initial shopping cart form to get ready for Step One.
 if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
@@ -23,7 +37,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <script src="../../js/ms-style-menu.js"></script>
         <script src="../../js/ms-style-cart.js"></script>
         <script src="../../js/main.js"></script>
-        <title>Collect non-sensitive Customer Info </title>
+        <title>Billing Information</title>
       </head>
       <body>
       <div id="horizontalNav">
@@ -36,16 +50,16 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 <nav class="menu">
     <a href="#" class="nav-toggle-btn">Menu</a>
     <ul>
-        <li><img class="icon" src="../img/icons/software.png" alt="Software" ><a href="products.phtml">Products</a><br></li>
-        <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.phtml">Checkout</a><br></li>
+        <li><img class="icon" src="../img/icons/software.png" alt="Software" ><a href="../portal/products.phtml">Products</a><br></li>
+        <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="../portal/checkout.phtml">Checkout</a><br></li>
         <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
-        <li><img class="icon" src="../img/icons/Admin.png" alt="Software" ><a href="admin.phtml">Administration</a><br></li>
-        <li><img class="icon" src="../img/icons/contact.jpg" alt="Software" ><a href="contactUs.htm">Contact us</a><br></li>
+        <li><img class="icon" src="../img/icons/Admin.png" alt="Software" ><a href="../portal/admin.phtml">Administration</a><br></li>
+        <li><img class="icon" src="../img/icons/contact.jpg" alt="Software" ><a href="../portal/contactUs.htm">Contact us</a><br></li>
         <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
     </ul>
 </nav>
 <div class="billContent">
-      <p ><h2>Step One: Collect non-sensitive payment information.<br /></h2></p>
+      <p ><h2>Please fill out your billing information.<br /></h2></p>
 
       <h3> Customer Information</h3>
       <h4> Billing Details</h4>
@@ -84,17 +98,17 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     // Amount, authentication, and Redirect-URL are typically the bare minimum.
     appendXmlNode($xmlRequest, $xmlSale, 'api-key', $APIKey);
     appendXmlNode($xmlRequest, $xmlSale, 'redirect-url', $_SERVER['HTTP_REFERER']);
-    appendXmlNode($xmlRequest, $xmlSale, 'amount', '12.00');
+    appendXmlNode($xmlRequest, $xmlSale, 'amount', $_SESSION['total']);
     appendXmlNode($xmlRequest, $xmlSale, 'ip-address', $_SERVER["REMOTE_ADDR"]);
     //appendXmlNode($xmlRequest, $xmlSale, 'processor-id' , 'processor-a');
     appendXmlNode($xmlRequest, $xmlSale, 'currency', 'USD');
 
     // Some additonal fields may have been previously decided by user
-    appendXmlNode($xmlRequest, $xmlSale, 'order-id', '1234');
-    appendXmlNode($xmlRequest, $xmlSale, 'order-description', 'Small Order');
+    appendXmlNode($xmlRequest, $xmlSale, 'order-id', $tranId);
+    appendXmlNode($xmlRequest, $xmlSale, 'order-description', 'Order');
     appendXmlNode($xmlRequest, $xmlSale, 'merchant-defined-field-1', 'Red');
     appendXmlNode($xmlRequest, $xmlSale, 'merchant-defined-field-2', 'Medium');
-    appendXmlNode($xmlRequest, $xmlSale, 'tax-amount', '0.00');
+    appendXmlNode($xmlRequest, $xmlSale, 'tax-amount', 'NONE');
 
     /* if(!empty($_POST['customer-vault-id'])) {
       appendXmlNode($xmlRequest, $xmlSale, 'customer-vault-id' , $_POST['customer-vault-id']);
@@ -122,43 +136,31 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'fax', $_POST['billing-address-fax']);
     $xmlSale->appendChild($xmlBillingAddress);
 
+    //Get cart items and add to reciept
+    $sql = "SELECT item_name, sku, msrp, qty from cart where customer_id='" . $_SESSION['custId'] . "'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            // Products already chosen by user
+            $xmlProduct = $xmlRequest->createElement('product');
+            appendXmlNode($xmlRequest, $xmlProduct, 'product-code', $row['sku']);
+            appendXmlNode($xmlRequest, $xmlProduct, 'description', $row['item_name']);
+            appendXmlNode($xmlRequest, $xmlProduct, 'commodity-code', 'N/A');
+            appendXmlNode($xmlRequest, $xmlProduct, 'unit-of-measure', '1 MONTH');
+            appendXmlNode($xmlRequest, $xmlProduct, 'unit-cost', $row['msrp']);
+            appendXmlNode($xmlRequest, $xmlProduct, 'quantity', number_format($row['qty'], 2));
+            appendXmlNode($xmlRequest, $xmlProduct, 'total-amount', number_format($_SESSION['total']));
+            appendXmlNode($xmlRequest, $xmlProduct, 'tax-amount', 'N/A');
 
-    // Products already chosen by user
-    $xmlProduct = $xmlRequest->createElement('product');
-    appendXmlNode($xmlRequest, $xmlProduct, 'product-code', 'SKU-123456');
-    appendXmlNode($xmlRequest, $xmlProduct, 'description', 'test product description');
-    appendXmlNode($xmlRequest, $xmlProduct, 'commodity-code', 'abc');
-    appendXmlNode($xmlRequest, $xmlProduct, 'unit-of-measure', 'lbs');
-    appendXmlNode($xmlRequest, $xmlProduct, 'unit-cost', '5.00');
-    appendXmlNode($xmlRequest, $xmlProduct, 'quantity', '1');
-    appendXmlNode($xmlRequest, $xmlProduct, 'total-amount', '7.00');
-    appendXmlNode($xmlRequest, $xmlProduct, 'tax-amount', '2.00');
+            appendXmlNode($xmlRequest, $xmlProduct, 'tax-rate', 'NONE');
+            appendXmlNode($xmlRequest, $xmlProduct, 'discount-amount', $_SESSION['discountNum']);
+            appendXmlNode($xmlRequest, $xmlProduct, 'discount-rate', number_format($_SESSION['discountPer'], 2));
+            appendXmlNode($xmlRequest, $xmlProduct, 'tax-type', 'NONE');
+            appendXmlNode($xmlRequest, $xmlProduct, 'alternate-tax-id', 'N/A');
 
-    appendXmlNode($xmlRequest, $xmlProduct, 'tax-rate', '1.00');
-    appendXmlNode($xmlRequest, $xmlProduct, 'discount-amount', '2.00');
-    appendXmlNode($xmlRequest, $xmlProduct, 'discount-rate', '1.00');
-    appendXmlNode($xmlRequest, $xmlProduct, 'tax-type', 'sales');
-    appendXmlNode($xmlRequest, $xmlProduct, 'alternate-tax-id', '12345');
-
-    $xmlSale->appendChild($xmlProduct);
-
-    $xmlProduct = $xmlRequest->createElement('product');
-    appendXmlNode($xmlRequest, $xmlProduct, 'product-code', 'SKU-123456');
-    appendXmlNode($xmlRequest, $xmlProduct, 'description', 'test 2 product description');
-    appendXmlNode($xmlRequest, $xmlProduct, 'commodity-code', 'abc');
-    appendXmlNode($xmlRequest, $xmlProduct, 'unit-of-measure', 'lbs');
-    appendXmlNode($xmlRequest, $xmlProduct, 'unit-cost', '2.50');
-    appendXmlNode($xmlRequest, $xmlProduct, 'quantity', '2');
-    appendXmlNode($xmlRequest, $xmlProduct, 'total-amount', '7.00');
-    appendXmlNode($xmlRequest, $xmlProduct, 'tax-amount', '2.00');
-
-    appendXmlNode($xmlRequest, $xmlProduct, 'tax-rate', '1.00');
-    appendXmlNode($xmlRequest, $xmlProduct, 'discount-amount', '2.00');
-    appendXmlNode($xmlRequest, $xmlProduct, 'discount-rate', '1.00');
-    appendXmlNode($xmlRequest, $xmlProduct, 'tax-type', 'sales');
-    appendXmlNode($xmlRequest, $xmlProduct, 'alternate-tax-id', '12345');
-
-    $xmlSale->appendChild($xmlProduct);
+            $xmlSale->appendChild($xmlProduct);
+        }
+    }
 
     $xmlRequest->appendChild($xmlSale);
 
@@ -194,7 +196,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             <script src="../../js/ms-style-menu.js"></script>
             <script src="../../js/ms-style-cart.js"></script>
             <script src="../../js/main.js"></script>
-            <title>Collect non-sensitive Customer Info </title><title>Collect sensitive Customer Info </title>
+            <title>Billing Info</title>
         </head>
         <body>';
     // Uncomment the line below if you would like to print Step One's response
@@ -219,7 +221,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     </ul>
 </nav>
 <div class="billContent">
-        <p><h2>Step Two: Collect sensitive payment information and POST directly to payment gateway<br /></h2></p>
+        <p><h2>Please fill out your Credit Card Information.<br /></h2></p>
 
         <form action="' . $formURL . '" method="POST">
         <h3> Payment Information</h3>
@@ -257,23 +259,67 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     <html>
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Step Three - Complete Transaction</title>
+        <title>Transaction Complete</title>
       </head>
       <body>';
 
     print "
-        <p><h2>Step Three: Script automatically completes the transaction <br /></h2></p>";
+        <p><h2>Transaction Details<br /></h2></p>";
 
     if ((string) $gwResponse->result == 1) {
-        print " <p><h3> Transaction was Approved, XML response was:</h3></p>\n";
-        print '<pre>' . (htmlentities($data)) . '</pre>';
+        print " <p><h3><strong>Transaction was Approved, XML response was: </strong></h3></p>\n";
+        $xml = simplexml_load_string($data);
+        print '
+            <div id="print-content">
+                <form>
+                    <div>Amount: ' . $xml->amount . '</div><br>
+                    <div>From: ' . $xml->{'processor-id'} . '</div><br>
+                    <div>Order ID: ' . $xml->{'order-id'} . '</div><br>';
+        foreach ($xml->product as $product) {
+            $qty = (int) $product->quantity;
+            $qtyFormatted = number_format($qty);
+            $cost = (float) $product->{'unit-cost'};
+            $costFormatted = number_format($cost, 2);
+            $itemNum = $product->{'unit-of-measure'};
+            $sku = $product->{'product-code'};
+            $name = $product->description;
+            $discountRate = $product->{'discount-rate'};
+            $totalSavings = $product->{'discount-amount'};
+
+            print '
+                        <div>Item Number: ' . $itemNum . '</div><br>
+                        <div>Product Sku: ' . $sku . '</div><br>
+                        <div>Product Name: ' . $name . '</div><br>
+                        <div>Subscription Length: 1 Month(s) </div><br>
+                        <div>Product Cost: $ ' . $costFormatted . '</div><br>
+                        <div>Product Quantity: ' . $qtyFormatted . '</div><br>
+                        <div>Discount Rate: ' . $discountRate . '</div><br>';
+        }
+        print '<div>Total Savings: $' . $totalSavings . '</div><br>
+                <input type="button" onclick="printDiv(print-content)" value="print a div!"/>
+                </form>
+            </div>
+            <script type="text/javascript">
+
+            function printDiv(divName) {
+                var printContents = document.getElementById(divName).innerHTML;
+                var originalContents = document.body.innerHTML;
+
+                document.body.innerHTML = printContents;
+
+                window.print();
+
+                document.body.innerHTML = originalContents;
+           }
+            </script>';
+        
     } elseif ((string) $gwResponse->result == 2) {
-        print " <p><h3> Transaction was Declined.</h3>\n";
+        print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
         print " Decline Description : " . (string) $gwResponse->{'result-text'} . " </p>";
         print " <p><h3>XML response was:</h3></p>\n";
         print '<pre>' . (htmlentities($data)) . '</pre>';
     } else {
-        print " <p><h3> Transaction caused an Error.</h3>\n";
+        print " <p><h3><strong> Transaction caused an Error.</strong></h3>\n";
         print " Error Description: " . (string) $gwResponse->{'result-text'} . " </p>";
         print " <p><h3>XML response was:</h3></p>\n";
         print '<pre>' . (htmlentities($data)) . '</pre>';
@@ -285,43 +331,39 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 
 function sendXMLviaCurl($xmlRequest, $gatewayURL) {
     // helper function demonstrating how to send the xml with curl
-
-
     $ch = curl_init(); // Initialize curl handle
     curl_setopt($ch, CURLOPT_URL, $gatewayURL); // Set POST URL
 
     $headers = array();
     $headers[] = "Content-type: text/xml";
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers); // Add http headers to let it know we're sending XML
-    $xmlString = $xmlRequest->saveXML();
-    curl_setopt($ch, CURLOPT_FAILONERROR, 1); // Fail on errors
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); // Allow redirects
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // Return into a variable
-    curl_setopt($ch, CURLOPT_PORT, 443); // Set the port number
-    curl_setopt($ch, CURLOPT_TIMEOUT, 30); // Times out after 30s
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $xmlString); // Add XML directly in POST
+        $xmlString = $xmlRequest->saveXML();
+        curl_setopt($ch, CURLOPT_FAILONERROR, 1); // Fail on errors
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); // Allow redirects
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // Return into a variable
+        curl_setopt($ch, CURLOPT_PORT, 443); // Set the port number
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30); // Times out after 30s
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $xmlString); // Add XML directly in POST
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        // This should be unset in production use. With it on, it forces the ssl cert to be valid
+        // before sending info.
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        if (!($data = curl_exec($ch))) {
+            print "curl error =>" . curl_error($ch) . "\n";
+            throw New Exception(" CURL ERROR :" . curl_error($ch));
+        }
+        curl_close($ch);
 
-
-    // This should be unset in production use. With it on, it forces the ssl cert to be valid
-    // before sending info.
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-
-    if (!($data = curl_exec($ch))) {
-        print "curl error =>" . curl_error($ch) . "\n";
-        throw New Exception(" CURL ERROR :" . curl_error($ch));
+        return $data;
     }
-    curl_close($ch);
-
-    return $data;
-}
 
 // Helper function to make building xml dom easier
-function appendXmlNode($domDocument, $parentNode, $name, $value) {
-    $childNode = $domDocument->createElement($name);
-    $childNodeValue = $domDocument->createTextNode($value);
-    $childNode->appendChild($childNodeValue);
-    $parentNode->appendChild($childNode);
-}
+    function appendXmlNode($domDocument, $parentNode, $name, $value) {
+        $childNode = $domDocument->createElement($name);
+        $childNodeValue = $domDocument->createTextNode($value);
+        $childNode->appendChild($childNodeValue);
+        $parentNode->appendChild($childNode);
+    }
+    

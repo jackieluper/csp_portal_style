@@ -6,9 +6,11 @@ Managed Solution
 <?php
 session_start();
 require("../controllers/config.php");
+
 $resultCust = $conn->query("select customer_id from user where username='" . $_SESSION['username'] . "'");
 while ($row = $resultCust->fetch_assoc()) {
     $custID = $row['customer_id'];
+    $_SESSION['custId'] = $custID;
 }
 $resultEntity = $conn->query("select entity_type from customer where id='" . $custID . "'");
 while ($row = $resultEntity->fetch_assoc()) {
@@ -76,10 +78,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                     <td><a href="../controllers/remove-from-cart.php?id=<?php echo $items ?>">Delete</a></td>
                 </tr>
                 <?php
-            }
-
-            function qtyAdj() {
-                $total = $msrp * $qty;
+                $_SESSION['total'] = $total;
             }
             ?>
             <tr>
@@ -98,7 +97,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                 <?php echo $_SESSION['username']; ?>
             </small></h2>
     </div>
-    <table class="products" >
+    <table class="topOffers" >
         <tr >
             <?php
             if ($entity === 'Corporate') {
@@ -194,13 +193,14 @@ error_reporting(E_ALL ^ E_NOTICE);
                 $erp = $row['erp_price'];
                 $purchase_unit = $row['purchase_unit'];
                 $id = $row['id'];
+                $sku = $row['sku'];
 
                 if ($row['license_agreement_type'] == $entity) {
                     ?>
                     <th><?php echo $display_name ?></th>
                     <td><?php echo $erp ?></td>
                     <td><?php echo $purchase_unit ?><td>
-                    <td><a href="../controllers/add-to-cart.php?id=<?php echo $id ?>">Add to Cart</a></td>
+                    <td><a href="../controllers/add-to-cart.php?id=<?php echo $id?>">Add to Cart</a></td>
                 </tr>
                 <?php
             }
@@ -208,4 +208,5 @@ error_reporting(E_ALL ^ E_NOTICE);
         ?>
 
     </table>
+
 </div>

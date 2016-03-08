@@ -42,28 +42,6 @@ body{
     height: 40px;
     color: #fff;
 }
-/*####################################################*/
-/**Shopping Cart Products Page  ***/
-/*####################################################*/
-
-.products{
-    margin: 0 0 0 100px;
-}
-.products th, tr, td{
-    padding: 10px;
-    text-align: center;
-}
-.catalog{
-    margin: 10px 0 0 100px;
-    width: 90%;
-}
-.catalog tr, .catalog td{
-    border: 5px double #009DD9;
-}
-.catalog th, .catalog tr, .catalog td{
-   padding: 20px;
-   text-align: left;
-}
 
 /*####################################################*/
 /**Horizontal Nav Bar Fixed  ***/
@@ -157,10 +135,11 @@ body{
     transition: transform 0.4s ease;
 }
 #checkoutTable{
-    width: 90%;
+    width: 80%;
+     margin: 50px 0 0 100px;
 }
-#checkoutTable, #checkoutTable th, #checkoutTable td{
-    margin: 50px 0 0 100px;
+ #checkoutTable th, #checkoutTable td{
+   
     border: 3px double #009DD9;
     background-color: #ED8B22;
     color: #fff;
@@ -189,6 +168,15 @@ body{
     width: 90px;
     height: 30px;
     color: #fff;
+}
+.finalCheckoutBtn{
+     background-color: #65B1E4;
+    border-radius: 7px;
+    text-align: center;
+    width: 90px;
+    height: 30px;
+    color: #fff;
+   
 }
 /*####################################################*/
 /**Side Cart table  ***/
@@ -677,3 +665,28 @@ a.logohover{
 /*####################################################*/
 /**Products page  ***/
 /*####################################################*/
+.topOffers{
+    margin: 0 0 0 100px;
+}
+.topOffers td{
+    padding-right: 130px;
+     align: right;
+}
+.products{
+    margin: 0 0 0 100px;
+}
+.products th, tr, td{
+    padding: 10px;
+    text-align: center;
+}
+.catalog{
+    margin: 10px 0 0 100px;
+    width: 90%;
+}
+.catalog tr, .catalog td{
+    border: 5px double #009DD9;
+}
+.catalog th, .catalog tr, .catalog td{
+   padding: 20px;
+   text-align: left;
+}
