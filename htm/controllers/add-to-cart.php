@@ -9,7 +9,6 @@ Managed Solution
 require("config.php");
 session_start();
 
-$transactionId = 1;
 //getting the offer id which is the id of the item selected
 $offerID = $_GET['id'];
 //getting last transaction id
@@ -18,7 +17,13 @@ $sqlGetTran = "SELECT transaction_id FROM transactions ORDER BY transaction_id D
 $tranResult = $conn->query($sqlGetTran);
 
 if ($tranResult->num_rows > 0){
-    $transactionId = $row['transaction_id'];
+    while ($row = $tranResult->fetch_assoc()) {
+         $transactionId = $row['transaction_id'] + 2;
+    }
+   
+}
+else{
+    $transactionId = 1;
 }
 //setting query to get customer id for the user that has logged on
 $sql = "SELECT customer_id from user WHERE username='" . $_SESSION['username'] . "'";

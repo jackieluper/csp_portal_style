@@ -34,6 +34,10 @@ body{
 .billContent{
     margin: 100px 0 0 300px;
 }
+.transactionContent{
+     margin: 100px 0 0 300px;
+}    
+
 .ccBtn{
     margin: 0 0 0 115px;
     background-color: #65B1E4;
