@@ -22,7 +22,7 @@ else if(strtoupper($provision)=== 'N'){
 else{
     echo 'bad';
 }
-//updates changes made by Managed Solution admin
+//updates changes made by administrators
 $sql = "UPDATE customer set is_provised='".$provision."', discount='".$discount."' WHERE id='".$custID."'";
 $result = $conn->query($sql);
 
@@ -31,4 +31,6 @@ if ($conn->query($sql) === TRUE) {
         } else {
             echo "Error updating record: " . $conn->error;
         }
+//close DB connection
+$conn->close();
 ?>

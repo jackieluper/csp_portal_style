@@ -3,19 +3,16 @@ Author: Jason B. Smith
 Date: 2/17/16
 Managed Solution
 -->
-
-//TODO: FINALIZE ADJUSTMENT TO CART QTY UPDATES TOTAL
 <?php
 require("config.php");
 session_start();
 
 //getting the offer id which is the id of the item selected
 $offerID = $_GET['id'];
-//getting last transaction id
 
+//getting last transaction id
 $sqlGetTran = "SELECT transaction_id FROM transactions ORDER BY transaction_id DESC LIMIT 1";
 $tranResult = $conn->query($sqlGetTran);
-
 if ($tranResult->num_rows > 0){
     while ($row = $tranResult->fetch_assoc()) {
          $transactionId = $row['transaction_id'] + 2;
@@ -35,7 +32,7 @@ if ($result->num_rows > 0) {
         $custID = $row['customer_id'];
     }
 }
-
+//Grabbing the sku for the product selected
 $sqlId = "SELECT sku from offer WHERE id='" . $offerID . "'";
 $resultId = $conn->query($sqlId);
 if($resultId->num_rows > 0){
@@ -68,6 +65,7 @@ if ($result5->num_rows > 0) {
         $offerName = $row['display_name'];
     }
 }
+
 //query to add the selected item to the cart with corresponding customer info
 $sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, sku) 
 VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '1', '$transactionId', '$offerSku')" or die(mysql_error());
@@ -83,12 +81,12 @@ if ($result3->num_rows > 0) {
         }
     }
 }
-//else if just add to the cart
+//else just add to the cart and redirect back to product page
 else if ($conn->query($sql2) === TRUE) {
     header('Location: ../portal/products.phtml');
 } else {
     echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
-
+//close DB connection
 $conn->close();
 ?>

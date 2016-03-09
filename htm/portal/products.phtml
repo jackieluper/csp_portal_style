@@ -6,12 +6,13 @@ Managed Solution
 <?php
 session_start();
 require("../controllers/config.php");
-
+//Gets customer ID and sets it to variable and session variable
 $resultCust = $conn->query("select customer_id from user where username='" . $_SESSION['username'] . "'");
 while ($row = $resultCust->fetch_assoc()) {
     $custID = $row['customer_id'];
     $_SESSION['custId'] = $custID;
 }
+//Grabs the type of company Corporate/Government for rates and products to be displayed
 $resultEntity = $conn->query("select entity_type from customer where id='" . $custID . "'");
 while ($row = $resultEntity->fetch_assoc()) {
     $entity = $row['entity_type'];
@@ -33,7 +34,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
         <ul>
-            <li>Billing</li>
+            <li>Product Catalog</li>
         </ul>
     </div>
 </div>
@@ -43,9 +44,9 @@ error_reporting(E_ALL ^ E_NOTICE);
         <li><img class="icon" src="../img/icons/software.png" alt="Products" ><a href="products.phtml">Products</a><br></li>
         <li><img class='icon' src='../img/icons/invoice.jpg' alt='Invoice'><a href='invoice.phtml'>Invoice</a><br></li>
         <li><img class="icon" src="../img/icons/checkout.png" alt="Checkout" ><a href="checkout.phtml">Checkout</a><br></li>
-        <li><img class="icon" src="../img/icons/home.png" alt="Home" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
+        <li><img class="icon" src="../img/icons/home.png" alt="Home" ><a href="<?php echo $homePage ?>"><?php echo $companyName ?></a><br></li>
         <li><img class="icon" src="../img/icons/Admin.png" alt="Admin" ><a href="admin.phtml">Administration</a><br></li>
-        <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.htm">Contact us</a><br></li>
+        <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
         <li><img class="icon" src="../img/icons/logout.png" alt="Logout" ><a href="../controllers/logout.php">Logout</a><br></li>
     </ul>
 </nav>
@@ -62,6 +63,7 @@ error_reporting(E_ALL ^ E_NOTICE);
         </thead>
         <tbody>
             <?php
+            //Grabbing cart information to show in sidecart on products page
             $result = $conn->query("select items, item_name, msrp, qty from cart");
             error_reporting(E_ALL ^ E_NOTICE);
 
@@ -101,10 +103,12 @@ error_reporting(E_ALL ^ E_NOTICE);
     <table class="topOffers" >
         <tr >
             <?php
+            //Sets our top offers for Corporate entities as per what we need to sell
             if ($entity === 'Corporate') {
                 $offer1 = '55';
                 $offer2 = '11';
                 $offer3 = '36';
+                //Grabbing the product information to display in top offers
                 $resultOffer1 = $conn->query("select offer.display_name, erp_price from offer, offer_price where offer.id='$offer1' and offer_id='$offer1'");
                 error_reporting(E_ALL ^ E_NOTICE);
                 while ($row = $resultOffer1->fetch_assoc()) {
@@ -137,10 +141,12 @@ error_reporting(E_ALL ^ E_NOTICE);
                     <strong>$<?php echo number_format($price3, 2) ?></strong>
                 </td>
                 <?php
+                //Setting Government top offers
             } else if ($entity === 'Government') {
                 $offer1 = '56';
                 $offer2 = '12';
                 $offer3 = '37';
+                //Getting product information for top offers
                 $resultOffer1 = $conn->query("select offer.display_name, erp_price from offer, offer_price where offer.id='$offer1' and offer_id='$offer1'");
                 error_reporting(E_ALL ^ E_NOTICE);
                 while ($row = $resultOffer1->fetch_assoc()) {
@@ -187,6 +193,7 @@ error_reporting(E_ALL ^ E_NOTICE);
     <table class="catalog" >
         <tr>
             <?php
+            //Using entity type getting the rest of products to display in catalog for customers
             $result1 = $conn->query("select offer.id, offer.display_name, offer.license_agreement_type, offer.purchase_unit, offer.sku, offer_price.erp_price from offer, offer_price where offer.id=offer_price.id");
             error_reporting(E_ALL ^ E_NOTICE);
             while ($row = $result1->fetch_assoc()) {
@@ -201,7 +208,7 @@ error_reporting(E_ALL ^ E_NOTICE);
                     <th><?php echo $display_name ?></th>
                     <td><?php echo $erp ?></td>
                     <td><?php echo $purchase_unit ?><td>
-                    <td><a href="../controllers/add-to-cart.php?id=<?php echo $id?>">Add to Cart</a></td>
+                    <td><a href="../controllers/add-to-cart.php?id=<?php echo $id ?>">Add to Cart</a></td>
                 </tr>
                 <?php
             }

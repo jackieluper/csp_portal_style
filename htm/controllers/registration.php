@@ -5,7 +5,6 @@ Managed Solution
 -->
 <?php
 
-
 ?>
 <head>
     <title>Success</title>

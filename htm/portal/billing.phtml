@@ -1,6 +1,11 @@
+<!--
+Author: Jason B. Smith
+Date: 2/29/16
+Managed Solution
+-->
 <?php
-require("../controllers/config.php");
 session_start();
+require("../controllers/config.php");
 
 // API Setup parameters
 $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
@@ -53,7 +58,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.phtml">Checkout</a><br></li>
         <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
         <li><img class="icon" src="../img/icons/Admin.png" alt="Software" ><a href="/admin.phtml">Administration</a><br></li>
-        <li><img class="icon" src="../img/icons/contact.jpg" alt="Software" ><a href="contactUs.htm">Contact us</a><br></li>
+        <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
         <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
     </ul>
 </nav>
@@ -215,7 +220,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.phtml">Checkout</a><br></li>
             <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
             <li><img class="icon" src="../img/icons/Admin.png" alt="Software" ><a href="admin.phtml">Administration</a><br></li>
-            <li><img class="icon" src="../img/icons/contact.jpg" alt="Software" ><a href="contactUs.htm">Contact us</a><br></li>
+            <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
             <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
         </ul>
      </nav>
@@ -285,7 +290,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.phtml">Checkout</a><br></li>
             <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
             <li><img class="icon" src="../img/icons/Admin.png" alt="Software" ><a href="admin.phtml">Administration</a><br></li>
-            <li><img class="icon" src="../img/icons/contact.jpg" alt="Software" ><a href="contactUs.htm">Contact us</a><br></li>
+            <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
             <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
         </ul>
      </nav>
@@ -315,7 +320,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
                           VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
             $resultInvoice = $conn->query($sqlInvoice);
-                        
+
             print '
                             <div><strong>Item Number: ' . $itemNum . '</strong></div>
                             <div>--------------</div>
@@ -326,14 +331,14 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
                             <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
         }
         if ($conn->query($sqlInvoice) === TRUE) {
-                echo "New records created successfully";
-                $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
-                if($conn->query($sqlDelete) === TRUE){
-                    echo "Deleted successfully";
-                }
-            } else {
-                echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
+            echo "New records created successfully";
+            $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
+            if ($conn->query($sqlDelete) === TRUE) {
+                echo "Deleted successfully";
             }
+        } else {
+            echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
+        }
         print '
                             <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
                             <div><strong>Total Savings: $' . $totalSavings . '</strong></div>
@@ -357,7 +362,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             }
         </script>
         <?php
-
     } elseif ((string) $gwResponse->result == 2) {
         print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
         print " Decline Description : " . (string) $gwResponse->{'result-text'} . " </p>";
