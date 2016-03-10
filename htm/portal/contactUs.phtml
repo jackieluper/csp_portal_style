@@ -6,6 +6,8 @@ Managed Solution
 <?php
 session_start();
 require("../controllers/config.php");
+
+$role = $_SESSION['role'];
 ?>
 <head>
     <title>Contact Us</title>
@@ -32,7 +34,12 @@ require("../controllers/config.php");
         <li><img class="icon" src="../img/icons/invoice.jpg" alt="Invoice"><a href="invoice.phtml">Invoice</a><br></li>
         <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.phtml">Checkout</a><br></li>
         <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="<?php echo $homePage ?>"><?php echo $companyName ?></a><br></li>
-        <li><img class="icon" src="../img/icons/Admin.png" alt="Software" ><a href="admin.phtml">Administration</a><br></li>
+        <?php
+            if ($role === 30) {
+                print'
+        <li><img class="icon" src="../img/icons/Admin.png" alt="Admin" ><a href="admin.phtml">Administration</a><br></li>';
+            }
+            ?>
         <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
         <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
     </ul>
