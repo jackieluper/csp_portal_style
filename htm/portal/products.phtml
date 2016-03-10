@@ -6,6 +6,7 @@ Managed Solution
 <?php
 session_start();
 require("../controllers/config.php");
+
 //Gets customer ID and sets it to variable and session variable
 $resultCust = $conn->query("select customer_id from user where username='" . $_SESSION['username'] . "'");
 while ($row = $resultCust->fetch_assoc()) {
@@ -45,7 +46,7 @@ error_reporting(E_ALL ^ E_NOTICE);
         <li><img class='icon' src='../img/icons/invoice.jpg' alt='Invoice'><a href='invoice.phtml'>Invoice</a><br></li>
         <li><img class="icon" src="../img/icons/checkout.png" alt="Checkout" ><a href="checkout.phtml">Checkout</a><br></li>
         <li><img class="icon" src="../img/icons/home.png" alt="Home" ><a href="<?php echo $homePage ?>"><?php echo $companyName ?></a><br></li>
-           <?php if($_SESSION['role'] === 30){ print'
+           <?php   if($_SESSION['role'] == 30){ print'
         <li><img class="icon" src="../img/icons/Admin.png" alt="Admin" ><a href="admin.phtml">Administration</a><br></li>';
         } ?>
         <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
@@ -65,6 +66,7 @@ error_reporting(E_ALL ^ E_NOTICE);
         </thead>
         <tbody>
             <?php
+            
             //Grabbing cart information to show in sidecart on products page
             $result = $conn->query("select items, item_name, msrp, qty from cart");
             error_reporting(E_ALL ^ E_NOTICE);
@@ -99,7 +101,8 @@ error_reporting(E_ALL ^ E_NOTICE);
 <div class="content">
     <div class="page-header">
         <h2>TOP OFFERS <small>Welcome 
-                <?php echo $_SESSION['username']; ?>
+                <?php echo $_SESSION['username']; 
+                    echo $_SESSION['role'];?>
             </small></h2>
     </div>
     <table class="topOffers" >
