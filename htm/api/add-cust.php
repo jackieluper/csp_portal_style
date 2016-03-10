@@ -14,6 +14,7 @@ $guid = getGUID();
 $guidCor = getGUID();
 
 createCust($saToken, $resellerId, $guid, $guidCor);
+
 //Function creating new GUIDS
 function getGUID() {
 
@@ -56,6 +57,7 @@ function createCust($saToken, $resellerId, $guid, $guidCor) {
         $header[] = "Authorization: Bearer $saToken";
         $header[] = "x-ms-correlation-id $guidCor";
         $header[] = "x-ms-tracking-id: $guid";
+        
         //Setting up customer profile to be posted to Microsoft 
         $paramArr = array(
             "domain_prefix" => $domainName,

@@ -57,7 +57,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <li><img class="icon" src="../img/icons/invoice.jpg" alt="Invoice"><a href="invoice.phtml">Invoice</a><br></li>
         <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.phtml">Checkout</a><br></li>
         <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
-        <li><img class="icon" src="../img/icons/Admin.png" alt="Software" ><a href="/admin.phtml">Administration</a><br></li>
         <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
         <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
     </ul>
@@ -136,7 +135,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'phone', $_POST['billing-address-phone']);
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'company', $_POST['billing-address-company']);
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'address2', $_POST['billing-address-address2']);
-    appendXmlNode($xmlRequest, $xmlBillingAddress, 'fax', $_POST['billing-address-fax']);
     $xmlSale->appendChild($xmlBillingAddress);
 
     //Get cart items and add to reciept
@@ -219,7 +217,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             <li><img class="icon" src="../img/icons/invoice.jpg" alt="Invoice"><a href="invoice.phtml">Invoice</a><br></li>
             <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.phtml">Checkout</a><br></li>
             <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
-            <li><img class="icon" src="../img/icons/Admin.png" alt="Software" ><a href="admin.phtml">Administration</a><br></li>
             <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
             <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
         </ul>
@@ -230,10 +227,10 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
              <form action="' . $formURL . '" method="POST">
              <h3> Payment Information</h3>
                  <table>
-                     <tr><td>Credit Card Number</td><td><INPUT type ="text" name="billing-cc-number" value="4111111111111111" placeholder="required" required> </td></tr>
-                     <tr><td>Expiration Date</td><td><INPUT type ="text" name="billing-cc-exp" value="1012" placeholder="required" required> </td></tr>
+                     <tr><td>Credit Card Number</td><td><input type ="text" name="billing-cc-number" value="4111111111111111" placeholder="required" required> </td></tr>
+                     <tr><td>Expiration Date</td><td><input type ="text" name="billing-cc-exp" value="1012" placeholder="required" required> </td></tr>
                      <tr><td>CVV</td><td><INPUT type ="text" name="cvv" placeholder="required" required> </td></tr>
-                     <tr><Td colspan="2" align=center><INPUT type ="submit" value="Submit Step Two"></td> </tr>
+                     <tr><td colspan="2" align=center><input  class="ccBtn" type ="submit" value="Submit Step Two"></td> </tr>
                  </table>
              </form>
              </body>
@@ -289,7 +286,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             <li><img class="icon" src="../img/icons/invoice.jpg" alt="Invoice"><a href="invoice.phtml">Invoice</a><br></li>
             <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.phtml">Checkout</a><br></li>
             <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
-            <li><img class="icon" src="../img/icons/Admin.png" alt="Software" ><a href="admin.phtml">Administration</a><br></li>
             <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
             <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
         </ul>

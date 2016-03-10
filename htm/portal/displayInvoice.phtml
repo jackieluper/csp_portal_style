@@ -44,10 +44,10 @@ $invoiceId = $_POST['invoiceId'];
         print '<div class="invoiceContent">
         <div id="print-content">';
         ?>
-        <div ><img class='invoiceLogo' style="margin: 0 50% 0 50%;" src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?> ></div>
+        <div ><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?> ></div>
         <?php
         print '
-        <div style="margin: 0 0% 0 53%;"><strong>Order ID: ' . $invoiceId . '</strong></div><br>';
+        <div style="font-size: 24px;"><strong>Order ID: ' . $invoiceId . '</strong></div><br>';
         while ($row = $result->fetch_assoc()) {
             $subscriptionId = $row['sku'];
             $itemNum = $row['item_num'];
@@ -60,7 +60,7 @@ $invoiceId = $_POST['invoiceId'];
             $totalSavings = $row['total_savings'];
             print '
 
-        <div><strong>Item Number: ' . $itemNum . '</strong></div>
+        <div style="font-size: 20px; "><strong>Item Number: ' . $itemNum . '</strong></div>
         <div> --------------</div>
         <div><strong>Product Name: </strong>' . $name . '</div>
         <div><strong>Subscription ID: </strong>' . $subscriptionId . '</div>
@@ -70,8 +70,8 @@ $invoiceId = $_POST['invoiceId'];
         }
         print '
             <div><strong>Discount Rate: </strong>' . $discountRate . '%<div>
-            <div><strong>Total Savings: </strong>$' . $totalSavings . '<div>
-            <div><strong>Sale Total: </strong>$' . $total . '<div>    
+            <div><strong>Total Savings: </strong>$' . number_format($totalSavings, 2) . '<div>
+            <div><strong>Sale Total: </strong>$' . number_format($total, 2) . '<div>    
 ';
         ?>
     </div>
