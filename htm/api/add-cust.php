@@ -48,6 +48,7 @@ function createCust($saToken, $resellerId, $guid, $guidCor) {
         $delegation = $_SESSION['delegation'] = $_POST['delegation'];
         $email = $_SESSION['email'] = $_POST['email'];
         $phone = $_SESSION['phone'] = $_POST['phoneNum'];
+        
         //Setting header for creating new cust as per API
         $header[] = "Accept: application/json";
         $header[] = "api-version: 2015-03-31";

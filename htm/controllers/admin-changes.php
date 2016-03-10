@@ -13,24 +13,22 @@ $provision = $_POST['provision'];
 //discount= how much we are discounting this client off msrp
 $discount = $_POST['discount'];
 //Y,y,N,n only acceptable forms and translates 1 as provisioned 0 is not provisioned
-if(strtoupper($provision)=== 'Y'){
+if (strtoupper($provision) === 'Y') {
     $provision = '1';
-}
-else if(strtoupper($provision)=== 'N'){
+} else if (strtoupper($provision) === 'N') {
     $provision = '0';
-}
-else{
+} else {
     echo 'bad';
 }
 //updates changes made by administrators
-$sql = "UPDATE customer set is_provised='".$provision."', discount='".$discount."' WHERE id='".$custID."'";
+$sql = "UPDATE customer set is_provised='" . $provision . "', discount='" . $discount . "' WHERE id='" . $custID . "'";
 $result = $conn->query($sql);
 
 if ($conn->query($sql) === TRUE) {
-             header('Location: ../portal/admin.phtml');
-        } else {
-            echo "Error updating record: " . $conn->error;
-        }
+    header('Location: ../portal/admin.phtml');
+} else {
+    echo "Error updating record: " . $conn->error;
+}
 //close DB connection
 $conn->close();
 ?>

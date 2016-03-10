@@ -33,31 +33,35 @@ require("../controllers/config.php");
         </ul>
     </nav>
     <div class="content">
-        <div class="page-header">
+        <div class="page-header">            
             <h2>Invoice's</h2>
-            <?php
-            $result = $conn->query("SELECT total, transaction_id FROM transactions where customer_id='" . $_SESSION['custId'] . "' GROUP BY transaction_id");
-            error_reporting(E_ALL ^ E_NOTICE);
-            while ($row = $result->fetch_assoc()) {
-                $tranTotal = $row['total'];
-                $tranId = $row['transaction_id'];
-                ?>
-                <form method="post" action="../controllers/admin-changes.php">
-                    <table class="adminTable" id="adminTable">
-                        <tr class="ui-widget-header ">
-                            <th>Total Amount</th>
-                            <th>Transaction ID</th>
-                        </tr>
-                        <tr>
-
-                            <td >$<?php echo number_format($tranTotal, 2) ?></td>
-                            <td><?php echo $tranId ?></td>
-                            <td><button type="submit" name="custID" value=<?php echo $custID ?> class="applyChanges" id="submit">Apply Changes</button></td>                 
-                        </tr>
-                    </table>
-                </form>
-
-                <?php
-            }
+        </div>
+        <?php
+        $result = $conn->query("SELECT total, transaction_id FROM transactions where customer_id='" . $_SESSION['custId'] . "' GROUP BY transaction_id");
+        error_reporting(E_ALL ^ E_NOTICE);
+        while ($row = $result->fetch_assoc()) {
+            $tranTotal = $row['total'];
+            $tranId = $row['transaction_id'];
+            $subsc
             ?>
-        
+            <form method="post" action="displayInvoice.phtml">
+                <table class="adminTable" id="adminTable">
+                    <tr class="ui-widget-header ">
+                        <th>Total Amount</th>
+                        <th>Transaction ID</th>
+                        <th>Display Invoice</th>
+                    </tr>
+                    <tr>
+
+                        <td >$<?php echo number_format($tranTotal, 2) ?></td>
+                        <td><?php echo $tranId ?></td>
+                        <td><button class="invoiceButton" type="submit" name="invoiceId" value=<?php echo $tranId ?> id="submit">Display Invoice</button></td>                 
+                    </tr>
+                    <?php
+                }
+                ?>
+            </table>
+        </form>
+    </div>
+
+
