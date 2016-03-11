@@ -3,7 +3,7 @@
     padding: 0;
 }
 a {
-    color: #777777;
+    color: #fff;
     text-decoration: none;
 }
 .link{
@@ -12,7 +12,7 @@ a {
 }
 .page-header{
     border-width: 1px;
-    border-bottom-color: #000000; 
+    border-bottom-color: #D7D7D7; 
     margin: 50px 0 20px 100px;
     width: 90%;
 }
@@ -56,7 +56,7 @@ body{
     top: 50px;
     bottom: 0;
     width: 200px;
-    background-color: #65B1E4;
+    background-color: #ED8B22;
     transform: translate3d(0, 0, 0);
     transition: transform 0.4s ease;
     font-size: 14px;
@@ -84,7 +84,7 @@ body{
     left: 200px;
     width: 60px;
     height: 30px;
-    background-color: orange;
+    background-color: #ED8B22;
     color: #fff;
     text-align: center;
 }
@@ -116,7 +116,7 @@ body{
 }
 #adminTable, #adminTable th, #adminTable td{
     margin: 0 0 0 100;
-    border: 3px double #009DD9;
+    border: 3px double #D7D7D7;
     background-color: #ED8B22;
     color: #fff;
 }
@@ -124,7 +124,8 @@ body{
     width: 15%;
 }
 #adminTable input{
-    color: #000000;
+    background-color: #ED8B22;
+    color: #fff;
     text-align: right;
 }
 .applyChanges{
@@ -151,12 +152,12 @@ body{
 }
 #checkoutTable th, #checkoutTable td{
 
-    border: 3px double #009DD9;
+    border: 3px double #D7D7D7;
     background-color: #ED8B22;
     color: #fff;
 }
-#checkoutTable td.total{
-    background-color: #65B1E4;
+#checkoutTable total{
+    background-color: #ED8B22;
     color: #fff;
     text-align: right;
 }
@@ -165,9 +166,9 @@ body{
 }
 .removeCart{
     border-radius: 17px;
-    background-color: #65B1E4;
+    background-color: #ED8B22;
     text-align: center;
-    color: red;
+    color: #fff;
     padding: 5px 10px;
     font-size: 15px;
     font-weight: bold;
@@ -194,21 +195,21 @@ body{
 /*####################################################*/
 .cartTable, .cartTable th, .cartTable td{
     width: 100%;
-    border: 3px double #009DD9;
+    border: 3px double #D7D7D7;
     background-color: #ED8B22;
     color: #fff;
 }
 .cartTable input{
     width: 50px;
     color: #fff;
-    background-color: #65B1E4;
+    background-color: #ED8B22;
     text-align: right;
 }
 .removeCart{
     border-radius: 17px;
-    background-color: #65B1E4;
+    background-color: #ED8B22;
     text-align: center;
-    color: red;
+    color: #fff;
     padding: 5px 10px;
     font-size: 15px;
     font-weight: bold;
@@ -224,7 +225,7 @@ body{
     bottom: 0;
     width: 325px;
     height: 0;
-    background-color: #65B1E4;
+    background-color: #ED8B22;
     transform: translate3d(0, 0, 0);
     transition: transform 0.4s ease;
 }
@@ -251,7 +252,7 @@ body{
     right: 325px;
     width: 60px;
     height: 30px;
-    background-color: orange;
+    background-color: #ED8B22;
     color: #fff;
     text-align: center;
 }
@@ -278,7 +279,7 @@ body{
     top: 0;
     margin: 0 0 0 0;
     width: 100%;
-    background-color: #009DD9;
+    background-color: #ED8B22;
     height: 50px
 }
 #horizontalNavWrapper{
@@ -311,8 +312,8 @@ th{
     width: 80%;
     height: 100px;
     margin: 50px 0 0 200px;
-    border: #65B1E4;
-    border-style: solid;
+    border: #D7D7D7;
+    border-style: double;
     text-align: center;
 }
 
@@ -334,7 +335,7 @@ th{
 /***Form for Registration Page  ***/
 /*####################################################*/
 .microsoftLink{
-    color: #65B1E4;
+    color: #ED8B22;
 }
 .micExt{
     margin: 0 0 0 -70px;
@@ -458,7 +459,7 @@ tr{
 }
 
 .carousel{
-    background-color: #65B1E4;
+    background-color: #ED8B22;
     float: left;
     margin: 250px 0 0 0;
     width: 50%;
@@ -485,7 +486,7 @@ tr{
     padding: 84px 14px 39px 14px;
     z-index: 6;
     position: absolute;
-    background: #65B1E4;
+    background: #ED8B22;
     color: #fff!important;
     width: 100%;
     -webkit-box-sizing: border-box;
@@ -716,7 +717,7 @@ a.logohover{
     width: 90%;
 }
 .catalog tr, .catalog td{
-    border: 5px double #009DD9;
+    border: 5px double #D7D7D7;
 }
 .catalog th, .catalog tr, .catalog td{
     padding: 20px;
