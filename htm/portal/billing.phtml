@@ -39,7 +39,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
         <script src="../../js/ms-style-menu.js"></script>
         <script src="../../js/ms-style-cart.js"></script>
-        <script src="../../js/main.js"></script>
+        <script src="../../js/cc-validation.js"></script>
+        <script src="../../js/main.js"></script>        
         <title>Billing Information</title>
       </head>
       <body>
@@ -69,17 +70,17 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 
         <form action="" method="post">
           <table>
-          <tr><td>Company *</td><td><input type="text" name="billing-address-company" value="" placeholder="required" required></td></tr>
-          <tr><td>First Name *</td><td><input type="text" name="billing-address-first-name" placeholder="required" value="" required></td></tr>
-          <tr><td>Last Name *</td><td><input type="text" name="billing-address-last-name" placeholder="required" value="" required></td></tr>
+          <tr><td>Company *</td><td><input type="text"  name="billing-address-company" value="" placeholder="required" required></td></tr>
+          <tr><td>First Name *</td><td><input type="text" id="billing-address-first-name" name="billing-address-first-name" placeholder="required" value="" onkeyup="validateFname()" required></td></tr>
+          <tr><td>Last Name *</td><td><input type="text" id="billing-address-last-name" name="billing-address-last-name" placeholder="required" value="" onkeyup="validateLname()" required></td></tr>
           <tr><td>Address *</td><td><input type="text" name="billing-address-address1" placeholder="required" value="" required></td></tr>
           <tr><td>Address 2 </td><td><input type="text" name="billing-address-address2" value=""></td></tr>
           <tr><td>City *</td><td><input type="text" name="billing-address-city" placeholder="required" value="" required></td></tr>
           <tr><td>State/Province *</td><td><input type="text" name="billing-address-state" placeholder="required" value="" required></td></tr>
           <tr><td>Zip/Postal *</td><td><input type="text" name="billing-address-zip" placeholder="required" value="" required></td></tr>
           <tr><td>Country *</td><td><input type="text" name="billing-address-country" placeholder="required" value="US" required></td></tr>
-          <tr><td>Phone Number *</td><td><input type="text" name="billing-address-phone" placeholder="required" value="" required></td></tr>
-          <tr><td>Email Address *</td><td><input type="text" name="billing-address-email" placeholder="required" value="" required></td></tr>
+          <tr><td>Phone Number *</td><td><input type="text" id="billing-address-phone" name="billing-address-phone" placeholder="required" value="" onkeyup="validatePhone()" required></td></tr>
+          <tr><td>Email Address *</td><td><input type="text" id="billing-address-email" name="billing-address-email" placeholder="required" value="" onkeyup="validateEmail()" required></td></tr>
           
           <tr><td colspan="2" align=center><input class="ccBtn" type="submit" value="Submit Step One"><input type="hidden" name ="DO_STEP_1" value="true"></td></tr>
           </table>
@@ -227,8 +228,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
              <form action="' . $formURL . '" method="POST">
              <h3> Payment Information</h3>
                  <table>
-                     <tr><td>Credit Card Number</td><td><input type ="text" name="billing-cc-number" value="4111111111111111" placeholder="required" required> </td></tr>
-                     <tr><td>Expiration Date</td><td><input type ="text" name="billing-cc-exp" value="1012" placeholder="required" required> </td></tr>
+                     <tr><td>Credit Card Number</td><td><input type ="text" id="billing-cc-number" name="billing-cc-number" value="4111111111111111" onkeyup="validateCardNumber()" placeholder="required" required> </td></tr>
+                     <tr><td>Expiration Date</td><td><input type ="text" id="billing-cc-exp" name="billing-cc-exp" value="1012" placeholder="required" onkeyup="validateCardDate()" required> </td></tr>
                      <tr><td>CVV</td><td><INPUT type ="text" name="cvv" placeholder="required" required> </td></tr>
                      <tr><td colspan="2" align=center><input  class="ccBtn" type ="submit" value="Submit Step Two"></td> </tr>
                  </table>
