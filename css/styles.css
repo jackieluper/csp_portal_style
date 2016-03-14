@@ -431,6 +431,9 @@ tr{
 /*####################################################*/
 /*** Promo Carousel Login Page ***/
 /*####################################################*/
+.promoImg{
+    height: 100%;
+}
 .item > #imgOverlay{
     color: #ffffff;
     font-weight: bold;
