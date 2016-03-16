@@ -4,6 +4,23 @@ Date: 2/09/16
 Managed Solution
 -->
 
+<?php
+if (!empty($_GET['code'])) {
+    require_once '../api/client/_init.php';
+
+    $adAuth = new AdAuth();
+    $adAuth->requestAdTokenForAuthCode($_GET['code']);
+
+    // FIXME --- remove this debugging code
+    var_dump($adAuth->getIdToken());
+    die();
+    // FIXME --- end of remove this debugging code
+
+    $customer = new Customer();
+    $customer->loadCustomerFromIdToken($adAuth->getIdToken());
+}
+?>
+
 <head>
     <title>Sign-in</title>
     <meta charset="utf-8">

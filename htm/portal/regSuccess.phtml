@@ -33,11 +33,24 @@ Managed Solution
         </div>
         <div class="fullwidthtitle">
             <h1 class="content-title" id="contentTxt">Successfully Registered</h1>
-        </div>    
+        </div>
 </div>
 <div class="container">
     <div class="page-header">
         <h2>Success! <br><small>You have successfully registered and authorized Managed Solution to be your cloud service provider.</small></h2>
     </div>
-        <a class="link" href="login_page.htm"><strong>Click here to login.</strong></a>
+    <p>
+        As your premiere Microsoft business partner, we deliver genuine Microsoft products and services.
+        In order to electronically deliver your purchases, we must associate them with your Microsoft Account.
+        To continue, please select an option for granting us delivery access to your Microsoft account:
+    </p>
+    <p>
+    <?php require_once '../api/client/_init.php'; ?>
+    <div class="btn-group" role="group">
+        <a href="<?php echo (new AdAuth())->getAuthUrl(); ?>" class="btn btn-default btn-info">Use an Existing Microsoft Account *</a>
+        <a href="login_page.phtml" class="btn btn-default">Create a New Microsoft Account</a>
+    </div>
+    </p>
+    <p>* Recommended</p>
+<!--    <a class="link" href="login_page.htm"><strong>Click here to login.</strong></a>-->
 </div>
