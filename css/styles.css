@@ -397,6 +397,14 @@ tr{
 /*####################################################*/
 /*** Form login page  ***/
 /*####################################################*/
+.login{
+   padding-top: 400px;
+   text-align: center;
+   
+}
+.login-text{
+    font-size: 26px;
+}
 .form-inline{
     align-items: center;
 }
@@ -409,7 +417,6 @@ tr{
 .loginBtn{
     width: 100px;
     height: 30px;
-    margin: 0 0 20px 125px;
     background-color: #65B1E4;
     border-radius: 5px;
     color: #fff;
