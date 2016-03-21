@@ -25,7 +25,7 @@ $sql = "UPDATE customer set is_provised='" . $provision . "', discount='" . $dis
 $result = $conn->query($sql);
 
 if ($conn->query($sql) === TRUE) {
-    header('Location: ../portal/admin.phtml');
+    header('Location: ../portal/admin.php');
 } else {
     echo "Error updating record: " . $conn->error;
 }

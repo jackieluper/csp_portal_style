@@ -145,7 +145,7 @@ function getResellerId($saToken, $guid, $guidCor) {
 }
 //If reseller id is succesfully retrieved it redirects to login page
 if (isset($resellerId)) {
-   header('Location: ../portal/login_page.phtml');
+   header('Location: ../portal/login_page.php');
 }
 //Errors if unable to get reseller id
 else{

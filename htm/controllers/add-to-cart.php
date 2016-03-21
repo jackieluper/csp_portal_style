@@ -9,21 +9,19 @@ session_start();
 
 //getting the offer id which is the id of the item selected
 $offerID = $_GET['id'];
-
+echo 'offerid ' . $offerID;
 //getting last transaction id
 $sqlGetTran = "SELECT transaction_id FROM transactions ORDER BY transaction_id DESC LIMIT 1";
 $tranResult = $conn->query($sqlGetTran);
-if ($tranResult->num_rows > 0){
+if ($tranResult->num_rows > 0) {
     while ($row = $tranResult->fetch_assoc()) {
-         $transactionId = $row['transaction_id'] + 2;
+        $transactionId = $row['transaction_id'] + 2;
     }
-   
-}
-else{
+} else {
     $transactionId = 1;
 }
 //setting query to get customer id for the user that has logged on
-$sql = "SELECT customer_id from user WHERE username='" . $_SESSION['username'] . "'";
+$sql = "SELECT customer_id from user WHERE username='" . $_SESSION['user'] . "'";
 $result = $conn->query($sql);
 
 //grabbing the customer id if exists and storing it to php variable
@@ -35,8 +33,8 @@ if ($result->num_rows > 0) {
 //Grabbing the sku for the product selected
 $sqlId = "SELECT sku, offer_uri from offer WHERE id='" . $offerID . "'";
 $resultId = $conn->query($sqlId);
-if($resultId->num_rows > 0){
-    while($row = $resultId->fetch_assoc()){
+if ($resultId->num_rows > 0) {
+    while ($row = $resultId->fetch_assoc()) {
         $offerSku = $row['sku'];
         $offerUri = $row['offer_uri'];
     }
@@ -59,7 +57,6 @@ $result3 = $conn->query($sql3);
 //setting query to get the display name from offers
 $sql5 = "SELECT display_name from offer where id='" . $offerID . "'";
 $result5 = $conn->query($sql5);
-
 //grabbing the display name from offers
 if ($result5->num_rows > 0) {
     while ($row = $result5->fetch_assoc()) {
@@ -76,7 +73,7 @@ if ($result3->num_rows > 0) {
         $qty = $row['qty'] + 1;
         $sql4 = "UPDATE cart SET qty='" . $qty . "' where items='" . $offerID . "'";
         if ($conn->query($sql4) === TRUE) {
-            header('Location: ../portal/products.phtml');
+            header('Location: ../portal/products.php');
         } else {
             echo "Error updating record: " . $conn->error;
         }
@@ -84,7 +81,7 @@ if ($result3->num_rows > 0) {
 }
 //else just add to the cart and redirect back to product page
 else if ($conn->query($sql2) === TRUE) {
-    header('Location: ../portal/products.phtml');
+    header('Location: ../portal/products.php');
 } else {
     echo "Error: " . $sql2 . "<br>" . $conn->error;
 }

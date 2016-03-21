@@ -4,8 +4,10 @@ Date: 2/29/16
 Managed Solution
 -->
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 require("../controllers/config.php");
+include '../controllers/cart.db.php';
 
 // API Setup parameters
 $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
@@ -54,11 +56,11 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 <nav class="menu">
     <a href="#" class="nav-toggle-btn">Menu</a>
     <ul>
-        <li><img class="icon" src="../img/icons/software.png" alt="Software" ><a href="products.phtml">Products</a><br></li>
-        <li><img class="icon" src="../img/icons/invoice.jpg" alt="Invoice"><a href="invoice.phtml">Invoice</a><br></li>
-        <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.phtml">Checkout</a><br></li>
+        <li><img class="icon" src="../img/icons/software.png" alt="Software" ><a href="products.php">Products</a><br></li>
+        <li><img class="icon" src="../img/icons/invoice.jpg" alt="Invoice"><a href="invoice.php">Invoice</a><br></li>
+        <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.php">Checkout</a><br></li>
         <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
-        <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
+        <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.php">Contact us</a><br></li>
         <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
     </ul>
 </nav>
@@ -101,7 +103,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     // Amount, authentication, and Redirect-URL are typically the bare minimum.
     appendXmlNode($xmlRequest, $xmlSale, 'api-key', $APIKey);
     appendXmlNode($xmlRequest, $xmlSale, 'redirect-url', $_SERVER['HTTP_REFERER']);
-    appendXmlNode($xmlRequest, $xmlSale, 'amount', $_SESSION['total']);
+    appendXmlNode($xmlRequest, $xmlSale, 'amount', number_format($cart->total, 2));
     appendXmlNode($xmlRequest, $xmlSale, 'ip-address', $_SERVER["REMOTE_ADDR"]);
     //appendXmlNode($xmlRequest, $xmlSale, 'processor-id' , 'processor-a');
     appendXmlNode($xmlRequest, $xmlSale, 'currency', 'USD');
@@ -151,12 +153,12 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             appendXmlNode($xmlRequest, $xmlProduct, 'unit-of-measure', '1 MONTH');
             appendXmlNode($xmlRequest, $xmlProduct, 'unit-cost', $row['msrp']);
             appendXmlNode($xmlRequest, $xmlProduct, 'quantity', number_format($row['qty'], 2));
-            appendXmlNode($xmlRequest, $xmlProduct, 'total-amount', number_format($_SESSION['total']));
+            appendXmlNode($xmlRequest, $xmlProduct, 'total-amount', number_format($cart->total, 2));
             appendXmlNode($xmlRequest, $xmlProduct, 'tax-amount', 'N/A');
 
             appendXmlNode($xmlRequest, $xmlProduct, 'tax-rate', 'NONE');
-            appendXmlNode($xmlRequest, $xmlProduct, 'discount-amount', $_SESSION['discountNum']);
-            appendXmlNode($xmlRequest, $xmlProduct, 'discount-rate', number_format($_SESSION['discountPer'], 2));
+            appendXmlNode($xmlRequest, $xmlProduct, 'discount-amount', number_format($cart->discount, 2));
+            appendXmlNode($xmlRequest, $xmlProduct, 'discount-rate', number_format($cart->discountRate, 2));
             appendXmlNode($xmlRequest, $xmlProduct, 'tax-type', 'NONE');
             appendXmlNode($xmlRequest, $xmlProduct, 'alternate-tax-id', 'N/A');
 
@@ -214,11 +216,11 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
      <nav class="menu">
          <a href="#" class="nav-toggle-btn">Menu</a>
          <ul>
-            <li><img class="icon" src="../img/icons/software.png" alt="Software" ><a href="products.phtml">Products</a><br></li>
-            <li><img class="icon" src="../img/icons/invoice.jpg" alt="Invoice"><a href="invoice.phtml">Invoice</a><br></li>
-            <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.phtml">Checkout</a><br></li>
+            <li><img class="icon" src="../img/icons/software.png" alt="Software" ><a href="products.php">Products</a><br></li>
+            <li><img class="icon" src="../img/icons/invoice.jpg" alt="Invoice"><a href="invoice.php">Invoice</a><br></li>
+            <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.php">Checkout</a><br></li>
             <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
-            <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
+            <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.php">Contact us</a><br></li>
             <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
         </ul>
      </nav>
@@ -283,11 +285,11 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
      <nav class="menu">
          <a href="#" class="nav-toggle-btn">Menu</a>
          <ul>
-            <li><img class="icon" src="../img/icons/software.png" alt="Software" ><a href="products.phtml">Products</a><br></li>
-            <li><img class="icon" src="../img/icons/invoice.jpg" alt="Invoice"><a href="invoice.phtml">Invoice</a><br></li>
-            <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.phtml">Checkout</a><br></li>
+            <li><img class="icon" src="../img/icons/software.png" alt="Software" ><a href="products.php">Products</a><br></li>
+            <li><img class="icon" src="../img/icons/invoice.jpg" alt="Invoice"><a href="invoice.php">Invoice</a><br></li>
+            <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.php">Checkout</a><br></li>
             <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="http://www.managedsolution.com">Managed Solution</a><br></li>
-            <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
+            <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.php">Contact us</a><br></li>
             <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
         </ul>
      </nav>

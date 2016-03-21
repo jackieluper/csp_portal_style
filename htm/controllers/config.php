@@ -4,6 +4,20 @@ Date: 2/17/16
 Managed Solution
 -->
 <?php
+session_start();
+//top offers figured by entity type
+$entity = $_SESSION['entity'];
+//Set the id depending on entity type
+if ($entity === 'Corporate') {
+//SETS OFFER BASED ON OFFER ID
+    $hotOffers = array('55', '11', '36');
+} else if ($entity === 'Government') {
+    $hotOffers = array('56', '12', '37');
+}
+//Sets admin role so it is not visible;
+$adminRole = 30;
+//Sets user role for comparison
+$userRole = 10;
 //Company specific info for config
 //client id is our app id TODO: NEEDS TO BE CHANGED TO OUR APP ID ON CSP API WHEN WE GO LIVE
 $clientID = "c9d95c0e-8d97-4bba-b3a1-05bad83f7300";
@@ -20,7 +34,6 @@ $companyName = "Managed Solution";
 $companyLogo = "http://www.managedsolution.com";
 //Setting up homepage for vertical menu
 $homePage = "http://www.managedsolution.com";
-
 //DB configs
 //where your hosting
 $servername = "127.0.0.1";

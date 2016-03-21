@@ -4,6 +4,7 @@ Date: 2/09/16
 Managed Solution
 -->
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 require("../controllers/config.php");
 
@@ -30,18 +31,19 @@ $role = $_SESSION['role'];
 <nav class="menu">
     <a href="#" class="nav-toggle-btn">Menu</a>
     <ul>
-        <li><img class="icon" src="../img/icons/software.png" alt="Software" ><a href="products.phtml">Products</a><br></li>
-        <li><img class="icon" src="../img/icons/invoice.jpg" alt="Invoice"><a href="invoice.phtml">Invoice</a><br></li>
-        <li><img class="icon" src="../img/icons/checkout.png" alt="Software" ><a href="checkout.phtml">Checkout</a><br></li>
-        <li><img class="icon" src="../img/icons/home.png" alt="Software" ><a href="<?php echo $homePage ?>"><?php echo $companyName ?></a><br></li>
-        <?php
-            if ($role == 30) {
-                print'
-        <li><img class="icon" src="../img/icons/Admin.png" alt="Admin" ><a href="admin.phtml">Administration</a><br></li>';
+        <?php if ($_SESSION['role'] >= $userRole) { ?>
+            <li><img class='icon' src='../img/icons/software.png' alt='Products' ><a href='products.php'>Products</a><br></li>
+            <li><img class='icon' src='../img/icons/invoice.jpg' alt='Invoice'><a href='invoice.php'>Invoice</a><br></li>
+            <li><img class='icon' src='../img/icons/checkout.png' alt='Checkout' ><a href='checkout.php'>Checkout</a><br></li>
+            <li><img class='icon' src='../img/icons/home.png' alt='Home' ><a href='<?php echo $homePage ?>'><?php echo $companyName ?></a><br></li>
+            <?php if ($_SESSION['role'] == $adminRole) { ?>
+                <li><img class='icon' src='../img/icons/Admin.png' alt='Admin' ><a href='admin.php'>Administration</a><br></li>
+                <?php
             }
-            ?>
-        <li><img class="icon" src="../img/icons/contact.jpg" alt="Contact" ><a href="contactUs.phtml">Contact us</a><br></li>
-        <li><img class="icon" src="../img/icons/logout.png" alt="Software" ><a href="../controllers/logout.php">Logout</a><br></li>
+        }
+        ?>
+        <li><img class='icon' src='../img/icons/contact.jpg' alt='Contact' ><a href='contactUs.php'>Contact us</a><br></li>
+        <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
 <div class="contactContent"> 

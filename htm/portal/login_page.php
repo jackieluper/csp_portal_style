@@ -4,6 +4,7 @@ Date: 2/09/16
 Managed Solution
 -->
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 if (!empty($_GET['code'])) {
     require_once '../api/client/_init.php';
@@ -98,11 +99,22 @@ if (!empty($_GET['code'])) {
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <form class="form-inline" id="loginForm" action="../controllers/validateUser.php" method="post">
+        <div class="form-group" >
+            <label class="lbl">UserName</label>
+            <input class="form-control" type="text" name="userId" id="userId" placeholder="required" required><br>
+            <label class="lbl">Password</label>
+            <input class="form-control" type="password" name="password" placeholder="required" required><br>             
+            <input class="loginBtn" type="Submit" name="loginBtn" value="Sign-in" ><br>
+            <a class="link" id="regLink" href="registration.php">Have not registered yet? Click Here!</a>
+        </div>
+    </form>  
     <div class="login">
+
         <div class="login-text">Login with your Microsoft Work Account!<br>
-            Click the Login button</div><br>         
-        <div><a href=""><input class="loginBtn" type="Submit" name="loginBtn" value="Login" ></a></div><br>
-        <a class="link" id="regLink" href="registration.phtml">Have not registered yet? Click Here!</a>
+            Click the Microsoft button below</div><br>         
+        <div><a href=""><input class="loginBtn" type="image" name="login-image" src="../img/log-in_page/microsoft_logo.png" ></a></div><br>
+        <a class="link" id="regLink" href="registration.php">Have not registered yet? Click Here!</a>
     </div>
 </div>
 

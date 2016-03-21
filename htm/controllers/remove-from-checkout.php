@@ -14,7 +14,7 @@ $item = $_GET['id'];
 $sql = "DELETE FROM cart WHERE items='" . $item . "'";
 //if success or else error
 if ($conn->query($sql) === TRUE) {
-    header('Location: ../portal/checkout.phtml');
+    header('Location: ../portal/checkout.php');
 } else {
     echo "Error deleting record: " . $conn->error;
 }

@@ -56,7 +56,7 @@ body{
     top: 50px;
     bottom: 0;
     width: 200px;
-    background-color: #ED8B22;
+    background-color: #65B1E4;
     transform: translate3d(0, 0, 0);
     transition: transform 0.4s ease;
     font-size: 14px;
@@ -157,7 +157,7 @@ body{
     color: #fff;
 }
 #checkoutTable total{
-    background-color: #ED8B22;
+    background-color: #65B1E4;
     color: #fff;
     text-align: right;
 }
@@ -196,7 +196,7 @@ body{
 .cartTable, .cartTable th, .cartTable td{
     width: 100%;
     border: 3px double #D7D7D7;
-    background-color: #ED8B22;
+    background-color: #65B1E4;
     color: #fff;
 }
 .cartTable input{
@@ -279,7 +279,7 @@ body{
     top: 0;
     margin: 0 0 0 0;
     width: 100%;
-    background-color: #ED8B22;
+    background-color: #258ed9;
     height: 50px
 }
 #horizontalNavWrapper{
@@ -414,11 +414,7 @@ tr{
     margin-bottom: 40px;
 }
 
-.loginBtn{
-    width: 100px;
-    height: 30px;
-    background-color: #65B1E4;
-    border-radius: 5px;
+.login-image{
     color: #fff;
 
 }
@@ -469,7 +465,7 @@ tr{
 }
 
 .carousel{
-    background-color: #ED8B22;
+    background-color: #65B1E4;
     float: left;
     margin: 250px 0 0 0;
     width: 50%;

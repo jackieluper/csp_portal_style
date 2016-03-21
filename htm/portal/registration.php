@@ -3,24 +3,29 @@ Author: Jason B. Smith
 Date: 2/09/16
 Managed Solution
 -->
+<?php
+error_reporting(E_ALL ^ E_NOTICE);
+require '../controllers/config.php'
+?>
 <head>
     <title>Register</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-      <script type= "text/javascript" src = "../lib/countries_dropdown.js"></script>
-      <script type= "text/javascript" src = "../lib/main.js"></script>
-      <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type= "text/javascript" src = "../lib/countries_dropdown.js"></script>
+    <script type= "text/javascript" src = "../lib/main.js"></script>
+    <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
 </head>
 <div class="header-white"></div>
 <div class="ss-stand-alone">
     <div class="ss-nav">
         <div id="header-wrapper">
-            <a class="logohover" href="http://www.managedsolution.com">
+            <a class="logohover" href="<?php echo $companyLogo ?>">
                 <div class="logo"><img src="../img/MS_Logo_orange.png" alt="MS Logo" style="width: 200px; height: 50px; "></div> 
             </a>
+            <!--
             <div id="mainmenu" class="menu-menu-container">
                 <ul id="nav" class="nav" style="opacity: 1;"><li id="menu-item-5925" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-5925"><a href="http://jackiewiener.com/ms2/" >Home</a></li>
                     <li id="menu-item-5924" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5924"><a href="http://jackiewiener.com/ms2/about/" >About</a></li>
@@ -31,17 +36,18 @@ Managed Solution
                     <li id="menu-item-5930" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5930"><a href="http://jackiewiener.com/ms2/free-assessment-and-business-outcome-roadmap/" >Free Stuff</a></li>
                 </ul>
             </div>
+            -->
         </div>
-        </div>
-        <div class="fullwidthtitle">
-            <h1 class="content-title" id="contentTxt">Registration</h1>
-        </div>
+    </div>
+    <div class="fullwidthtitle">
+        <h1 class="content-title" id="contentTxt">Registration</h1>
+    </div>
 </div>
 <div class="container">
     <div class="page-header">
-        <h2>ACCOUNT INFORMATION <br><small>You will need to <strong>AUTHORIZE MANAGED SOLUTION</strong> to be your cloud service provider.</small></h2>
+        <h2>ACCOUNT INFORMATION <br><small>You will need to <strong>AUTHORIZE <?php echo $companyName ?></strong> to be your cloud service provider.</small></h2>
     </div>
-    <form class="regForm" id="formRegistration" action="../controllers/add-cust.php" method="post">
+    <form class="regForm" id="formRegistration" action="../api/add-cust.php" method="post">
         <table class="regTop">
             <tr>
                 <th class="regTbl">Company Name *</th>
@@ -51,11 +57,11 @@ Managed Solution
             <tr>
                 <td class="row1"><input class="form-control" type="text" id='companyName' name="companyName" placeholder="required" required autofocus></td>
                 <td class="row1"><select class="form-control" id='businessType' name="businessType" required >
-                    <option>Corporate</option>
-                    <option>Government</option>
+                        <option>Corporate</option>
+                        <option>Government</option>
                     </select></td>
-                    <td class="row1"><input class="form-control" type="text" id='domainName' name="domainName" placeholder="required" required></td>
-                    <td class="row1" colspan="2"><label class="micExt">.onmicrosoft.com</label></td>
+                <td class="row1"><input class="form-control" type="text" id='domainName' name="domainName" placeholder="required" required></td>
+                <td class="row1" colspan="2"><label class="micExt">.onmicrosoft.com</label></td>
             </tr>
             <tr>
                 <th class="regTbl">Address Line 1 *</th>
@@ -77,7 +83,7 @@ Managed Solution
                 <td class="row3"><input class="form-control" type="text" id='address2' name="address2" placeholder="required" ></td>
                 <td class="row3"><input class="form-control" id="confirmPass" type="password" name="confirmPass" onkeyup="passMatch(this)" placeholder="required" required></td>
                 <td class="row3">
-                    <select class="countrySelect" onchange="print_state('state',this.selectedIndex);" id="country" name ="country" required></select>
+                    <select class="countrySelect" onchange="print_state('state', this.selectedIndex);" id="country" name ="country" required></select>
                     <script language="javascript">print_country("country");</script></td>
                 <td class="row3" colspan="2"><input class="form-control" type="text" name="zip" id="zip" placeholder="required" onkeyup="validateZip(this)" required></td>
             </tr>
@@ -101,10 +107,10 @@ Managed Solution
                 <td class="row4"><input class="form-control" type="text" id='fname' name="fname" placeholder="required" required></td>
                 <td class="row4"><input class="form-control" type="text" id='lname' name="lname" placeholder="required" required></td>
                 <td class="row4"><div class="checkbox">
-                        <label><input type="checkbox" id="cb-delegation" name="delegation" value="accepted" data-toggle="modal" data-target="#myModal" required>Authorize Managed Solution to be your Cloud Service Provider!</label>
+                        <label><input type="checkbox" id="cb-delegation" name="delegation" value="accepted" data-toggle="modal" data-target="#myModal" required>Authorize <?php echo $companyName ?> to be your Cloud Service Provider!</label>
                     </div></td>
             </tr>
-             <tr>
+            <tr>
                 <th class="regTbl2">Email Address *</th>
                 <th class="regTbl2">Phone Number </th>
             </tr>
@@ -114,31 +120,31 @@ Managed Solution
             </tr>
         </table>
     </form>    
-             <!-- Modal -->
-                    <div class="modal fade" id="myModal" role="dialog">
-                      <div class="modal-dialog">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" onclick="getElementById('cb-delegation').checked= false">&times;</button>
-                            <h4 class="modal-title">Modal Header</h4>
-                          </div>
-                          <div class="modal-body">
-                              <p>You are <strong>Authorizing <?php echo $companyName ?></strong> to be your Cloud Service Provider.<br><br>
-                                  By continuing, you agree that Microsoft can share your ongoing contact and subscription information with this partner. For more information, please review the
-                                  <strong><a class="microsoftLink" target="new" href="http://g.microsoftonline.com/0BX20en/328">Privacy Notice</a></strong><br><br>
-                                  
-                                  Click for <strong><a class="microsoftLink" target="new" href="https://portal.office.com/CompanyManagement/PublicCompanyProfile.aspx?id=271cf5e9-b477-4759-a5d6-6d459bb35f3e&msppid=0">Partner Information</a></strong> </p>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="getElementById('cb-delegation').checked= true">Accept</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal" value="decline" onclick="getElementById('cb-delegation').checked= false">Decline</button>
-                          </div>
-                        </div>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" onclick="getElementById('cb-delegation').checked = false">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>You are <strong>Authorizing <?php echo $companyName ?></strong> to be your Cloud Service Provider.<br><br>
+                        By continuing, you agree that Microsoft can share your ongoing contact and subscription information with this partner. For more information, please review the
+                        <strong><a class="microsoftLink" target="new" href="http://g.microsoftonline.com/0BX20en/328">Privacy Notice</a></strong><br><br>
 
-                      </div>
-                    </div>
+                        Click for <strong><a class="microsoftLink" target="new" href="https://portal.office.com/CompanyManagement/PublicCompanyProfile.aspx?id=271cf5e9-b477-4759-a5d6-6d459bb35f3e&msppid=0">Partner Information</a></strong> </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="getElementById('cb-delegation').checked = true">Accept</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" value="decline" onclick="getElementById('cb-delegation').checked = false">Decline</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <button class="regBtn" type="submit" name="submit" form="formRegistration" value="Submit">Submit</button>
     <button class="resetBtn" type="reset" form="formRegistration" value="Reset">Reset</button>
 </div>
