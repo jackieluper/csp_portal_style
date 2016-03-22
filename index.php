@@ -1,6 +1,6 @@
 <?php
 
-header("Location: htm/api/token.php");
+header("Location: htm/portal/login_page.php");
 
 
 

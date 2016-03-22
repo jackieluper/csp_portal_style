@@ -113,7 +113,7 @@ if (!empty($_GET['code'])) {
 
         <div class="login-text">Login with your Microsoft Work Account!<br>
             Click the Microsoft button below</div><br>         
-        <div><a href=""><input class="loginBtn" type="image" name="login-image" src="../img/log-in_page/microsoft_logo.png" ></a></div><br>
+        <div><a href="https://managedsolutionacs.accesscontrol.windows.net:443/v2/wsfederation?wa=wsignin1.0&wtrealm=http%3a%2f%2fbilling.managedsolution.com"><input class="loginBtn" type="image" name="login-image" src="../img/log-in_page/microsoft_logo.png" ></a></div><br>
         <a class="link" id="regLink" href="registration.php">Have not registered yet? Click Here!</a>
     </div>
 </div>
