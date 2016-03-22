@@ -14,8 +14,8 @@ require '../controllers/config.php'
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type= "text/javascript" src = "../lib/countries_dropdown.js"></script>
-    <script type= "text/javascript" src = "../lib/main.js"></script>
+    <script type= "text/javascript" src = "../../js/countries_dropdown.js"></script>
+    <script type= "text/javascript" src = "../../js/main.js"></script>
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
 </head>
 <div class="header-white"></div>
@@ -91,7 +91,7 @@ require '../controllers/config.php'
                 <td></td>
                 <td></td>
                 <td ><div><strong>Select State *</strong></div> <br>
-                    <select class="countrySelect" name="state" id="state" required></select></td>
+                    <select class="countrySelect" name="state" id="state" onchange="(getState())" required></select></td>
             </tr>
         </table>
         <div class="page-header">

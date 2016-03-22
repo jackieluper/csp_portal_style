@@ -36,7 +36,7 @@ function getTokens($grantType, $resource, $clientID, $clientSecret) {
         //Create an Http Query.//
         $data = http_build_query($paramArr);
         //Set the Curl URL.
-        curl_setopt($ch, CURLOPT_URL, 'https://login.windows.net/managedsolutioncsptesting.onmicrosoft.com/oauth2/token?api-version=1.6');
+        curl_setopt($ch, CURLOPT_URL, "https://login.windows.net/managedsolutioncsptesting.onmicrosoft.com/oauth2/token?api-version=1.6");
         //Set HTTP POST Request.
         curl_setopt($ch, CURLOPT_POST, TRUE);
         //Set data to POST in HTTP "POST" Operation.

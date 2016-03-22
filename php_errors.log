@@ -7284,3 +7284,401 @@ Stack trace:
 [21-Mar-2016 14:47:07 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
 [21-Mar-2016 14:47:16 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
 [21-Mar-2016 14:47:16 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 10:38:42 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:38:42 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:38:44 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:38:44 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:39:29 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:39:29 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:39:41 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:39:41 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:40:33 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:40:33 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:40:41 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:40:41 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:40:57 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:40:57 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:41:06 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:41:06 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:42:40 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:42:40 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:42:45 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:42:45 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:43:31 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:43:31 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:44:08 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:44:08 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:45:23 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:45:23 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:46:32 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:46:32 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:46:34 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:46:34 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:46:36 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[22-Mar-2016 10:46:36 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
+[22-Mar-2016 10:46:40 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\portal\login_page.php on line 10
+[22-Mar-2016 10:46:42 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\portal\login_page.php on line 10
+[22-Mar-2016 10:46:44 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\portal\login_page.php on line 10
+[22-Mar-2016 10:48:12 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 10:48:12 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 11:16:42 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:16:52 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 11:16:52 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:16:56 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:16:58 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:00 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:01 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 11:17:01 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:07 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:08 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:10 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 11:17:10 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:14 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:16 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:18 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:20 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:21 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:23 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:25 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:27 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:29 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:30 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 37
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 53
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 54
+[22-Mar-2016 11:17:32 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:17:36 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 11:17:36 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 11:18:16 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 11:44:54 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 11:44:54 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:12:51 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:12:51 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:12:54 America/Los_Angeles] PHP Notice:  Undefined property: stdClass::$access_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 91
+[22-Mar-2016 13:12:56 America/Los_Angeles] PHP Notice:  Undefined property: stdClass::$id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 138
+[22-Mar-2016 13:13:09 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:13:09 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:13:12 America/Los_Angeles] PHP Notice:  Undefined property: stdClass::$access_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 91
+[22-Mar-2016 13:13:14 America/Los_Angeles] PHP Notice:  Undefined property: stdClass::$id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 138
+[22-Mar-2016 13:14:11 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:14:11 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:14:16 America/Los_Angeles] PHP Notice:  Undefined property: stdClass::$id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 138
+[22-Mar-2016 13:14:31 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:14:32 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:14:36 America/Los_Angeles] PHP Notice:  Undefined property: stdClass::$id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 138
+[22-Mar-2016 13:14:56 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:14:56 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:15:01 America/Los_Angeles] PHP Notice:  Undefined property: stdClass::$id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 139
+[22-Mar-2016 13:15:44 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:15:44 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:15:49 America/Los_Angeles] PHP Notice:  Undefined property: stdClass::$id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 139
+[22-Mar-2016 13:16:00 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:16:00 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:16:04 America/Los_Angeles] PHP Notice:  Undefined property: stdClass::$id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 139
+[22-Mar-2016 13:16:09 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:16:09 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:16:15 America/Los_Angeles] PHP Notice:  Undefined property: stdClass::$id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 138
+[22-Mar-2016 13:20:22 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:20:22 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:38:52 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:38:52 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:38:52 America/Los_Angeles] PHP Notice:  Undefined variable: authUrl in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 39
+[22-Mar-2016 13:38:53 America/Los_Angeles] PHP Notice:  Trying to get property of non-object in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 61
+[22-Mar-2016 13:40:34 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 82
+[22-Mar-2016 13:40:34 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:40:34 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:40:34 America/Los_Angeles] PHP Notice:  Undefined variable: authUrl in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 39
+[22-Mar-2016 13:40:35 America/Los_Angeles] PHP Notice:  Trying to get property of non-object in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 61
+[22-Mar-2016 13:42:16 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 82
+[22-Mar-2016 13:42:16 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 8
+[22-Mar-2016 13:42:16 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 8
+[22-Mar-2016 13:42:16 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:42:16 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:43:18 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:43:18 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:43:18 America/Los_Angeles] PHP Notice:  Undefined variable: companyUrl in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 39
+[22-Mar-2016 13:43:19 America/Los_Angeles] PHP Notice:  Trying to get property of non-object in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 61
+[22-Mar-2016 13:44:17 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:44:17 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:44:34 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:44:34 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:44:34 America/Los_Angeles] PHP Notice:  Undefined variable: companyUrl in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 39
+[22-Mar-2016 13:44:35 America/Los_Angeles] PHP Notice:  Trying to get property of non-object in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 61
+[22-Mar-2016 13:45:00 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 82
+[22-Mar-2016 13:45:00 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 8
+[22-Mar-2016 13:46:06 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:46:06 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 13:46:17 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 82
+[22-Mar-2016 13:46:17 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 8
+[22-Mar-2016 13:46:17 America/Los_Angeles] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\token.php on line 8
+[22-Mar-2016 13:51:38 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 86
+[22-Mar-2016 13:53:36 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87
+[22-Mar-2016 13:58:32 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 13:58:32 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 14:03:30 America/Los_Angeles] PHP Notice:  Trying to get property of non-object in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 100
+[22-Mar-2016 14:04:23 America/Los_Angeles] PHP Notice:  Trying to get property of non-object in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 101
+[22-Mar-2016 14:04:33 America/Los_Angeles] PHP Notice:  Trying to get property of non-object in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 100
+[22-Mar-2016 14:05:01 America/Los_Angeles] PHP Notice:  Trying to get property of non-object in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 100
+[22-Mar-2016 14:05:30 America/Los_Angeles] PHP Notice:  Trying to get property of non-object in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 100
+[22-Mar-2016 14:06:02 America/Los_Angeles] PHP Notice:  Trying to get property of non-object in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 101
+[22-Mar-2016 14:06:10 America/Los_Angeles] PHP Notice:  Trying to get property of non-object in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 101
+[22-Mar-2016 14:43:30 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 14:43:30 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 14:44:12 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 14:44:12 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 14:44:22 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[22-Mar-2016 14:44:22 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
+[22-Mar-2016 14:48:20 America/Los_Angeles] PHP Warning:  http_build_query(): Parameter 1 expected to be Array or Object.  Incorrect value given in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 85
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: companyName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: businessType in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: domainName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: address1 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: password in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 42
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: city in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 43
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: address2 in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 44
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: country in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 45
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: zip in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 46
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: state in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 47
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: fname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 48
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: lname in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 49
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: delegation in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 50
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: email in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 51
+[22-Mar-2016 14:48:34 America/Los_Angeles] PHP Notice:  Undefined index: phoneNum in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 52
+[22-Mar-2016 14:49:30 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 91

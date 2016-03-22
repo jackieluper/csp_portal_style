@@ -29,35 +29,36 @@ function getGUID() {
 
     return $uuid;
 }
+
 //Function creating net new customers
 function createCust($saToken, $resellerId, $guid, $guidCor) {
 
     try {
         //Getting information from new user, setting it to a session variable, and variable
-        $companyName = $_SESSION['companyName'] = $_POST['companyName'] . '<br>';
-        $businessType = $_SESSION['businessType'] = $_POST['businessType'];
-        $domainName = $_SESSION['domainName'] = $_POST['domainName'];
-        $address1 = $_SESSION['address1'] = $_POST['address1'];
+        $companyName = $_POST['companyName'] . '<br>';
+        $businessType = $_POST['businessType'];
+        $domainName = $_POST['domainName'];
+        $address1 = $_POST['address1'];
         $pass = $_POST['password'];
-        $city = $_SESSION['city'] = $_POST['city'];
-        $address2 = $_SESSION['address2'] = $_POST['address2'];
-        $country = $_SESSION['country'] = $_POST['country'];
-        $zip = $_SESSION['zip'] = $_POST['zip'];
-        $state = $_SESSION['state'] = $_POST['state'];
-        $fname = $_SESSION['fname'] = $_POST['fname'];
-        $lname = $_SESSION['lname'] = $_POST['lname'];
-        $delegation = $_SESSION['delegation'] = $_POST['delegation'];
-        $email = $_SESSION['email'] = $_POST['email'];
-        $phone = $_SESSION['phone'] = $_POST['phoneNum'];
-        
+        $city = $_POST['city'];
+        $address2 = $_POST['address2'];
+        $country = $_POST['country'];
+        $zip = $_POST['zip'];
+        $state = substr($_POST['state'], 0, 2);
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $delegation = $_POST['delegation'];
+        $email = $_POST['email'];
+        $phone = $_POST['phoneNum'];
+
         //Setting header for creating new cust as per API
-        $header[] = "Accept: application/json";
         $header[] = "api-version: 2015-03-31";
         $header[] = "Content-Type: application/json";
+        $header[] = "Accept: application/json";     
         $header[] = "Authorization: Bearer $saToken";
         $header[] = "x-ms-correlation-id $guidCor";
         $header[] = "x-ms-tracking-id: $guid";
-        
+
         //Setting up customer profile to be posted to Microsoft 
         $paramArr = array(
             "domain_prefix" => $domainName,
@@ -73,20 +74,20 @@ function createCust($saToken, $resellerId, $guid, $guidCor) {
                     "last_name" => $lname,
                     "address_line1" => $address1,
                     "city" => $city,
-                    "region" => "CA",
+                    "region" => $state,
                     "postal_code" => $zip,
-                    "country" => "US"
+                    "country" => $country
                 ),
-                "type"=>"organization"
+                "type" => "organization"
             )
         );
         //Encoding to json string for post
         $data = json_encode($paramArr);
         $cust = curl_init();
         curl_setopt($cust, CURLOPT_URL, "https://api.cp.microsoft.com/$resellerId/customers/create-reseller-customer");
-        curl_setopt($cust, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($cust, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($cust, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($cust, CURLOPT_POST, true);
+        curl_setopt($cust, CURLOPT_POST, 1);
         curl_setopt($cust, CURLOPT_POSTFIELDS, $data);
         curl_setopt($cust, CURLOPT_HTTPHEADER, $header);
         $strResponse = curl_exec($cust);
