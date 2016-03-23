@@ -40,6 +40,7 @@ function createCust($saToken, $resellerId, $guid, $guidCor) {
         $domainName = $_POST['domainName'];
         $address1 = $_POST['address1'];
         $pass = $_POST['password'];
+        $username = $_POST['username'];
         $city = $_POST['city'];
         $address2 = $_POST['address2'];
         $country = $_POST['country'];
@@ -49,34 +50,35 @@ function createCust($saToken, $resellerId, $guid, $guidCor) {
         $lname = $_POST['lname'];
         $delegation = $_POST['delegation'];
         $email = $_POST['email'];
+        $user = $email;
         $phone = $_POST['phoneNum'];
 
         //Setting header for creating new cust as per API
         $header[] = "api-version: 2015-03-31";
+        $header[] = "Accept: application/json";
         $header[] = "Content-Type: application/json";
-        $header[] = "Accept: application/json";     
         $header[] = "Authorization: Bearer $saToken";
         $header[] = "x-ms-correlation-id $guidCor";
         $header[] = "x-ms-tracking-id: $guid";
-
         //Setting up customer profile to be posted to Microsoft 
         $paramArr = array(
-            "domain_prefix" => $domainName,
-            "user_name" => $email,
-            "password" => $pass,
+            "domain_prefix" => "$domainName",
+            "user_name" => "$username",
+            "password" => "$pass",
             "profile" => array(
-                "email" => $email,
-                "company_name" => $companyName,
+                "email" => "$email",
+                "company_name" => "$companyName",
                 "culture" => "en-US",
                 "language" => "en",
                 "default_address" => array(
-                    "first_name" => $fname,
-                    "last_name" => $lname,
-                    "address_line1" => $address1,
-                    "city" => $city,
-                    "region" => $state,
-                    "postal_code" => $zip,
-                    "country" => $country
+                    "first_name" => "$fname",
+                    "last_name" => "$lname",
+                    "address_line1" => "$address1",
+                    "address_line2" => "$address2",
+                    "city" => "$city",
+                    "region" => "$state",
+                    "postal_code" => "$zip",
+                    "country" => "US"
                 ),
                 "type" => "organization"
             )
@@ -85,9 +87,9 @@ function createCust($saToken, $resellerId, $guid, $guidCor) {
         $data = json_encode($paramArr);
         $cust = curl_init();
         curl_setopt($cust, CURLOPT_URL, "https://api.cp.microsoft.com/$resellerId/customers/create-reseller-customer");
-        curl_setopt($cust, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($cust, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($cust, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($cust, CURLOPT_POST, 1);
+        curl_setopt($cust, CURLOPT_POST, true);
         curl_setopt($cust, CURLOPT_POSTFIELDS, $data);
         curl_setopt($cust, CURLOPT_HTTPHEADER, $header);
         $strResponse = curl_exec($cust);

@@ -87,11 +87,15 @@ require '../controllers/config.php'
                     <script language="javascript">print_country("country");</script></td>
                 <td class="row3" colspan="2"><input class="form-control" type="text" name="zip" id="zip" placeholder="required" onkeyup="validateZip(this)" required></td>
             </tr>
+            <tr>
+                <th></th>
+                <th>User Name *</th>
+                <th><strong>Select State *</strong></th><br>
+            </tr>
             <tr class="cityList">
                 <td></td>
-                <td></td>
-                <td ><div><strong>Select State *</strong></div> <br>
-                    <select class="countrySelect" name="state" id="state" onchange="(getState())" required></select></td>
+                <td><input class="form-control" type="text" id='username' name="username" required></td>
+                <td ><select class="countrySelect" name="state" id="state" onchange="(getState())" required></select></td>
             </tr>
         </table>
         <div class="page-header">
