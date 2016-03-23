@@ -1,9 +1,5 @@
 <?php
 
-// FIXME remove this debugging code
-// var_dump($_REQUEST);
-// die();
-
 ini_set('display_errors','On');
 error_reporting(E_STRICT | E_ALL ^ E_DEPRECATED);
 
@@ -13,19 +9,29 @@ function base64DecodeUrlSafe($b64) {
 
 $privateKey = 'hWFZPHCWgZSXCZapw/lv04l+8GIekVbks6WT7EeCmgc=';
 
-// TODO ... is this POST DATA?
-// TODO confirm 'wa' and 'wresult' exist
-$data['wa'] = 'wsignin1.0';
-$data['wresult'] = '2016-03-22T06:07:23.260Z2016-03-22T07:07:23.260Z
-http://billing.managedsolution.com/
-ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SmhkV1FpT2lKb2RIUndPaTh2WW1sc2JHbHVaeTV0WVc1aFoyVmtjMjlzZFhScGIyNHVZMjl0THlJc0ltbHpjeUk2SW1oMGRIQnpPaTh2YldGdVlXZGxaSE52YkhWMGFXOXVZV056TG1GalkyVnpjMk52Ym5SeWIyd3VkMmx1Wkc5M2N5NXVaWFF2SWl3aWJtSm1Jam94TkRVNE5qSTJPRFF6TENKbGVIQWlPakUwTlRnMk16QTBORE1zSW01aGJXVnBaQ0k2SWxsMVRrOTRhVlpDTjI5U01EQjNabGhZYXpkcFRVbDNiMDh3T0VZNVJUWmZTM1V4VG5aNExVaERZbGtpTENKb2RIUndPaTh2YzJOb1pXMWhjeTV0YVdOeWIzTnZablF1WTI5dEwybGtaVzUwYVhSNUwyTnNZV2x0Y3k5MFpXNWhiblJwWkNJNklqSTNNV05tTldVNUxXSTBOemN0TkRjMU9TMWhOV1EyTFRaa05EVTVZbUl6TldZelpTSXNJbWgwZEhBNkx5OXpZMmhsYldGekxtMXBZM0p2YzI5bWRDNWpiMjB2YVdSbGJuUnBkSGt2WTJ4aGFXMXpMMjlpYW1WamRHbGtaVzUwYVdacFpYSWlPaUl6WVdabVl6aG1NaTFqT0dZMkxUUTBaRGN0T0Rrd1lTMDROMk16WVRrNU5tRTBZelFpTENKb2RIUndPaTh2YzJOb1pXMWhjeTU0Yld4emIyRndMbTl5Wnk5M2N5OHlNREExTHpBMUwybGtaVzUwYVhSNUwyTnNZV2x0Y3k5dVlXMWxJam9pWTJKdmVXNTBiMjVBYldGdVlXZGxaSE52YkhWMGFXOXVMbU52YlNJc0ltaDBkSEE2THk5elkyaGxiV0Z6TG5odGJITnZZWEF1YjNKbkwzZHpMekl3TURVdk1EVXZhV1JsYm5ScGRIa3ZZMnhoYVcxekwzTjFjbTVoYldVaU9pSkNiM2x1ZEc5dUlpd2lhSFIwY0RvdkwzTmphR1Z0WVhNdWVHMXNjMjloY0M1dmNtY3ZkM012TWpBd05TOHdOUzlwWkdWdWRHbDBlUzlqYkdGcGJYTXZaMmwyWlc1dVlXMWxJam9pUTJoeWFYTjBhV0Z1SWl3aWFIUjBjRG92TDNOamFHVnRZWE11YldsamNtOXpiMlowTG1OdmJTOXBaR1Z1ZEdsMGVTOWpiR0ZwYlhNdlpHbHpjR3hoZVc1aGJXVWlPaUpEYUhKcGMzUnBZVzRnUW05NWJuUnZiaUlzSW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmFXUmxiblJwZEhrdlkyeGhhVzF6TDJsa1pXNTBhWFI1Y0hKdmRtbGtaWElpT2lKb2RIUndjem92TDNOMGN5NTNhVzVrYjNkekxtNWxkQzh5TnpGalpqVmxPUzFpTkRjM0xUUTNOVGt0WVRWa05pMDJaRFExT1dKaU16Vm1NMlV2SWl3aWFIUjBjRG92TDNOamFHVnRZWE11YldsamNtOXpiMlowTG1OdmJTOTNjeTh5TURBNEx6QTJMMmxrWlc1MGFYUjVMMk5zWVdsdGN5OWhkWFJvWlc1MGFXTmhkR2x2Ym0xbGRHaHZaQ0k2SW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmQzTXZNakF3T0M4d05pOXBaR1Z1ZEdsMGVTOWhkWFJvWlc1MGFXTmhkR2x2Ym0xbGRHaHZaQzl3WVhOemQyOXlaQ0lzSW1oMGRIQTZMeTl6WTJobGJXRnpMbTFwWTNKdmMyOW1kQzVqYjIwdmQzTXZNakF3T0M4d05pOXBaR1Z1ZEdsMGVTOWpiR0ZwYlhNdllYVjBhR1Z1ZEdsallYUnBiMjVwYm5OMFlXNTBJam9pTWpBeE5pMHdNeTB5TWxRd05Ub3pPRG93T0M0eU1EbGFJaXdpYVdSbGJuUnBkSGx3Y205MmFXUmxjaUk2SW1oMGRIQnpPaTh2YzNSekxuZHBibVJ2ZDNNdWJtVjBMekkzTVdObU5XVTVMV0kwTnpjdE5EYzFPUzFoTldRMkxUWmtORFU1WW1Jek5XWXpaUzhpZlEuNENwd2g2aUFpWENyM19QTUpLbzQ0b2dqN2tKLVpPMUtLN1VIMnJHOFZrWQ==urn:ietf:params:oauth:token-type:jwthttp://schemas.xmlsoap.org/ws/2005/02/trust/Issuehttp://schemas.xmlsoap.org/ws/2005/05/identity/NoProofKey';
+if (!isset($_POST['wa']) || empty($_POST['wa'])) {
+	header("Location: htm/portal/login_page.php?error=1");
+	exit;
+}
 
-// TODO verify the array indexes are accessible
-$leftCut = explode('http://billing.managedsolution.com/', $data['wresult']);
-$rightCut = explode('urn:ietf:params:oauth:token-type:jwt', $leftCut[1]);
-$jwtb64 = trim($rightCut[0]);
+if (!isset($_POST['wresult']) || empty($_POST['wresult'])) {
+	header("Location: htm/portal/login_page.php?error=1");
+	exit;
+}
 
-if (null === ($jwt = base64DecodeUrlSafe($jwtb64))) {
+$xmlParser = xml_parser_create();
+xml_parse_into_struct($xmlParser, $_POST['wresult'], $xmlValues, $xmlIndex);
+xml_parser_free($xmlParser);
+
+$binSecToken = '';
+foreach ($xmlValues as $xmlData) {
+	if ($xmlData['tag'] === 'WSSE:BINARYSECURITYTOKEN') {
+		$binSecToken = $xmlData['value'];
+		break;
+	}
+}
+
+if (null === ($jwt = base64DecodeUrlSafe($binSecToken))) {
 	throw new UnexpectedValueException('Invalid encoding for JWT token');
 }
 
@@ -62,4 +68,6 @@ if (isset($key)) {
 }
 
 // TODO header data in $header, data is in $payload
+var_dump($payload);
 
+// TODO finish existing customer login code
