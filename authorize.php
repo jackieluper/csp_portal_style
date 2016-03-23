@@ -9,25 +9,29 @@ function base64DecodeUrlSafe($b64) {
 
 $privateKey = 'hWFZPHCWgZSXCZapw/lv04l+8GIekVbks6WT7EeCmgc=';
 
-if (isset($_POST['wa']) && !empty($_POST['wa'])) {
-	$data['wa'] = htmlspecialchars($_POST['wa']);
-} else {
+if (!isset($_POST['wa']) || empty($_POST['wa'])) {
 	header("Location: htm/portal/login_page.php?error=1");
 	exit;
 }
 
-if (isset($_POST['wresult']) && !empty($_POST['wresult'])) {
-	$data['wresult'] = htmlspecialchars($_POST['wresult']);
-} else {
+if (!isset($_POST['wresult']) || empty($_POST['wresult'])) {
 	header("Location: htm/portal/login_page.php?error=1");
 	exit;
 }
 
-$leftCut = explode('http://billing.managedsolution.com/', $data['wresult']);
-$rightCut = explode('urn:ietf:params:oauth:token-type:jwt', $leftCut[1]);
-$jwtb64 = trim($rightCut[0]);
+$xmlParser = xml_parser_create();
+xml_parse_into_struct($xmlParser, $_POST['wresult'], $xmlValues, $xmlIndex);
+xml_parser_free($xmlParser);
 
-if (null === ($jwt = base64DecodeUrlSafe($jwtb64))) {
+$binSecToken = '';
+foreach ($xmlValues as $xmlData) {
+	if ($xmlData['tag'] === 'WSSE:BINARYSECURITYTOKEN') {
+		$binSecToken = $xmlData['value'];
+		break;
+	}
+}
+
+if (null === ($jwt = base64DecodeUrlSafe($binSecToken))) {
 	throw new UnexpectedValueException('Invalid encoding for JWT token');
 }
 
@@ -64,5 +68,6 @@ if (isset($key)) {
 }
 
 // TODO header data in $header, data is in $payload
+var_dump($payload);
 
 // TODO finish existing customer login code
