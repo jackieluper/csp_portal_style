@@ -1,3 +1,0 @@
-[submodule "htm/api/client"]
-	path = htm/api/client
-	url = git@github.com:managed-solution/billing_portal_oauth.git

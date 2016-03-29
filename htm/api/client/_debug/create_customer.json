@@ -1,0 +1,28 @@
+{
+	"domain_prefix": "cboyntonsrcbz1",
+	"password": "srcBZ$p@551!!",
+	"profile": {
+		"company_name": "SRC.BZ",
+		"culture": "en-US",
+		"default_address": {
+			"address_line1": "3614 Bernwood Place",
+			"address_line2": "Unit 30",
+			"address_line3": "",
+			"city": "San Diego",
+			"country": "US",
+			"first_name": "Christian",
+			"first_name_pronounciation": "Christian",
+			"last_name": "Boynton",
+			"last_name_pronounciation": "Boynton",
+			"phone_number": "(858) 366-8356",
+			"postal_code": "92130",
+			"region": "CA"
+		},
+		"email": "c@src.bz",
+		"first_name": "Christian",
+		"language": "en",
+		"last_name": "Boynton",
+		"type": "organization"
+	},
+	"user_name": "cboynton_srcbz"
+}

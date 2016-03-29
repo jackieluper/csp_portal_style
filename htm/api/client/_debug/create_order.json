@@ -1,0 +1,21 @@
+{
+    "Id": null,
+    "ReferenceCustomerId": "95e724ab-3834-4d4d-a5f9-6bc725a4d87d",
+    "LineItems": [{
+        "LineItemNumber": 0,
+        "OfferId": "84A03D81-6B37-4D66-8D4A-FAEA24541538",
+        "ReferencedEntitlementUris": null,
+        "FriendlyName": "Basic AD for Tech",
+        "Quantity": 1,
+        "PartnerIdOnRecord": null,
+        "Links": {
+            
+        }
+    }],
+    "Status": "none",
+    "CreationDate": null,
+    "Attributes": {
+        "ObjectType": "Order"
+    }
+}
+

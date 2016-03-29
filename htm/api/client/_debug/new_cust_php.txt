@@ -1,0 +1,41 @@
+//echo '<a href="' . $adAuth->getAuthUrl() . '">Login</a>';
+
+//$customer = new Customer();
+//
+//$profile = $customer->getProfile();
+//$defaultAddress = $profile->getDefaultAddress();
+//
+//$defaultAddress
+//	->setAddressLine1('3614 Bernwood Place')
+//	->setAddressLine2('Unit 30')
+//	->setAddressLine3('')
+//	->setCity('San Diego')
+//	->setCountry('US')
+//	->setFirstName('Christian')
+//	->setFirstNamePronunciation('Christian')
+//	->setLastName('Boynton')
+//	->setLastNamePronunciation('Boynton')
+//	->setPhoneNumber('(858) 366-8356')
+//	->setPostalCode('92130')
+//	->setRegion('CA');
+//
+//$profile
+//	->setCompanyName('SRC.BZ')
+//	->setCulture('en-US')
+//	->setEmail('c@src.bz')
+//	->setFirstName('Christian')
+//	->setLastName('Boynton')
+//	->setLanguage('en')
+//	->setType('organization')
+//	->setDefaultAddress($defaultAddress);
+//
+//$customer
+//	->setDomainPrefix('cboyntonsrcbz2')
+//	->setUsername('cboynton_srcbz2')
+//	->setPassword('srcBZ$p@551!!')
+//	->setProfile($profile);
+//
+//$customer->requestNew();
+// LOGIN_URL https://login.microsoft.com
+// LOGIN_USERNAME cboynton_srcbz2@cboyntonsrcbz2.onmicrosoft.com
+// LOGIN_PASSWORD_CHANGED_BY_CUSTOMER .... fOJgDntv0iYb
