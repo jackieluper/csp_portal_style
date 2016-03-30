@@ -126,7 +126,7 @@ require '../api/client/app/offer.class.php';
                         </div>
                         <strong> <?php echo number_format($offers->price[$i], 2) ?> </strong></br>
                         <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
-                        <a style="color: #D7D7D7;" href="../controllers/add-to-cart.php?id=<?php echo $offers->id[$i] ?>">Add to Cart</a></td>
+                        <strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $offers->id[$i] ?>">Add to Cart</a></strong></td>
                         <?php
                         if ($i % 3 == 2 && $i > 0) {
                             print '</tr> <tr>';

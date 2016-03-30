@@ -8183,3 +8183,5 @@ Stack trace:
 [29-Mar-2016 15:39:27 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 8
 [29-Mar-2016 16:18:43 America/Los_Angeles] PHP Fatal error:  Function name must be a string in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\portal\products.php on line 96
 [29-Mar-2016 18:41:21 America/Los_Angeles] PHP Parse error:  syntax error, unexpected '}' in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\products.db.php on line 70
+[29-Mar-2016 21:00:58 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[29-Mar-2016 21:01:12 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
