@@ -56,14 +56,16 @@ listOffers() {
 }
 
 createCustomer() {
-	curl -X "POST" "https://api.cp.microsoft.com/${saId}/customers/create-reseller-customer" \
-	-H "Authorization: Bearer ${saToken}" \
-	-H "x-ms-tracking-id: ${uuid1}" \
-	-H "x-ms-correlation-id: ${uuid2}" \
-	-H "api-version: 2015-03-31" \
+	curl -v -X "POST" "https://api.partnercenter.microsoft.com/v1/customers" \
+	-H "Authorization: Bearer ${acToken}" \
 	-H 'Accept: application/json' \
+	-H 'MS-Contract-Version: v1' \
+	-H "MS-RequestId: ${uuid3}" \
+	-H "MS-CorrelationId: ${uuid4}" \
 	-H 'Content-Type: application/json' \
-	-d @create_customer.json;
+	-H 'Expect: 100-continue' \
+	-H 'Connection: Keep-Alive' \
+	-d @create_customer.json
 }
 
 loadCustomerById() {
@@ -105,13 +107,26 @@ createOrder() {
 	-d @create_order.json
 }
 
+verifyDomain() {
+	local domainId="$1";
+
+	curl -v -X "GET" "https://api.partnercenter.microsoft.com/v1/validations/checkdomainavailability/${domainId}" \
+	-H "Authorization: Bearer ${acToken}" \
+	-H 'Accept: application/json' \
+	-H 'MS-Contract-Version: v1' \
+	-H "MS-RequestId: ${uuid3}" \
+	-H "MS-CorrelationId: ${uuid4}" \
+	-H 'X-Locale: en-US'
+}
+
 regenerateTokens;
 loadTokens;
 
 # listOffers;
 
-createOrder "95e724ab-3834-4d4d-a5f9-6bc725a4d87d";
+# createCustomer;
 
+# verifyDomain "cboyntonsrcbz4";
 
 # --- OLD CODE ---
 

@@ -1,28 +1,45 @@
 {
-	"domain_prefix": "cboyntonsrcbz1",
-	"password": "srcBZ$p@551!!",
-	"profile": {
-		"company_name": "SRC.BZ",
-		"culture": "en-US",
-		"default_address": {
-			"address_line1": "3614 Bernwood Place",
-			"address_line2": "Unit 30",
-			"address_line3": "",
-			"city": "San Diego",
-			"country": "US",
-			"first_name": "Christian",
-			"first_name_pronounciation": "Christian",
-			"last_name": "Boynton",
-			"last_name_pronounciation": "Boynton",
-			"phone_number": "(858) 366-8356",
-			"postal_code": "92130",
-			"region": "CA"
-		},
-		"email": "c@src.bz",
-		"first_name": "Christian",
-		"language": "en",
-		"last_name": "Boynton",
-		"type": "organization"
+	"Id": null,
+	"CommerceId": null,
+	"CompanyProfile": {
+		"TenantId": null,
+		"Domain": "cboyntonsrcbz4.onmicrosoft.com",
+		"CompanyName": "SRC.BZ",
+		"Attributes": {
+			"ObjectType": "CustomerCompanyProfile"
+		}
 	},
-	"user_name": "cboynton_srcbz"
+	"BillingProfile": {
+		"Id": null,
+		"FirstName": "Christian",
+		"LastName": "Boynton",
+		"Email": "c@src.bz",
+		"Culture": "en-US",
+		"Language": "en",
+		"CompanyName": "SRC.BZ",
+		"DefaultAddress": {
+			"Country": "US",
+			"Region": null,
+			"City": "San Diego",
+			"State": "CA",
+			"AddressLine1": "3614 Bernwood Place",
+			"AddressLine2": "Unit 30",
+			"PostalCode": "92130",
+			"FirstName": "Christian",
+			"LastName": "Boynton",
+			"PhoneNumber": "8583668356"
+		},
+		"Attributes": {
+			"ObjectType": "CustomerBillingProfile"
+		}
+	},
+	"RelationshipToPartner": "none",
+	"AllowDelegatedAccess": null,
+	"UserCredentials": {
+		"userName": "cboynton",
+		"password": "srcBZ$p@551!!"
+	},
+	"Attributes": {
+		"ObjectType": "Customer"
+	}
 }

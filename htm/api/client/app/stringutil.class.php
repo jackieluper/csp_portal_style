@@ -19,4 +19,9 @@ class StringUtil {
 			. substr($charid, 20, 12);
 		return $uuid;
 	}
+
+	static function stringToBool($rawInput) {
+		$cleanInput = strtolower(trim(preg_replace('/[^\P{C}\n]+/u', '', $rawInput)));
+		return filter_var($cleanInput, FILTER_VALIDATE_BOOLEAN);
+	}
 }
