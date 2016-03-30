@@ -6,14 +6,7 @@ Managed Solution
 <?php
 session_start();
 //top offers figured by entity type
-$entity = $_SESSION['entity'];
-//Set the id depending on entity type
-if ($entity === 'Corporate') {
-//SETS OFFER BASED ON OFFER ID
-    $hotOffers = array('55', '11', '36');
-} else if ($entity === 'Government') {
-    $hotOffers = array('56', '12', '37');
-}
+
 //Sets admin role so it is not visible;
 $adminRole = 30;
 //Sets user role for comparison

@@ -159,6 +159,7 @@ function validateCardDate() {
     }
 }
 
+
 //redirects to php controller remove-from-cart.php to remove selected Item from cart
 $(document).ready(function () {
     $(".removeCart").click(function () {

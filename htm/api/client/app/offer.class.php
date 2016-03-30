@@ -26,7 +26,7 @@ class Offer {
 		$httpResponse = $httpClient->getRequest($url, $httpOptions);
 		$httpClean = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $httpResponse);
 		$this->_offerList = json_decode($httpClean, true);
-
+                var_dump($httpClean);//$this->_offerList;
 		return $this;
 	}
 }

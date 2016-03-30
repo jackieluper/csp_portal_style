@@ -7,6 +7,6 @@ $oauth = new PartnerCenterAuth();
 	<title>BP</title>
 </head>
 <body>
-	<p>Please <a href="<?php echo $oauth->getAuthUrl(); ?>">sign in</a> with your Microsoft account.</p>
+	<p>Please <a href="<?php echo $oauth->getAuthUrl() ?>">sign in</a> with your Microsoft account.</p>
 </body>
 </html>

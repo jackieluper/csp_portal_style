@@ -10,6 +10,14 @@ include '../classes/offers.class.php';
 
 $index = 0;
 
+$entity = $_SESSION['entity'];
+//Set the id depending on entity type
+if ($entity === 'Corporate') {
+//SETS OFFER BASED ON OFFER ID
+    $hotOffers = array('55', '11', '36');
+} else if ($entity === 'Government') {
+    $hotOffers = array('56', '12', '37');
+}
 //Setting offers for Corporate clients
 $topOffers = new topOffers();
 $offers = new offers();
@@ -25,6 +33,19 @@ for ($i = 0; $i < count($hotOffers); $i++) {
     $topOffers->setOffer($index, $offer);
     $topOffers->setOfferDetails($index, $name, $price);
     $topOffers->setOfferId($index, $hotOffers[$i]);
+    $resultImg = $conn->query("select img_tag, details from image where offer_name='$name'");
+    if($resultImg->num_rows > 0){
+        while($row1 = $resultImg->fetch_assoc()){
+        $tag = $row1['img_tag'];
+        $caption = $row1['details'];
+        $topOffers->setOfferImg($index, $tag);
+        $topOffers->setOfferCaption($index, $caption);
+        }
+    }
+    else{
+        $tag = "noImage.png";
+        $topOffers->setOfferImg($index, $tag);
+    }
     $index++;
 }
 
@@ -38,6 +59,19 @@ while ($row = $result1->fetch_assoc()) {
     $offers->setOfferName($index, $name);
     $offers->setOfferPrice($index, $erp);
     $offers->setOfferUnit($index, $purchase_unit);
-    $offers->setOfferId($index, $id);
+    $offers->setOfferId($index, $id);    
+    $resultImg = $conn->query("select img_tag, details from image where offer_name='$name'");
+    if($resultImg->num_rows > 0){
+        while($row1 = $resultImg->fetch_assoc()){
+        $tag = $row1['img_tag'];
+        $caption = $row1['details'];
+        $offers->setOfferImg($index, $tag);
+        $offers->setOfferCaption($index, $caption);
+        }
+    }
+    else{
+        $tag = "noImage.png";
+        $offers->setOfferImg($index, $tag);
+    }
     $index++;
 }

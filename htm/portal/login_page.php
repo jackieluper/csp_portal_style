@@ -117,7 +117,16 @@ if (!empty($_GET['code'])) {
 	<!--        </div>-->
 	<!--    </form>  -->
 	<div class="login">
-
+<form class="form-inline" id="loginForm" action="../controllers/validateUser.php" method="post">
+        <div class="form-group" >
+            <label class="lbl">UserName</label>
+            <input class="form-control" type="text" name="userId" id="userId" placeholder="required" required><br>
+            <label class="lbl">Password</label>
+            <input class="form-control" type="password" name="password" placeholder="required" required><br>             
+            <input class="loginBtn" type="Submit" name="loginBtn" value="Sign-in" ><br>
+            <a class="link" id="regLink" href="registration.phtml">Have not registered yet? Click Here!</a>
+        </div>
+    </form>  
 		<div class="login-text">Login with your Microsoft Work Account!<br>
 			Click the Microsoft button below
 		</div>

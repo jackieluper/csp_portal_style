@@ -28,6 +28,18 @@ class topOffers {
     function getOfferId(){
         $this->id;
     }
+     function setOfferImg($index, $tag){
+        $this->img_tag[$index] = "../img/microsoft_img/$tag";
+    }
+    function getOfferImg(){
+        $this->img_tag;
+    }
+    function setOfferCaption($index, $caption){
+        $this->caption[$index] = $caption;
+    }
+    function getOfferCaption(){
+        $this->caption;
+    }
 }
 
 class offers {
@@ -61,6 +73,18 @@ class offers {
     }
     function getOfferId(){
         $this->id;
+    }
+    function setOfferImg($index, $tag){
+        $this->img_tag[$index] = "../img/microsoft_img/$tag";
+    }
+    function getOfferImg(){
+        $this->img_tag;
+    }
+    function setOfferCaption($index, $caption){
+        $this->caption[$index] = $caption;
+    }
+    function getOfferCaption(){
+        $this->caption;
     }
 }
 

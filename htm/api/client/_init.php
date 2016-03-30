@@ -8,4 +8,4 @@ spl_autoload_register();
 
 Debug::enable();
 
-// Session::start();
+Session::start();

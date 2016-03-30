@@ -9,6 +9,7 @@ session_start();
 require "../controllers/config.php";
 require '../controllers/products.db.php';
 require '../controllers/cart.db.php';
+require '../api/client/app/offer.class.php';
 ?>
 <head>
     <title>Products</title>
@@ -69,10 +70,10 @@ require '../controllers/cart.db.php';
                     <td><a href="../controllers/remove-from-cart.php?id=<?php echo $cart->item[$i] ?>">Delete</a></td>
                 </tr>
             <?php } ?>
-                <tr>
-                    <td colspan="2"><strong>Discount Amount</strong></td>
-                    <td colspan="2"><?php echo number_format($cart->discount, 2)?></td>
-                </tr>
+            <tr>
+                <td colspan="2"><strong>Discount Amount</strong></td>
+                <td colspan="2"><?php echo number_format($cart->discount, 2) ?></td>
+            </tr>
             <tr>
                 <td colspan="2"><strong>TOTAL</strong></td>
                 <td colspan="2"><?php echo number_format($cart->total, 2) ?></td>
@@ -89,15 +90,22 @@ require '../controllers/cart.db.php';
                 <?php echo $_SESSION['user']; ?>
             </small></h2>
     </div>
-    <table class="topOffers" >
+    <table class="topOffers">
         <tr>
             <?php
             for ($i = 0; $i < count($topOffers->name); $i++) {
                 ?>
-                <td><img width="200px" height="200px"  src="../img/products/officeE3.png" alt="Office 365 E3" ><br><br>
-                    <strong><?php echo $topOffers->name[$i] ?> </strong><br>
-                    <strong>$<?php echo number_format($topOffers->price[$i], 2) ?></strong><br>
-                    <a style="color: #D7D7D7;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a>
+                <td>
+                    <strong> <?php echo $topOffers->name[$i] ?> </strong></br></br>
+                    <div class="item active" id="item">
+                        <image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"><br></br>
+                        <div class="carousel-caption" id="captionOverlay"><h3 class="detailsTitle"> <?php echo $topOffers->name[$i] ?></h3>
+                            <p> <?php echo $topOffers->caption[$i] ?> </p>
+                        </div>
+                    </div>
+                    <strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></br>
+                    <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
+                    <strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong>
                 </td>
             <?php } ?>
         </tr>
@@ -106,15 +114,26 @@ require '../controllers/cart.db.php';
         <h2>CATALOG</h2>
     </div>
     <table class="catalog" >
-        <?php
-        for ($i = 0; $i < count($offers->name); $i++) {
-            ?>
-            <tr>
-                <th><?php echo $offers->name[$i] ?></th>
-                <td><?php echo number_format($offers->price[$i], 2) ?></td>
-                <td><?php echo $offers->unit[$i] ?><td>
-                <td><a style="color: #D7D7D7;" href="../controllers/add-to-cart.php?id=<?php echo $offers->id[$i] ?>">Add to Cart</a></td>
-            </tr>
-        <?php } ?>
+        <tr>
+            <?php
+            for ($i = 0; $i < count($offers->name); $i++) {
+                ?>
+                <td><strong><?php echo $offers->name[$i] ?></strong></br></br>
+                    <div class="item active" id="item">
+                        <image src="<?php echo $offers->img_tag[$i] ?>" alt="Image not found"></br></br>
+                        <div class="carousel-caption" id="captionOverlay"><h3 class="detailsTitle"> <?php echo $offers->name[$i] ?></h3>
+                            <p> <?php echo $offers->caption[$i] ?> </p>
+                        </div>
+                        <strong> <?php echo number_format($offers->price[$i], 2) ?> </strong></br>
+                        <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
+                        <a style="color: #D7D7D7;" href="../controllers/add-to-cart.php?id=<?php echo $offers->id[$i] ?>">Add to Cart</a></td>
+                        <?php
+                        if ($i % 3 == 2 && $i > 0) {
+                            print '</tr> <tr>';
+                        }
+                        ?>
+
+            <?php } ?>
+        </tr>
     </table>
 </div>
