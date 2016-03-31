@@ -9,6 +9,7 @@ include 'config.php';
 include '../classes/user.class.php';
 
 $user = new user();
+//$username = $_POST['userId'];
 $user->setUsername($_SESSION['username']);
 
 $resId = $conn->query("select customer_id, role from user where username='" . $user->username . "'");

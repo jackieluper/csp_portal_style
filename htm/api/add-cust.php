@@ -46,21 +46,27 @@ $primary_domain = $customer->getCompanyDomain();
 $_SESSION['username'] = $userName;
 $_SESSION['pwd'] = $customer->getPassword();
 
-$sql1 = "Select * from user where username='$userName'";
-$results = $conn->query($sql1);
-if ($results->num_rows > 0) {
-    echo "User already exists";
-} else {
-    $sql = "INSERT INTO user set username='$userName', commerce_id='$commerce_id', email='$email', role='10', tid='$tid'";
-    if ($conn->query($sql) == TRUE) {
-        $sql2 = "INSERT INTO customer set customer_name='$companyName', entity_type='$entity', billing_id='$billing_id', company_tid='$tid', is_provised='0', primary_domain='$primary_domain', relationship='Cloud Reseller', discount='0', active='1'";
-        if ($conn->query($sql2) == True) {
-            header("Location: ../portal/regSuccess.phtml");
-        }
-        else{
-            echo "Error: " . $sql2 . "<br>" . $conn->error;
-        }
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+
+$sql2 = "INSERT INTO customer set customer_name='$companyName', entity_type='$entity', billing_id='$billing_id', company_tid='$tid', is_provised='0', primary_domain='$primary_domain', relationship='Cloud Reseller', discount='0', active='1'";
+if ($conn->query($sql2) == True) {
+    $sqlCompanyName = "Select id from customer where customer_name='$companyName'";
+    $results = $conn->query($sqlCompanyName);
+    while ($row = $results->fetch_assoc()) {
+        $company_id = $row['id'];
     }
-}   
+    $sql1 = "Select * from user where username='$userName'";
+    $results = $conn->query($sql1);
+    if ($results->num_rows > 0) {
+        echo "User already exists";
+    } else {
+        $sql = "INSERT INTO user set username='$userName', commerce_id='$commerce_id', email='$email', role='10', tid='$tid'";
+        if ($conn->query($sql) == TRUE) {
+            
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+} else {
+    echo "Error: " . $sql2 . "<br>" . $conn->error;
+}
+  
