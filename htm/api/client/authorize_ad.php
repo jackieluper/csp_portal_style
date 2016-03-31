@@ -6,7 +6,7 @@ $authCode = $_GET['code'];
 $userAuth = new UserAuth();
 $userAuth->requestAdTokenForAuthCode($authCode);
 
-header("Location: ../../portal/products.php");
+header("Location: htm/portal/products.php");
 //
 //
 //
