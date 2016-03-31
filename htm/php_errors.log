@@ -268,3 +268,31 @@ Stack trace:
 #2 {main}
   thrown in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php on line 4
 [31-Mar-2016 22:01:00 UTC] PHP Fatal error:  main(): Failed opening required '../../../controllers/config.php' (include_path='.;C:\php\pear;C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client/app/') in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php on line 4
+[31-Mar-2016 22:03:43 UTC] PHP Warning:  Uncaught exception 'AppException' with message 'require(billing_portal_php/htm/controllers/config.php): failed to open stream: No such file or directory' in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php:4
+Stack trace:
+#0 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php(4): error_handler(2, 'require(billing...', 'C:\\Users\\jsmith...', 4, Array)
+#1 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php(4): require()
+#2 {main}
+  thrown in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php on line 4
+[31-Mar-2016 22:03:43 UTC] PHP Fatal error:  main(): Failed opening required 'billing_portal_php/htm/controllers/config.php' (include_path='.;C:\php\pear;C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client/app/') in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php on line 4
+[31-Mar-2016 22:03:45 UTC] PHP Warning:  Uncaught exception 'AppException' with message 'require(billing_portal_php/htm/controllers/config.php): failed to open stream: No such file or directory' in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php:4
+Stack trace:
+#0 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php(4): error_handler(2, 'require(billing...', 'C:\\Users\\jsmith...', 4, Array)
+#1 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php(4): require()
+#2 {main}
+  thrown in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php on line 4
+[31-Mar-2016 22:03:45 UTC] PHP Fatal error:  main(): Failed opening required 'billing_portal_php/htm/controllers/config.php' (include_path='.;C:\php\pear;C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client/app/') in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php on line 4
+[31-Mar-2016 22:03:46 UTC] PHP Warning:  Uncaught exception 'AppException' with message 'require(billing_portal_php/htm/controllers/config.php): failed to open stream: No such file or directory' in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php:4
+Stack trace:
+#0 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php(4): error_handler(2, 'require(billing...', 'C:\\Users\\jsmith...', 4, Array)
+#1 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php(4): require()
+#2 {main}
+  thrown in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php on line 4
+[31-Mar-2016 22:03:46 UTC] PHP Fatal error:  main(): Failed opening required 'billing_portal_php/htm/controllers/config.php' (include_path='.;C:\php\pear;C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client/app/') in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php on line 4
+[31-Mar-2016 22:03:48 UTC] PHP Warning:  Uncaught exception 'AppException' with message 'require(billing_portal_php/htm/controllers/config.php): failed to open stream: No such file or directory' in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php:4
+Stack trace:
+#0 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php(4): error_handler(2, 'require(billing...', 'C:\\Users\\jsmith...', 4, Array)
+#1 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php(4): require()
+#2 {main}
+  thrown in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php on line 4
+[31-Mar-2016 22:03:48 UTC] PHP Fatal error:  main(): Failed opening required 'billing_portal_php/htm/controllers/config.php' (include_path='.;C:\php\pear;C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client/app/') in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\authorize_ad.php on line 4
