@@ -98,12 +98,13 @@ class Customer {
 		$httpResponse = $httpClient->postRequest($url, $httpOptions);
 
 		$this->updateLocalCustomerDataAfterCreation($httpResponse);
-                $this->storeToDatabase();
+                // $this->storeToDatabase();
 		return $this;
 	}
 
 	private function updateLocalCustomerDataAfterCreation($httpResponse) {
-		$jsonResponse = json_decode($httpResponse, true);
+		$httpClean = preg_replace("/^([^{]+)({(.*))/u", "$2", $httpResponse);
+		$jsonResponse = json_decode($httpClean, true);
 		$this->_id = $jsonResponse['id'];
 		$this->_commerceId = $jsonResponse['commerceId'];
 		$this->_companyTenantId = $jsonResponse['companyProfile']['tenantId'];
@@ -150,17 +151,17 @@ class Customer {
 		// TODO search for existing customer in database
 		// TODO if customer exists, update, otherwise create
 		// TODO List of fields to store:
-		$this->_id;
-		$this->_commerceId;                
+		//$this->_id;
+		//$this->_commerceId;                
 //		$this->_relationshipToPartner
 //		$this->_allowDelegatedAccess
-		$this->_companyTenantId;
+		//$this->_companyTenantId;
 //		$this->_companyDomain
 //		$this->_companyName
 //		$this->_billingId
 //		$this->_billingFirstName
 //		$this->_billingLastName
-		$this->_billingEmail;
+		//$this->_billingEmail;
 //		$this->_billingCulture
 //		$this->_billingLanguage
 //		$this->_billingCompanyName
@@ -174,15 +175,15 @@ class Customer {
 //		$this->_billingAddressFirstName
 //		$this->_billingAddressLastName
 //		$this->_billingAddressPhoneNumber
-		$this->_username;
+		//$this->_username;
 //		$this->_password
-                $sql = "INSERT INTO user set username='$this->_username', customer_id='Something', email='$this->_billingEmail', role='10', azure_id='$this->_commerceId', tid='$this->_companyTenantId'";
-                if($conn->query($sql) == TRUE){
-                    header("Location: ../../../portal/products.php");
-                }
-                else{
-                    echo "Error: " . $sql . "<br>" . $conn->error;
-                }
+                //$sql = "INSERT INTO user set username='$this->_username', customer_id='Something', email='$this->_billingEmail', role='10', azure_id='$this->_commerceId', tid='$this->_companyTenantId'";
+                //if($conn->query($sql) == TRUE){
+                //    header("Location: ../../../portal/products.php");
+                //}
+                //else{
+                //    echo "Error: " . $sql . "<br>" . $conn->error;
+                //}
 	}
 
 	private function buildCustomerDataArrays() {
