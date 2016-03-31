@@ -35,3 +35,16 @@ $customer->
         setPassword($_POST['password']);
 
 $customer->createCustomer();
+$tid = $customer->getCompanyTenantId();
+$userName = $customer->getUsername();
+$email = $customer->getBillingEmail();
+$id = $customer->getBillingId();
+$commerceId = $customer->getCommerceId();
+
+
+$sql = "INSERT INTO user set username='$userName', customer_id='123456', email='$email', role='10', azure_id='$commerceId', tid='$tid'";
+if ($conn->query($sql) == TRUE) {
+    header("Location: ../portal/login_page.php");
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
