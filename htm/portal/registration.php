@@ -123,11 +123,10 @@ require '../controllers/config.php'
                 <td class="row5"><input class="form-control" type="text" name="phoneNum" placeholder="required" ></td>
             </tr>
         </table>
-    </form>    
+    </form >    
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">

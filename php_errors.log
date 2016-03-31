@@ -8230,3 +8230,187 @@ Stack trace:
 [30-Mar-2016 20:47:20 UTC] PHP Fatal error:  Cannot re-assign $this in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 150
 [31-Mar-2016 14:38:10 UTC] PHP Fatal error:  Cannot re-assign $this in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 149
 [31-Mar-2016 15:22:15 UTC] PHP Fatal error:  Cannot use object of type Customer as array in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[31-Mar-2016 08:54:52 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 08:58:21 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 08:59:42 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 08:59:47 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:00:01 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:01:00 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:02:31 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:02:31 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:02:31 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 71
+[31-Mar-2016 09:02:31 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 71
+[31-Mar-2016 09:02:31 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 71
+[31-Mar-2016 09:02:31 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 71
+[31-Mar-2016 09:02:31 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 71
+[31-Mar-2016 09:02:31 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 71
+[31-Mar-2016 09:04:20 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:05:07 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:05:13 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:07:03 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:07:11 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:07:11 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:07:11 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:07:11 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:07:12 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:07:12 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:07:12 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:37 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:08:37 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:37 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:37 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:37 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:37 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:37 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:42 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:08:42 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:42 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:42 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:42 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:42 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:42 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:51 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:08:51 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:51 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:51 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:51 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:51 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:08:52 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:09:55 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:09:55 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:09:55 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:09:55 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:09:55 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:09:55 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:09:55 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:10:06 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:10:06 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:10:06 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:10:06 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:10:06 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:10:06 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:10:06 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:06 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:11:06 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:06 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:06 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:06 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:06 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:06 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:22 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:11:22 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:22 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:22 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:22 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:22 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:22 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:29 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:11:29 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:29 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:29 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:29 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:29 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:29 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:42 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:11:42 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:42 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:42 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:42 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:42 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:42 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:49 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:11:49 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:49 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:49 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:49 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:49 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:11:49 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:12:05 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:12:05 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:12:05 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:12:05 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:12:05 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:12:05 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:12:05 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:13:16 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:13:16 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:13:16 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:13:16 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:13:16 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:13:16 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:13:16 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:21 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:14:21 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:21 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:21 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:21 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:22 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:22 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:27 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:14:27 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:27 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:27 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:27 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:27 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:27 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:42 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:14:42 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:42 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:42 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:42 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:42 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:14:42 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:08 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:17:08 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:08 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:08 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:08 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:08 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:08 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:24 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:17:24 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:24 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:24 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:24 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:24 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:24 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:28 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:17:28 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:28 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:28 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:28 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:28 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:17:28 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:19:48 America/Los_Angeles] PHP Notice:  Undefined index: id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 11
+[31-Mar-2016 09:19:48 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:19:48 America/Los_Angeles] PHP Notice:  Undefined variable: offerName in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:19:48 America/Los_Angeles] PHP Notice:  Undefined variable: listPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:19:48 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:19:48 America/Los_Angeles] PHP Notice:  Undefined variable: erpPrice in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:19:48 America/Los_Angeles] PHP Notice:  Undefined variable: offerSku in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:19:48 America/Los_Angeles] PHP Notice:  Undefined variable: offerUri in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 72
+[31-Mar-2016 09:20:07 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:20:21 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:20:27 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:24:33 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 09:49:45 America/Los_Angeles] PHP Notice:  Undefined index: qty in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 12
+[31-Mar-2016 16:56:07 UTC] PHP Fatal error:  Cannot access private property Customer::$_billingProfile in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[31-Mar-2016 16:58:41 UTC] PHP Fatal error:  Cannot access private property Customer::$_id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[31-Mar-2016 17:02:51 UTC] PHP Fatal error:  Cannot access private property Customer::$_id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[31-Mar-2016 17:10:27 UTC] PHP Fatal error:  Using $this when not in object context in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[31-Mar-2016 17:12:48 UTC] PHP Fatal error:  Using $this when not in object context in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 41
+[31-Mar-2016 17:15:54 UTC] PHP Fatal error:  Call to undefined function getCompanyTenantId() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[31-Mar-2016 17:16:41 UTC] PHP Fatal error:  Call to undefined function getCompanyTenantId() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[31-Mar-2016 10:18:05 America/Los_Angeles] PHP Parse error:  syntax error, unexpected '}' in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 39
+[31-Mar-2016 17:22:15 UTC] PHP Fatal error:  Cannot use object of type Customer as array in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[31-Mar-2016 17:23:08 UTC] PHP Fatal error:  Cannot use object of type Customer as array in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[31-Mar-2016 10:33:58 America/Los_Angeles] PHP Parse error:  syntax error, unexpected '[', expecting ',' or ';' in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[31-Mar-2016 10:34:27 America/Los_Angeles] PHP Parse error:  syntax error, unexpected '[', expecting ',' or ';' in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[31-Mar-2016 10:34:41 America/Los_Angeles] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ',' or ';' in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[31-Mar-2016 17:35:07 UTC] PHP Fatal error:  Cannot access private property Customer::$_id in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[31-Mar-2016 17:41:43 UTC] PHP Fatal error:  Cannot access private property Customer::$_companyProfile in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[31-Mar-2016 17:42:41 UTC] PHP Fatal error:  Cannot access private property Customer::$_companyTenantId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[31-Mar-2016 17:43:02 UTC] PHP Fatal error:  Cannot access private property Customer::$_companyProfile in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[31-Mar-2016 17:43:35 UTC] PHP Fatal error:  Cannot access private property Customer::$_companyTenantId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 40
+[31-Mar-2016 18:08:29 UTC] PHP Fatal error:  Cannot access private property Customer::$_commerceId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38
+[31-Mar-2016 19:40:39 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\httpclient.class.php on line 61
