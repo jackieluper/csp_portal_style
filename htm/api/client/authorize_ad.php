@@ -1,18 +1,12 @@
 <?php
 
-// FIXME remove this debugging code
-var_dump($_REQUEST);
+require_once '_init.php';
+$authCode = $_GET['code'];
+$userAuth = new UserAuth();
+$userAuth->requestAdTokenForAuthCode($authCode);
+var_dump($userAuth->getAdToken());
 die();
 
-//require_once '_init.php';
-//
-//$adAuth = new AdAuth();
-//
-//$authCode = $_GET['code'];
-//
-//$adAuth->requestAdTokenForAuthCode($authCode);
-//
-//var_dump($adAuth->getAdToken());
 //
 //
 //
