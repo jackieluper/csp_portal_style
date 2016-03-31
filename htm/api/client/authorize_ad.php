@@ -1,7 +1,7 @@
 <?php
 
 require_once '_init.php';
-require '../../controllers/config.php';
+require '../../../controllers/config.php';
 $authCode = $_GET['code'];
 $userAuth = new UserAuth();
 $userAuth->requestAdTokenForAuthCode($authCode);
