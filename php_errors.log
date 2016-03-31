@@ -8228,3 +8228,5 @@ Stack trace:
   thrown in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 2
 [30-Mar-2016 20:29:09 UTC] PHP Fatal error:  main(): Failed opening required '../../../controllers/config.php' (include_path='.;C:\php\pear;C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client/app/') in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 2
 [30-Mar-2016 20:47:20 UTC] PHP Fatal error:  Cannot re-assign $this in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 150
+[31-Mar-2016 14:38:10 UTC] PHP Fatal error:  Cannot re-assign $this in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 149
+[31-Mar-2016 15:22:15 UTC] PHP Fatal error:  Cannot use object of type Customer as array in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 38

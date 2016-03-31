@@ -112,8 +112,8 @@ class Customer {
 		// new variables returned after customer creation
 		$this->_responseBillingProfileEtag = $jsonResponse['billingProfile']['attributes']['etag'];
 		$this->_responsePassword = $jsonResponse['userCredentials']['password'];
+                $sql = "INSERT INTO user set username='$this->_username', customer_id='Something', email='$this->_billingEmail', role='10', azure_id='$this->_commerceId', tid='$this->_companyTenantId'";
                 
-                $this->storeToDatabase();
 	}
 
 	private function loadFromDatabase($customerId) {
@@ -177,13 +177,6 @@ class Customer {
 //		$this->_billingAddressPhoneNumber
 		$this->_username;
 //		$this->_password
-                $sql = "INSERT INTO user set username='$this->_username', customer_id='Something', email='$this->_billingEmail', role='10', azure_id='$this->_commerceId', tid='$this->_companyTenantId'";
-                if($conn->query($sql) == TRUE){
-                    header("Location: ../../../portal/products.php");
-                }
-                else{
-                    echo "Error: " . $sql . "<br>" . $conn->error;
-                }
 	}
 
 	private function buildCustomerDataArrays() {
