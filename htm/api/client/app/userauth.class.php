@@ -29,8 +29,6 @@ class UserAuth {
 		$httpResponse = $httpClient->postRequest(Config::instance()->getAdTokenCommonUrl(), $httpOptions);
 
 		$jsonResponse = json_decode($httpResponse, true);
-		print_r($httpResponse);
-		die();
 
 		$this->_adToken = $jsonResponse['access_token'];
 		$this->_adTokenExpiresOn = $jsonResponse['expires_on'];

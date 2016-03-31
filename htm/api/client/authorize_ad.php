@@ -5,7 +5,7 @@ require_once '_init.php';
 $authCode = $_GET['code'];
 $userAuth = new UserAuth();
 $userAuth->requestAdTokenForAuthCode($authCode);
-var_dump($userAuth->getAdToken());
+var_dump($userAuth->getIdToken());
 die();
 
 //
