@@ -5,8 +5,9 @@ require 'config.php';
 $authCode = $_GET['code'];
 $userAuth = new UserAuth();
 $userAuth->requestAdTokenForAuthCode($authCode);
+var_dump($userAuth->getIdToken());
+die();
 
-header("Location: htm/portal/products.php");
 //
 //
 //
