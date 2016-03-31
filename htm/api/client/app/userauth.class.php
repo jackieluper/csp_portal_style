@@ -1,12 +1,13 @@
 <?php
 
 class UserAuth {
-	private $_adToken, $_adTokenExpiresOn, $_idToken;
+	private $_adToken, $_adTokenExpiresOn, $_idToken, $_uniqueName;
 
 	public function __construct() {
 		$this->_adToken = '';
 		$this->_adTokenExpiresOn = 0;
 		$this->_idToken = '';
+                $this->_uniqueName = '';
 		return $this;
 	}
 
