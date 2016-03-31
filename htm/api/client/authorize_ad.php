@@ -1,12 +1,12 @@
 <?php
 
 require_once '_init.php';
-require 'billing_portal_php/htm/controllers/config.php';
+require '../controllers/config.php';
 $authCode = $_GET['code'];
 $userAuth = new UserAuth();
 $userAuth->requestAdTokenForAuthCode($authCode);
 
-echo "tid: " . $userAuth->getIdToken['tid'];
+header("Location: ../../portal/products.php");
 //
 //
 //
