@@ -4,7 +4,7 @@ Date: 2/17/16
 Managed Solution
 -->
 <?php
-session_start();
+
 //top offers figured by entity type
 
 //Sets admin role so it is not visible;

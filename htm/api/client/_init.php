@@ -7,5 +7,8 @@ spl_autoload_extensions('.class.php');
 spl_autoload_register();
 
 Debug::enable();
-
+try{
 Session::start();
+}catch (Exception $ex) {
+
+}

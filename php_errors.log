@@ -8192,3 +8192,39 @@ Stack trace:
 [30-Mar-2016 07:34:39 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
 [30-Mar-2016 07:34:48 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
 [30-Mar-2016 07:37:25 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\add-to-cart.php on line 8
+[30-Mar-2016 11:49:49 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[30-Mar-2016 11:54:48 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[30-Mar-2016 11:54:48 America/Los_Angeles] PHP Warning:  require_once(_init.php): failed to open stream: No such file or directory in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[30-Mar-2016 11:54:48 America/Los_Angeles] PHP Fatal error:  require_once(): Failed opening required '_init.php' (include_path='.;C:\php\pear') in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
+[30-Mar-2016 11:55:40 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[30-Mar-2016 12:08:35 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[30-Mar-2016 12:14:18 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[30-Mar-2016 12:14:19 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\logout.php on line 8
+[30-Mar-2016 12:14:19 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[30-Mar-2016 12:15:03 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[30-Mar-2016 12:16:37 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
+[30-Mar-2016 20:27:56 UTC] PHP Warning:  Uncaught exception 'AppException' with message 'require(../../../controllers/config.php): failed to open stream: No such file or directory' in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php:2
+Stack trace:
+#0 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php(2): error_handler(2, 'require(../../....', 'C:\\Users\\jsmith...', 2, Array)
+#1 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php(2): require()
+#2 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php(33): spl_autoload('Customer')
+#3 {main}
+  thrown in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 2
+[30-Mar-2016 20:27:56 UTC] PHP Fatal error:  main(): Failed opening required '../../../controllers/config.php' (include_path='.;C:\php\pear;C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client/app/') in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 2
+[30-Mar-2016 20:28:24 UTC] PHP Warning:  Uncaught exception 'AppException' with message 'require(../../controllers/config.php): failed to open stream: No such file or directory' in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php:2
+Stack trace:
+#0 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php(2): error_handler(2, 'require(../../c...', 'C:\\Users\\jsmith...', 2, Array)
+#1 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php(2): require()
+#2 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php(33): spl_autoload('Customer')
+#3 {main}
+  thrown in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 2
+[30-Mar-2016 20:28:24 UTC] PHP Fatal error:  main(): Failed opening required '../../controllers/config.php' (include_path='.;C:\php\pear;C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client/app/') in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 2
+[30-Mar-2016 20:29:09 UTC] PHP Warning:  Uncaught exception 'AppException' with message 'require(../../../controllers/config.php): failed to open stream: No such file or directory' in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php:2
+Stack trace:
+#0 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php(2): error_handler(2, 'require(../../....', 'C:\\Users\\jsmith...', 2, Array)
+#1 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php(2): require()
+#2 C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php(33): spl_autoload('Customer')
+#3 {main}
+  thrown in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 2
+[30-Mar-2016 20:29:09 UTC] PHP Fatal error:  main(): Failed opening required '../../../controllers/config.php' (include_path='.;C:\php\pear;C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client/app/') in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 2
+[30-Mar-2016 20:47:20 UTC] PHP Fatal error:  Cannot re-assign $this in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\client\app\customer.class.php on line 150

@@ -34,7 +34,7 @@ class Order {
 		return $this;
 	}
 
-	public function addOrderItem($offerId, $friendlyName = '', $quantity = 1, $partnerIdOnRecord = '') {
+	public function addOrderItem($offerId, $friendlyName, $quantity, $partnerIdOnRecord) {
 		$orderItem = new OrderItem();
 		$orderItem->
 			setLineItemNumber(count($this->_lineItems))->

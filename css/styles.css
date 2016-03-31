@@ -219,14 +219,14 @@ body{
 /**Side Cart Bar Fixed  ***/
 /*####################################################*/
 .sidecart{
-    position: absolute;
+    position: fixed;
     z-index: 900;
     top: 50px;
     right: 0;
     bottom: 0;
     width: 325px;
-    height: 0;
-    background-color: #ED8B22;
+    overflow: auto;
+    background-color: #fff;
     transform: translate3d(0, 0, 0);
     transition: transform 0.4s ease;
 }
@@ -705,12 +705,12 @@ a.logohover{
     transition: transform 0.4s ease;
 }
 .topOffers{
-    margin: 10px 0 0 100px;
+    margin: 5px 0 0 100px;
     width: 90%;
 }
 
 .topOffers td{
-    padding-right: 30px;
+    padding-right: 10px;
     align: center;
 }
 .products{

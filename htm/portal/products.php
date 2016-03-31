@@ -104,7 +104,8 @@ require '../api/client/app/offer.class.php';
                         </div>
                     </div>
                     <strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></br>
-                    <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
+                    <strong> <?php echo $offers->unit[$i] ?> </strong></br>
+                    <input type="text" name="qty" id="qty" value="1" style="width: 70px; text-align: right"></br></br>
                     <strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong>
                 </td>
             <?php } ?>
