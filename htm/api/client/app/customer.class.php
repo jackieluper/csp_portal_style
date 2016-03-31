@@ -213,8 +213,8 @@ class Customer {
 		$this->_billingProfile['DefaultAddress']['PhoneNumber'] = $this->_billingAddressPhoneNumber;
 		$this->_billingProfile['Attributes'] = array();
 		$this->_billingProfile['Attributes']['ObjectType'] = 'CustomerBillingProfile';
-		$this->_userCredentials['userName'] = $this->_username;
-		$this->_userCredentials['password'] = $this->_password;
+		// $this->_userCredentials['userName'] = $this->_username;
+		// $this->_userCredentials['password'] = $this->_password;
 		$this->_attributes['ObjectType'] = 'Customer';
 	}
 
@@ -228,7 +228,9 @@ class Customer {
 		$data['BillingProfile'] = $this->_billingProfile;
 		$data['RelationshipToPartner'] = $this->_relationshipToPartner;
 		$data['AllowDelegatedAccess'] = $this->_allowDelegatedAccess;
-		$data['UserCredentials'] = $this->_userCredentials;
+		$data['user_name'] = $this->_username;
+		$data['password'] = $this->_password;
+		// $data['UserCredentials'] = $this->_userCredentials;
 		$data['Attributes'] = $this->_attributes;
 		return $data;
 	}
