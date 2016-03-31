@@ -65,38 +65,30 @@ require '../controllers/config.php'
             </tr>
             <tr>
                 <th class="regTbl">Address Line 1 *</th>
-                <th class="regTbl">Password *</th>
+                <th class="regTbl">Address Line 2 *</th>
                 <th class="regTbl"> City *</th>
             </tr>
             <tr>
                 <td class="row2"><input class="form-control" type="text" id='address1' name="address1" placeholder="required" required></td>
-                <td class="row2"><input class="form-control" id="password" type="password" name="password" placeholder="required" onkeyup="validate(this.value)" required></td>
+                <td class="row2"><input class="form-control" type="text" id='address2' name="address2" placeholder="required" ></td>
                 <td class="row2"><input class="form-control" type="text" id='city' name="city" required></td>
             </tr>
             <tr>
-                <th class="regTbl">Address Line 2</th>
-                <th class="regTbl">Confirm Password *</th>
                 <th class="regTbl">Select Country *</th>
+                <th class="regTbl">Select State *</th>
                 <th class="regTbl">Zip Code *</th>
+                <th class="regTbl"></th>
             </tr>
             <tr >
-                <td class="row3"><input class="form-control" type="text" id='address2' name="address2" placeholder="required" ></td>
-                <td class="row3"><input class="form-control" id="confirmPass" type="password" name="confirmPass" onkeyup="passMatch(this)" placeholder="required" required></td>
-                <td class="row3">
-                    <select class="countrySelect" onchange="print_state('state', this.selectedIndex);" id="country" name ="country" required></select>
+                <td class="row3"><select class="countrySelect" onchange="print_state('state', this.selectedIndex);" id="country" name ="country" required></select>
                     <script language="javascript">print_country("country");</script></td>
-                <td class="row3" colspan="2"><input class="form-control" type="text" name="zip" id="zip" placeholder="required" onkeyup="validateZip(this)" required></td>
+                <td class="row3"><select class="countrySelect" name="state" id="state" onchange="(getState())" required></select></td>
+                <td class="row3" ><input class="form-control" type="text" name="zip" id="zip" placeholder="required" onkeyup="validateZip(this)" required></td>
+                <td class="row3">
+                    </td>
+                
             </tr>
-            <tr>
-                <th></th>
-                <th>User Name *</th>
-                <th><strong>Select State *</strong></th><br>
-            </tr>
-            <tr class="cityList">
-                <td></td>
-                <td><input class="form-control" type="text" id='username' name="username" required></td>
-                <td ><select class="countrySelect" name="state" id="state" onchange="(getState())" required></select></td>
-            </tr>
+           
         </table>
         <div class="page-header">
             <h2>PRIMARY CONTACT</h2> 

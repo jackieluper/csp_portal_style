@@ -31,21 +31,36 @@ $customer->
         setBillingAddressFirstName($_POST['fname'])->
         setBillingAddressLastName($_POST['lname'])->
         setBillingAddressPhoneNumber($_POST['phoneNum'])->
-        setUsername($_POST['username'])->
-        setPassword($_POST['password']);
+        setUsername("")->
+        setPassword("");
 $customer->createCustomer();
 var_dump($customer);
-$tid = $customer->getCompanyTenantId();
-$userName = $customer->getUsername();
+$userName = 'admin@' . $customer->getCompanyDomain();
+$commerce_id = $customer->getCommerceId();
 $email = $customer->getBillingEmail();
-$id = $customer->getBillingId();
-echo $tid . '<br>';
-echo $userName . '<br>';
-echo $email . '<br>';
-echo $id . '<br>';
-$sql = "INSERT INTO user set username='$userName', customer_id='123456', email='$email', role='10', azure_id='', tid='$tid'";
-if ($conn->query($sql) == TRUE) {
-   // header("Location: ../portal/login_page.php");
+$tid = $customer->getCompanyTenantId();
+$companyName = $customer->getCompanyName();
+$entity = $_POST['businessType'];
+$billing_id = $customer->getBillingId();
+$primary_domain = $customer->getCompanyDomain();
+$_SESSION['username'] = $userName;
+$_SESSION['pwd'] = $customer->getPassword();
+
+$sql1 = "Select * from user where username='$userName'";
+$results = $conn->query($sql1);
+if ($results->num_rows > 0) {
+    echo "User already exists";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+    $sql = "INSERT INTO user set username='$userName', commerce_id='$commerce_id', email='$email', role='10', tid='$tid'";
+    if ($conn->query($sql) == TRUE) {
+        $sql2 = "INSERT INTO customer set customer_name='$companyName', entity_type='$entity', billing_id='$billing_id', company_tid='$tid', is_provised='0', primary_domain='$primary_domain', relationship='Cloud Reseller', discount='0', active='1'";
+        if ($conn->query($sql2) == True) {
+            header("Location: ../portal/regSuccess.phtml");
+        }
+        else{
+            echo "Error: " . $sql2 . "<br>" . $conn->error;
+        }
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}   

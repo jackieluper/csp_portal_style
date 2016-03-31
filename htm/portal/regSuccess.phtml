@@ -3,21 +3,24 @@ Author: Jason B. Smith
 Date: 2/09/16
 Managed Solution
 -->
+<?php
+session_start();
+?>
 <head>
     <title>Success</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-      <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
 </head>
 <div class="header-white"></div>
 <div class="ss-stand-alone">
     <div class="ss-nav">
         <div id="header-wrapper">
             <a class="logohover" href="http://www.managedsolution.com">
-                <div class="logo"><img src="../../img/MS_Logo_orange.png" alt="MS Logo" style="width: 200px; height: 50px; "></div> 
+                <div class="logo"><img src="../img/MS_Logo_orange.png" alt="MS Logo" style="width: 200px; height: 50px; "></div> 
             </a>
             <div id="mainmenu" class="menu-menu-container">
                 <ul id="nav" class="nav" style="opacity: 1;"><li id="menu-item-5925" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-5925"><a href="http://jackiewiener.com/ms2/" >Home</a></li>
@@ -30,27 +33,20 @@ Managed Solution
                 </ul>
             </div>
         </div>
-        </div>
-        <div class="fullwidthtitle">
-            <h1 class="content-title" id="contentTxt">Successfully Registered</h1>
-        </div>
+    </div>
+    <div class="fullwidthtitle">
+        <h1 class="content-title" id="contentTxt">Successfully Registered</h1>
+    </div>
 </div>
 <div class="container">
     <div class="page-header">
         <h2>Success! <br><small>You have successfully registered and authorized Managed Solution to be your cloud service provider.</small></h2>
     </div>
-    <p>
-        As your premiere Microsoft business partner, we deliver genuine Microsoft products and services.
-        In order to electronically deliver your purchases, we must associate them with your Microsoft Account.
-        To continue, please select an option for granting us delivery access to your Microsoft account:
+    <p class="regContent">
+        Please save your username:<strong> <?php echo $_SESSION['username'] ?></strong></br>
+        and your Password: <strong><?php echo $_SESSION['pwd'] ?></strong></br>
+        as you will <strong>NOT</strong> be able to retrieve them after leaving this page.</br>
+        <a class="link" href="login_page.php"><strong>Click here to login.</strong></a>
     </p>
-    <p>
-    <?php require_once '../api/client/_init.php'; ?>
-    <div class="btn-group" role="group">
-        <a href="<?php echo (new AdAuth())->getAuthUrl(); ?>" class="btn btn-default btn-info">Use an Existing Microsoft Account *</a>
-        <a href="login_page.phtml" class="btn btn-default">Create a New Microsoft Account</a>
-    </div>
-    </p>
-    <p>* Recommended</p>
-<!--    <a class="link" href="login_page.htm"><strong>Click here to login.</strong></a>-->
+    
 </div>

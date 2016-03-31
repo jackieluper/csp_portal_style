@@ -33,6 +33,5 @@ function print_state(state_id, state_index){
 function getState(){
     var s = document.getElementById("state").value;
     var s = s.substring(0, s.indexOf(':'));
-    alert(s);
 }
 

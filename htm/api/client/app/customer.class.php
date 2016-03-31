@@ -114,6 +114,7 @@ class Customer {
 		// new variables returned after customer creation
 		$this->_responseBillingProfileEtag = $jsonResponse['billingProfile']['attributes']['etag'];
 		$this->_responsePassword = $jsonResponse['userCredentials']['password'];
+                $this->setPassword($this->_responsePassword);
 	}
 
 	private function loadFromDatabase($customerId) {

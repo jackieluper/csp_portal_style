@@ -1,13 +1,12 @@
 <?php
 
 require_once '_init.php';
-
+require '../../../config.php';
 $authCode = $_GET['code'];
 $userAuth = new UserAuth();
 $userAuth->requestAdTokenForAuthCode($authCode);
-var_dump($userAuth->getIdToken());
-die();
 
+echo "tid: " . $userAuth->getIdToken['tid'];
 //
 //
 //
