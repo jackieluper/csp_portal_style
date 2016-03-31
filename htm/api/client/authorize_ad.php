@@ -1,6 +1,7 @@
 <?php
 
 require_once '_init.php';
+
 $authCode = $_GET['code'];
 $userAuth = new UserAuth();
 $userAuth->requestAdTokenForAuthCode($authCode);
