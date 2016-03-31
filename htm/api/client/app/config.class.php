@@ -39,7 +39,7 @@ final class Config {
 		$this->_webClientId = '3e2eebc8-d054-4e1c-a934-a384cad4b0f9';
 		$this->_clientSecret = 'RqK2qX3TEFfTMrluU3BRQh0lKhgsvbaVqbyZvmax/3g=';
 		$this->_tenantName = 'managedsolutioncsptesting.onmicrosoft.com';
-		$this->_loginUrl = "https://login.windows.net/common/oauth2/authorize?response_type=code&resource=https%3A%2F%2Fgraph.windows.net&client_id=$this->_webClientId&redirect_uri=http%3A%2F%2Fwww.msolcsptest.com%2Fauthorize.php";
+		$this->_loginUrl = "https://login.windows.net/common/oauth2/authorize?response_type=code&resource=https%3A%2F%2Fgraph.windows.net&client_id=$this->_webClientId&redirect_uri=http%3A%2F%2Fwww.msolcsptest.com%2Fauthorize_ad.php";
 		$this->useDefaultUris();
 	}
 
