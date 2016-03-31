@@ -4,10 +4,11 @@ Date: 2/09/16
 Managed Solution
 -->
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
-session_start();
+require_once '../api/client/_init.php';
+
 if (!empty($_GET['code'])) {
-	require_once '../api/client/_init.php';
+	var_dump($_GET['code']);
+	die();
 
 	$adAuth = new AdAuth();
 	$adAuth->requestAdTokenForAuthCode($_GET['code']);
@@ -132,7 +133,7 @@ if (!empty($_GET['code'])) {
 		</div>
 		<br>
 		<div>
-			<a href="https://managedsolutionacs.accesscontrol.windows.net:443/v2/wsfederation?wa=wsignin1.0&wtrealm=http%3a%2f%2fbilling.managedsolution.com"><input
+			<a href="<?php echo Config::instance()->getLoginUrl(); ?>"><input
 					class="loginBtn" type="image" name="login-image" src="../img/log-in_page/microsoft_logo.png"></a>
 		</div>
 		<br>
