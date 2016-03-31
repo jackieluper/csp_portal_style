@@ -24,7 +24,7 @@
 // https://msdn.microsoft.com/en-us/library/partnercenter/mt634709.aspx
 final class Config {
 	private $_apiBaseUrl, $_apiUrl, $_redirectUri, $_tenantId, $_clientId, $_clientSecret, $_tenantName, $_adTokenUrl,
-		$_acTokenUrl, $_adTokenCommonUrl, $_resourceUrl, $_partnerCenterAuth, $_webClientId, $_loginUrl;
+		$_acTokenUrl, $_adTokenCommonUrl, $_resourceUrl, $_partnerCenterAuth, $_webClientId, $_webClientSecret, $_loginUrl;
 
 	protected function __construct() {
 		$this->useCredentialsSandbox();
@@ -33,11 +33,12 @@ final class Config {
 	}
 
 	private function useCredentialsSandbox() {
-		$this->_redirectUri = 'http://localhost';
+		$this->_redirectUri = 'http://www.msolcsptest.com/authorize_ad.php';
 		$this->_tenantId = '22e38d40-62cb-47c4-afdf-19421c5522c0';
 		$this->_clientId = 'c9d95c0e-8d97-4bba-b3a1-05bad83f7300';
-		$this->_webClientId = '3e2eebc8-d054-4e1c-a934-a384cad4b0f9';
 		$this->_clientSecret = 'RqK2qX3TEFfTMrluU3BRQh0lKhgsvbaVqbyZvmax/3g=';
+		$this->_webClientId = '3e2eebc8-d054-4e1c-a934-a384cad4b0f9';
+		$this->_webClientSecret = 'yEwlE0BgDFU0NGQhicQJ1Mv9aY3fYZb2YQGeTV83j+w=';
 		$this->_tenantName = 'managedsolutioncsptesting.onmicrosoft.com';
 		$this->_loginUrl = "https://login.windows.net/common/oauth2/authorize?response_type=code&resource=https%3A%2F%2Fgraph.windows.net&client_id=$this->_webClientId&redirect_uri=http%3A%2F%2Fwww.msolcsptest.com%2Fauthorize_ad.php";
 		$this->useDefaultUris();
@@ -175,6 +176,22 @@ final class Config {
 	public function setLoginUrl($loginUrl) {
 		$this->_loginUrl = $loginUrl;
 		return $this;
+	}
+
+	public function getWebClientId() {
+		return $this->_webClientId;
+	}
+
+	public function setWebClientId($webClientId) {
+		$this->_webClientId = $webClientId;
+	}
+
+	public function getWebClientSecret() {
+		return $this->_webClientSecret;
+	}
+
+	public function setWebClientSecret($webClientSecret) {
+		$this->_webClientSecret = $webClientSecret;
 	}
 
 	function __wakeup() {

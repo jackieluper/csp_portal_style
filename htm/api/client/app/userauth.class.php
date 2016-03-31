@@ -19,8 +19,8 @@ class UserAuth {
 		$postDataArray['code'] = $authCode;
 		$postDataArray['redirect_uri'] = Config::instance()->getRedirectUri();
 		$postDataArray['resource'] = Config::instance()->getResourceUrl();
-		$postDataArray['client_id'] = Config::instance()->getClientId();
-		$postDataArray['client_secret'] = Config::instance()->getClientSecret();
+		$postDataArray['client_id'] = Config::instance()->getWebClientId();
+		$postDataArray['client_secret'] = Config::instance()->getWebClientSecret();
 		$postDataArray['grant_type'] = 'authorization_code';
 		$httpOptions['post_data'] = $postDataArray;
 
@@ -34,7 +34,7 @@ class UserAuth {
 
 		$this->_adToken = $jsonResponse['access_token'];
 		$this->_adTokenExpiresOn = $jsonResponse['expires_on'];
-		$this->_idToken = JWT::decode($jsonResponse['id_token'], Config::instance()->getClientSecret(), false);
+		$this->_idToken = JWT::decode($jsonResponse['id_token'], Config::instance()->getWebClientSecret(), false);
 
 		return $this;
 	}
