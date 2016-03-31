@@ -1,13 +1,12 @@
 <?php
 
 class UserAuth {
-	private $_adToken, $_adTokenExpiresOn, $_idToken, $_uniqueName;
+	private $_adToken, $_adTokenExpiresOn, $_idToken;
 
 	public function __construct() {
 		$this->_adToken = '';
 		$this->_adTokenExpiresOn = 0;
 		$this->_idToken = '';
-                $this->_uniqueName = '';
 		return $this;
 	}
 
@@ -30,21 +29,14 @@ class UserAuth {
 		$httpResponse = $httpClient->postRequest(Config::instance()->getAdTokenCommonUrl(), $httpOptions);
 
 		$jsonResponse = json_decode($httpResponse, true);
-                $uniqueName = $jsonResponse['unique_name'];
-                $this->setUniqueName($uniqueName);
+
 		$this->_adToken = $jsonResponse['access_token'];
 		$this->_adTokenExpiresOn = $jsonResponse['expires_on'];
 		$this->_idToken = JWT::decode($jsonResponse['id_token'], Config::instance()->getWebClientSecret(), false);
 
 		return $this;
 	}
-        public function getUniqueName(){
-            return $this->_uniqueName;
-        }
-        public function setUniqueName($uniqueName){
-            $this->_uniqueName = $uniqueName;
-            return $this;
-        }
+
 	public function getAdToken() {
 		return $this->_adToken;
 	}

@@ -6,7 +6,7 @@ $authCode = $_GET['code'];
 $userAuth = new UserAuth();
 $userAuth->requestAdTokenForAuthCode($authCode);
 var_dump($userAuth->getIdToken());
-echo $userAuth->getUniqueName();
+echo $userAuth->unique_name;
 die();
 
 //
