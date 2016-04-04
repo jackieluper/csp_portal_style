@@ -11,7 +11,7 @@ $_SESSION['company_name'] = $userAuth->getIdToken()->name;
 $_SESSION['aud'] = $userAuth->getIdToken()->aud;
 $_SESSION['oid'] = $userAuth->getIdToken()->oid;
 $_SESSION['tid'] = $userAuth->getIdToken()->tid;
-$company_domain = substr($userAuth->getIdToken()->unique_name, strpos($data, "@") + 1); 
+$company_domain = substr($userAuth->getIdToken()->unique_name, strpos($userAuth->getIdToken()->unique_name, "@") + 1); 
 $_SESSION['company_domain'] = $company_domain;
 echo "Username: " . $_SESSION['username'] . '<br>';
 echo "Comapany Name: " . $_SESSION['company_name'] . '<br>';
