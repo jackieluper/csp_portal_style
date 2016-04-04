@@ -5,8 +5,15 @@ require 'config.php';
 $authCode = $_GET['code'];
 $userAuth = new UserAuth();
 $userAuth->requestAdTokenForAuthCode($authCode);
-var_dump($userAuth->getIdToken());
+var_dump($userAuth->getIdToken()) . '<br>';
 $_SESSION['username'] = $userAuth->getIdToken()->unique_name;
+$_SESSION['company_name'] = $userAuth->getIdToken()->name;
+$_SESSION['aud'] = $userAuth->getIdToken()->aud;
+$_SESSION['oid'] = $userAuth->getIdToken()->oid;
+echo "Username: " . $_SESSION['username'] . '<br>';
+echo "Comapany Name: " . $_SESSION['company_name'] . '<br>';
+echo "AUD: " . $_SESSION['aud'] . '<br>';
+echo "OID: " . $_SESSION['oid'] . '<br>';
 //header('Location: ../htm/controllers/validateUser.php');
 die();
 
