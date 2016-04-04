@@ -10,10 +10,15 @@ $_SESSION['username'] = $userAuth->getIdToken()->unique_name;
 $_SESSION['company_name'] = $userAuth->getIdToken()->name;
 $_SESSION['aud'] = $userAuth->getIdToken()->aud;
 $_SESSION['oid'] = $userAuth->getIdToken()->oid;
+$_SESSION['tid'] = $userAuth->getIdToken()->id;
+$company_domain = substr($userAuth->getIdToken()->username, strpos($data, "@") + 1); 
+$_SESSION['company_domain'] = $company_domain;
 echo "Username: " . $_SESSION['username'] . '<br>';
 echo "Comapany Name: " . $_SESSION['company_name'] . '<br>';
 echo "AUD: " . $_SESSION['aud'] . '<br>';
 echo "OID: " . $_SESSION['oid'] . '<br>';
+echo "tid: " . $_SESSION['tid'] . '<br>';
+echo "domain: " . $company_domain;
 //header('Location: ../htm/controllers/validateUser.php');
 die();
 

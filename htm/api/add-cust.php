@@ -59,7 +59,7 @@ if ($conn->query($sql2) == True) {
     if ($results->num_rows > 0) {
         echo "User already exists";
     } else {
-        $sql = "INSERT INTO user set username='$userName', commerce_id='$commerce_id', email='$email', role='10', tid='$tid'";
+        $sql = "INSERT INTO user set username='$userName', customer_id='$company_id', commerce_id='$commerce_id', email='$email', role='10', tid='$tid'";
         if ($conn->query($sql) == TRUE) {
             header("Location: ../portal/regSuccess.phtml");
         } else {
