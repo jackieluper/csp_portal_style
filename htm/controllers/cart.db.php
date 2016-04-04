@@ -13,7 +13,6 @@ $cart = new cart();
 //Grabbing all the cart items to show on checkout page for the customer to make any last minute changes
 $result = $conn->query("select items, item_name, msrp, qty from cart");
 error_reporting(E_ALL ^ E_NOTICE);
-
 while ($row = $result->fetch_assoc()) {
     $item = $row['items'];
     $name = $row['item_name'];
@@ -26,21 +25,15 @@ while ($row = $result->fetch_assoc()) {
     $cart->setQty($index, $qty);
     $index++;
 }
- $cart->setTotal($total);
 //Calculate customer discount if any and display savings as well as new total
 $sqlDiscount = "Select discount from customer where id='" . $_SESSION['custId'] . "'";
 $resultDiscount = $conn->query($sqlDiscount);
-if ($resultDiscount->num_rows > 0) {
-    while ($row = $resultDiscount->fetch_assoc()) {
-        $rate = $row['discount'];
-        $discountDec = $rate / 100;
-        $discountNum = $total1 * $discountDec;
-        $total = $total1 - $discountNum;
-        $cart->setDiscount($discountNum);
-        $cart->setDiscountRate($rate);
-        $cart->setTotal($total);
-    }
+while ($row = $resultDiscount->fetch_assoc()) {
+    $rate = $row['discount'];
+    $discountDec = $rate / 100;
+    $discountNum = $total1 * $discountDec;
+    $total = $total1 - $discountNum;
 }
-else{
-    
-}
+$cart->setDiscount($discountNum);
+$cart->setDiscountRate($rate);
+$cart->setTotal($total);
