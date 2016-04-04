@@ -23,6 +23,7 @@ $sqlCompanyCheck = "SELECT id from customer where customer_name='$company_name'"
 $resCompanyCheck = $conn->query($sqlCompanyCheck);
 if ($resCompanyCheck->num_rows > 0) {
     $customer_id = $row['id'];
+    $user->setCustId($customer_id);
     $_SESSION['custId'] = $customer_id;
 }
 $sqlCompanyCheck = "SELECT username from user where username='$user_name'";
@@ -77,8 +78,9 @@ $_SESSION['role'] = $user->role;
 echo "entity: " . $user->entity . '<br>';
 echo "user: " . $user->username . '<br>';
 echo "role: " . $user->role . '<br>';
+echo "cust id: " . $user->custId . '<br>';
 if (isset($_SESSION['entity']) && isset($_SESSION['role'])) {
-    header('refresh:0; url=../portal/products.php');
+    //header('refresh:0; url=../portal/products.php');
 } else {
     echo "There is an issue with your account please contact your System Administrator!";
 }
