@@ -345,20 +345,24 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
         $resultDelete = $conn->query($sqlDelete);
         $tid = $_SESSION['tid'];
-         $order = new Order($tid);
+        $order = new Order('fb828080-7928-4fdf-b2e3-b9353af6233f');
+        $order->addOrderItem('84A03D81-6B37-4D66-8D4A-FAEA24541538', 'Basic AD for Tech PHP', 1);
+        $order->submitOrder();
+
         $sqlCreatOrder = "select * from transactions where transaction_id='$orderId'";
-        $resCreateOrder = $conn->query($sqlCreatOrder);        
+        $resCreateOrder = $conn->query($sqlCreatOrder);
         if ($resCreateOrder->num_rows > 0) {
             while ($row = $resCreateOrder->fetch_assoc()) {
                 $offerID = $row['sku'];
                 $name = $row['product_name'];
                 $qty = intval($row['qty']);
                 $order->addOrderItem($offerID, $name, $qty);
+                echo "sku: " . $offerID . '<br>';
+                echo "qty: " . $qty . '<br>';
+                echo "name: " . $name . '<br>';
             }
-            echo "order is placed!!!!!!!";
             $order->submitOrder();
-        }
-        else{
+        } else {
             echo "Error updating record: " . $conn->error;
         }
     }
