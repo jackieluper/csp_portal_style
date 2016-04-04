@@ -325,7 +325,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
             $resultInvoice = $conn->query($sqlInvoice);
-            
+
 
             print '
         <div><strong>Item Number: ' . $itemNum . '</strong></div>
@@ -344,6 +344,19 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         </div>';
         $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
         $resultDelete = $conn->query($sqlDelete);
+        $sqlCreatOrder = "select * from transactions where transaction_id='$orderId'";
+        $resCreateOrder = $conn->query($sqlCreatOrder);
+        $tid = $_SESSION['tid'];
+        if ($resCreateOrder->num_rows > 0) {
+            $order = new Order($tid);
+            while ($row = $resCreateOrder->fetch_assoc()) {
+                $offerID = $row['sku'];
+                $name = $row['product_name'];
+                $qty = intval($row['qty']);
+                $order->addOrderItem($offerID, $name, $qty);
+            }
+            $order->submitOrder();
+        }
     }
     ?>
     <input type="button" class="receiptBtn" onclick="printDiv('print-content')" value="Print Receipt"/>
