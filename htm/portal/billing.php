@@ -7,7 +7,7 @@ Managed Solution
 session_start();
 require("../controllers/config.php");
 require '../controllers/cart.db.php';
-
+require '../api/client/app/order.class.php';
 
 $tid = $_SESSION['tid'];
 $order = new Order($tid);
@@ -306,7 +306,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         ?>
         <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?>></div>
         <?php
-        require '../api/client/app/order.class.php';
         print " <p><h3><strong>Transaction was Approved: </strong></h3></p>\n";
         $xml = simplexml_load_string($data);
         $amount = $xml->amount;
