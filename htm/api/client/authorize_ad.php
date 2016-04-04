@@ -10,7 +10,7 @@ $_SESSION['username'] = $userAuth->getIdToken()->unique_name;
 $_SESSION['company_name'] = $userAuth->getIdToken()->name;
 $_SESSION['aud'] = $userAuth->getIdToken()->aud;
 $_SESSION['oid'] = $userAuth->getIdToken()->oid;
-$_SESSION['tid'] = $userAuth->getIdToken()->id;
+$_SESSION['tid'] = $userAuth->getIdToken()->tid;
 $company_domain = substr($userAuth->getIdToken()->username, strpos($data, "@") + 1); 
 $_SESSION['company_domain'] = $company_domain;
 echo "Username: " . $_SESSION['username'] . '<br>';
