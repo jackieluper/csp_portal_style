@@ -61,7 +61,7 @@ if ($conn->query($sql2) == True) {
     } else {
         $sql = "INSERT INTO user set username='$userName', commerce_id='$commerce_id', email='$email', role='10', tid='$tid'";
         if ($conn->query($sql) == TRUE) {
-            
+            header("Location: ../portal/regSuccess.phtml");
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }

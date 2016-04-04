@@ -7,7 +7,7 @@ $userAuth = new UserAuth();
 $userAuth->requestAdTokenForAuthCode($authCode);
 var_dump($userAuth->getIdToken());
 $_SESSION['username'] = $userAuth->getIdToken()->unique_name;
-header('Location: ../htm/controllers/validateUser.php');
+//header('Location: ../htm/controllers/validateUser.php');
 die();
 
 //
