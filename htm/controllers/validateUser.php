@@ -27,12 +27,12 @@ if ($resCompanyCheck->num_rows > 0) {
     $sqlAddCompany = "INSERT INTO customer set(customer_name, entity_type, company_tid, is_provised, primary_domain, relationship, discount, active)
             VALUES('$company_name', 'Corporate', '$tid', '0', '$company_domain', 'Cloud Reseller', '0', '1')";
     if ($conn->query($sqlAddCompany) == True) {
-        $sql = "SELECT id from customer where customer_name='$company_name'";
+        $sql = "SELECT id, entity from customer where customer_name='$company_name'";
         $res = $conn->query($sql);
-        $entity = 'Corporate';
-        $user->setEntity($entity);
         while ($row = $res->fetch_assoc()) {
             $company_id = $row['id'];
+            $entity = $row['entity'];
+            $user->setEntity($entity);
         }
         $sqlAddExistingUser = "INSERT INTO user set(username, customer_id, aud, oid, role, tid)
             VALUES('$user_name', '$company_id', '$aud', '$oid', '10', '$tid' )";
