@@ -34,5 +34,10 @@ $user->setEntity($entity);
 $_SESSION['entity'] = $user->entity;
 $_SESSION['user'] = $user->username;
 
+if(isset($_SESSION['entity'])){
 header('refresh:0; url=../portal/products.php');
+}
+else{
+    echo "There is an issue with your account please contact your System Administrator!";
+}
 ?>
