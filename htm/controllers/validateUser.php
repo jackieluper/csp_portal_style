@@ -25,14 +25,15 @@ if ($resCompanyCheck->num_rows > 0) {
     $custId = $row['id'];
     $user->setCustId($custId);
     $_SESSION['custId'] = $custId;
-}
-else{
+} else {
     echo "Error: " . $sqlCompanyCheck . "<br>" . $conn->error;
 }
 $sqlCompanyCheck = "SELECT username from user where username='$user_name'";
 $resCompanyCheck = $conn->query($sqlCompanyCheck);
 if ($resCompanyCheck->num_rows > 0) {
-    $user_name = $row['username'];
+    while ($row = $resCompanyCheck->fetch_assoc()) {
+        $user_name = $row['username'];
+    }
 } else {
     $sqlAddCompany = "INSERT INTO customer(customer_name, entity_type, company_tid, is_provised, primary_domain, relationship, discount, active)
             VALUES('$company_name', 'Corporate', '$tid', '0', '$company_domain', 'Cloud Reseller', '0', '1')";
