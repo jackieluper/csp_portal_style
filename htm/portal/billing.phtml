@@ -365,19 +365,17 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         }
     </script>
 
-    <?php    
+    <?php
     $resCreateOrder = $conn->query("select * from transactions where transaction_id='$orderId'");
     if ($resCreateOrder->num_rows > 0) {
         while ($row = $resCreateOrder->fetch_assoc()) {
             $offerID = $row['sku'];
             $name = $row['product_name'];
             $qty = $row['qty'];
-            $order->addOrderItem($offerID, $name, $qty);
             echo "sku: " . $offerID . '<br>';
             echo "qty: " . $qty . '<br>';
             echo "name: " . $name . '<br>';
         }
-        $order->submitOrder();
     } else {
         echo "Error: " . $sqlCreateOrder . "<br>" . $conn->error;
     }
