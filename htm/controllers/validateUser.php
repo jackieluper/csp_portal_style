@@ -23,7 +23,6 @@ $sqlCompanyCheck = "SELECT id from customer where customer_name='$company_name'"
 $resCompanyCheck = $conn->query($sqlCompanyCheck);
 if ($resCompanyCheck->num_rows > 0) {
     $customer_id = $row['id'];
-    echo "cust id: " . $customer_id . '<br>';
 } else {
     $sqlAddCompany = "INSERT INTO customer(customer_name, entity_type, company_tid, is_provised, primary_domain, relationship, discount, active)
             VALUES('$company_name', 'Corporate', '$tid', '0', '$company_domain', 'Cloud Reseller', '0', '1')";
@@ -71,6 +70,9 @@ $_SESSION['entity'] = $user->entity;
 $_SESSION['user'] = $user->username;
 
 if (isset($_SESSION['entity'])) {
+    echo "entity: " . $user->entity . '<br>';
+    echo "user: " . $user->username . '<br>';
+    echo "role: " . $user->role . '<br>';
     //header('refresh:0; url=../portal/products.php');
 } else {
     echo "There is an issue with your account please contact your System Administrator!";
