@@ -8441,3 +8441,5 @@ Stack trace:
 [31-Mar-2016 16:46:04 America/Los_Angeles] PHP Notice:  Undefined variable: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\validateUser.php on line 33
 [31-Mar-2016 16:47:30 America/Los_Angeles] PHP Notice:  Undefined variable: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\validateUser.php on line 33
 [31-Mar-2016 16:47:43 America/Los_Angeles] PHP Notice:  Undefined variable: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\validateUser.php on line 33
+[31-Mar-2016 17:25:55 America/Los_Angeles] PHP Notice:  Undefined index: username in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\validateUser.php on line 13
+[31-Mar-2016 17:25:55 America/Los_Angeles] PHP Notice:  Undefined variable: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\validateUser.php on line 33
