@@ -45,12 +45,12 @@ if ($resCompanyCheck->num_rows > 0) {
         echo "Error: " . $sqlAddCompany . "<br>" . $conn->error;
     }
 }
-$sqlGetCustInfo = "SELECT role from user where username='$user_name'";
-$resId = $conn->query($sqlGetCustInfo);
-if ($resId->num_rows > 0) {
+$resRole = $conn->query("select role from user where username='$user_name'");
+if (mysqli_num_rows($resRole)) {
+    while ($row = mysqli_fetch_assoc($resRole)) {
         $role = $row['role'];
         $user->setRole($role);
-        $_SESSION['role'] = $user->role;
+    }
 }
 else {
             echo "Error: " . $sqlGetCustInfo . "<br>" . $conn->error;
