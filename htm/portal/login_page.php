@@ -117,44 +117,44 @@ if (!empty($_GET['code'])) {
             <!--            <a class="link" id="regLink" href="registration.php">Have not registered yet? Click Here!</a>-->
             <!--        </div>-->
             <!--    </form>  -->
-
-            <div class="login-text">Login with your Microsoft Work Account!<br>
-                Click the Microsoft button below
+            <div class="login">
+                <div class="login-text">Login with your Microsoft Work Account!<br>
+                    Click the Microsoft button below
+                </div>
+                <br>
+                <div>
+                    <a href="<?php echo Config::instance()->getLoginUrl(); ?>"><input
+                            class="loginBtn" type="image" name="login-image" src="../img/log-in_page/microsoft_logo.png"></a>
+                </div>
+                <br>
+                <a class="link" id="regLink" href="registration.php">Have not registered yet? Click Here!</a>
             </div>
-            <br>
-            <div>
-                <a href="<?php echo Config::instance()->getLoginUrl(); ?>"><input
-                        class="loginBtn" type="image" name="login-image" src="../img/log-in_page/microsoft_logo.png"></a>
-            </div>
-            <br>
-            <a class="link" id="regLink" href="registration.php">Have not registered yet? Click Here!</a>
-        </div>
-        <div id="loginErrorModal" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Login Failed</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>An error occurred while logging in. Please try again.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <div id="loginErrorModal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Login Failed</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>An error occurred while logging in. Please try again.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <script>
-            $('body').on('hidden.bs.modal', '.modal', function () {
-                window.location.href = window.location.href.replace(/(error=1)/, '');
-            });
+            <script>
+                $('body').on('hidden.bs.modal', '.modal', function () {
+                    window.location.href = window.location.href.replace(/(error=1)/, '');
+                });
 
-            if (window.location.href.indexOf('error') != -1) {
-                $('#loginErrorModal').modal('show');
-            }
-        </script>
-    </div>
-</body>
+                if (window.location.href.indexOf('error') != -1) {
+                    $('#loginErrorModal').modal('show');
+                }
+            </script>
+        </div>
+    </body>
 </html>
