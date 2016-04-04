@@ -23,6 +23,7 @@ $sqlCompanyCheck = "SELECT id from customer where customer_name='$company_name'"
 $resCompanyCheck = $conn->query($sqlCompanyCheck);
 if ($resCompanyCheck->num_rows > 0) {
     $customer_id = $row['id'];
+    $_SESSION['custId'] = $customer_id;
 }
 $sqlCompanyCheck = "SELECT username from user where username='$user_name'";
 $resCompanyCheck = $conn->query($sqlCompanyCheck);
