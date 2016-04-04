@@ -37,17 +37,7 @@ if ($resCompanyCheck->num_rows > 0) {
         $sqlAddExistingUser = "INSERT INTO user(username, customer_id, aud, oid, role, tid)
             VALUES('$user_name', '$company_id', '$aud', '$oid', '10', '$tid' )";
         if ($conn->query($sqlAddExistingUser) == TRUE) {
-            $resId = $conn->query("select customer_id, role from user where username='" . $user->username . "'");
-            if (mysqli_num_rows($resId)) {
-                while ($row = mysqli_fetch_assoc($resId)) {
-                    $custId = $row['customer_id'];
-                    $role = $row['role'];
-                    $user->setCustId($custId);
-                    $user->setRole($role);
-                    $_SESSION['role'] = $user->role;
-                    $_SESSION['custId'] = $user->custId;
-                }
-            }
+            
         } else {
             echo "Error: " . $sqlAddExistingUser . "<br>" . $conn->error;
         }
@@ -55,7 +45,17 @@ if ($resCompanyCheck->num_rows > 0) {
         echo "Error: " . $sqlAddCompany . "<br>" . $conn->error;
     }
 }
-
+$resId = $conn->query("select customer_id, role from user where username='" . $user->username . "'");
+if (mysqli_num_rows($resId)) {
+    while ($row = mysqli_fetch_assoc($resId)) {
+        $custId = $row['customer_id'];
+        $role = $row['role'];
+        $user->setCustId($custId);
+        $user->setRole($role);
+        $_SESSION['role'] = $user->role;
+        $_SESSION['custId'] = $user->custId;
+    }
+}
 $resEntity = $conn->query("select entity_type from customer where customer_name='$company_name'");
 if (mysqli_num_rows($resEntity)) {
     while ($row = mysqli_fetch_assoc($resEntity)) {
