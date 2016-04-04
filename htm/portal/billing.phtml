@@ -10,6 +10,8 @@ require("../controllers/config.php");
 require '../controllers/cart.db.php';
 require '../api/client/app/order.class.php';
 
+$tid = $_SESSION['tid'];
+$order = new Order($tid);
 // API Setup parameters
 $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
 $APIKey = 'CkdE324pr5pYCn5B6aMyVpW2z7qtBK6M';
@@ -299,6 +301,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 
     if ((string) $gwResponse->result == 1) {
         //need to parse customer TID from login
+
         print '<div id="print-content">
                 <form>';
         ?>
@@ -361,16 +364,15 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             document.body.innerHTML = originalContents;
         }
     </script>
+
     <?php
-    $tid = $_SESSION['tid'];
-    $order = new Order($tid);
     $sqlCreatOrder = "select * from transactions where transaction_id='$orderId'";
     $resCreateOrder = $conn->query($sqlCreatOrder);
     if ($resCreateOrder->num_rows > 0) {
         while ($row = $resCreateOrder->fetch_assoc()) {
             $offerID = $row['sku'];
             $name = $row['product_name'];
-            $qty = intval($row['qty']);
+            $qty = $row['qty'];
             $order->addOrderItem($offerID, $name, $qty);
             echo "sku: " . $offerID . '<br>';
             echo "qty: " . $qty . '<br>';
@@ -380,8 +382,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     } else {
         echo "Error updating record: " . $conn->error;
     }
-    ?>
-    <?php
 } elseif ((string) $gwResponse->result == 2) {
     print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
     print " Decline Description : " . (string) $gwResponse->{'result-text'} . " </p>";
