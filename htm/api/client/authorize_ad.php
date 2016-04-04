@@ -19,7 +19,7 @@ echo "AUD: " . $_SESSION['aud'] . '<br>';
 echo "OID: " . $_SESSION['oid'] . '<br>';
 echo "tid: " . $_SESSION['tid'] . '<br>';
 echo "domain: " . $company_domain;
-//header('Location: ../htm/controllers/validateUser.php');
+header('Location: ../htm/controllers/validateUser.php');
 die();
 
 //
