@@ -22,9 +22,9 @@ $user->setUsername($user_name);
 $sqlCompanyCheck = "SELECT id from customer where customer_name='$company_name'";
 $resCompanyCheck = $conn->query($sqlCompanyCheck);
 if ($resCompanyCheck->num_rows > 0) {
-    $customer_id = $row['id'];
-    $user->setCustId($customer_id);
-    $_SESSION['custId'] = $customer_id;
+    $custId = $row['id'];
+    $user->setCustId($custId);
+    $_SESSION['custId'] = $custId;
 }
 else{
     echo "Error: " . $sqlCompanyCheck . "<br>" . $conn->error;
