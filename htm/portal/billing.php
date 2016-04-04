@@ -10,7 +10,6 @@ require '../controllers/cart.db.php';
 require '../api/client/app/order.class.php';
 
 $tid = $_SESSION['tid'];
-$order = new Order($tid);
 // API Setup parameters
 $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
 $APIKey = 'CkdE324pr5pYCn5B6aMyVpW2z7qtBK6M';
@@ -313,8 +312,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $orderId = $xml->{'order-id'};
         print '            
         <div><strong>Order ID: ' . $orderId . '</strong></div><br>';
-        $tid = $_SESSION['tid'];
-        $order = new Order($tid);
         foreach ($xml->product as $product) {
             $lineItem = 0;
             $qty = (int) $product->quantity;
@@ -326,10 +323,12 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $name = $product->description;
             $discountRate = $product->{'discount-rate'};
             $totalSavings = $product->{'discount-amount'};
-            $order->addOrderItem($sku, $name, $qtyFormatted, '22e38d40-62cb-47c4-afdf-19421c5522c0');
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
             $resultInvoice = $conn->query($sqlInvoice);
+            $order = new Order($tid);
+            $order->addOrderItem($product->{'product-code'}, $product->description, inval($product->quantity));
+            $order->submitOrder();
 
 
             print '
@@ -341,8 +340,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
         <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
         }
-        $order->submitOrder();
-        
         print '
         <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
         <div><strong>Total Savings: $' . $totalSavings . '</strong></div>
