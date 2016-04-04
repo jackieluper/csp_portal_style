@@ -366,8 +366,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     </script>
 
     <?php    
-    $sqlCreateOrder = "select * from transactions where transaction_id='$orderId'";
-    $resCreateOrder = $conn->query($sqlCreatOrder);
+    $resCreateOrder = $conn->query("select * from transactions where transaction_id='$orderId'");
     if ($resCreateOrder->num_rows > 0) {
         while ($row = $resCreateOrder->fetch_assoc()) {
             $offerID = $row['sku'];
@@ -380,7 +379,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         }
         $order->submitOrder();
     } else {
-        echo "Error: " . $sqlCreatOrder . "<br>" . $conn->error;
+        echo "Error: " . $sqlCreateOrder . "<br>" . $conn->error;
     }
 } elseif ((string) $gwResponse->result == 2) {
     print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
