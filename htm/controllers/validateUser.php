@@ -50,6 +50,12 @@ if ($resCompanyCheck->num_rows > 0) {
                 }
             }
         }
+        else{
+            echo "Error: " . $sqlAddExistingUser . "<br>" . $conn->error;
+        }
+    }
+    else{
+        echo "Error: " . $sqlAddCompany . "<br>" . $conn->error;
     }
 }
 
