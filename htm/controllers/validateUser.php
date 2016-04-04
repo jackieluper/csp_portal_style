@@ -63,10 +63,10 @@ $resEntity = $conn->query("select entity_type from customer where id='" . $user-
 if (mysqli_num_rows($resEntity)) {
     while ($row = mysqli_fetch_assoc($resEntity)) {
         $entity = $row['entity_type'];
+        $user->setEntity($entity);
     }
 }
-$user->setEntity($entity);
-echo $user->getEntity();
+
 $_SESSION['entity'] = $user->entity;
 $_SESSION['user'] = $user->username;
 
