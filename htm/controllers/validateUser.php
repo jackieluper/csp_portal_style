@@ -23,6 +23,7 @@ $sqlCompanyCheck = "SELECT * from customer where customer_name='" . $_SESSION['c
 $resCompanyCheck = $conn->query($sqlCompanyCheck);
 if ($resCompanyCheck->num_rows > 0) {
     $customer_id = $row['id'];
+    echo "cust id: " . $customer_id . '<br>';
 } else {
     $sqlAddCompany = "INSERT INTO customer set(customer_name, entity_type, company_tid, is_provised, primary_domain, relationship, discount, active)
             VALUES('$company_name', 'Corporate', '$tid', '0', '$company_domain', 'Cloud Reseller', '0', '1')";
