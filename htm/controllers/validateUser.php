@@ -52,7 +52,7 @@ else {
     }
 }
 
-$sqlRole = "select * from user where username='$user->username'";
+$sqlRole = "select role from user where username='$user_name'";
 $resRole = $conn->query($sqlRole);
 if ($resRole->num_rows > 0) {
     $role = $row['role'];
