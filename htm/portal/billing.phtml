@@ -345,8 +345,25 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
         $resultDelete = $conn->query($sqlDelete);
     }
+    ?>
+    <input type="button" class="receiptBtn" onclick="printDiv('print-content')" value="Print Receipt"/>
+    </div>
+    <script type="text/javascript">
+
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+    </script>
+    <?php
     $tid = $_SESSION['tid'];
-    $order = new Order($tid);       
+    $order = new Order($tid);
     $sqlCreatOrder = "select * from transactions where transaction_id='$orderId'";
     $resCreateOrder = $conn->query($sqlCreatOrder);
     if ($resCreateOrder->num_rows > 0) {
@@ -364,21 +381,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         echo "Error updating record: " . $conn->error;
     }
     ?>
-    <input type="button" class="receiptBtn" onclick="printDiv('print-content')" value="Print Receipt"/>
-    </div>
-    <script type="text/javascript">
-
-        function printDiv(divName) {
-            var printContents = document.getElementById(divName).innerHTML;
-            var originalContents = document.body.innerHTML;
-
-            document.body.innerHTML = printContents;
-
-            window.print();
-
-            document.body.innerHTML = originalContents;
-        }
-    </script>
     <?php
 } elseif ((string) $gwResponse->result == 2) {
     print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
