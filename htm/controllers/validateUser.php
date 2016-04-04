@@ -45,16 +45,14 @@ if ($resCompanyCheck->num_rows > 0) {
         echo "Error: " . $sqlAddCompany . "<br>" . $conn->error;
     }
 }
+echo "username: " .  $user_name . '<br>';
 $resRole = $conn->query("select role from user where username='$user_name'");
 if (mysqli_num_rows($resRole)) {
     while ($row = mysqli_fetch_assoc($resRole)) {
         $role = $row['role'];
         $user->setRole($role);
     }
-}
-else {
-            echo "Error: " . $resRole . "<br>" . $conn->error;
-        }
+} 
 $resEntity = $conn->query("select entity_type from customer where customer_name='$company_name'");
 if (mysqli_num_rows($resEntity)) {
     while ($row = mysqli_fetch_assoc($resEntity)) {
