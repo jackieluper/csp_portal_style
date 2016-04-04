@@ -46,7 +46,7 @@ if ($resCompanyCheck->num_rows > 0) {
     }
 }
 echo "username: " .  $user_name . '<br>';
-$sqlRole = "SELECT role from user where username='$user->username'";
+$sqlRole = "select * from user where username='$user->username'";
 $resRole = $conn->query($sqlRole);
 if ($resRole->num_rows > 0) {
     $role = $row['role'];
