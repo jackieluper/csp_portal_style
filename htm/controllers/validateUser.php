@@ -86,7 +86,7 @@ echo "user: " . $user->username . '<br>';
 echo "role: " . $user->role . '<br>';
 echo "cust id: " . $user->custId . '<br>';
 if (isset($_SESSION['entity']) && isset($_SESSION['role'])) {
-    //header('refresh:0; url=../portal/products.php');
+    header('refresh:0; url=../portal/products.php');
 } else {
     echo "There is an issue with your account please contact your System Administrator!";
 }
