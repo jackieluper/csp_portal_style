@@ -45,15 +45,12 @@ if ($resCompanyCheck->num_rows > 0) {
         echo "Error: " . $sqlAddCompany . "<br>" . $conn->error;
     }
 }
-$sqlGetCustInfo = "SELECT customer_id, role from user where username='$user_name'";
+$sqlGetCustInfo = "SELECT role from user where username='$user_name'";
 $resId = $conn->query($sqlGetCustInfo);
 if ($resId->num_rows > 0) {
-        $custId = $row['customer_id'];
         $role = $row['role'];
-        $user->setCustId($custId);
         $user->setRole($role);
         $_SESSION['role'] = $user->role;
-        $_SESSION['custId'] = $user->custId;
 }
 else {
             echo "Error: " . $sqlGetCustInfo . "<br>" . $conn->error;
@@ -68,6 +65,7 @@ if (mysqli_num_rows($resEntity)) {
 
 $_SESSION['entity'] = $user->entity;
 $_SESSION['user'] = $user->username;
+
 echo "entity: " . $user->entity . '<br>';
 echo "user: " . $user->username . '<br>';
 echo "role: " . $user->role . '<br>';
