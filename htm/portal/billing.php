@@ -10,6 +10,8 @@ require '../controllers/cart.db.php';
 require '../api/client/app/order.class.php';
 
 $tid = $_SESSION['tid'];
+
+
 // API Setup parameters
 $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
 $APIKey = 'CkdE324pr5pYCn5B6aMyVpW2z7qtBK6M';
@@ -299,7 +301,10 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 
     if ((string) $gwResponse->result == 1) {
         //need to parse customer TID from login
-
+        $order = new Order('95e724ab-3834-4d4d-a5f9-6bc725a4d87d');
+        $order->addOrderItem('84A03D81-6B37-4D66-8D4A-FAEA24541538', 'Basic AD for Tech PHP', 1);
+        $order->submitOrder();
+        
         print '<div id="print-content">
                 <form>';
         ?>
@@ -326,7 +331,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
             $resultInvoice = $conn->query($sqlInvoice);
-
 
             print '
         <div><strong>Item Number: ' . $itemNum . '</strong></div>
