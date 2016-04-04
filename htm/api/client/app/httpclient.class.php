@@ -11,6 +11,10 @@ class HttpClient {
 		return $this->httpRequest('POST', $url, $options);
 	}
 
+	public function patchRequest($url, $options = null) {
+		return $this->httpRequest('PATCH', $url, $options);
+	}
+
 	public function httpRequest($requestType, $url, $options) {
 		$curl = curl_init();
 
@@ -35,6 +39,7 @@ class HttpClient {
 		}
 
 		switch($requestType) {
+			case 'PATCH':
 			case 'POST': {
 				$curlOptions[CURLOPT_POST] = 1;
 
@@ -57,6 +62,10 @@ class HttpClient {
 			$curlOptions[CURLOPT_HTTPHEADER] = $options['headers'];
 		}
 
+		if ($requestType == 'PATCH') {
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PATCH');
+		}
+
 		curl_setopt_array($curl, $curlOptions);
 		$result = curl_exec($curl);
 
@@ -67,9 +76,26 @@ class HttpClient {
 			if (!$result) {
 				trigger_error($error);
 			}
+
+			echo 'REQUEST HEADER<br /><br />';
+			var_dump($curlOptions[CURLOPT_HTTPHEADER]);
+
+			if (isset($curlOptions[CURLOPT_POSTFIELDS])) {
+				echo '<br /><br />REQUEST DATA<br /><br />';
+				var_dump($curlOptions[CURLOPT_POSTFIELDS]);
+			}
+
+			echo '<br /><br />RESPONSE:<br /><br />';
+			var_dump($result);
+			die();
 		}
 
 		curl_close($curl);
+
+		if (isset($options['strip_bom'])) {
+			$result = StringUtil::removeByteOrderMark($result);
+		}
+
 		return $result;
 	}
 }
