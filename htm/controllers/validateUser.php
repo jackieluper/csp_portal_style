@@ -45,7 +45,8 @@ if ($resCompanyCheck->num_rows > 0) {
         echo "Error: " . $sqlAddCompany . "<br>" . $conn->error;
     }
 }
-$resId = $conn->query("SELECT customer_id, role FROM user WHERE username='" . $user->username . "'");
+$sqlGetCustInfo = "SELECT customer_id, role FROM user WHERE username='$user_name'";
+$resId = $conn->query($sqlGetCustInfo);
 if ($resId->num_rows > 0) {
     while ($row = mysqli_fetch_assoc($resId)) {
         $custId = $row['customer_id'];
@@ -56,6 +57,9 @@ if ($resId->num_rows > 0) {
         $_SESSION['custId'] = $user->custId;
     }
 }
+else {
+            echo "Error: " . $sqlGetCustInfo . "<br>" . $conn->error;
+        }
 $resEntity = $conn->query("select entity_type from customer where customer_name='$company_name'");
 if (mysqli_num_rows($resEntity)) {
     while ($row = mysqli_fetch_assoc($resEntity)) {
