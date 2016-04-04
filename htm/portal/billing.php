@@ -358,13 +358,10 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     $i = 0;
     $resCreateOrder = $conn->query("select * from transactions where transaction_id='$orderId'");
         while ($row = $resCreateOrder->fetch_assoc()) {
-            $offerID[$i] = $row['sku'];
-            $name[$i] = $row['product_name'];
-            $qty[$i] = $row['qty'];
-            $order->addOrderItem($offerID[$i], $name[$i], $qty[$i]);
-            echo "sku: " . $offerID . '<br>';
-            echo "qty: " . $qty . '<br>';
-            echo "name: " . $name . '<br>';
+            $order->addOrderItem($row['sku'], $row['product_name'], $row['qty']);
+            echo "sku: " . $row['product_name'] . '<br>';
+            echo "qty: " . $row['sku'] . '<br>';
+            echo "name: " . $row['qty'] . '<br>';
         }
         $order->submitOrder();
     ?>
