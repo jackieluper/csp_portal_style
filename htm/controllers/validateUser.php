@@ -45,10 +45,10 @@ if ($resCompanyCheck->num_rows > 0) {
         echo "Error: " . $sqlAddCompany . "<br>" . $conn->error;
     }
 }
-$sqlGetCustInfo = "SELECT customer_id, role FROM user WHERE username='$user_name'";
+$sqlGetCustInfo = "SELECT customer_id, role from user where username='$user_name'";
 $resId = $conn->query($sqlGetCustInfo);
 if ($resId->num_rows > 0) {
-    while ($row = mysqli_fetch_assoc($resId)) {
+    while ($row = $resId->fetch_assoc()) {
         $custId = $row['customer_id'];
         $role = $row['role'];
         $user->setCustId($custId);
