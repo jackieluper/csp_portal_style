@@ -58,6 +58,7 @@ if (mysqli_num_rows($resEntity)) {
     }
 }
 $user->setEntity($entity);
+echo $user->getEntity();
 $_SESSION['entity'] = $user->entity;
 $_SESSION['user'] = $user->username;
 
