@@ -357,7 +357,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 
     $i = 0;
     $resCreateOrder = $conn->query("select * from transactions where transaction_id='$orderId'");
-    if ($resCreateOrder->num_rows > 0) {
         while ($row = $resCreateOrder->fetch_assoc()) {
             $offerID[$i] = $row['sku'];
             $name[$i] = $row['product_name'];
@@ -368,9 +367,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             echo "name: " . $name . '<br>';
         }
         $order->submitOrder();
-    } else {
-        echo "Error: " . $sqlCreateOrder . "<br>" . $conn->error;
-    }
     ?>
     <script type="text/javascript">
 
