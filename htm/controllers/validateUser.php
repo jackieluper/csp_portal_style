@@ -17,7 +17,7 @@ $company_domain = $_SESSION['company_domain'];
 
 $user = new user();
 //$username = $_POST['userId'];
-$user->setUsername($_POST['userId']);
+$user->setUsername($user_name);
 
 $sqlCompanyCheck = "SELECT * from customer where customer_name='" . $_SESSION['company_name'] . "'";
 $resCompanyCheck = $conn->query($sqlCompanyCheck);
@@ -29,6 +29,8 @@ if ($resCompanyCheck->num_rows > 0) {
     if ($conn->query($sqlAddCompany) == True) {
         $sql = "SELECT id from customer where customer_name='$company_name'";
         $res = $conn->query($sql);
+        $entity = 'Corporate';
+        $user->setEntity($entity);
         while ($row = $res->fetch_assoc()) {
             $company_id = $row['id'];
         }
@@ -49,7 +51,6 @@ if ($resCompanyCheck->num_rows > 0) {
         }
     }
 }
-
 
 $resEntity = $conn->query("select entity_type from customer where id='" . $user->custId . "'");
 if (mysqli_num_rows($resEntity)) {
