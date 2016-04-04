@@ -325,6 +325,10 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $name = $product->description;
             $discountRate = $product->{'discount-rate'};
             $totalSavings = $product->{'discount-amount'};
+            $tid = $_SESSION['tid'];
+            $order = new Order($tid);
+            $order->addOrderItem($sku, $name, $qtyFormatted);
+            $order->submitOrder();
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
             $resultInvoice = $conn->query($sqlInvoice);
@@ -351,20 +355,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     ?>
     <input type="button" class="receiptBtn" onclick="printDiv('print-content')" value="Print Receipt"/>
     </div>
-    <?php
-    $tid = $_SESSION['tid'];
-    $order = new Order($tid);
-
-    $i = 0;
-    $resCreateOrder = $conn->query("select * from transactions where transaction_id='$orderId'");
-        while ($row = $resCreateOrder->fetch_assoc()) {
-            $order->addOrderItem($row['sku'], $row['product_name'], $row['qty']);
-            echo "sku: " . $row['product_name'] . '<br>';
-            echo "qty: " . $row['sku'] . '<br>';
-            echo "name: " . $row['qty'] . '<br>';
-        }
-        $order->submitOrder();
-    ?>
     <script type="text/javascript">
 
         function printDiv(divName) {
