@@ -7,12 +7,14 @@ Managed Solution
 session_start();
 include 'config.php';
 include '../classes/user.class.php';
+
 $user_name = $_SESSION['username'];
 $company_name = $_SESSION['company_name'];
 $aud = $_SESSION['aud'];
 $oid = $_SESSION['oid'];
 $tid = $_SESSION['tid'];
 $company_domain = $_SESSION['company_domain'];
+
 $user = new user();
 //$username = $_POST['userId'];
 $user->setUsername($_POST['userId']);
@@ -38,15 +40,16 @@ if ($resCompanyCheck->num_rows > 0) {
                 while ($row = mysqli_fetch_assoc($resId)) {
                     $custId = $row['customer_id'];
                     $role = $row['role'];
+                    $user->setCustId($custId);
+                    $user->setRole($role);
+                    $_SESSION['role'] = $user->role;
+                    $_SESSION['custId'] = $user->custId;
                 }
             }
         }
     }
 }
-$user->setCustId($custId);
-$user->setRole($role);
-$_SESSION['role'] = $user->role;
-$_SESSION['custId'] = $user->custId;
+
 
 $resEntity = $conn->query("select entity_type from customer where id='" . $user->custId . "'");
 if (mysqli_num_rows($resEntity)) {
