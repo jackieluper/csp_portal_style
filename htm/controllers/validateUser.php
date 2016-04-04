@@ -23,7 +23,13 @@ $sqlCompanyCheck = "SELECT id from customer where customer_name='$company_name'"
 $resCompanyCheck = $conn->query($sqlCompanyCheck);
 if ($resCompanyCheck->num_rows > 0) {
     $customer_id = $row['id'];
-} else {
+} 
+$sqlCompanyCheck = "SELECT username from user where username='$user_name'";
+$resCompanyCheck = $conn->query($sqlCompanyCheck);
+if ($resCompanyCheck->num_rows > 0) {
+    $user_name = $row['username'];
+} 
+else {
     $sqlAddCompany = "INSERT INTO customer(customer_name, entity_type, company_tid, is_provised, primary_domain, relationship, discount, active)
             VALUES('$company_name', 'Corporate', '$tid', '0', '$company_domain', 'Cloud Reseller', '0', '1')";
     if ($conn->query($sqlAddCompany) == True) {
@@ -45,7 +51,7 @@ if ($resCompanyCheck->num_rows > 0) {
         echo "Error: " . $sqlAddCompany . "<br>" . $conn->error;
     }
 }
-echo "username: " .  $user_name . '<br>';
+
 $sqlRole = "select * from user where username='$user->username'";
 $resRole = $conn->query($sqlRole);
 if ($resRole->num_rows > 0) {
