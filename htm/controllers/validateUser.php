@@ -23,6 +23,21 @@ $sqlCompanyCheck = "SELECT id from customer where customer_name='$company_name'"
 $resCompanyCheck = $conn->query($sqlCompanyCheck);
 if ($resCompanyCheck->num_rows > 0) {
     $customer_id = $row['id'];
+    $resRole = $conn->query("select role from user where username='$user_name'");
+    if (mysqli_num_rows($resRole)) {
+        while ($row = mysqli_fetch_assoc($resRole)) {
+            $role = $row['role'];
+            $user->setRole($role);
+            echo "role: " . $role . '<br>';
+        }
+    }
+    $resEntity = $conn->query("select entity_type from customer where customer_name='$company_name'");
+    if (mysqli_num_rows($resEntity)) {
+        while ($row = mysqli_fetch_assoc($resEntity)) {
+            $entity = $row['entity_type'];
+            $user->setEntity($entity);
+        }
+    }
 } else {
     $sqlAddCompany = "INSERT INTO customer(customer_name, entity_type, company_tid, is_provised, primary_domain, relationship, discount, active)
             VALUES('$company_name', 'Corporate', '$tid', '0', '$company_domain', 'Cloud Reseller', '0', '1')";
@@ -45,22 +60,8 @@ if ($resCompanyCheck->num_rows > 0) {
         echo "Error: " . $sqlAddCompany . "<br>" . $conn->error;
     }
 }
-echo "username: " .  $user_name . '<br>';
-$resRole = $conn->query("select role from user where username='$user_name'");
-if (mysqli_num_rows($resRole)) {
-    while ($row = mysqli_fetch_assoc($resRole)) {
-        $role = $row['role'];
-        $user->setRole($role);
-        echo "role: " . $role . '<br>'; 
-    }
-} 
-$resEntity = $conn->query("select entity_type from customer where customer_name='$company_name'");
-if (mysqli_num_rows($resEntity)) {
-    while ($row = mysqli_fetch_assoc($resEntity)) {
-        $entity = $row['entity_type'];
-        $user->setEntity($entity);
-    }
-}
+echo "username: " . $user_name . '<br>';
+
 
 $_SESSION['entity'] = $user->entity;
 $_SESSION['user'] = $user->username;
