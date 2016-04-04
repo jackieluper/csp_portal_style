@@ -24,4 +24,10 @@ class StringUtil {
 		$cleanInput = strtolower(trim(preg_replace('/[^\P{C}\n]+/u', '', $rawInput)));
 		return filter_var($cleanInput, FILTER_VALIDATE_BOOLEAN);
 	}
+
+	static function removeByteOrderMark($rawInput) {
+		if (0 === strpos(bin2hex($rawInput), 'efbbbf')) {
+			return substr($rawInput, 3);
+		}
+	}
 }
