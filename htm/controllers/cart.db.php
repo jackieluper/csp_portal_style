@@ -35,8 +35,8 @@ if ($resultDiscount->num_rows > 0) {
         $discountDec = $rate / 100;
         $discountNum = $total1 * $discountDec;
         $total = $total1 - $discountNum;
+        $cart->setDiscount($discountNum);
+        $cart->setDiscountRate($rate);
+        $cart->setTotal($total);
     }
-    $cart->setDiscount($discountNum);
-    $cart->setDiscountRate($rate);
-    $cart->setTotal($total);
 }
