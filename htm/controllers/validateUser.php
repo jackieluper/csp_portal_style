@@ -53,7 +53,7 @@ if (mysqli_num_rows($resRole)) {
     }
 }
 else {
-            echo "Error: " . $sqlGetCustInfo . "<br>" . $conn->error;
+            echo "Error: " . $resRole . "<br>" . $conn->error;
         }
 $resEntity = $conn->query("select entity_type from customer where customer_name='$company_name'");
 if (mysqli_num_rows($resEntity)) {
