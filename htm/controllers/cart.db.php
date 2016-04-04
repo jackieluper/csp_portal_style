@@ -23,6 +23,7 @@ while ($row = $result->fetch_assoc()) {
     $cart->setName($index, $name);
     $cart->setMsrp($index, $msrp);
     $cart->setQty($index, $qty);
+    $cart->setTotal($total);
     $index++;
 }
 //Calculate customer discount if any and display savings as well as new total
