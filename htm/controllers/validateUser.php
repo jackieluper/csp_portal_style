@@ -51,6 +51,7 @@ if (mysqli_num_rows($resRole)) {
     while ($row = mysqli_fetch_assoc($resRole)) {
         $role = $row['role'];
         $user->setRole($role);
+        echo "role: " . $role . '<br>'; 
     }
 } 
 $resEntity = $conn->query("select entity_type from customer where customer_name='$company_name'");
