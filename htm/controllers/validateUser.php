@@ -48,14 +48,12 @@ if ($resCompanyCheck->num_rows > 0) {
 $sqlGetCustInfo = "SELECT customer_id, role from user where username='$user_name'";
 $resId = $conn->query($sqlGetCustInfo);
 if ($resId->num_rows > 0) {
-    while ($row = $resId->fetch_assoc()) {
         $custId = $row['customer_id'];
         $role = $row['role'];
         $user->setCustId($custId);
         $user->setRole($role);
         $_SESSION['role'] = $user->role;
         $_SESSION['custId'] = $user->custId;
-    }
 }
 else {
             echo "Error: " . $sqlGetCustInfo . "<br>" . $conn->error;
