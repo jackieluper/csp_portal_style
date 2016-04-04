@@ -48,12 +48,10 @@ if ($resCompanyCheck->num_rows > 0) {
                     $_SESSION['custId'] = $user->custId;
                 }
             }
-        }
-        else{
+        } else {
             echo "Error: " . $sqlAddExistingUser . "<br>" . $conn->error;
         }
-    }
-    else{
+    } else {
         echo "Error: " . $sqlAddCompany . "<br>" . $conn->error;
     }
 }
@@ -68,11 +66,11 @@ if (mysqli_num_rows($resEntity)) {
 
 $_SESSION['entity'] = $user->entity;
 $_SESSION['user'] = $user->username;
-
+echo "entity: " . $user->entity . '<br>';
+echo "user: " . $user->username . '<br>';
+echo "role: " . $user->role . '<br>';
 if (isset($_SESSION['entity'])) {
-    echo "entity: " . $user->entity . '<br>';
-    echo "user: " . $user->username . '<br>';
-    echo "role: " . $user->role . '<br>';
+
     //header('refresh:0; url=../portal/products.php');
 } else {
     echo "There is an issue with your account please contact your System Administrator!";
