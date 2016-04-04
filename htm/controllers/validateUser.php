@@ -56,7 +56,7 @@ if ($resCompanyCheck->num_rows > 0) {
     }
 }
 
-$resEntity = $conn->query("select entity_type from customer where id='" . $company_name . "'");
+$resEntity = $conn->query("select entity_type from customer where customer_name='$company_name'");
 if (mysqli_num_rows($resEntity)) {
     while ($row = mysqli_fetch_assoc($resEntity)) {
         $entity = $row['entity_type'];
