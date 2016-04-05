@@ -45,10 +45,11 @@ require "../api/client/_init.php";
 $customerTenantId = $_SESSION['tid'];
 
 $subscription = new Subscription($customerTenantId);
-for($i = 0; $i < count($subscription); $i++) {
-    print '<div class=content>';
+print '<div class=content>';
     var_dump($subscription);
     print '</div>';
+for($i = 0; $i < count($subscription); $i++) {
+    
 }
 /* @var Subscription[] $subscriptionList */
 
