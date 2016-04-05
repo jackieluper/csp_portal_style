@@ -302,8 +302,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     if ((string) $gwResponse->result == 1) {
         //need to parse customer TID from login
         $order = new Order($tid);
-        
-        $order->submitOrder();
         print '<div id="print-content">
                 <form>';
         ?>
@@ -327,7 +325,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $name = $product->description;
             $discountRate = $product->{'discount-rate'};
             $totalSavings = $product->{'discount-amount'};
-            
+            print 'working1?';
             $order->addOrderItem($sku, $name, $qtyFormatted, $tid);
             
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
