@@ -40,7 +40,7 @@ require "../api/client/_init.php";
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-<div class="contentCheckout" style="margin-left: 350px">
+<div class="contentCheckout" style="margin-left: 300px">
 <?php
 $customerTenantId = $_SESSION['tid'];
 //business logic is in just for demo purpose
@@ -60,7 +60,7 @@ $subscriptionList = $subscription->getSubscriptionList();
             for($i = 0; $i < count($subscriptionList); $i++){
                 ?>
                 <tr>
-                    <td><span><?php echo $subscriptionList[$i]->getFriendlyName() ?></span></td>
+                    <td><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
                     <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
                 </tr>
             <?php } 
