@@ -67,7 +67,7 @@ class Order {
 		$httpClient = new HttpClient();
 
 		$httpResponse = $httpClient->postRequest($url, $httpOptions);
-
+                var_dump($httpResponse);
 		return $this;
 	}
 
