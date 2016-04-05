@@ -47,7 +47,7 @@ $customerTenantId = $_SESSION['tid'];
 $subscription = new Subscription($customerTenantId);
 
 /* @var Subscription[] $subscriptionList */
-for($i =0; $i < $subscription; $i++){
+for($i =0; $i < count($subscription); $i++){
 echo "Subscriptions: " . $subscription->getSubscriptionList();
 }
 
