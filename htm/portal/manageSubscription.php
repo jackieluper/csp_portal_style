@@ -40,7 +40,7 @@ require "../api/client/_init.php";
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-<div class="contentCheckout" style="margin-left: 300px">
+<div class="contentCheckout" style="margin-left: 200px">
 <?php
 $customerTenantId = $_SESSION['tid'];
 //business logic is in just for demo purpose
