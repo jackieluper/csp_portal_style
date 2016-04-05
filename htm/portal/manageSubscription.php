@@ -45,9 +45,11 @@ require "../api/client/_init.php";
 $customerTenantId = $_SESSION['tid'];
 
 $subscription = new Subscription($customerTenantId);
-
+foreach ($array as $key => $subscription) {
+    echo "Subscriptions: " . $subscription->getSubscriptionList();
+}
 /* @var Subscription[] $subscriptionList */
-echo "Subscriptions: " . $subscriptionList = $subscription->getSubscriptionList();
+
 
 $subscriptionList[0]->updateFriendlyName("Hello2");
 $subscriptionList[0]->updateQuantity(1);
