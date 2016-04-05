@@ -7,7 +7,6 @@ Managed Solution
 session_start();
 include '../classes/cart.class.php';
 $index = 0;
-$total1 = 0;
 $cart = new cart();
 
 //Grabbing all the cart items to show on checkout page for the customer to make any last minute changes
@@ -20,7 +19,7 @@ while ($row = $result->fetch_assoc()) {
     $msrp = $row['msrp'];
     $qty = $row['qty'];
     $total1 = $msrp * $qty;
-    $total += $total + total1;
+    $total += $total + $total1;
     $cart->setItem($index, $item);
     $cart->setName($index, $name);
     $cart->setMsrp($index, $msrp);
