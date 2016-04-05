@@ -47,7 +47,7 @@ $customerTenantId = $_SESSION['tid'];
 $subscription = new Subscription($customerTenantId);
 /* @var Subscription[] $subscriptionList */
 $subscriptionList = $subscription->getSubscriptionList();
-foreach ($subscriptionList as $value) {
+foreach ($subscription->getSubscriptionList() as $value) {
     echo "Value: $value<br />\n";
 }
 $subscriptionList[0]->updateFriendlyName("Hello2");
