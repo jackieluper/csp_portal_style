@@ -4,7 +4,7 @@ Date: 3/21/16
 Managed Solution
 -->
 <?php
-sess_start();
+session_start();
 include '../classes/cart.class.php';
 $index = 0;
 $cart = new cart();
