@@ -40,7 +40,7 @@ require "../api/client/_init.php";
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-
+<div class="contentCheckout">
 <?php
 $customerTenantId = $_SESSION['tid'];
 
@@ -58,3 +58,4 @@ for($i = 0; $i < count($subscriptionList); $i++){
 //$subscriptionList[0]->suspendSubscription();
 
 ?>
+</div>
