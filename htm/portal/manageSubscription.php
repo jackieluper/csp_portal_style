@@ -45,15 +45,13 @@ require "../api/client/_init.php";
 $customerTenantId = $_SESSION['tid'];
 
 $subscription = new Subscription($customerTenantId);
-
 /* @var Subscription[] $subscriptionList */
-for($i =0; $i < count($subscription); $i++){
-echo "Subscriptions: " . var_dump($subscription);
-}
-
+$subscriptionList = $subscription->getSubscriptionList();
+echo $subscriptionList;
 $subscriptionList[0]->updateFriendlyName("Hello2");
 $subscriptionList[0]->updateQuantity(1);
 $subscriptionList[0]->getAddOnList();
 
 $subscriptionList[0]->suspendSubscription();
+
 ?>
