@@ -51,9 +51,9 @@ foreach ($subscription->getAddOnList() as $key => $subscription) {
 /* @var Subscription[] $subscriptionList */
 
 
-$subscriptionList[0]->updateFriendlyName("Hello2");
-$subscriptionList[0]->updateQuantity(1);
-$subscriptionList[0]->getAddOnList();
+//$subscriptionList[0]->updateFriendlyName("Hello2");
+//$subscriptionList[0]->updateQuantity(1);
+//$subscriptionList[0]->getAddOnList();
 
-$subscriptionList[0]->suspendSubscription();
+//$subscriptionList[0]->suspendSubscription();
 ?>
