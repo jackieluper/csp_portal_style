@@ -65,6 +65,7 @@ class Order {
 		$httpClient = new HttpClient();
 
 		$httpResponse = $httpClient->postRequest($url, $httpOptions);
+
 		return $this;
 	}
 
