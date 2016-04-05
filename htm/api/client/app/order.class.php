@@ -33,14 +33,12 @@ class Order {
 		$this->_attributes['ObjectType'] = 'Order';
 		return $this;
 	}
-	public function addOrderItem($offerId, $friendlyName, $quantity, $i) {
+	public function addOrderItem($offerId, $friendlyName, $quantity) {
 		$orderItem = new OrderItem;
 		$orderItem->
 			setOfferId($offerId)->
 			setFriendlyName($friendlyName)->
-			setQuantity($quantity)->
-		$this->_lineItems[$i] = $orderItem;
-                $i++;
+			setQuantity($quantity);
 	}
 
 	public function submitOrder() {
