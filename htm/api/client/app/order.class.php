@@ -36,6 +36,7 @@ class Order {
     }
 
     public function addOrderItem($offerId, $friendlyName, $quantity, $partnerIdOnRecord = '') {
+        $i = 0;
         $orderItem = new OrderItem;
         $orderItem->
                 setLineItemNumber(count($this->_lineItems))->
@@ -43,7 +44,8 @@ class Order {
                 setFriendlyName($friendlyName)->
                 setQuantity($quantity)->
                 setPartnerIdOnRecord($partnerIdOnRecord);
-        $this->_lineItems[] = $orderItem;
+        $this->_lineItems[$i] = $orderItem;
+        $i++;
     }
 
     public function submitOrder() {
