@@ -45,8 +45,8 @@ require "../api/client/_init.php";
 $customerTenantId = $_SESSION['tid'];
 
 $subscription = new Subscription($customerTenantId);
-foreach ($subscription->getSubscriptionList() as $subscription) {
-    echo "Subscriptions: " . $subscription;
+for($i = 0; $i < count($subscription); $i++) {
+    var_dump($subscription);
 }
 /* @var Subscription[] $subscriptionList */
 
