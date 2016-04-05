@@ -49,7 +49,7 @@ $subscription = new Subscription($customerTenantId);
 $subscriptionList = $subscription->getSubscriptionList();
 
    // echo $subscriptionList[$i]->getFriendlyName() . ' ' . $subscriptionList[$i]->getQuantity() . '<br>' ;
-    print '<table class="cartTable" >
+    print '<table id="checkoutTable" >
         <thead>
             <tr class="ui-widget-header ">
                 <th>Product Name</th>
