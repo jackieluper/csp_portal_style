@@ -5,4 +5,5 @@ $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 
 $subscriptionList[$i]->updateQuantity($qty);
-
+print '
+<script> location.replace("../portal/manageSubscription.php"); </script>';

@@ -213,7 +213,7 @@ class Subscription {
 		$httpClient = new HttpClient();
 
 		$httpResponse = $httpClient->patchRequest($url, $httpOptions);
-                header("Location: ../portal/manageSubscription.php");
+
 		return $this;
 	}
 
