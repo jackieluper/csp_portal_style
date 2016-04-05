@@ -42,7 +42,7 @@ class Order {
 			setFriendlyName($friendlyName)->
 			setQuantity($quantity)->
 			setPartnerIdOnRecord($partnerIdOnRecord);
-		//$this->_lineItems[] = $orderItem;
+		$this->_lineItems[] = $orderItem;
 	}
 
 	public function submitOrder() {

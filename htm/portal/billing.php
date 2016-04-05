@@ -325,7 +325,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $name = $product->description;
             $discountRate = $product->{'discount-rate'};
             $totalSavings = $product->{'discount-amount'};
-            
+            $order->addOrderItem($sku, $name, $qty, '22e38d40-62cb-47c4-afdf-19421c5522c0');
             
             
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
@@ -341,7 +341,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
         <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
         }
-        $order->addOrderItem("3c95518e-8c37-41e3-9627-0ca339200f53/offers/84A03D81-6B37-4D66-8D4A-FAEA24541538", "friendlyName", $qtyFormatted, '22e38d40-62cb-47c4-afdf-19421c5522c0');
+        
         $order->submitOrder();
         print '
         <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
