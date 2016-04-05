@@ -18,7 +18,7 @@ while ($row = $result->fetch_assoc()) {
     $name = $row['item_name'];
     $msrp = $row['msrp'];
     $qty = $row['qty'];
-    $total1 += $row['msrp'] * $row['qty'];
+    $total1 += $msrp * $qty;
     $cart->setItem($index, $item);
     $cart->setName($index, $name);
     $cart->setMsrp($index, $msrp);
