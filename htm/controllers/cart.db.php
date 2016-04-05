@@ -23,9 +23,9 @@ while ($row = $result->fetch_assoc()) {
     $cart->setName($index, $name);
     $cart->setMsrp($index, $msrp);
     $cart->setQty($index, $qty);
-    $cart->setTotal($total1);
     $index++;
 }
+$cart->setTotal($total1);
 //Calculate customer discount if any and display savings as well as new total
 $sqlDiscount = "Select discount from customer where customer_name='" . $_SESSION['company_name'] . "'";
 $resultDiscount = $conn->query($sqlDiscount);
@@ -36,6 +36,6 @@ while ($row = $resultDiscount->fetch_assoc()) {
     $total = $total1 - $discountNum;
     $cart->setDiscount($discountNum);
     $cart->setDiscountRate($rate);
-    $cart->setTotal($total);
 }
+$cart->setTotal($total);
 
