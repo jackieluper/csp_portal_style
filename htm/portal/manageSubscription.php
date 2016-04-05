@@ -51,7 +51,7 @@ for($i = 0; $i < count($subscriptionList); $i++){
     echo var_dump($subscriptionList[$i]->getFriendlyName()) . '<br>';
 }
 
-//$subscriptionList[0]->updateFriendlyName();
+$subscriptionList[0]->updateFriendlyName("Office 365 Enterprise E3 ");
 //$subscriptionList[0]->updateQuantity(1);
 //$subscriptionList[0]->getAddOnList();
 
