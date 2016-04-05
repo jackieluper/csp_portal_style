@@ -7,7 +7,7 @@ Managed Solution
 session_start();
 require("../controllers/config.php");
 require '../controllers/cart.db.php';
-require '../api/client/app/order.class.php';
+require '../api/client/_init.php';
 
 $tid = $_SESSION['tid'];
 
@@ -325,7 +325,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $name = $product->description;
             $discountRate = $product->{'discount-rate'};
             $totalSavings = $product->{'discount-amount'};
-            $order->addOrderItem('84a03d81-6b37-4d66-8d4a-faea24541538', 'AAD_BASIC', '1');            
+            $order->addOrderItem($sku, $name, $qty);            
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
             $resultInvoice = $conn->query($sqlInvoice);
