@@ -41,35 +41,38 @@ require "../api/client/_init.php";
     </ul>
 </nav>
 <div class="contentCheckout" style="margin-left: 200px">
-<?php
-$customerTenantId = $_SESSION['tid'];
+    <?php
+    $customerTenantId = $_SESSION['tid'];
 //business logic is in just for demo purpose
-$subscription = new Subscription($customerTenantId);
-/* @var Subscription[] $subscriptionList */
-$subscriptionList = $subscription->getSubscriptionList();
+    $subscription = new Subscription($customerTenantId);
+    /* @var Subscription[] $subscriptionList */
+    $subscriptionList = $subscription->getSubscriptionList();
 
-   // echo $subscriptionList[$i]->getFriendlyName() . ' ' . $subscriptionList[$i]->getQuantity() . '<br>' ;
+    // echo $subscriptionList[$i]->getFriendlyName() . ' ' . $subscriptionList[$i]->getQuantity() . '<br>' ;
     print '<table id="checkoutTable" >
         <thead>
             <tr class="ui-widget-header ">
                 <th>Product Name</th>
                 <th>Qty</th>
+                <th>Update Qty</th>
             </tr>
         </thead>
         <tbody>';
-            for($i = 0; $i < count($subscriptionList); $i++){
-                ?>
-                <tr>
-                    <td><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
-                    <td><input type="number" step="1" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="color: #000"></input></td>
-                </tr>
-            <?php } 
+    for ($i = 0; $i < count($subscriptionList); $i++) {
+        ?>
+    <form action="../controllers/update-qty.php" method="post">
+            <tr>
+                <td><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
+                <td><input id="qty" type="number" step="1" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="color: #000"></input></td>
+                <td><button class="checkoutButton" type="submit">Update Quantity</button></td>
+            </tr>
+        </form>
+    <?php
+    }
 
 
 //$subscriptionList[0]->updateFriendlyName();
 //$subscriptionList[0]->updateQuantity(1);
 //$subscriptionList[0]->getAddOnList();
-
 //$subscriptionList[0]->suspendSubscription();
-
-?>
+    ?>
