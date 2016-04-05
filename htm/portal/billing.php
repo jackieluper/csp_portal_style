@@ -330,13 +330,13 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $resultInvoice = $conn->query($sqlInvoice);
 
             print '
-        <div><strong>Item Number: ' . $itemNum . '</strong></div>
+        <div><strong>Item Number: ' . $itemNum[$i] . '</strong></div>
         <div>--------------</div>
-        <div><strong>Product Name: </strong>' . $name . '</div>
-        <div><strong>Subscription ID: </strong>' . $sku . '</div>
+        <div><strong>Product Name: </strong>' . $name[$i] . '</div>
+        <div><strong>Subscription ID: </strong>' . $sku[$i] . '</div>
         <div><strong>Subscription Length: </strong>1 Month(s) </div>
-        <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
-        <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
+        <div><strong>Product Cost: </strong>$' . $costFormatted[$i] . '</div>
+        <div><strong>Product Quantity: </strong>' . $qtyFormatted[$i] . '</div><br>';
         }
         print '
         <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
