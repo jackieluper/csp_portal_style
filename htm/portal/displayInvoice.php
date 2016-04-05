@@ -33,6 +33,7 @@ $invoiceId = $_POST['invoiceId'];
         <ul>
             <?php if ($_SESSION['role'] >= $userRole) { ?>
                 <li><img class='icon' src='../img/icons/software.png' alt='Products' ><a href='products.php'>Products</a><br></li>
+                <li><img class='icon' src='../img/icons/software.png' alt='Manage Subscription'><a href="manageSubscription.php">Manage Subscriptions</a><br></li>
                 <li><img class='icon' src='../img/icons/invoice.jpg' alt='Invoice'><a href='invoice.php'>Invoice</a><br></li>
                 <li><img class='icon' src='../img/icons/checkout.png' alt='Checkout' ><a href='checkout.php'>Checkout</a><br></li>
                 <li><img class='icon' src='../img/icons/home.png' alt='Home' ><a href='<?php echo $homePage ?>'><?php echo $companyName ?></a><br></li>
