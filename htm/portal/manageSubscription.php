@@ -61,7 +61,7 @@ $subscriptionList = $subscription->getSubscriptionList();
                 ?>
                 <tr>
                     <td><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
-                    <td><input type="number" step="1"><?php echo $subscriptionList[$i]->getQuantity() ?></input></td>
+                    <td><input type="number" step="1" value="<?php echo $subscriptionList[$i]->getQuantity() ?>"></input></td>
                 </tr>
             <?php } 
 
