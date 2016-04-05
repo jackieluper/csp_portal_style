@@ -36,6 +36,7 @@ class Order {
 
 	public function addOrderItem($offerId, $friendlyName, $quantity, $partnerIdOnRecord) {
 		$orderItem = new OrderItem;
+                echo $orderItem;
 		$orderItem->
 			setLineItemNumber(count($this->_lineItems))->
 			setOfferId($offerId)->
@@ -67,7 +68,6 @@ class Order {
 		$httpClient = new HttpClient();
 
 		$httpResponse = $httpClient->postRequest($url, $httpOptions);
-                var_dump($httpResponse);
 		return $this;
 	}
 
