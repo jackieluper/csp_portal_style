@@ -4,8 +4,7 @@ Date: 3/21/16
 Managed Solution
 -->
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
-session_start();
+sess_start();
 include '../classes/cart.class.php';
 $index = 0;
 $cart = new cart();
@@ -20,14 +19,14 @@ while ($row = $result->fetch_assoc()) {
     $msrp = $row['msrp'];
     $qty = $row['qty'];
     $total1 = $msrp * $qty;
-    $total += $total + $total1;
+    $total1 += $total + $total1;
     $cart->setItem($index, $item);
     $cart->setName($index, $name);
     $cart->setMsrp($index, $msrp);
     $cart->setQty($index, $qty);
     $index++;
 }
-$cart->setTotal($total);
+$cart->setTotal($total1);
 //Calculate customer discount if any and display savings as well as new total
 $sqlDiscount = "Select discount from customer where customer_name='" . $_SESSION['company_name'] . "'";
 $resultDiscount = $conn->query($sqlDiscount);
