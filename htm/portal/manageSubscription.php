@@ -1,7 +1,7 @@
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 require "../controllers/config.php";
+require "../api/client/_init.php";
 ?>
 <head>
     <title>My Subscriptions</title>
@@ -40,3 +40,18 @@ require "../controllers/config.php";
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
+
+<?php
+$customerTenantId = $_SESSION['tid'];
+
+$subscription = new Subscription($customerTenantId);
+
+/* @var Subscription[] $subscriptionList */
+echo "Subscriptions: " . $subscriptionList = $subscription->getSubscriptionList();
+
+$subscriptionList[0]->updateFriendlyName("Hello2");
+$subscriptionList[0]->updateQuantity(1);
+$subscriptionList[0]->getAddOnList();
+
+$subscriptionList[0]->suspendSubscription();
+?>
