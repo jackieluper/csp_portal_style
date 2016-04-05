@@ -40,7 +40,7 @@ require "../api/client/_init.php";
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-<div class="contentCheckout">
+<div class="contentCheckout" style="margin: 0 0 0 100px">
 <?php
 $customerTenantId = $_SESSION['tid'];
 
@@ -48,10 +48,10 @@ $subscription = new Subscription($customerTenantId);
 /* @var Subscription[] $subscriptionList */
 $subscriptionList = $subscription->getSubscriptionList();
 for($i = 0; $i < count($subscriptionList); $i++){
-    echo var_dump($subscriptionList[0]->getFriendlyName()) . '<br>';
+    echo var_dump($subscriptionList[$i]->getFriendlyName()) . '<br>';
 }
 
-//$subscriptionList[0]->updateFriendlyName("Hello2");
+//$subscriptionList[0]->updateFriendlyName();
 //$subscriptionList[0]->updateQuantity(1);
 //$subscriptionList[0]->getAddOnList();
 
