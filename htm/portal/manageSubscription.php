@@ -62,7 +62,7 @@ require "../api/client/_init.php";
         ?>
     <form action="../controllers/update-qty.php" method="post">
             <tr>
-                <td><input type="text" value="<?php echo $subscriptionList[$i]->getFriendlyName() ?>" style="background-color: #ED8B22; border: none" ></td>
+                <td><input type="text" name="name" value="$i" style="background-color: #ED8B22; border: none" ><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
                 <td><input id="qty" name="qty" type="number" step="1" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="color: #000"></input></td>
                 <td><button class="checkoutButton" type="submit">Update Quantity</button></td>
             </tr>
