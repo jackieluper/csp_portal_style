@@ -1,7 +1,9 @@
 <?php
-require("../controllers/config.php");
-require '../controllers/cart.db.php';
-require '../api/client/_init.php';
+session_start();
+
+require_once ("../controllers/config.php");
+require_once '../controllers/cart.db.php';
+require_once '../api/client/_init.php';
 
 $tid = $_SESSION['tid'];
 
