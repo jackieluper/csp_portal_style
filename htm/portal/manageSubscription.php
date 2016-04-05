@@ -43,13 +43,28 @@ require "../api/client/_init.php";
 <div class="contentCheckout" style="margin-left: 350px">
 <?php
 $customerTenantId = $_SESSION['tid'];
-
+//business logic is in just for demo purpose
 $subscription = new Subscription($customerTenantId);
 /* @var Subscription[] $subscriptionList */
 $subscriptionList = $subscription->getSubscriptionList();
-for($i = 0; $i < count($subscriptionList); $i++){
-    echo $subscriptionList[$i]->getFriendlyName() . ' ' . $subscriptionList[$i]->getQuantity() . '<br>' ;
-}
+
+   // echo $subscriptionList[$i]->getFriendlyName() . ' ' . $subscriptionList[$i]->getQuantity() . '<br>' ;
+    print '<table class="cartTable" >
+        <thead>
+            <tr class="ui-widget-header ">
+                <th>Product Name</th>
+                <th>Qty</th>
+            </tr>
+        </thead>
+        <tbody>';
+            for($i = 0; $i < count($subscriptionList); $i++){
+                ?>
+                <tr>
+                    <td><span><?php echo $subscriptionList[$i]->getFriendlyName() ?></span></td>
+                    <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
+                </tr>
+            <?php } 
+
 
 //$subscriptionList[0]->updateFriendlyName();
 //$subscriptionList[0]->updateQuantity(1);
@@ -58,4 +73,3 @@ for($i = 0; $i < count($subscriptionList); $i++){
 //$subscriptionList[0]->suspendSubscription();
 
 ?>
-</div>
