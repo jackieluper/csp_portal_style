@@ -47,8 +47,8 @@ $customerTenantId = $_SESSION['tid'];
 $subscription = new Subscription($customerTenantId);
 /* @var Subscription[] $subscriptionList */
 $subscriptionList = $subscription->getSubscriptionList();
-for($i = 0; $i < count($subscriptionList); $i++){
-    echo $subscriptionList[$i] . '<br>';
+for($i = 0; $i < count($subscription); $i++){
+    echo $subscription->_friendlyName . '<br>';
 }
 
 $subscriptionList[0]->updateFriendlyName("Hello2");
