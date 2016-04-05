@@ -47,7 +47,6 @@ $customerTenantId = $_SESSION['tid'];
 $subscription = new Subscription($customerTenantId);
 /* @var Subscription[] $subscriptionList */
 $subscriptionList = $subscription->getSubscriptionList();
-echo $subscriptionList['_offerName'];
 foreach ($subscriptionList as $value) {
     echo "Value: $value<br />\n";
 }
