@@ -301,8 +301,9 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 
     if ((string) $gwResponse->result == 1) {
         //need to parse customer TID from login
-        $order = new Order($_SESSION['tid']);
-        
+        $order = new Order('95e724ab-3834-4d4d-a5f9-6bc725a4d87d');
+        $order->addOrderItem('84A03D81-6B37-4D66-8D4A-FAEA24541538', 'Basic AD for Tech PHP', 1);
+        $order->submitOrder();
         print '<div id="print-content">
                 <form>';
         ?>
@@ -316,18 +317,18 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         print '            
         <div><strong>Order ID: ' . $orderId . '</strong></div><br>';
         foreach ($xml->product as $product) {
-            $lineItem = 0;
+            $i = 0;
+            $lineItem[$i] = 0;
             $qty = (int) $product->quantity;
-            $qtyFormatted = intval($qty);
-            $cost = (float) $product->{'unit-cost'};
-            $costFormatted = number_format($cost, 2);
-            $itemNum = $product->{'unit-of-measure'};
-            $sku = $product->{'product-code'};
-            $name = $product->description;
-            $discountRate = $product->{'discount-rate'};
-            $totalSavings = $product->{'discount-amount'};
-            $order->addOrderItem($sku, $name, $qtyFormatted);
-            $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
+            $qtyFormatted[$i] = intval($qty);
+            $cost[$i] = (float) $product->{'unit-cost'};
+            $costFormatted[$i] = number_format($cost, 2);
+            $itemNum[$i] = $product->{'unit-of-measure'};
+            $sku[$i] = $product->{'product-code'};
+            $name[$i] = $product->description;
+            $discountRate[$i] = $product->{'discount-rate'};
+            $totalSavings[$i] = $product->{'discount-amount'};
+            $sqlInvoice[$i] = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
             $resultInvoice = $conn->query($sqlInvoice);
 
@@ -348,7 +349,11 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         </div>';
         $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
         $resultDelete = $conn->query($sqlDelete);
-        
+        $order = new Order($tid);
+
+        for($i = 0; $i < count($lineItem);  $i++) {
+            $order->addOrderItem($sku[$i], $name[$i], $qtyFormatted[$i]);
+        }
         $order->submitOrder();
     }
     ?>
