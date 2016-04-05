@@ -34,12 +34,14 @@ class Order {
 		return $this;
 	}
 
-	public function addOrderItem($offerId, $friendlyName, $quantity) {
+	public function addOrderItem($offerId, $friendlyName, $quantity, $partnerIdOnRecord = '') {
 		$orderItem = new OrderItem;
 		$orderItem->
+			setLineItemNumber(count($this->_lineItems))->
 			setOfferId($offerId)->
 			setFriendlyName($friendlyName)->
 			setQuantity($quantity)->
+			setPartnerIdOnRecord($partnerIdOnRecord);
 		$this->_lineItems[] = $orderItem;
 	}
 
