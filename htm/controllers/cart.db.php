@@ -7,7 +7,7 @@ Managed Solution
 session_start();
 include '../classes/cart.class.php';
 $index = 0;
-
+$total1 = 0;
 $cart = new cart();
 
 //Grabbing all the cart items to show on checkout page for the customer to make any last minute changes
