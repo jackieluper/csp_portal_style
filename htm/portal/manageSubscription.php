@@ -48,13 +48,13 @@ $subscription = new Subscription($customerTenantId);
 /* @var Subscription[] $subscriptionList */
 $subscriptionList = $subscription->getSubscriptionList();
 for($i = 0; $i < count($subscriptionList); $i++){
-    echo var_dump($subscriptionList[0]->getSubscriptionList()) . '<br>';
+    echo var_dump($subscriptionList[]->getFriendlyName()) . '<br>';
 }
 
-$subscriptionList[0]->updateFriendlyName("Hello2");
-$subscriptionList[0]->updateQuantity(1);
-$subscriptionList[0]->getAddOnList();
+//$subscriptionList[0]->updateFriendlyName("Hello2");
+//$subscriptionList[0]->updateQuantity(1);
+//$subscriptionList[0]->getAddOnList();
 
-$subscriptionList[0]->suspendSubscription();
+//$subscriptionList[0]->suspendSubscription();
 
 ?>
