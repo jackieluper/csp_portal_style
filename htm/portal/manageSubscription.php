@@ -64,7 +64,7 @@ require "../api/client/_init.php";
             <tr>
                 <td><input type="hidden" name="itemNum" value="<?php echo $i ?>" style="background-color: #ED8B22; border: none" ><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
                 <td><input id="qty" name="qty" type="number" step="1" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="color: #000"></input></td>
-                <td><button class="checkoutButton" type="submit">Update Quantity</button></td>
+                <td><button class="updateQtyButton" type="submit">Update Quantity</button></td>
             </tr>
         </form>
     <?php

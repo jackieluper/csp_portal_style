@@ -794,3 +794,11 @@ a.logohover{
     font-size: 28px;
     font-weight: bold;
 }
+.updateQtyBtn{
+    background-color: #65B1E4;
+    border-radius: 7px;
+    text-align: center;
+    width: 90px;
+    height: 50px;
+    color: #fff;
+}
