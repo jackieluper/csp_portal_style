@@ -48,7 +48,7 @@ $subscription = new Subscription($customerTenantId);
 
 /* @var Subscription[] $subscriptionList */
 for($i =0; $i < count($subscription); $i++){
-echo "Subscriptions: " . $subscription->getSubscriptionList()->getFriendlyName();
+echo "Subscriptions: " . var_dump($subscription);
 }
 
 $subscriptionList[0]->updateFriendlyName("Hello2");
