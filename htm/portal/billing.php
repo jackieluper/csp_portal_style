@@ -340,9 +340,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <div><strong>Subscription Length: </strong>1 Month(s) </div>
         <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
         <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
-            $orderItem = new OrderItem;
-            $order->addOrderItem($sku, $name, $qtyFormatted, '22e38d40-62cb-47c4-afdf-19421c5522c0');
-        }        
+        }
+        $order->addOrderItem("3c95518e-8c37-41e3-9627-0ca339200f53/offers/84A03D81-6B37-4D66-8D4A-FAEA24541538", "friendlyName", $qtyFormatted, '22e38d40-62cb-47c4-afdf-19421c5522c0');
         $order->submitOrder();
         print '
         <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
