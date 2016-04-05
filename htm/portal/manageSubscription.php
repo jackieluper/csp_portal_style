@@ -46,7 +46,9 @@ $customerTenantId = $_SESSION['tid'];
 
 $subscription = new Subscription($customerTenantId);
 for($i = 0; $i < count($subscription); $i++) {
+    print '<div>';
     var_dump($subscription);
+    print '</div>';
 }
 /* @var Subscription[] $subscriptionList */
 
