@@ -1,8 +1,3 @@
-<!--
-Author: Jason B. Smith
-Date: 2/29/16
-Managed Solution
--->
 <?php
 session_start();
 require("../controllers/config.php");
