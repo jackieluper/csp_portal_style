@@ -38,7 +38,8 @@ class Order {
 		$orderItem->
 			setOfferId($offerId)->
 			setFriendlyName($friendlyName)->
-			setQuantity($quantity);
+			setQuantity($quantity)->
+		$this->_lineItems[] = $orderItem;
 	}
 
 	public function submitOrder() {

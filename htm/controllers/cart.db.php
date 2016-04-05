@@ -4,6 +4,7 @@ Date: 3/21/16
 Managed Solution
 -->
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 include '../classes/cart.class.php';
 $index = 0;
@@ -11,7 +12,7 @@ $cart = new cart();
 
 //Grabbing all the cart items to show on checkout page for the customer to make any last minute changes
 $result = $conn->query("select items, item_name, msrp, qty from cart");
-error_reporting(E_ALL ^ E_NOTICE);
+
 $total = 0;
 while ($row = $result->fetch_assoc()) {
     $item = $row['items'];
