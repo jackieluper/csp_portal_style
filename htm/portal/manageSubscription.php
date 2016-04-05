@@ -47,9 +47,7 @@ $customerTenantId = $_SESSION['tid'];
 $subscription = new Subscription($customerTenantId);
 /* @var Subscription[] $subscriptionList */
 $subscriptionList = $subscription->getSubscriptionList();
-foreach ($subscription->getSubscriptionList() as $value) {
-    echo "Value: $value<br />\n";
-}
+print_r($subscriptionList);
 $subscriptionList[0]->updateFriendlyName("Hello2");
 $subscriptionList[0]->updateQuantity(1);
 $subscriptionList[0]->getAddOnList();
