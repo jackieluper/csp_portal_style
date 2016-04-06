@@ -262,7 +262,8 @@ class Subscription {
 		return $this;
 	}
 
-	public function getCreationDate() {
+	public function 
+                CreationDate() {
 		return $this->_creationDate;
 	}
 
