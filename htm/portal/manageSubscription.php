@@ -69,8 +69,8 @@ require "../api/client/_init.php";
             <tr>
                 <td><input type="hidden" name="itemNum" value="<?php echo $i ?>" style="background-color: #ED8B22; border: none" ><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
                 <td><?php echo $subscriptionList[$i]->getOfferId() ?></td>
-                <td><?php echo $subscriptionList[$i]->getEffectiveStartDate() ?></td>
-                <td><?php echo $subscriptionList[$i]->getCommitmentEndDate() ?></td>
+                <td><?php echo explode("T", $subscriptionList[$i]->getEffectiveStartDate()) ?></td>
+                <td><?php echo explode("T", $subscriptionList[$i]->getCommitmentEndDate()) ?></td>
                 <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
                 <td><input id="qty" name="qty" type="number" step="1" value="" style="color: #000"</td>
                 <td><button class="updateQtyBtn" type="submit">Update Quantity</button></td>
