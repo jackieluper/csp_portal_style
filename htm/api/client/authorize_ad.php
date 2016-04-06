@@ -13,12 +13,7 @@ $_SESSION['oid'] = $userAuth->getIdToken()->oid;
 $_SESSION['tid'] = $userAuth->getIdToken()->tid;
 $company_domain = substr($userAuth->getIdToken()->unique_name, strpos($userAuth->getIdToken()->unique_name, "@") + 1); 
 $_SESSION['company_domain'] = $company_domain;
-echo "Username: " . $_SESSION['username'] . '<br>';
-echo "Comapany Name: " . $_SESSION['company_name'] . '<br>';
-echo "AUD: " . $_SESSION['aud'] . '<br>';
-echo "OID: " . $_SESSION['oid'] . '<br>';
-echo "tid: " . $_SESSION['tid'] . '<br>';
-echo "domain: " . $company_domain;
+
 header('Location: ../htm/controllers/validateUser.php');
 die();
 

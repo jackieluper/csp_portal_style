@@ -54,7 +54,9 @@ require "../api/client/_init.php";
         <thead>
             <tr class="ui-widget-header ">
                 <th>Product Name</th>
-                <th>Qty</th>
+                <th>Offer ID</th>
+                <th>Qty on Record</th>
+                <th>Qty to Add</th>
                 <th>Update Qty</th>
             </tr>
         </thead>
@@ -64,7 +66,9 @@ require "../api/client/_init.php";
     <form action="../controllers/update-qty.php" method="post">
             <tr>
                 <td><input type="hidden" name="itemNum" value="<?php echo $i ?>" style="background-color: #ED8B22; border: none" ><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
-                <td><input id="qty" name="qty" type="number" step="1" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="color: #000"></input></td>
+                <td><?php echo $subscription[$i]->getOfferId() ?></td>
+                <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
+                <td><input id="qty" name="qty" type="number" step="1" value="" style="color: #000"</td>
                 <td><button class="updateQtyBtn" type="submit">Update Quantity</button></td>
             </tr>
         </form>
