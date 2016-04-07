@@ -2,6 +2,10 @@
 session_start();
 require "../controllers/config.php";
 require "../api/client/_init.php";
+
+$customerTenantId = $_SESSION['tid'];
+$subscription = new Subscription($customerTenantId);
+$i = $_POST['itemNum'];
 ?>
 <head>
     <title>My Subscriptions</title>
@@ -18,7 +22,7 @@ require "../api/client/_init.php";
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
         <ul>
-            <li>Manage Subscriptions</li>
+            <li><?php echo $subscriptionList[$i]->getFriendlyName ?></li>
         </ul>
     </div>
 </div>
@@ -42,45 +46,3 @@ require "../api/client/_init.php";
     </ul>
 </nav>
 <div class="contentCheckout" style="margin-left: 200px">
-    <?php
-    $customerTenantId = $_SESSION['tid'];
-//business logic is in just for demo purpose
-    $subscription = new Subscription($customerTenantId);
-    /* @var Subscription[] $subscriptionList */
-    $subscriptionList = $subscription->getSubscriptionList();
-
-    // echo $subscriptionList[$i]->getFriendlyName() . ' ' . $subscriptionList[$i]->getQuantity() . '<br>' ;
-    print '<table id="checkoutTable" >
-        <thead>
-            <tr class="ui-widget-header ">
-                <th>Product Name</th>
-                <th>Offer ID</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Qty on Record</th>
-                <th>Qty to Add</th>
-                <th>Update Qty</th>
-            </tr>
-        </thead>
-        <tbody>';
-    for ($i = 0; $i < count($subscriptionList); $i++) {
-        ?>
-    <form action="subscriptionInfor.php" method="post">
-            <tr>
-                <td><input type="hidden" name="itemNum" value="<?php echo $i ?>" style="background-color: #ED8B22; border: none" ><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
-                <td><?php echo $subscriptionList[$i]->getOfferId() ?></td>
-                <td><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0 , 10) ?></td>
-                <td><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0 , 10) ?></td>
-                <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
-                <td><button class="updateQtyBtn" type="submit">Update Quantity</button></td>
-            </tr>
-        </form>
-    <?php
-    }
-
-
-//$subscriptionList[0]->updateFriendlyName();
-//
-//$subscriptionList[0]->getAddOnList();
-//$subscriptionList[0]->suspendSubscription();
-    ?>
