@@ -808,6 +808,10 @@ a.logohover{
 }
 .subscriptionTitle{
     font-size: 18px;
+    text-align: right;
+}
+.subscriptionInfo{
+    font-size: 18px;
     text-align: left;
 }
 
