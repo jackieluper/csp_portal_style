@@ -1,6 +1,7 @@
 <?php
-echo "test";
 require 'config.php';
+
+echo "test";
 require '../api/client/_ini.php';
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
