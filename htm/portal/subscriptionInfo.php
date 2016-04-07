@@ -80,6 +80,6 @@ $i = $_POST['itemNum'];
                 <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getStatus() ?></td>
             </tr>
         </table>
-        <div><?php echo $details ?></div>
     </div>
+    <div><?php echo $details ?></div>
 </div>
