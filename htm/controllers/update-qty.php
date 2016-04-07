@@ -46,8 +46,10 @@ if ($resProvision->num_rows > 0) {
     $sqlgetTranId = "SELECT transaction_id FROM transactions ORDER BY transaction_id DESC LIMIT 1";
     $resTranId = $conn->query($sqlgetTranId);
     if ($resTranId->num_rows > 0) {
-        $tranId = $row['transaction_id'];
-        echo "transaction id: " . $tranId . 'lo<br>';
+        while ($row = $resTranId->fetch_assoc()) {
+            $tranId = $row['transaction_id'];
+            echo "transaction id: " . $tranId . 'lo<br>';
+        }
     } else {
         echo "Error: " . $sqlgetTranId . "<br>" . $conn->error;
     }
