@@ -48,7 +48,7 @@ if ($resProvision->num_rows > 0) {
     if ($resTranId->num_rows > 0) {
         while ($row = $resTranId->fetch_assoc()) {
             $tranId = $row['transaction_id'];
-            echo "transaction id: " . $tranId . 'lo<br>';
+            echo "transaction id: " . $tranId . '<br>';
         }
     } else {
         echo "Error: " . $sqlgetTranId . "<br>" . $conn->error;
@@ -56,24 +56,24 @@ if ($resProvision->num_rows > 0) {
 } else {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
-/*
-  if ($provision == 1) {
-  $subscriptionList[$i]->updateQuantity($qty);
-  header("Location:../portal/manageSubscription.php");
-  } else {
-  $sqlCartCheck = "SELECT * from cart where customer_id='$customer_id'";
-  $resCartCheck = $conn->query($sqlCartCheck);
-  if ($resCartCheck->num_rows > 0) {
-  $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
-  if ($conn->query($sqlAddCompany) == True) {
-  $sqlUpdateQty = "INSERT into cart set(customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id)"
-  . "VALUES($customer_id, $subscription_id, $subscrtiption_name, $list_price, $erp_price, $proposed_cost, $qty,   )";
-  }
-  }
-  }
-
-
-
-
- */
+if ($provision == 1) {
+    $subscriptionList[$i]->updateQuantity($qty);
+    header("Location:../portal/manageSubscription.php");
+} else {
+    $sqlCartCheck = "SELECT * from cart where customer_id='$customer_id'";
+    $resCartCheck = $conn->query($sqlCartCheck);
+    if ($resCartCheck->num_rows > 0) {
+        $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
+        if ($conn->query($sqlAddCompany) == True) {
+            $sqlUpdateQty = "INSERT into cart set(customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id)"
+                    . "VALUES($customer_id, $subscription_id, $subscrtiption_name, $list_price, $erp_price, $proposed_cost, $qty,   )";
+            if($conn->query($sqlUpdateQty) == TRUE){
+                header("Location: ../portal/checkout.php");
+            }
+            else{
+                echo "Error: " . $sqlUpdateQty . "<br>" . $conn->error;
+            }
+        }
+    }
+}
 ?>
