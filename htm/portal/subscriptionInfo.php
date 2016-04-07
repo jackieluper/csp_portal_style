@@ -70,7 +70,7 @@ $i = $_POST['itemNum'];
                     <td class="subscriptionTitle">Commitment end date: </td>
                     <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
                 </tr>
-                <form action="../controllers/updateQty.php" method="post">
+                <form action="../controllers/update-qty.php" method="post">
                     <tr>
                         <td class="subscriptionTitle">Quantity on record: </td>
                         <td class="subscriptionInfo"><input step="1" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="border-style: groove; border-radius: 5px; width: 30%;"></input></td>
