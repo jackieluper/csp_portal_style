@@ -10,7 +10,19 @@ $customer_id = $_SESSION['custId'];
 $customerTenantId = $_SESSION['tid'];
 $subscription = new Subscription($customerTenantId);
 $subscriptionList = $subscription->getSubscriptionList();
+$subscription_id = $subscriptionList[$i]->getOfferId();
+$subscription_name = $subscriptionList[$i]->getOfferName();
 
+$sqlOfferId = "SELECT id from offer where sku='$subscription_id'";
+$resOfferId = $conn->query($sqlOfferId);
+if($resOfferId->num_rows > 0){
+    while($row = $resOfferId->fetch_assoc()){
+        $offerId = $row['id'];
+    }
+}
+else{
+    echo "Error: " . $sqlOfferId . "<br>" . $conn->error;
+}
 $sqlProvision = "SELECT is_provised from customer where id='$customer_id'";
 $resProvision = $conn->query($sqlProvision);
 if ($resProvision->num_rows > 0) {
@@ -21,7 +33,8 @@ if ($resProvision->num_rows > 0) {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
 echo "provision: " . $provision;
-echo "offerId: " . $subscriptionList[$i]->getOfferId();
+echo "subscription Id: " . $subscriptionList[$i]->getOfferId();
+echo "Offer ID: " . $offerId;
 /*
 if ($provision == 1) {
     $subscriptionList[$i]->updateQuantity($qty);
@@ -33,7 +46,7 @@ if ($provision == 1) {
         $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
         if ($conn->query($sqlAddCompany) == True) {
             $sqlUpdateQty = "INSERT into cart set(customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id)"
-            . "VALUES($customer_id, $subscriptionList[$i]->getOffer)";
+            . "VALUES($customer_id, $subscription_id, $subscrtiption_name,   )";
         }
     }
 }
