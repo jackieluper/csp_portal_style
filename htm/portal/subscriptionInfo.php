@@ -58,7 +58,7 @@ $i = $_POST['itemNum'];
     }
     ?>
     <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" style="float:left;">
-    <table class="subscriptionDetails">
+    <table class="subscriptionDetails" style="float:left;">
         <th class="subscriptionHeader"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
         <tr>
             <td class="subscriptionTitle">Effective start date: </td>
