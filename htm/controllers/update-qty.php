@@ -6,9 +6,9 @@ include "../portal/managedSubscription.php";
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $customer_id = $_SESSION['custId'];
-echo 'something';
 $customerTenantId = $_SESSION['tid'];
 
+echo 'something';
 echo "test: " . $subscriptionList[$i]->getOfferName();
 $subscription = new Subscription($customerTenantId);
 $subscriptionList = $subscription->getSubscriptionList();
