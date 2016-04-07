@@ -46,7 +46,7 @@ $i = $_POST['itemNum'];
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-<div class="content" >
+<div class="subscriptionContent" >
     <?php
     $resultImg = $conn->query("select img_tag, details from image where offer_name='" . $subscriptionList[$i]->getOfferName() . "'");
     if ($resultImg->num_rows > 0) {
@@ -57,10 +57,10 @@ $i = $_POST['itemNum'];
     } else {
         $tag = "noImage.png";
     }
-    ?><div style="float:right; margin: 50px 0 0 100px">
+    ?><div style="margin: 50px 0 0 100px">
         <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
         <div style="float:right">
-            <table class="subscriptionDetails" ">
+            <table class="subscriptionDetails">
                 <th class="subscriptionHeader" colspan="2"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
                 <tr>
                     <td class="subscriptionTitle">Effective start date: </td>
@@ -80,6 +80,6 @@ $i = $_POST['itemNum'];
                 </tr>
             </table>
         </div>
-        <div><?php echo $details ?></div>
+        <div class="subscriptionCaption"><?php echo $details ?></div>
     </div>
 </div>
