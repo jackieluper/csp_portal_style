@@ -24,7 +24,6 @@ if($resOfferId->num_rows > 0){
 else{
     echo "Error: " . $sqlOfferId . "<br>" . $conn->error;
 }
-if(isset($offerId)){
     $sqlOfferData = "SELECT list_price, erp_price, from offer_price where offer_id='$offerId'";
     $resOfferData = $conn->query($sqlOfferData);
     if($resOfferData->num_rows > 0){
@@ -38,10 +37,7 @@ if(isset($offerId)){
     else {
     echo "Error: " . $sqlOfferData . "<br>" . $conn->error;
 }
-}
-else{
-    echo "Error: " . $sqlOfferId  . '<br>' . $conn->error;
-}
+
 $sqlProvision = "SELECT is_provised from customer where id='$customer_id'";
 $resProvision = $conn->query($sqlProvision);
 if ($resProvision->num_rows > 0) {
