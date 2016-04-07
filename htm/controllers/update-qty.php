@@ -1,8 +1,7 @@
 <?php
 session_start();
 require 'config.php';
-
-require "../api/client/_init.php";
+require "../portal/managedSubscription.php";
 
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
@@ -22,6 +21,6 @@ if($resCartCheck->num_rows > 0){
 */
 echo "test";
 $subscriptionList[$i]->updateQuantity($qty);
-
-header("Location:../portal/subscriptionInfo.php");
+echo $subscriptionList[$i]->getQty();
+//header("Location:../portal/subscriptionInfo.php");
 ?>
