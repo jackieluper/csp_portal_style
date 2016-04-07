@@ -62,7 +62,7 @@ $invoiceId = $_POST['invoiceId'];
                     <div style="font-size: 20px; "><strong>Item Number: <?php echo $invoiceReceipt->itemNum[$i] ?></strong></div>
                     <div> --------------</div>
                     <div><strong>Product Name: </strong><?php echo $invoiceReceipt->productName[$i] ?></div>
-                    <div><strong>Subscription ID: </strong><?php echo $invoiceReceipt->subscriptionId[$i] ?></div>
+                    <div><strong>Product ID: </strong><?php echo $invoiceReceipt->subscriptionId[$i] ?></div>
                     <div><strong>Subscription Length: </strong>1 Month(s) </div>
                     <div><strong>Product Cost: </strong>$<?php echo number_format($invoiceReceipt->productCost[$i], 2) ?></div>
                     <div><strong>Product Quantity: </strong><?php echo number_format($invoiceReceipt->productQty[$i], 0) ?></div><br>
