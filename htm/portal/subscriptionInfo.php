@@ -59,27 +59,28 @@ $i = $_POST['itemNum'];
     }
     ?><div style="float:left; margin: 50px 0 0 100px">
         <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
+
+        <div style="float:left">
+            <table class="subscriptionDetails" ">
+                <th class="subscriptionHeader" colspan="2"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
+                <tr>
+                    <td class="subscriptionTitle">Effective start date: </td>
+                    <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
+                </tr>
+                <tr>
+                    <td class="subscriptionTitle">Commitment end date: </td>
+                    <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
+                </tr>
+                <tr>
+                    <td class="subscriptionTitle">Quantity on record: </td>
+                    <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getQuantity() ?></td>
+                </tr>
+                <tr>
+                    <td class="subscriptionTitle">Status: </td>
+                    <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getStatus() ?></td>
+                </tr>
+            </table>
+        </div>
         <div><?php echo $details ?></div>
-    </div>
-    <div style="float:left">
-        <table class="subscriptionDetails" ">
-            <th class="subscriptionHeader" colspan="2"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
-            <tr>
-                <td class="subscriptionTitle">Effective start date: </td>
-                <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
-            </tr>
-            <tr>
-                <td class="subscriptionTitle">Commitment end date: </td>
-                <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
-            </tr>
-            <tr>
-                <td class="subscriptionTitle">Quantity on record: </td>
-                <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getQuantity() ?></td>
-            </tr>
-            <tr>
-                <td class="subscriptionTitle">Status: </td>
-                <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getStatus() ?></td>
-            </tr>
-        </table>
     </div>
 </div>
