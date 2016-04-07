@@ -1,7 +1,7 @@
 <?php
+session_start();
 require 'config.php';
 
-echo "test";
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $customer_id = $_SESSION['custId'];
