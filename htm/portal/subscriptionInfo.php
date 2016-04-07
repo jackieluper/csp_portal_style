@@ -57,7 +57,7 @@ $i = $_POST['itemNum'];
         $tag = "noImage.png";
     }
     ?>
-    <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found">
+    <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" style="float:left;">
     <table class="subscriptionDetails">
         <th class="subscriptionHeader"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
         <tr>
