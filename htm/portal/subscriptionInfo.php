@@ -56,7 +56,7 @@ $i = $_POST['itemNum'];
     } else {
         $tag = "noImage.png";
     }
-    ?><div style="float:left">
+    ?><div style="float:left; margin: 50px 0 0 100px">
         <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
     </div>
     <div style="float:left">
