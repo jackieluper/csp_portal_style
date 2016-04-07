@@ -21,7 +21,7 @@ if($resCartCheck->num_rows > 0){
     }
 }
 */
-echo $subscriptionList[$i]->getOfferName();
+echo "test: " . $subscriptionList[$i]->getOfferName();
 $subscriptionList[$i]->updateQuantity($qty);
 header("Location:../portal/subscriptionInfo.php");
 ?>
