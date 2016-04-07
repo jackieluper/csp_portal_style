@@ -7,6 +7,8 @@ $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $customer_id = $_SESSION['custId'];
 
+$subscription = new Subscription($customer_id);
+$subscriptionList = $subscription->getSubscriptionList();
 
 /*
 $sqlCartCheck = "SELECT * from cart where customer_id='$customer_id'";
@@ -19,6 +21,6 @@ if($resCartCheck->num_rows > 0){
     }
 }
 */
-$subscriptionList[0]->updateQuantity(5);
-//header("Location:../portal/subscriptionInfo.php");
+$subscriptionList[$i]->updateQuantity($qty);
+header("Location:../portal/subscriptionInfo.php");
 ?>

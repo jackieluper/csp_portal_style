@@ -76,6 +76,7 @@ require "../api/client/_init.php";
         </form>
     <?php
     }
+    
 
 
 //$subscriptionList[0]->updateFriendlyName();
