@@ -72,7 +72,7 @@ $i = $_POST['itemNum'];
                 </tr>
                 <form action="../controllers/update-qty.php" method="post">
                     <tr>
-                        <td class="subscriptionTitle" name="itemNum" value="<?php echo $i ?>">Quantity on record: <?php echo $i ?></td>
+                        <td class="subscriptionTitle" ><input type="hidden" name="itemNum" value="<?php echo $i ?>">Quantity on record: </td>
                         <td class="subscriptionInfo"><input step="1" name="qty" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="border-style: groove; border-radius: 5px; width: 30%;"></input></td>
                         <td style="align-content: left"><button class="updateQtyBtn" type="submit">Add/Remove</button></td>
 
