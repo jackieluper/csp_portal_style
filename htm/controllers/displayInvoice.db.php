@@ -7,7 +7,12 @@ Managed Solution
 session_start();
 require 'config.php';
 include '../classes/invoice.class.php';
+if(isset($_SESSION['invoiceId'])){
+    $invoiceId = $_SESSION['invoiceId'];
+}
+else{
 $invoiceId = $_POST['invoiceId'];
+}
 $index = 0;
 
 $invoiceReceipt = new invoiceReceipt();
