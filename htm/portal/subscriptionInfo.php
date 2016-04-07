@@ -51,7 +51,7 @@ $i = $_POST['itemNum'];
     
     $resultImg = $conn->query("select img_tag, details from image where offer_name='" . $subscriptionList[$i]->getOfferName() . "'");
     if($resultImg->num_rows > 0){
-        $tag = $row1['img_tag'];        
+        $tag = $row['img_tag'];        
     }
     else{
         $tag = "noImage.png";
