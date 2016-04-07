@@ -798,10 +798,10 @@ a.logohover{
 /**Display Subscription Details page  ***/
 /*####################################################*/
 .subscriptionContent{
-    width: 70%;
+    width: 50%;
     align-content: center;
     transition: transform 0.4s ease;    
-    margin: 50px 0 0 200px;
+    margin: 100px 0 0 200px;
 }
 .subscriptionDetails{
     width: 100%;
