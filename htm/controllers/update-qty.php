@@ -57,6 +57,7 @@ if ($resProvision->num_rows > 0) {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
 if ($provision == 1) {
+    echo "provision <br>";
     $subscriptionList[$i]->updateQuantity($qty);
     $updateQty = $qty - $subscriptionList[$i]->getQuantity();
         $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id)
