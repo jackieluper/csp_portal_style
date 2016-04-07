@@ -73,13 +73,12 @@ $i = $_POST['itemNum'];
                 <tr>
                     <td class="subscriptionTitle">Quantity on record: </td>
                     <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getQuantity() ?></td>
+                    <td style="align-content: left"><button class="updateQtyBtn" type="submit">Add/Remove Licenses</button></td>
                 </tr>
                 <tr>
                     <td class="subscriptionTitle">Status: </td>
                     <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getStatus() ?></td>
-                </tr>
-                <tr>
-                    <td><button class="updateQtyBtn" type="submit">Add/Delete Licenses</button></td>
+                    <td style="align-content: left"><button class="updateQtyBtn" type="submit">Suspend All Licences</button></td>
                 </tr>
             </table>
         </div>
