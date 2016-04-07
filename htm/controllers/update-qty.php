@@ -62,6 +62,7 @@ if ($provision == 1) {
 } else {
     $sqlCartCheck = "SELECT * from cart where customer_id='$customer_id'";
     $resCartCheck = $conn->query($sqlCartCheck);
+    echo "test";
     if ($resCartCheck->num_rows > 0) {
         $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
         if ($conn->query($sqlDeleteCart) == True) {
