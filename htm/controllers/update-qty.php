@@ -62,8 +62,9 @@ if ($provision == 1) {
 } else {
     $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
     if ($conn->query($sqlDeleteCart) == True) {
+        $updateQty = $qty - $subscriptionList[$i]->getQuantity();
         $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id)
-               VALUES('$customer_id', '$subscription_id', '$subscription_name', '$list_price', '$erp_price', '$erp_price', '$qty', '$tranId')";
+               VALUES('$customer_id', '$subscription_id', '$subscription_name', '$list_price', '$erp_price', '$erp_price', '$updateQty', '$tranId')";
         if ($conn->query($sqlUpdateQty) == TRUE) {
             header("Location: ../portal/checkout.php");
         } else {
