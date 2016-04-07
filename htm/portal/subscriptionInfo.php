@@ -48,12 +48,12 @@ $i = $_POST['itemNum'];
 </nav>
 <div class="content" >
     <?php
-    
     $resultImg = $conn->query("select img_tag, details from image where offer_name='" . $subscriptionList[$i]->getOfferName() . "'");
-    if($resultImg->num_rows > 0){
-        $tag = $row['img_tag'];        
-    }
-    else{
+    if ($resultImg->num_rows > 0) {
+        while ($row = $resultImg->fetch_assoc()) {
+            $tag = $row['img_tag'];
+        }
+    } else {
         $tag = "noImage.png";
     }
     $index++;
