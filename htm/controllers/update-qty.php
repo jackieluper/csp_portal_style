@@ -9,7 +9,7 @@ $customer_id = $_SESSION['custId'];
 $customerTenantId = $_SESSION['tid'];
 $subscription = new Subscription($customerTenantId);
 $subscriptionList = $subscription->getSubscriptionList();
-
+echo $i;
 /*
 $sqlCartCheck = "SELECT * from cart where customer_id='$customer_id'";
 $resCartCheck = $conn->query($sqlCartCheck);
