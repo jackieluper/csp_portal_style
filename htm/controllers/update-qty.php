@@ -61,9 +61,9 @@ if ($provision == 1) {
     echo 'customer id: ' . $customer_id . '<br>';
     echo 'subscription id: ' . $subscription_id . '<br>';
     echo '$erp_price' . $erp_price . '<br>';
-    $updateQty = $qty - $subscriptionList[$i]->getQuantity();
-    $total = $updateQty * $erp_price;
-    $totalSavings = $total * $discount;
+    $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
+    $total = number_format($updateQty * $erp_price, 2);
+    $totalSavings = number_format($total * $discount, 2);
     $subscriptionList[$i]->updateQuantity($qty);
     echo 'update qty: ' . $updateQty . '<br>';
     echo '$discount ' . $discount . '<br>';
