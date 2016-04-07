@@ -61,11 +61,9 @@ if ($provision == 1) {
     header("Location:../portal/manageSubscription.php");
 } else {
     $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
-    echo "test";
     if ($conn->query($sqlDeleteCart) == True) {
-        echo "test1";
         $sqlUpdateQty = "INSERT into cart set(customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id)"
-                . "VALUES($customer_id, $subscription_id, $subscription_name, $list_price, $erp_price, $proposed_cost, $qty,   )";
+                . "VALUES($customer_id, $subscription_id, $subscription_name, $list_price, $erp_price, $erp_price, $qty, $tranId  )";
         if ($conn->query($sqlUpdateQty) == TRUE) {
             header("Location: ../portal/checkout.php");
         } else {
