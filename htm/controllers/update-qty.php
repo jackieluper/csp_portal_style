@@ -43,7 +43,7 @@ if ($resProvision->num_rows > 0) {
     while ($row = $resProvision->fetch_assoc()) {
         $provision = $row['is_provised'];
     }
-    $sqlgetTranId = "SELECT transaction_id from transactions order by desc limit 1";
+    $sqlgetTranId = "SELECT transaction_id from transactions order by transaction_id desc limit 1";
     $resTranId = $conn->query($sqlgetTranId);
     if ($resTranId->num_rows > 0) {
         $tranId = $row['transaction_id'];
