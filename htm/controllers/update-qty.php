@@ -58,7 +58,14 @@ if ($resProvision->num_rows > 0) {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
 if ($provision == 1) {
-    
+    echo 'customer id: '. $customer_id . '<br>';
+    echo 'subscription id: ' . $subscription_id . '<br>';
+    echo '$erp_price'. $erp_price . '<br>';
+    echo 'update qty: ' . $updateQty . '<br>';
+    echo '$discount '  . $discount . '<br>';
+    echo 'total savings ' . $totalSavings . '<br>';
+    echo 'total: ' . $total . '<br>';
+    /*
     $subscriptionList[$i]->updateQuantity($qty);
     echo "provision <br>";
     $updateQty = $qty - $subscriptionList[$i]->getQuantity();
@@ -72,7 +79,7 @@ if ($provision == 1) {
         } else {
             echo "Error: " . $sqlUpdateQty . "<br>" . $conn->error;
         }
-    
+    */
 } else {
     $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
     if ($conn->query($sqlDeleteCart) == True) {
