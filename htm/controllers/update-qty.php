@@ -7,8 +7,8 @@ $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $customer_id = $_SESSION['custId'];
 $customerTenantId = $_SESSION['tid'];
-echo "test: "; //. $subscriptionList[$i]->getOfferName();
 $subscription = new Subscription($customerTenantId);
+echo "test";
 $subscriptionList = $subscription->getSubscriptionList();
 
 /*
