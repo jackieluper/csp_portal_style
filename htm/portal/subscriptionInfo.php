@@ -6,7 +6,7 @@ require "../api/client/_init.php";
 $customerTenantId = $_SESSION['tid'];
 $subscription = new Subscription($customerTenantId);
 $subscriptionList = $subscription->getSubscriptionList();
-$i = $_POST['itemNum'];
+//$i = $_POST['itemNum'];
 ?>
 <head>
     <title>My Subscriptions</title>
