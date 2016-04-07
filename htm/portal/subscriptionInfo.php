@@ -52,6 +52,7 @@ $i = $_POST['itemNum'];
     if ($resultImg->num_rows > 0) {
         while ($row = $resultImg->fetch_assoc()) {
             $tag = $row['img_tag'];
+            $details = $row['details'];
         }
     } else {
         $tag = "noImage.png";
@@ -79,5 +80,6 @@ $i = $_POST['itemNum'];
                 <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getStatus() ?></td>
             </tr>
         </table>
+        <div><?php echo $details ?></div>
     </div>
 </div>
