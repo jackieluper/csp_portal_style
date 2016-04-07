@@ -70,16 +70,20 @@ $i = $_POST['itemNum'];
                     <td class="subscriptionTitle">Commitment end date: </td>
                     <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
                 </tr>
-                <tr>
-                    <td class="subscriptionTitle">Quantity on record: </td>
-                    <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getQuantity() ?></td>
-                    <td style="align-content: left"><button class="updateQtyBtn" type="submit">Add/Remove Licenses</button></td>
-                </tr>
-                <tr>
-                    <td class="subscriptionTitle">Status: </td>
-                    <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getStatus() ?></td>
-                    <td style="align-content: left"><button class="updateQtyBtn" type="submit">Suspend All Licences</button></td>
-                </tr>
+                <form action="updateQty.php" method="post">
+                    <tr>
+                        <td class="subscriptionTitle">Quantity on record: </td>
+                        <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getQuantity() ?></td>
+                        <td style="align-content: left"><button class="updateQtyBtn" type="submit">Add/Remove Licenses</button></td>
+                    </tr>
+                </form>
+                <form action="suspendAllLicenses.php">
+                    <tr>
+                        <td class="subscriptionTitle">Status: </td>
+                        <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getStatus() ?></td>
+                        <td style="align-content: left"><button class="updateQtyBtn" type="submit">Suspend All Licenses</button></td>
+                    </tr>
+                </form>
             </table>
         </div>
         <div class="subscriptionCaption"><?php echo $details ?></div>
