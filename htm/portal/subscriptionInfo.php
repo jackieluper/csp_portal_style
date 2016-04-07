@@ -56,7 +56,6 @@ $i = $_POST['itemNum'];
     } else {
         $tag = "noImage.png";
     }
-    $index++;
     ?>
     <image src="<?php echo $tag ?>" alt="Image not found">
     <table class="subscriptionDetails">
