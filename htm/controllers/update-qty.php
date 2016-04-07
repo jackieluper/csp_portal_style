@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'config.php';
-include "../portal/managedSubscription.php";
+require "../api/client/_init.php";
 
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
