@@ -50,16 +50,16 @@ $i = $_POST['itemNum'];
     <table>
         <th><?php echo $subscriptionList[$i]->getFriendlyName() ?></th>
         <tr>
-            <td><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
+            <td>Effective start date: <?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
         </tr>
         <tr>
-            <td><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
+            <td>Commitment end date: <?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
         </tr>
         <tr>
-            <td><?php echo $subscriptionList[$i]->getStatus() ?></td>
+            <td>Status: <?php echo $subscriptionList[$i]->getStatus() ?></td>
         </tr>
         <tr>
-            <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
+            <td>Quantity on record: <?php echo $subscriptionList[$i]->getQuantity() ?></td>
         </tr>
     </table>
 </div>
