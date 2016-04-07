@@ -794,6 +794,23 @@ a.logohover{
     font-size: 28px;
     font-weight: bold;
 }
+/*####################################################*/
+/**Display Subscription Details page  ***/
+/*####################################################*/
+.subscriptionDetails{
+    width: 90%;
+    margin: 50px 0 0 100px;
+}
+.subscriptionHeader {
+    border: none;
+    font-size: 24px;
+    text-align: right;
+}
+.subscriptionTitle{
+    font-size: 18px;
+    text-align: left;
+}
+
 .updateQtyBtn{
     background-color: #65B1E4;
     border-radius: 7px;

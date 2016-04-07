@@ -47,23 +47,23 @@ $i = $_POST['itemNum'];
     </ul>
 </nav>
 <div class="contentCheckout" style="margin-left: 250px">
-    <table>
-        <th><?php echo $subscriptionList[$i]->getFriendlyName() ?></th>
+    <table class="subscriptionDetails">
+        <th class="subscriptionHeader"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
         <tr>
-            <td>Effective start date: </td>
+            <td class="subscriptionTitle">Effective start date: </td>
             <td><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
         </tr>
         <tr>
-            <td>Commitment end date: </td>
-            <td><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
+            <td class="subscriptionTitle">Commitment end date: </td>
+            <td ><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
         </tr>
         <tr>
-            <td>Status: </td>
-            <td><?php echo $subscriptionList[$i]->getStatus() ?></td>
-        </tr>
-        <tr>
-            <td>Quantity on record: </td>
+            <td class="subscriptionTitle">Quantity on record: </td>
             <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
+        </tr>
+        <tr>
+            <td class="subscriptionTitle">Status: </td>
+            <td><?php echo $subscriptionList[$i]->getStatus() ?></td>
         </tr>
     </table>
 </div>
