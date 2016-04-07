@@ -4,7 +4,7 @@ require 'config.php';
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $customer_id = $_SESSION['custId'];
-
+/*
 $sqlCartCheck = "SELECT * from cart where customer_id='$customer_id'";
 $resCartCheck = $conn->query($sqlCartCheck);
 if($resCartCheck->num_rows > 0){
@@ -14,8 +14,8 @@ if($resCartCheck->num_rows > 0){
                 . "VALUES($customer_id,)"
     }
 }
+*/
 
-
-//$subscriptionList[$i]->updateQuantity($qty);
+$subscriptionList[$i]->updateQuantity($qty);
 print '
-<script> location.replace("../portal/manageSubscription.php"); </script>';
+<script> location.replace("../portal/subscriptionInfo.php"); </script>';
