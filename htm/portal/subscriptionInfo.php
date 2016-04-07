@@ -61,7 +61,7 @@ $i = $_POST['itemNum'];
     </div>
     <div style="float:left">
         <table class="subscriptionDetails" ">
-            <th class="subscriptionHeader"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
+            <th class="subscriptionHeader" colspan="2"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
             <tr>
                 <td class="subscriptionTitle">Effective start date: </td>
                 <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
