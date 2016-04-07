@@ -2,7 +2,7 @@
 session_start();
 require 'config.php';
 include "../portal/managedSubscription.php";
-echo "test";
+
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $customer_id = $_SESSION['custId'];
@@ -20,7 +20,6 @@ if($resCartCheck->num_rows > 0){
 }
 */
 
-$subscriptionList[$i]->updateQuantity($qty);
-echo $subscriptionList[$i]->getQty();
+$subscriptionList[$i]->updateQuantity(5);
 //header("Location:../portal/subscriptionInfo.php");
 ?>
