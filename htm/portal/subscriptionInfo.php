@@ -46,24 +46,24 @@ $i = $_POST['itemNum'];
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-<div class="contentCheckout" style="margin-left: 250px">
+<div class="content" style="margin-left: 250px">
     <table class="subscriptionDetails">
         <th class="subscriptionHeader"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
         <tr>
             <td class="subscriptionTitle">Effective start date: </td>
-            <td><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
+            <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
         </tr>
         <tr>
             <td class="subscriptionTitle">Commitment end date: </td>
-            <td ><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
+            <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
         </tr>
         <tr>
             <td class="subscriptionTitle">Quantity on record: </td>
-            <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
+            <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getQuantity() ?></td>
         </tr>
         <tr>
             <td class="subscriptionTitle">Status: </td>
-            <td><?php echo $subscriptionList[$i]->getStatus() ?></td>
+            <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getStatus() ?></td>
         </tr>
     </table>
 </div>
