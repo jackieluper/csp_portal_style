@@ -46,7 +46,7 @@ $i = $_POST['itemNum'];
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-<div class="content" style="margin-left: 250px">
+<div class="contentCheckout" style="margin-left: 250px">
     <table class="subscriptionDetails">
         <th class="subscriptionHeader"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
         <tr>
