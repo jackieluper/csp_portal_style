@@ -834,3 +834,11 @@ a.logohover{
     height: 35px;
     color: #fff;
 }
+.makeChanges{
+    background-color: #65B1E4;
+    border-radius: 7px;
+    text-align: center;
+    width: 120px;
+    height: 35px;
+    color: #fff;
+}
