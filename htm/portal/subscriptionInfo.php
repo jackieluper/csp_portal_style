@@ -57,9 +57,9 @@ $i = $_POST['itemNum'];
         $tag = "noImage.png";
     }
     ?>
-    <image src="<?php echo $tag ?>" alt="Image not found">
+    <image src="../img/<?php echo $tag ?>" alt="Image not found">
     <table class="subscriptionDetails">
-        <th class="subscriptionHeader"><?php echo $tag ?></th>
+        <th class="subscriptionHeader"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
         <tr>
             <td class="subscriptionTitle">Effective start date: </td>
             <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
