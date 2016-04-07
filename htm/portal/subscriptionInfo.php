@@ -59,6 +59,7 @@ $i = $_POST['itemNum'];
     }
     ?><div style="float:left; margin: 50px 0 0 100px">
         <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
+        <caption><?php echo $details ?></caption>
     </div>
     <div style="float:left">
         <table class="subscriptionDetails" ">
@@ -82,4 +83,3 @@ $i = $_POST['itemNum'];
         </table>
     </div>
 </div>
-<div><?php echo $details ?></div>
