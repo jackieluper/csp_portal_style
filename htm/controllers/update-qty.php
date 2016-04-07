@@ -74,6 +74,9 @@ if ($provision == 1) {
                 echo "Error: " . $sqlUpdateQty . "<br>" . $conn->error;
             }
         }
+        else{
+                echo "Error: " . $sqlDeleteCart . "<br>" . $conn->error;
+            }
     }
 }
 ?>
