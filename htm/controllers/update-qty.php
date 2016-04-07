@@ -12,7 +12,7 @@ $subscription = new Subscription($customerTenantId);
 $subscriptionList = $subscription->getSubscriptionList();
 $subscription_id = $subscriptionList[$i]->getOfferId();
 $subscription_name = $subscriptionList[$i]->getOfferName();
-echo "subscription name " . $subscription_name . '<br>';
+
 $sqlOfferId = "SELECT id from offer where sku='$subscription_id'";
 $resOfferId = $conn->query($sqlOfferId);
 if ($resOfferId->num_rows > 0) {
