@@ -805,6 +805,7 @@ a.logohover{
     border: none;
     font-size: 24px;
     text-align: right;
+    width: 20%;
 }
 .subscriptionTitle{
     font-size: 18px;
