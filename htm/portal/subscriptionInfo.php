@@ -47,9 +47,11 @@ $i = $_POST['itemNum'];
     </ul>
 </nav>
 <div class="contentCheckout" style="margin-left: 250px">
-    <h3><?php echo $subscriptionList[$i]->getFriendlyName() ?></h3>
-    <div><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0 , 10)?></div>
-    <div><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0 , 10)?></div>
-    <div><?php echo $subscriptionList[$i]->getStatus() ?></div>
-    <div><?php echo $subscriptionList[$i]->getQuantity() ?></div>
+    <table>
+        <th><?php echo $subscriptionList[$i]->getFriendlyName() ?></th>
+        <td><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
+        <td><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
+        <td><?php echo $subscriptionList[$i]->getStatus() ?></td>
+        <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
+    </table>
 </div>
