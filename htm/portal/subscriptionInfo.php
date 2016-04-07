@@ -49,7 +49,7 @@ $i = $_POST['itemNum'];
 <div class="content" >
     <?php
     
-    $resultImg = $conn->query("select img_tag, details from image where offer_name='$subscriptionList[$i]->getOfferName()'");
+    $resultImg = $conn->query("select img_tag, details from image where offer_name='" . $subscriptionList[$i]->getOfferName() . "'");
     if($resultImg->num_rows > 0){
         $tag = $row1['img_tag'];        
     }
