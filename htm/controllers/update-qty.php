@@ -20,6 +20,6 @@ if($resCartCheck->num_rows > 0){
 */
 
 $subscriptionList[$i]->updateQuantity($qty);
-
+echo "test";
 header("Location:../portal/subscriptionInfo.php");
 ?>
