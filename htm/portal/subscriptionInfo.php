@@ -56,11 +56,11 @@ $i = $_POST['itemNum'];
     } else {
         $tag = "noImage.png";
     }
-    ?><div style="float:left;">
+    ?><div style="float:left">
         <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
     </div>
-    <div>
-        <table class="subscriptionDetails" style="float:left;">
+    <div style="float:left">
+        <table class="subscriptionDetails" ">
             <th class="subscriptionHeader"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
             <tr>
                 <td class="subscriptionTitle">Effective start date: </td>
