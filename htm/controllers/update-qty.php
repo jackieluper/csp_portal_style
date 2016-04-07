@@ -18,6 +18,7 @@ $resOfferId = $conn->query($sqlOfferId);
 if($resOfferId->num_rows > 0){
     while($row = $resOfferId->fetch_assoc()){
         $offerId = $row['id'];
+        echo "offer id: " . $offerId . '<br>';
     }
 }
 else{
@@ -30,6 +31,8 @@ if(isset($offerId)){
         while($row = $resOfferData->fetch_assoc()){
             $list_price = $row['list_price'];
             $erp_price = $row['erp_price'];
+            echo "list price: " . $list_price . '<br>';
+            echo "erp price: " . $erp_price . '<br>';
         }
     }
     else {
@@ -49,6 +52,7 @@ if ($resProvision->num_rows > 0) {
     $resTranId = $conn->query($sqlgetTranId);
     if($resTranId->num_rows > 0){
         $tranId = $row['transaction_id'];
+        echo "transaction id: " . $tranId . '<br>';
     }
     else {
     echo "Error: " . $sqlgetTranId . "<br>" . $conn->error;
@@ -56,12 +60,6 @@ if ($resProvision->num_rows > 0) {
 } else {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
-
-echo "provision: " . $provision . '<br>';
-echo "subscription Id: " . $subscriptionList[$i]->getOfferId() . '<br>';
-echo "Offer ID: " . $offerId . '<br>';
-echo "list price: " . $list_price . '<br>';
-echo "erp price: " . $erp_price . '<br>';
  /*
 if ($provision == 1) {
     $subscriptionList[$i]->updateQuantity($qty);
