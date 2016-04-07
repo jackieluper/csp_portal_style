@@ -800,18 +800,19 @@ a.logohover{
 .subscriptionDetails{
     width: 90%;
     margin: 50px 0 0 100px;
+    text-align: center;
 }
 .subscriptionHeader {
     border: none;
-    font-size: 30px;
+    font-size: 24px;
     text-align: right;
 }
 .subscriptionTitle{
-    font-size: 24px;
+    font-size: 18px;
     text-align: right;
 }
 .subscriptionInfo{
-    font-size: 24px;
+    font-size: 18px;
     text-align: left;
 }
 
