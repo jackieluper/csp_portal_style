@@ -47,3 +47,5 @@ $i = $_POST['itemNum'];
     </ul>
 </nav>
 <div class="contentCheckout" style="margin-left: 200px">
+    <h3><?php echo $subscriptionList->getFriendlyName() ?></h3>
+</div>
