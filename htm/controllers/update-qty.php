@@ -12,7 +12,7 @@ $subscription = new Subscription($customerTenantId);
 $subscriptionList = $subscription->getSubscriptionList();
 $subscription_id = $subscriptionList[$i]->getOfferId();
 $subscription_name = $subscriptionList[$i]->getOfferName();
-
+echo "subscription name " . $subscription_name . '<br>';
 $sqlOfferId = "SELECT id from offer where sku='$subscription_id'";
 $resOfferId = $conn->query($sqlOfferId);
 if ($resOfferId->num_rows > 0) {
@@ -66,7 +66,7 @@ if ($provision == 1) {
         $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
         if ($conn->query($sqlDeleteCart) == True) {
             $sqlUpdateQty = "INSERT into cart set(customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id)"
-                    . "VALUES($customer_id, $subscription_id, $subscrtiption_name, $list_price, $erp_price, $proposed_cost, $qty,   )";
+                    . "VALUES($customer_id, $subscription_id, $subscription_name, $list_price, $erp_price, $proposed_cost, $qty,   )";
             if($conn->query($sqlUpdateQty) == TRUE){
                 header("Location: ../portal/checkout.php");
             }
