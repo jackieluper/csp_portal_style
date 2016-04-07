@@ -58,7 +58,16 @@ if ($resProvision->num_rows > 0) {
 }
 if ($provision == 1) {
     $subscriptionList[$i]->updateQuantity($qty);
-    header("Location:../portal/manageSubscription.php");
+    $updateQty = $qty - $subscriptionList[$i]->getQuantity();
+        $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id)
+               VALUES('$customer_id', '$subscription_id', '$subscription_name', '$list_price', '$erp_price', '$erp_price', '$updateQty', '$tranId')";
+        if ($conn->query($sqlUpdateQty) == TRUE) {
+            $_SESSION['invoiceId'] = $tranId;
+            header('../portal/displayInvoice.php');
+        } else {
+            echo "Error: " . $sqlUpdateQty . "<br>" . $conn->error;
+        }
+    
 } else {
     $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
     if ($conn->query($sqlDeleteCart) == True) {
