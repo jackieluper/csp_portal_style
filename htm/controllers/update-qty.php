@@ -5,6 +5,10 @@ require '../api/client/_ini.php';
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $customer_id = $_SESSION['custId'];
+
+echo "qty: " . $qty . '<br>';
+echo "itemNum: " . $i . '<br>';
+echo "customer_id: " . $customer_id;
 /*
 $sqlCartCheck = "SELECT * from cart where customer_id='$customer_id'";
 $resCartCheck = $conn->query($sqlCartCheck);
