@@ -81,5 +81,5 @@ $i = $_POST['itemNum'];
             </tr>
         </table>
     </div>
-    <div><?php echo $details ?></div>
 </div>
+<div><?php echo $details ?></div>
