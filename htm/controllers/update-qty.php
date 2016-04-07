@@ -18,5 +18,4 @@ if($resCartCheck->num_rows > 0){
 
 $subscriptionList[$i]->updateQuantity($qty);
 
-print '
-<script> location.replace("../portal/subscriptionInfo.php"); </script>';
+header("Location:../portal/subscriptionInfo.php");
