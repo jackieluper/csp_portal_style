@@ -18,8 +18,8 @@ if($resCartCheck->num_rows > 0){
     }
 }
 */
-
-$subscriptionList[$i]->updateQuantity($qty);
 echo "test";
+$subscriptionList[$i]->updateQuantity($qty);
+
 header("Location:../portal/subscriptionInfo.php");
 ?>
