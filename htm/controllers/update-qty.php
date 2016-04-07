@@ -1,8 +1,8 @@
 <?php
 require 'config.php';
+require '../api/client/_ini.php';
 
 echo "test";
-require '../api/client/_ini.php';
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $customer_id = $_SESSION['custId'];
