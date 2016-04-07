@@ -46,6 +46,11 @@ $i = $_POST['itemNum'];
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-<div class="contentCheckout" style="margin-left: 200px">
+<div class="contentCheckout" style="margin-left: 250px">
     <h3><?php echo $subscriptionList[$i]->getFriendlyName() ?></h3>
+    <div><?php echo $subscriptionList[$i]->getEffectiveStartDate()?></div>
+    <div><?php echo $subscriptionList[$i]->getCommitmentEndDate()?></div>
+    <div><?php echo $subscriptionList[$i]->getStatus() ?></div>
+    <div><?php echo $subscriptionList[$i]->getQuantity() ?></div>
+    <div><?php echo $subscriptionList[$i]->getAttributes() ?></div>
 </div>
