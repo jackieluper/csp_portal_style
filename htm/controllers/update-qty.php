@@ -42,7 +42,7 @@ $resProvision = $conn->query($sqlProvision);
 if ($resProvision->num_rows > 0) {
     while ($row = $resProvision->fetch_assoc()) {
         $provision = $row['is_provised'];
-        $discount = $row['discount'];
+        $discount = number_format($row['discount'], 2);
     }
     $sqlgetTranId = "SELECT transaction_id FROM transactions ORDER BY transaction_id DESC LIMIT 1";
     $resTranId = $conn->query($sqlgetTranId);
