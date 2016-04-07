@@ -78,6 +78,9 @@ $i = $_POST['itemNum'];
                     <td class="subscriptionTitle">Status: </td>
                     <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getStatus() ?></td>
                 </tr>
+                <tr>
+                    <td><button class="updateQtyBtn" type="submit">Add/Delete Licenses</button></td>
+                </tr>
             </table>
         </div>
         <div class="subscriptionCaption"><?php echo $details ?></div>
