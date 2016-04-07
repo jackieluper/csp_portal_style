@@ -47,7 +47,7 @@ if ($resProvision->num_rows > 0) {
     $resTranId = $conn->query($sqlgetTranId);
     if ($resTranId->num_rows > 0) {
         $tranId = $row['transaction_id'];
-        echo "transaction id: " . $tranId . '<br>';
+        echo "transaction id: " . $tranId . 'lo<br>';
     } else {
         echo "Error: " . $sqlgetTranId . "<br>" . $conn->error;
     }
