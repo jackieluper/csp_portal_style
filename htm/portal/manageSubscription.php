@@ -71,7 +71,7 @@ require "../api/client/_init.php";
                 <td><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0 , 10) ?></td>
                 <td><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0 , 10) ?></td>
                 <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
-                <td><button class="updateQtyBtn" type="submit">Update Quantity</button></td>
+                <td><button class="updateQtyBtn" type="submit">Make Changes</button></td>
             </tr>
         </form>
     <?php
