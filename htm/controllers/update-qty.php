@@ -36,6 +36,9 @@ if(isset($offerId)){
     echo "Error: " . $sqlOfferData . "<br>" . $conn->error;
 }
 }
+else{
+    echo "Error: " . $sqlOfferId  . '<br>' . $conn->error;
+}
 $sqlProvision = "SELECT is_provised from customer where id='$customer_id'";
 $resProvision = $conn->query($sqlProvision);
 if ($resProvision->num_rows > 0) {
