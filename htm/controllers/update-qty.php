@@ -61,16 +61,17 @@ if ($provision == 1) {
     echo 'customer id: '. $customer_id . '<br>';
     echo 'subscription id: ' . $subscription_id . '<br>';
     echo '$erp_price'. $erp_price . '<br>';
-    echo 'update qty: ' . $updateQty . '<br>';
-    echo '$discount '  . $discount . '<br>';
-    echo 'total savings ' . $totalSavings . '<br>';
-    echo 'total: ' . $total . '<br>';
-    /*
+  
     $subscriptionList[$i]->updateQuantity($qty);
     echo "provision <br>";
     $updateQty = $qty - $subscriptionList[$i]->getQuantity();
     $total = $updateQty * $erp_price;
     $totalSavings = $total * $discount;
+      echo 'update qty: ' . $updateQty . '<br>';
+    echo '$discount '  . $discount . '<br>';
+    echo 'total savings ' . $totalSavings . '<br>';
+    echo 'total: ' . $total . '<br>';
+    /*
         $sqlUpdateQty = "INSERT into transactions (customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total)
                VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 Month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total' )";
         if ($conn->query($sqlUpdateQty) == TRUE) {
