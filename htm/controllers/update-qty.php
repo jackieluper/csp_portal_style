@@ -6,9 +6,7 @@ $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $customer_id = $_SESSION['custId'];
 
-echo "qty: " . $qty . '<br>';
-echo "itemNum: " . $i . '<br>';
-echo "customer_id: " . $customer_id;
+
 /*
 $sqlCartCheck = "SELECT * from cart where customer_id='$customer_id'";
 $resCartCheck = $conn->query($sqlCartCheck);
@@ -21,7 +19,7 @@ if($resCartCheck->num_rows > 0){
 }
 */
 
-//$subscriptionList[$i]->updateQuantity($qty);
+$subscriptionList[$i]->updateQuantity($qty);
 
-//header("Location:../portal/subscriptionInfo.php");
+header("Location:../portal/subscriptionInfo.php");
 ?>
