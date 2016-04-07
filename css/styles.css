@@ -803,15 +803,15 @@ a.logohover{
 }
 .subscriptionHeader {
     border: none;
-    font-size: 24px;
+    font-size: 30px;
     text-align: right;
 }
 .subscriptionTitle{
-    font-size: 18px;
+    font-size: 24px;
     text-align: right;
 }
 .subscriptionInfo{
-    font-size: 18px;
+    font-size: 24px;
     text-align: left;
 }
 
