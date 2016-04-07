@@ -8,7 +8,12 @@ error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 require("../controllers/config.php");
 include '../controllers/displayInvoice.db.php';
+if(isset($_SESSION['invoiceId'])){
+    $invoiceId = $_SESSION['invoiceId'];
+}
+else{
 $invoiceId = $_POST['invoiceId'];
+}
 ?>
 <head>
     <title>Display Invoice</title>
