@@ -1,6 +1,5 @@
 <?php
 require 'config.php';
-require '../api/client/_ini.php';
 
 echo "test";
 $qty = $_POST['qty'];
