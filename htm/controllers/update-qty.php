@@ -19,7 +19,6 @@ if($resCartCheck->num_rows > 0){
     }
 }
 */
-
-$subscriptionList[$i]->updateQuantity(5);
+$subscriptionList[0]->updateQuantity(5);
 //header("Location:../portal/subscriptionInfo.php");
 ?>
