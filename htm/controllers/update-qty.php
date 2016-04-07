@@ -24,12 +24,12 @@ if ($resOfferId->num_rows > 0) {
     echo "Error: " . $sqlOfferId . "<br>" . $conn->error;
 }
 
-$sqlOfferData = "SELECT list_price, erp_price, from offer_price where offer_id='$offerId'";
+$sqlOfferData = "SELECT list_price, erp_price from offer_price where offer_id='$offerId'";
 $resOfferData = $conn->query($sqlOfferData);
 if ($resOfferData->num_rows > 0) {
-    while ($row1 = $resOfferData->fetch_assoc()) {
-        $list_price = $row1['list_price'];
-        $erp_price = $row1['erp_price'];
+    while ($row = $resOfferData->fetch_assoc()) {
+        $list_price = $row['list_price'];
+        $erp_price = $row['erp_price'];
         echo "list price: " . $list_price . '<br>';
         echo "erp price: " . $erp_price . '<br>';
     }
