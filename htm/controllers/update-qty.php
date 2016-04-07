@@ -60,24 +60,19 @@ if ($provision == 1) {
     $subscriptionList[$i]->updateQuantity($qty);
     header("Location:../portal/manageSubscription.php");
 } else {
-    $sqlCartCheck = "SELECT * from cart where customer_id='$customer_id'";
-    $resCartCheck = $conn->query($sqlCartCheck);
+    $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
     echo "test";
-    if ($resCartCheck->num_rows > 0) {
-        $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
-        if ($conn->query($sqlDeleteCart) == True) {
-            $sqlUpdateQty = "INSERT into cart set(customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id)"
-                    . "VALUES($customer_id, $subscription_id, $subscription_name, $list_price, $erp_price, $proposed_cost, $qty,   )";
-            if($conn->query($sqlUpdateQty) == TRUE){
-                header("Location: ../portal/checkout.php");
-            }
-            else{
-                echo "Error: " . $sqlUpdateQty . "<br>" . $conn->error;
-            }
+    if ($conn->query($sqlDeleteCart) == True) {
+        echo "test1";
+        $sqlUpdateQty = "INSERT into cart set(customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id)"
+                . "VALUES($customer_id, $subscription_id, $subscription_name, $list_price, $erp_price, $proposed_cost, $qty,   )";
+        if ($conn->query($sqlUpdateQty) == TRUE) {
+            header("Location: ../portal/checkout.php");
+        } else {
+            echo "Error: " . $sqlUpdateQty . "<br>" . $conn->error;
         }
-        else{
-                echo "Error: " . $sqlDeleteCart . "<br>" . $conn->error;
-            }
+    } else {
+        echo "Error: " . $sqlDeleteCart . "<br>" . $conn->error;
     }
 }
 ?>
