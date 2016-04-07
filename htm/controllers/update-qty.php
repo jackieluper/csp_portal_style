@@ -2,10 +2,11 @@
 session_start();
 require 'config.php';
 include "../portal/managedSubscription.php";
-echo 'something';
+
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $customer_id = $_SESSION['custId'];
+echo 'something';
 $customerTenantId = $_SESSION['tid'];
 
 echo "test: " . $subscriptionList[$i]->getOfferName();
