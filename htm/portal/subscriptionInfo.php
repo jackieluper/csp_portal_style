@@ -23,7 +23,7 @@ $i = $_POST['itemNum'];
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
         <ul>
-            <li><?php echo $subscriptionList[$i]->getFriendlyName ?></li>
+            <li><?php echo $subscriptionList[$i]->getFriendlyName() ?></li>
         </ul>
     </div>
 </div>
