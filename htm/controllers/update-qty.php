@@ -21,7 +21,7 @@ if ($resProvision->num_rows > 0) {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
 echo "provision: " . $provision;
-echo "offerId: " . $subscriptionList->getOfferId();
+echo "offerId: " . $subscriptionList[$i]->getOfferId();
 /*
 if ($provision == 1) {
     $subscriptionList[$i]->updateQuantity($qty);
