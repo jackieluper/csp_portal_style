@@ -23,19 +23,43 @@ if($resOfferId->num_rows > 0){
 else{
     echo "Error: " . $sqlOfferId . "<br>" . $conn->error;
 }
+if(isset($offerId)){
+    $sqlOfferData = "SELECT list_price, erp_price, from offer_price where offer_id='$offerId'";
+    $resOfferData = $conn->query($sqlOfferData);
+    if($resOfferData->num_rows > 0){
+        while($row = $resOfferData->fetch_assoc()){
+            $list_price = $row['list_price'];
+            $erp_price = $row['erp_price'];
+        }
+    }
+    else {
+    echo "Error: " . $sqlOfferData . "<br>" . $conn->error;
+}
+}
 $sqlProvision = "SELECT is_provised from customer where id='$customer_id'";
 $resProvision = $conn->query($sqlProvision);
 if ($resProvision->num_rows > 0) {
     while ($row = $resProvision->fetch_assoc()) {
         $provision = $row['is_provised'];
     }
+    $sqlgetTranId = "SELECT transaction_id from transactions order by desc limit 1";
+    $resTranId = $conn->query($sqlgetTranId);
+    if($resTranId->num_rows > 0){
+        $tranId = $row['transaction_id'];
+    }
+    else {
+    echo "Error: " . $sqlgetTranId . "<br>" . $conn->error;
+}
 } else {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
-echo "provision: " . $provision;
-echo "subscription Id: " . $subscriptionList[$i]->getOfferId();
-echo "Offer ID: " . $offerId;
-/*
+
+echo "provision: " . $provision . '<br>';
+echo "subscription Id: " . $subscriptionList[$i]->getOfferId() . '<br>';
+echo "Offer ID: " . $offerId . '<br>';
+echo "list price: " . $list_price . '<br>';
+echo "erp price: " . $erp_price . '<br>';
+ /*
 if ($provision == 1) {
     $subscriptionList[$i]->updateQuantity($qty);
     header("Location:../portal/manageSubscription.php");
@@ -46,7 +70,7 @@ if ($provision == 1) {
         $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
         if ($conn->query($sqlAddCompany) == True) {
             $sqlUpdateQty = "INSERT into cart set(customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id)"
-            . "VALUES($customer_id, $subscription_id, $subscrtiption_name,   )";
+            . "VALUES($customer_id, $subscription_id, $subscrtiption_name, $list_price, $erp_price, $proposed_cost, $qty,   )";
         }
     }
 }
