@@ -58,14 +58,13 @@ require "../api/client/_init.php";
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th>Qty on Record</th>
-                <th>Qty to Add</th>
                 <th>Update Qty</th>
             </tr>
         </thead>
         <tbody>';
     for ($i = 0; $i < count($subscriptionList); $i++) {
         ?>
-    <form action="subscriptionInfor.php" method="post">
+    <form action="subscriptionInfo.php" method="post">
             <tr>
                 <td><input type="hidden" name="itemNum" value="<?php echo $i ?>" style="background-color: #ED8B22; border: none" ><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
                 <td><?php echo $subscriptionList[$i]->getOfferId() ?></td>

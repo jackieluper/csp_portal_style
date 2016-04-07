@@ -81,10 +81,6 @@ $_SESSION['entity'] = $user->entity;
 $_SESSION['user'] = $user->username;
 $_SESSION['role'] = $user->role;
 
-echo "entity: " . $user->entity . '<br>';
-echo "user: " . $user->username . '<br>';
-echo "role: " . $user->role . '<br>';
-echo "cust id: " . $user->custId . '<br>';
 if (isset($_SESSION['entity']) && isset($_SESSION['role'])) {
     header('refresh:0; url=../portal/products.php');
 } else {
