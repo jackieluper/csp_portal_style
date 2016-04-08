@@ -9,11 +9,20 @@ require "../api/client/_init.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>      
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>    
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
     <script src='../../js/ms-style-menu.js'></script>
     <script src='../../js/ms-style-cart.js'></script>
     <script src='../../js/main.js'></script>
+
+    //paste this code under the head tag or in a separate js file.
+    // Wait for window load
+    $(window).load(function() {
+    // Animate loader off screen
+    $(".se-pre-con").fadeOut("slow");;
+    });
 </head>
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
@@ -41,6 +50,7 @@ require "../api/client/_init.php";
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
+<div class="se-pre-con"></div>
 <div class="contentCheckout" style="margin-left: 200px">
     <?php
     $customerTenantId = $_SESSION['tid'];
@@ -64,19 +74,19 @@ require "../api/client/_init.php";
         <tbody>';
     for ($i = 0; $i < count($subscriptionList); $i++) {
         ?>
-    <form action="subscriptionInfo.php" method="post">
+        <form action="subscriptionInfo.php" method="post">
             <tr>
                 <td><input type="hidden" name="itemNum" value="<?php echo $i ?>" style="background-color: #ED8B22; border: none" ><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
                 <td><?php echo $subscriptionList[$i]->getOfferId() ?></td>
-                <td style="width: 150px"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0 , 10) ?></td>
-                <td style="width: 150px"><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0 , 10) ?></td>
+                <td style="width: 150px"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
+                <td style="width: 150px"><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
                 <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
                 <td><button class="makeChanges" type="submit">Make Changes</button></td>
             </tr>
         </form>
-    <?php
+        <?php
     }
-    
+
 
 
 //$subscriptionList[0]->updateFriendlyName();
