@@ -65,8 +65,8 @@ if ($result5->num_rows > 0) {
 }
 
 //query to add the selected item to the cart with corresponding customer info
-$sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, sku, offer_uri) 
-VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '1', '$transactionId', '$offerSku', '$offerUri')" or die(mysql_error());
+$sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, update_qty, sku, offer_uri) 
+VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '1', '$transactionId', '0', '$offerSku', '$offerUri')" or die(mysql_error());
 //if they already have in cart increment qty 
 if ($result3->num_rows > 0) {
     while ($row = $result3->fetch_assoc()) {

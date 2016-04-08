@@ -16,11 +16,12 @@ $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
 $APIKey = 'CkdE324pr5pYCn5B6aMyVpW2z7qtBK6M';
 
 //Getting transaction ID to add to reciept for customer reference
-$sqlTran = "SELECT transaction_id FROM cart WHERE customer_id='" . $_SESSION['custId'] . "'";
+$sqlTran = "SELECT transaction_id, update_qty FROM cart WHERE customer_id='" . $_SESSION['custId'] . "'";
 $resultTran = $conn->query($sqlTran);
 if ($resultTran->num_rows > 0) {
     while ($row = $resultTran->fetch_assoc()) {
         $tranId = $row['transaction_id'];
+        $update_qty = $row['update_qty'];
     }
 } else {
     echo "Failed to save transaction";
@@ -314,7 +315,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         print '            
         <div><strong>Order ID: ' . $orderId . '</strong></div><br>';
 
-        
+
         foreach ($xml->product as $product) {
             $lineItem = 0;
             $qty = (int) $product->quantity;
@@ -326,11 +327,16 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $name = $product->description;
             $discountRate = $product->{'discount-rate'};
             $totalSavings = $product->{'discount-amount'};
-            
+
             $order = new Order($tid);
             $order->addOrderItem("$sku", "$name", $qty);
-            $order->submitOrder();
-            
+            if ($update_qty = 1) {
+                $totalToAdd = $subscriptionList[$i]->getQty() + $qty;
+                $subscriptionList[$i]->update($qty);
+            } else {
+                $order->submitOrder();
+            }
+
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
             $resultInvoice = $conn->query($sqlInvoice);
@@ -353,10 +359,10 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
         $resultDelete = $conn->query($sqlDelete);
     }
-    ?>
-    <input type="button" class="receiptBtn" onclick="printDiv('print-content')" value="Print Receipt"/>
+    print "
+    <input type='button' class='receiptBtn' onclick='printDiv('print-content')' value='Print Receipt'/>
     </div>
-    <script type="text/javascript">
+    <script type='text/javascript'>
 
         function printDiv(divName) {
             var printContents = document.getElementById(divName).innerHTML;
@@ -368,9 +374,9 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 
             document.body.innerHTML = originalContents;
         }
-    </script>
+    </script>";
 
-    <?php
+   
 } elseif ((string) $gwResponse->result == 2) {
     print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
     print " Decline Description : " . (string) $gwResponse->{'result-text'} . " </p>";
