@@ -94,10 +94,10 @@ require "../api/client/_init.php";
                     <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
                     <td><button class="makeChanges" type="submit">Make Changes</button></td>
                 </tr>
-            </form>
-            <div id="loading"></div>
+            </form>            
         </div>
     </div>
+<div id="loading"></div>
     <?php
 }
 
