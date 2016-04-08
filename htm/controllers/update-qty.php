@@ -48,7 +48,7 @@ if ($resProvision->num_rows > 0) {
     $resTranId = $conn->query($sqlgetTranId);
     if ($resTranId->num_rows > 0) {
         while ($row = $resTranId->fetch_assoc()) {
-            $tranId = $row['transaction_id'];
+            $tranId = $row['transaction_id'] + 2;
             echo "transaction id: " . $tranId . '<br>';
         }
     } else {
