@@ -11,9 +11,27 @@ require "../api/client/_init.php";
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>      
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript">function onReady(callback) {
+            var intervalID = window.setInterval(checkReady, 1000);
+
+            function checkReady() {
+                if (document.getElementsByTagName('body')[0] !== undefined) {
+                    window.clearInterval(intervalID);
+                    callback.call(this);
+                }
+            }
+        }
+
+        function show(id, value) {
+            document.getElementById(id).style.display = value ? 'block' : 'none';
+        }
+
+        onReady(function () {
+            show('page', true);
+            show('loading', false);
+        });</script>
     <script src='../../js/ms-style-menu.js'></script>
     <script src='../../js/ms-style-cart.js'></script>
-    <script src='../../js/loading.js'></script>
     <script src='../../js/main.js'></script>
 </head>
 <div id="horizontalNav">
