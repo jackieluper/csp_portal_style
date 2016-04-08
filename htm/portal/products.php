@@ -79,59 +79,61 @@ require '../api/client/app/offer.class.php';
         </tr>
     </table>
 </nav>
-<div id="page">
-    <div class="content">
-        <div class="page-header">
-            <h2>TOP OFFERS <small>Welcome 
-                    <?php echo $_SESSION['user']; ?>
-                </small></h2>
-        </div>
-        <table class="topOffers">
-            <tr>
-                <?php
-                for ($i = 0; $i < count($topOffers->name); $i++) {
-                    ?>
-                    <td>
-                        <strong> <?php echo $topOffers->name[$i] ?> </strong></br></br>
-                        <div class="item active" id="item">
-                            <image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"><br></br>
-                            <div class="carousel-caption" id="captionOverlay"><h3 class="detailsTitle"> <?php echo $topOffers->name[$i] ?></h3>
-                                <p> <?php echo $topOffers->caption[$i] ?> </p>
-                            </div>
-                        </div>
-                        <strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></br>
-                        <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
-                        <strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong>
-                    </td>
-                <?php } ?>
-            </tr>
-        </table>
-        <div class="page-header">
-            <h2>CATALOG</h2>
-        </div>
-        <table class="catalog" >
-            <tr>
-                <?php
-                for ($i = 0; $i < count($offers->name); $i++) {
-                    ?>
-                    <td><strong><?php echo $offers->name[$i] ?></strong></br></br>
-                        <div class="item active" id="item">
-                            <image src="<?php echo $offers->img_tag[$i] ?>" alt="Image not found"></br></br>
-                            <div class="carousel-caption" id="captionOverlay"><h3 class="detailsTitle"> <?php echo $offers->name[$i] ?></h3>
-                                <p> <?php echo $offers->caption[$i] ?> </p>
-                            </div>
-                            <strong> <?php echo number_format($offers->price[$i], 2) ?> </strong></br>
-                            <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
-                            <strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $offers->id[$i] ?>">Add to Cart</a></strong></td>
+<body>
+    <div id="page">
+        <div class="content">
+            <div class="page-header">
+                <h2>TOP OFFERS <small>Welcome 
+                        <?php echo $_SESSION['user']; ?>
+                    </small></h2>
+            </div>
+            <table class="topOffers">
+                <tr>
                     <?php
-                    if ($i % 3 == 2 && $i > 0) {
-                        print '</tr> <tr>';
-                    }
-                    ?>
+                    for ($i = 0; $i < count($topOffers->name); $i++) {
+                        ?>
+                        <td>
+                            <strong> <?php echo $topOffers->name[$i] ?> </strong></br></br>
+                            <div class="item active" id="item">
+                                <image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"><br></br>
+                                <div class="carousel-caption" id="captionOverlay"><h3 class="detailsTitle"> <?php echo $topOffers->name[$i] ?></h3>
+                                    <p> <?php echo $topOffers->caption[$i] ?> </p>
+                                </div>
+                            </div>
+                            <strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></br>
+                            <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
+                            <strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong>
+                        </td>
+                    <?php } ?>
+                </tr>
+            </table>
+            <div class="page-header">
+                <h2>CATALOG</h2>
+            </div>
+            <table class="catalog" >
+                <tr>
+                    <?php
+                    for ($i = 0; $i < count($offers->name); $i++) {
+                        ?>
+                        <td><strong><?php echo $offers->name[$i] ?></strong></br></br>
+                            <div class="item active" id="item">
+                                <image src="<?php echo $offers->img_tag[$i] ?>" alt="Image not found"></br></br>
+                                <div class="carousel-caption" id="captionOverlay"><h3 class="detailsTitle"> <?php echo $offers->name[$i] ?></h3>
+                                    <p> <?php echo $offers->caption[$i] ?> </p>
+                                </div>
+                                <strong> <?php echo number_format($offers->price[$i], 2) ?> </strong></br>
+                                <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
+                                <strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $offers->id[$i] ?>">Add to Cart</a></strong></td>
+                        <?php
+                        if ($i % 3 == 2 && $i > 0) {
+                            print '</tr> <tr>';
+                        }
+                        ?>
 
-                <?php } ?>
-            </tr>
-        </table>
+                    <?php } ?>
+                </tr>
+            </table>
+        </div>
     </div>
-</div>
-<div id="loading"></div>
+    <div id="loading"></div>
+</body>
