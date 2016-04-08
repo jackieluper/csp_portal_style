@@ -72,7 +72,7 @@ if ($provision == 1) {
 
 
     $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
-            VALUES('$customer_id', '1', '$offerId', '$offerName', '1 month(s)', '$erp_price', '$qty', '$discount', '$totalSavings', '$total', $tranId)";
+            VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$qty', '$discount', '$totalSavings', '$total', $tranId)";
 
     if ($conn->query($sqlInvoice) == TRUE) {
         $_SESSION['invoiceId'] = $tranId;
