@@ -85,6 +85,7 @@ require '../api/client/app/offer.class.php';
         </tr>
     </table>
 </nav>
+<div class="is-loading"></div>
 <div class="content">
     <div class="page-header">
         <h2>TOP OFFERS <small>Welcome 
