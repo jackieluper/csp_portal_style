@@ -842,19 +842,5 @@ a.logohover{
     height: 35px;
     color: #fff;
 }
-#page {
-    display: none;
-}
-#loading {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(192, 192, 192, 0.5);
-    background-image: url('../htm/img/loading.gif');
-    background-repeat: no-repeat;
-    background-position: center;
-}
+.is-loading{width:200px;height:200px;border:1px dotted #000;
+    background:url("../htm/img/loading.gif") no-repeat center center;}
