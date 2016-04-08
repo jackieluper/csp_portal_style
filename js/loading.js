@@ -1,19 +1,15 @@
-function onReady(callback) {
-    var intervalID = window.setInterval(checkReady, 1000);
-
-    function checkReady() {
-        if (document.getElementsByTagName('body')[0] !== undefined) {
-            window.clearInterval(intervalID);
-            callback.call(this);
-        }
-    }
-}
-
-function show(id, value) {
-    document.getElementById(id).style.display = value ? 'block' : 'none';
-}
-
-onReady(function () {
-    show('page', true);
-    show('loading', false);
-});
+$(document).ready(function() { 
+    $('#demo2').click(function() { 
+        $.blockUI({ css: { 
+            border: 'none', 
+            padding: '15px', 
+            backgroundColor: '#000', 
+            '-webkit-border-radius': '10px', 
+            '-moz-border-radius': '10px', 
+            opacity: .5, 
+            color: '#fff' 
+        } }); 
+ 
+        setTimeout($.unblockUI, 2000); 
+    }); 
+}); 
