@@ -78,8 +78,9 @@ require "../api/client/_init.php";
             </form>
             <div id="loading"></div>
         </div>
-        <?php
-    }
+    </div>
+    <?php
+}
 
 
 
@@ -87,4 +88,4 @@ require "../api/client/_init.php";
 //
 //$subscriptionList[0]->getAddOnList();
 //$subscriptionList[0]->suspendSubscription();
-    ?>
+?>
