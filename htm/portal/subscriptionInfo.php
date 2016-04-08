@@ -18,7 +18,8 @@ $i = $_POST['itemNum'];
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
     <script src='../../js/ms-style-menu.js'></script>
     <script src='../../js/ms-style-cart.js'></script>
-    <script src='../../js/main.js'></script>
+    <script src="../../js/loading.js"></script>
+    <script src='../../js/main.js'></script>    
 </head>
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
@@ -46,47 +47,50 @@ $i = $_POST['itemNum'];
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-<div class="subscriptionContent" >
-    <?php
-    $resultImg = $conn->query("select img_tag, details from image where offer_name='" . $subscriptionList[$i]->getOfferName() . "'");
-    if ($resultImg->num_rows > 0) {
-        while ($row = $resultImg->fetch_assoc()) {
-            $tag = $row['img_tag'];
-            $details = $row['details'];
+<div id="page">
+    <div class="subscriptionContent" >
+        <?php
+        $resultImg = $conn->query("select img_tag, details from image where offer_name='" . $subscriptionList[$i]->getOfferName() . "'");
+        if ($resultImg->num_rows > 0) {
+            while ($row = $resultImg->fetch_assoc()) {
+                $tag = $row['img_tag'];
+                $details = $row['details'];
+            }
+        } else {
+            $tag = "noImage.png";
         }
-    } else {
-        $tag = "noImage.png";
-    }
-    ?><div style="margin: 50px 0 0 100px">
-        <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
-        <div style="float:right">
-            <table class="subscriptionDetails">
-                <th class="subscriptionHeader" colspan="2"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
-                <tr>
-                    <td class="subscriptionTitle">Effective start date: </td>
-                    <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
-                </tr>
-                <tr>
-                    <td class="subscriptionTitle">Commitment end date: </td>
-                    <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
-                </tr>
-                <form action="../controllers/update-qty.php" method="post">
+        ?><div style="margin: 50px 0 0 100px">
+            <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
+            <div style="float:right">
+                <table class="subscriptionDetails">
+                    <th class="subscriptionHeader" colspan="2"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
                     <tr>
-                        <td class="subscriptionTitle" ><input type="hidden" name="itemNum" value="<?php echo $i ?>">Quantity on record: </td>
-                        <td class="subscriptionInfo"><input step="1" name="qty" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="border-style: groove; border-radius: 5px; width: 30%;"></input></td>
-                        <td style="align-content: left"><button class="updateQtyBtn" type="submit">Add/Remove</button></td>
+                        <td class="subscriptionTitle">Effective start date: </td>
+                        <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
+                    </tr>
+                    <tr>
+                        <td class="subscriptionTitle">Commitment end date: </td>
+                        <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
+                    </tr>
+                    <form action="../controllers/update-qty.php" method="post">
+                        <tr>
+                            <td class="subscriptionTitle" ><input type="hidden" name="itemNum" value="<?php echo $i ?>">Quantity on record: </td>
+                            <td class="subscriptionInfo"><input step="1" name="qty" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="border-style: groove; border-radius: 5px; width: 30%;"></input></td>
+                            <td style="align-content: left"><button class="updateQtyBtn" type="submit">Add/Remove</button></td>
 
-                    </tr>
-                </form>
-                <form action="suspendAllLicenses.php">
-                    <tr>
-                        <td class="subscriptionTitle">Status: </td>
-                        <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getStatus() ?></td>
-                        <td style="align-content: left"><button class="updateQtyBtn" type="submit">Suspend All Licenses</button></td>
-                    </tr>
-                </form>
-            </table>
+                        </tr>
+                    </form>
+                    <form action="suspendAllLicenses.php">
+                        <tr>
+                            <td class="subscriptionTitle">Status: </td>
+                            <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getStatus() ?></td>
+                            <td style="align-content: left"><button class="updateQtyBtn" type="submit">Suspend All Licenses</button></td>
+                        </tr>
+                    </form>
+                </table>
+            </div>
+            <div class="subscriptionCaption"><?php echo $details ?></div>
         </div>
-        <div class="subscriptionCaption"><?php echo $details ?></div>
     </div>
 </div>
+<div id="loading"></div>

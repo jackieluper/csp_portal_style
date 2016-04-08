@@ -1,10 +1,4 @@
-<!--
-Author: Jason B. Smith
-Date: 2/09/16
-Managed Solution
--->
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 require("../controllers/config.php");
 include '../controllers/cart.db.php';
@@ -21,6 +15,7 @@ $role = $_SESSION['role'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
     <script src='../../js/ms-style-menu.js'></script> 
+    <script src="../../js/loading.js"></script>
 </head>
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
@@ -32,7 +27,7 @@ $role = $_SESSION['role'];
 <nav class="menu">
     <a href="#" class="nav-toggle-btn">Menu</a>
     <ul>
-       <?php if ($_SESSION['role'] >= $userRole) { ?>
+        <?php if ($_SESSION['role'] >= $userRole) { ?>
             <li><img class='icon' src='../img/icons/software.png' alt='Products' ><a href='../portal/products.php'>Products</a><br></li>
             <li><img class='icon' src='../img/icons/software.png' alt='Manage Subscription'><a href="../portal/manageSubscription.php">Manage Subscriptions</a><br></li>
             <li><img class='icon' src='../img/icons/invoice.jpg' alt='Invoice'><a href='../portal/invoice.php'>Invoice</a><br></li>
@@ -48,40 +43,43 @@ $role = $_SESSION['role'];
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-<div class="contentCheckout">
-    <div class="page-header">
-        <h2>CHECKOUT</h2>
-    </div>
-    <table class="ui-widget ui-widget-content" id='checkoutTable'>
-        <thead>
-            <tr class="ui-widget-header ">
-                <th>Item</th>
-                <th>Price</th>
-                <th>Qty</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            for ($i = 0; $i < count($cart->name); $i++) {
-                ?>
+<div id="page">
+    <div class="contentCheckout">
+        <div class="page-header">
+            <h2>CHECKOUT</h2>
+        </div>
+        <table class="ui-widget ui-widget-content" id='checkoutTable'>
+            <thead>
+                <tr class="ui-widget-header ">
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                for ($i = 0; $i < count($cart->name); $i++) {
+                    ?>
+                    <tr>
+                        <td><span><?php echo $cart->name[$i] ?></span></td>
+                        <td><?php echo $cart->msrp[$i] ?></td>
+                        <td><?php echo $cart->qty[$i] ?></td>
+                        <td ><a href="../controllers/remove-from-checkout.php?id=<?php echo $cart->item[$i] ?>" ><strong>Delete</strong></a></td>
+                    </tr>            
+                <?php } ?>
                 <tr>
-                    <td><span><?php echo $cart->name[$i] ?></span></td>
-                    <td><?php echo $cart->msrp[$i] ?></td>
-                    <td><?php echo $cart->qty[$i] ?></td>
-                    <td ><a href="../controllers/remove-from-checkout.php?id=<?php echo $cart->item[$i] ?>" ><strong>Delete</strong></a></td>
-                </tr>            
-            <?php } ?>
-            <tr>
-                <td class="total" colspan="3" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Discount Savings:</td>
-                <td class="total" colspan="1" style="background-color: #65B1E4">$<?php echo number_format($cart->discount, 2) ?></td>
-            </tr>
-            <tr>
-                <td class="total" colspan="3" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Total Price:</td>
-                <td colspan="1" style="background-color: #65B1E4">$<?php echo number_format($cart->total, 2) ?></td>
-            <tr>
-                <td colspan="4" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right"><a href="billing.php"><button type="button" class="checkoutButton">Checkout</button></a></td>
-            </tr>
-        </tbody>
-    </table>
+                    <td class="total" colspan="3" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Discount Savings:</td>
+                    <td class="total" colspan="1" style="background-color: #65B1E4">$<?php echo number_format($cart->discount, 2) ?></td>
+                </tr>
+                <tr>
+                    <td class="total" colspan="3" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Total Price:</td>
+                    <td colspan="1" style="background-color: #65B1E4">$<?php echo number_format($cart->total, 2) ?></td>
+                <tr>
+                    <td colspan="4" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right"><a href="billing.php"><button type="button" class="checkoutButton">Checkout</button></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+<div id="loading"></div>

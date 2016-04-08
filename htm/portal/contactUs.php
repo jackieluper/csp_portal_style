@@ -20,6 +20,7 @@ $role = $_SESSION['role'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
     <script src='../lib/ms-style-menu.js'></script>     
+    <script src="../../js/loading.js"></script>
 </head>
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
@@ -47,20 +48,23 @@ $role = $_SESSION['role'];
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-<div class="contactContent"> 
-    <table class="contactTbl">
-        <tr>
-            <th class="cntHeader">Title</th>
-            <th class="cntHeader">Name</th>
-            <th class="cntHeader">Email Address</th>
-            <th class="cntHeader">Phone Number</th>
-        </tr>
-        <tr>
-            <!--Company specific information Change to your company information as to who to contact with issues on your portal -->
-            <td class="cntRow1"><strong>Business Operations Manager</strong></td>
-            <td class="cntRow1">Jennell Mott</td>
-            <td class="cntRow1">JMott@managedsolution.com</td>
-            <td class="cntRow1">(858)429-3035 </td>
-        </tr>
-    </table>
+<div id="page">
+    <div class="contactContent"> 
+        <table class="contactTbl">
+            <tr>
+                <th class="cntHeader">Title</th>
+                <th class="cntHeader">Name</th>
+                <th class="cntHeader">Email Address</th>
+                <th class="cntHeader">Phone Number</th>
+            </tr>
+            <tr>
+                <!--Company specific information Change to your company information as to who to contact with issues on your portal -->
+                <td class="cntRow1"><strong>Business Operations Manager</strong></td>
+                <td class="cntRow1">Jennell Mott</td>
+                <td class="cntRow1">JMott@managedsolution.com</td>
+                <td class="cntRow1">(858)429-3035 </td>
+            </tr>
+        </table>
+    </div>
 </div>
+<div id="loading"></div>
