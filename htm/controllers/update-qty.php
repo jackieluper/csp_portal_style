@@ -74,7 +74,7 @@ if ($provision == 1) {
       VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 Month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total')";
     if ($conn->query($sqlUpdateInvoice) == TRUE) {
         $_SESSION['invoiceId'] = $tranId;
-        //header('Location: ../portal/displayInvoice.php');
+        header('Location: ../portal/displayInvoice.php');
     } else {
         echo "Error: " . $sqlUpdateInvoice . "<br>" . $conn->error;
     }
