@@ -70,13 +70,15 @@ if ($provision == 1) {
     echo 'total savings ' . $totalSavings . '<br>';
     echo 'total: ' . $total . '<br>';
 
-    $sqlUpdateInvoice = "INSERT into transactions (customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total)
-      VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 Month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total')";
-    if ($conn->query($sqlUpdateInvoice) == TRUE) {
+
+    $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
+            VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
+
+    if ($conn->query($sqlInvoice) == TRUE) {
         $_SESSION['invoiceId'] = $tranId;
         header('Location: ../portal/displayInvoice.php');
     } else {
-        echo "Error: " . $sqlUpdateInvoice . "<br>" . $conn->error;
+        echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
     }
 } else {
     $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
