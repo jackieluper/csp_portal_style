@@ -17,7 +17,6 @@ require "../api/client/_init.php";
     <script src='../../js/main.js'></script>
 
 </head>
-<div id="page">
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
         <ul>
@@ -44,7 +43,8 @@ require "../api/client/_init.php";
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-
+<div id="loading"></div>
+<div id="page">
     <div class="contentCheckout" style="margin-left: 200px">
         <?php
         $customerTenantId = $_SESSION['tid'];
@@ -91,4 +91,3 @@ require "../api/client/_init.php";
 //$subscriptionList[0]->suspendSubscription();
     ?>
 </div>
-<div id="loading"></div>
