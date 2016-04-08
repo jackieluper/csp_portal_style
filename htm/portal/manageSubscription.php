@@ -16,13 +16,14 @@ require "../api/client/_init.php";
     <script src='../../js/ms-style-menu.js'></script>
     <script src='../../js/ms-style-cart.js'></script>
     <script src='../../js/main.js'></script>
-
+    <script type="text/javascript">
     //paste this code under the head tag or in a separate js file.
     // Wait for window load
     $(window).load(function() {
     // Animate loader off screen
     $(".se-pre-con").fadeOut("slow");;
     });
+    </script>
 </head>
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
