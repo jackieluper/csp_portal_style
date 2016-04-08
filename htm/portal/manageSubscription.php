@@ -11,57 +11,38 @@ require "../api/client/_init.php";
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>      
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
-    <script type="text/javascript">function onReady(callback) {
-            var intervalID = window.setInterval(checkReady, 1000);
-
-            function checkReady() {
-                if (document.getElementsByTagName('body')[0] !== undefined) {
-                    window.clearInterval(intervalID);
-                    callback.call(this);
-                }
-            }
-        }
-
-        function show(id, value) {
-            document.getElementById(id).style.display = value ? 'block' : 'none';
-        }
-
-        onReady(function () {
-            show('page', true);
-            show('loading', false);
-        });</script>
     <script src='../../js/ms-style-menu.js'></script>
     <script src='../../js/ms-style-cart.js'></script>
+    <script src='../../js/loading.js'></script>
     <script src='../../js/main.js'></script>
 </head>
-
-<div id="page">
-    <div id="horizontalNav">
-        <div id="horizontalNavWrapper">
-            <ul>
-                <li>Manage Subscriptions</li>
-            </ul>
-        </div>
-    </div>
-    <nav class="menu">
-        <a href="#" class="nav-toggle-btn">Menu</a>
+<div id="horizontalNav">
+    <div id="horizontalNavWrapper">
         <ul>
-            <?php if ($_SESSION['role'] >= $userRole) { ?>
-                <li><img class='icon' src='../img/icons/software.png' alt='Products' ><a href='../portal/products.php'>Products</a><br></li>
-                <li><img class='icon' src='../img/icons/software.png' alt='Manage Subscription'><a href="../portal/manageSubscription.php">Manage Subscriptions</a><br></li>
-                <li><img class='icon' src='../img/icons/invoice.jpg' alt='Invoice'><a href='../portal/invoice.php'>Invoice</a><br></li>
-                <li><img class='icon' src='../img/icons/checkout.png' alt='Checkout' ><a href='../portal/checkout.php'>Checkout</a><br></li>
-                <li><img class='icon' src='../img/icons/home.png' alt='Home' ><a href='<?php echo $homePage ?>'><?php echo $companyName ?></a><br></li>
-                <?php if ($_SESSION['role'] == $adminRole) { ?>
-                    <li><img class='icon' src='../img/icons/Admin.png' alt='Admin' ><a href='../portal/admin.php'>Administration</a><br></li>
-                    <?php
-                }
-            }
-            ?>
-            <li><img class='icon' src='../img/icons/contact.jpg' alt='Contact' ><a href='../portal/contactUs.php'>Contact us</a><br></li>
-            <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
+            <li>Manage Subscriptions</li>
         </ul>
-    </nav>
+    </div>
+</div>
+<nav class="menu">
+    <a href="#" class="nav-toggle-btn">Menu</a>
+    <ul>
+        <?php if ($_SESSION['role'] >= $userRole) { ?>
+            <li><img class='icon' src='../img/icons/software.png' alt='Products' ><a href='../portal/products.php'>Products</a><br></li>
+            <li><img class='icon' src='../img/icons/software.png' alt='Manage Subscription'><a href="../portal/manageSubscription.php">Manage Subscriptions</a><br></li>
+            <li><img class='icon' src='../img/icons/invoice.jpg' alt='Invoice'><a href='../portal/invoice.php'>Invoice</a><br></li>
+            <li><img class='icon' src='../img/icons/checkout.png' alt='Checkout' ><a href='../portal/checkout.php'>Checkout</a><br></li>
+            <li><img class='icon' src='../img/icons/home.png' alt='Home' ><a href='<?php echo $homePage ?>'><?php echo $companyName ?></a><br></li>
+            <?php if ($_SESSION['role'] == $adminRole) { ?>
+                <li><img class='icon' src='../img/icons/Admin.png' alt='Admin' ><a href='../portal/admin.php'>Administration</a><br></li>
+                <?php
+            }
+        }
+        ?>
+        <li><img class='icon' src='../img/icons/contact.jpg' alt='Contact' ><a href='../portal/contactUs.php'>Contact us</a><br></li>
+        <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
+    </ul>
+</nav>
+<div id="page">
     <div class="contentCheckout" style="margin-left: 200px">
         <?php
         $customerTenantId = $_SESSION['tid'];
@@ -94,10 +75,10 @@ require "../api/client/_init.php";
                     <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
                     <td><button class="makeChanges" type="submit">Make Changes</button></td>
                 </tr>
-            </form>            
+            </form>
         </div>
     </div>
-<div id="loading"></div>
+    <div id="loading"></div>
     <?php
 }
 
