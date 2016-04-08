@@ -58,7 +58,7 @@ require "../api/client/_init.php";
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th>Qty on Record</th>
-                <th>Update Qty</th>
+                <th>Manage Subscription</th>
             </tr>
         </thead>
         <tbody>';
