@@ -358,7 +358,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         </div>';
         $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
         $resultDelete = $conn->query($sqlDelete);
-    }
+    
     print "
     <input type='button' class='receiptBtn' onclick='printDiv('print-content')' value='Print Receipt'/>
     </div>
@@ -376,7 +376,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         }
     </script>";
 
-   
+    } 
 } elseif ((string) $gwResponse->result == 2) {
     print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
     print " Decline Description : " . (string) $gwResponse->{'result-text'} . " </p>";
