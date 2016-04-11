@@ -84,7 +84,7 @@ if (isset($_POST['itemNum'])) {
                         <tr>
                             <td class="subscriptionTitle">Change total # subscriptions: </td>
                             <td class="subscriptionInfo"><input step="1" name="qty" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
-                            <td style="align-content: left"><button class="updateQtyBtn" type="submit">Change # licenses</button></td>
+                            <td style="align-content: left"><button class="updateQtyBtn" type="submit">Change # of subscriptions</button></td>
                         </tr>
 
                     </form>
