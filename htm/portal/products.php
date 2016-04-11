@@ -44,42 +44,42 @@ require '../controllers/cart.db.php';
     </ul>
 </nav>
 <div id="page">
-<nav class="sidecart">
-    <a href="#" class="cart-toggle-btn">Cart</a>
-    <table class="cartTable" >
-        <thead>
-            <tr class="ui-widget-header ">
-                <th>Item</th>
-                <th>Price</th>
-                <th>Qty</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            for ($i = 0; $i < count($cart->name); $i++) {
-                ?>
-                <tr>
-                    <td><span><?php echo $cart->name[$i] ?></span></td>
-                    <td><?php echo $cart->msrp[$i] ?></td>
-                    <td ><?php echo $cart->qty[$i] ?></td>
-                    <td><a href="../controllers/remove-from-cart.php?id=<?php echo $cart->item[$i] ?>">Delete</a></td>
+    <nav class="sidecart">
+        <a href="#" class="cart-toggle-btn">Cart</a>
+        <table class="cartTable" >
+            <thead>
+                <tr class="ui-widget-header ">
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Delete</th>
                 </tr>
-            <?php } ?>
+            </thead>
+            <tbody>
+                <?php
+                for ($i = 0; $i < count($cart->name); $i++) {
+                    ?>
+                    <tr>
+                        <td><span><?php echo $cart->name[$i] ?></span></td>
+                        <td><?php echo $cart->msrp[$i] ?></td>
+                        <td ><?php echo $cart->qty[$i] ?></td>
+                        <td><a href="../controllers/remove-from-cart.php?id=<?php echo $cart->item[$i] ?>">Delete</a></td>
+                    </tr>
+                <?php } ?>
+                <tr>
+                    <td colspan="2"><strong>Discount Amount</strong></td>
+                    <td colspan="2"><?php echo number_format($cart->discount, 2) ?></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><strong>TOTAL</strong></td>
+                    <td colspan="2"><?php echo number_format($cart->total, 2) ?></td>
+                </tr>
+            </tbody>
             <tr>
-                <td colspan="2"><strong>Discount Amount</strong></td>
-                <td colspan="2"><?php echo number_format($cart->discount, 2) ?></td>
+                <td colspan="4"><a href="checkout.php"><button type="button" class="checkoutButton">Checkout</button></a></td>
             </tr>
-            <tr>
-                <td colspan="2"><strong>TOTAL</strong></td>
-                <td colspan="2"><?php echo number_format($cart->total, 2) ?></td>
-            </tr>
-        </tbody>
-        <tr>
-            <td colspan="4"><a href="checkout.php"><button type="button" class="checkoutButton">Checkout</button></a></td>
-        </tr>
-    </table>
-</nav>
+        </table>
+    </nav>
     <div class="content">
         <div class="page-header">
             <h2>TOP OFFERS <small>Welcome 
@@ -91,7 +91,7 @@ require '../controllers/cart.db.php';
                 <?php
                 for ($i = 0; $i < count($topOffers->name); $i++) {
                     ?>
-                    <td>
+                    <tr>
                         <strong> <?php echo $topOffers->name[$i] ?> </strong></br></br>
                         <div class="item active" id="item">
                             <image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"><br></br>
@@ -102,7 +102,7 @@ require '../controllers/cart.db.php';
                         <strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></br>
                         <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
                         <strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong>
-                    </td>
+                    </tr>
                 <?php } ?>
             </tr>
         </table>
