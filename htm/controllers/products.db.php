@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'config.php';
-require "../api/client/_init.php";
+include '../classes/offers.class.php';
 
 $index = 0;
 
