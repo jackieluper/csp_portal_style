@@ -335,10 +335,11 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $order->addOrderItem("$sku", "$name", $qty);
             $order->submitOrder();
         }
-
+        echo "test";
         $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
         $resultInvoice = $conn->query($sqlInvoice);
+        echo "test1";
 
         print "
             <div><strong>Item Number:  . $itemNum . </strong></div>
