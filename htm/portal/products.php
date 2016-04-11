@@ -89,8 +89,14 @@ require '../controllers/cart.db.php';
                 ?>
                 <tr>
                     <td><strong> <?php echo $topOffers->name[$i] ?> </strong></td>
+                </tr>
+                <tr>
                     <td><div class="item active" id="item"><image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"></div></td>
+                </tr>
+                <tr>
                     <td><strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></td>
+                </tr>
+                <tr>
                     <td><strong> <?php echo $offers->unit[$i] ?> </strong></td>
                     <td><strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong></td>
                 </tr>
