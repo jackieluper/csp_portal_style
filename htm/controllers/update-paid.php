@@ -4,6 +4,13 @@ require "../controllers/config.php";
 require "../api/client/_init.php";
 
 $i = $_SESSION['itemNum'];
+$customerTenantId = $_SESSION['tid'];
+
+$subscription = new Subscription($customerTenantId);
+$subscriptionList = $subscription->getSubscriptionList();
+$subscription_id = $subscriptionList[$i]->getOfferId();
+$subscription_name = $subscriptionList[$i]->getOfferName();
+
 $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
 $total = number_format($updateQty * $erp_price, 2);
 $totalSavings = number_format($total * $discount, 2);
