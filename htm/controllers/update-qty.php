@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require 'config.php';
 require "../api/client/_init.php";
@@ -58,7 +59,7 @@ if ($resProvision->num_rows > 0) {
 } else {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
-if ($provision == 1) { 
+if ($provision == 1) {
     $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
     $total = number_format($updateQty * $erp_price, 2);
     $totalSavings = number_format($total * $discount, 2);
@@ -77,12 +78,17 @@ if ($provision == 1) {
     $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
     if ($conn->query($sqlDeleteCart) == True) {
         $updateQty = $qty - $subscriptionList[$i]->getQuantity();
-        $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty)
-               VALUES('$customer_id', '$subscription_id', '$subscription_name', '$list_price', '$erp_price', '$erp_price', '$updateQty', '$tranId', '1')";
-        if ($conn->query($sqlUpdateQty) == TRUE) {
-            header("Location: ../portal/checkout.php");
+        if ($updateQty <= 0) {
+            $subscriptionList[$i]->updateQuantity($qty);
+            header("Location: ../portal/subscriptionInfo.php");
         } else {
-            echo "Error: " . $sqlUpdateQty . "<br>" . $conn->error;
+            $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty)
+               VALUES('$customer_id', '$subscription_id', '$subscription_name', '$list_price', '$erp_price', '$erp_price', '$updateQty', '$tranId', '1')";
+            if ($conn->query($sqlUpdateQty) == TRUE) {
+                header("Location: ../portal/checkout.php");
+            } else {
+                echo "Error: " . $sqlUpdateQty . "<br>" . $conn->error;
+            }
         }
     } else {
         echo "Error: " . $sqlDeleteCart . "<br>" . $conn->error;
