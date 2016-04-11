@@ -4,12 +4,13 @@ Date: 2/29/16
 Managed Solution
 -->
 <?php
+session_start();
 require("../controllers/config.php");
 require '../controllers/cart.db.php';
 require '../api/client/_init.php';
 
 $tid = $_SESSION['tid'];
-
+$customerTenantId = $_SESSION['tid'];
 
 // API Setup parameters
 $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
