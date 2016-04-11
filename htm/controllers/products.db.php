@@ -47,29 +47,29 @@ for ($i = 0; $i < count($hotOffers); $i++) {
 }
 
 $result1 = $conn->query("select offer.id, offer.display_name, offer.license_agreement_type, offer.purchase_unit, offer.sku, offer_price.erp_price from offer, offer_price where offer.id=offer_price.id and offer.license_agreement_type='$entity'");
-$index = 0;
+$count = 0;
 if ($result1->num_rows > 0) {
     while ($row = $result1->fetch_assoc()) {
         $name = $row['display_name'];
         $erp = $row['erp_price'];
         $purchase_unit = $row['purchase_unit'];
         $id = $row['id'];
-        $offers->setOfferName($index, $name);
-        $offers->setOfferPrice($index, $erp);
-        $offers->setOfferUnit($index, $purchase_unit);
-        $offers->setOfferId($index, $id);
+        $offers->setOfferName($count, $name);
+        $offers->setOfferPrice($count, $erp);
+        $offers->setOfferUnit($count, $purchase_unit);
+        $offers->setOfferId($count, $id);
         $resultImg = $conn->query("select img_tag, details from image where offer_name='$name'");
         if ($resultImg->num_rows > 0) {
             while ($row1 = $resultImg->fetch_assoc()) {
                 $tag = $row1['img_tag'];
                 $caption = $row1['details'];
-                $offers->setOfferImg($index, $tag);
-                $offers->setOfferCaption($index, $caption);
+                $offers->setOfferImg($count, $tag);
+                $offers->setOfferCaption($count, $caption);
             }
         } else {
             $tag = "noImage.png";
-            $offers->setOfferImg($index, $tag);
+            $offers->setOfferImg($count, $tag);
         }
-        $index++;
+        $count++;
     }
 }
