@@ -1,5 +1,7 @@
 <?php
+session_start();
 require 'config.php';
+require "../api/client/_init.php";
 
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
@@ -73,7 +75,7 @@ if ($provision == 1) {
     $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
     if ($conn->query($sqlDeleteCart) == True) {
         $updateQty = $qty - $subscriptionList[$i]->getQuantity();
-        $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty)
+        $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, update_qty)
                VALUES('$customer_id', '$subscription_id', '$subscription_name', '$list_price', '$erp_price', '$erp_price', '$updateQty', '$tranId', '1')";
         if ($conn->query($sqlUpdateQty) == TRUE) {
             header("Location: ../portal/checkout.php");

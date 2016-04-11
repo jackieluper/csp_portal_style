@@ -2,7 +2,6 @@
 session_start();
 require "../controllers/config.php";
 require "../api/client/_init.php";
-require "../controllers/update-qty.php";
 
 $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
 $total = number_format($updateQty * $erp_price, 2);
