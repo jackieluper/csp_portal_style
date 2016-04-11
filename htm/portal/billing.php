@@ -298,7 +298,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
      </nav>
      <div class="transactionContent">
         <p><h2>Transaction Details<br /></h2></p>';
-    echo $gwResponse->result;
 } if ((string) $gwResponse->result == 1) {
     //need to parse customer TID from login
 
@@ -313,7 +312,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     $company = $xml->{'processor-id'};
     $orderId = $xml->{'order-id'};
     print "            
-        <div><strong>Order ID: ' . $orderId . '</strong></div><br>";
+        <div><strong>Order ID: . $orderId . </strong></div><br>";
 
 
     foreach ($xml->product as $product) {
@@ -325,9 +324,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $itemNum = $product->{'unit-of-measure'};
         $sku = $product->{'product-code'};
         $name = $product->description;
-        $discountRate = $product->{'discount-rate'};
+        $discountRate = $product->discount-rate;
         $totalSavings = $product->{'discount-amount'};
-
         $order = new Order($tid);
         $order->addOrderItem("$sku", "$name", $qty);
         if ($updat_qty = 1) {
@@ -342,18 +340,18 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $resultInvoice = $conn->query($sqlInvoice);
 
         print "
-            <div><strong>Item Number: ' . $itemNum . '</strong></div>
+            <div><strong>Item Number:  . $itemNum . </strong></div>
             <div>--------------</div>
-            <div><strong>Product Name: </strong>' . $name . '</div>
-            <div><strong>Product ID: </strong>' . $sku . '</div>
+            <div><strong>Product Name: </strong> . $name . </div>
+            <div><strong>Product ID: </strong> . $sku . </div>
             <div><strong>Subscription Length: </strong>1 Month(s) </div>
-            <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
-            <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>";
+            <div><strong>Product Cost: </strong>$ . $costFormatted . </div>
+            <div><strong>Product Quantity: </strong> . $qtyFormatted . </div><br>";
     }
     print "
-        <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
-        <div><strong>Total Savings: $' . $totalSavings . '</strong></div>
-        <div><strong>Sale Total: ' . $amount . '</strong></div><br>
+        <div><strong>Discount Rate:  . $discountRate . %</strong></div>
+        <div><strong>Total Savings: $ . $totalSavings . </strong></div>
+        <div><strong>Sale Total:  . $amount . </strong></div><br>
         </form>
         </div>";
     $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
