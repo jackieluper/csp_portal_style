@@ -57,7 +57,7 @@ if ($resProvision->num_rows > 0) {
 } else {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
-if ($provision == 1) { 
+if ($provision == 1 || $_SESSION['paid'] == TRUE) { 
     $updateQty = intval($qty + $subscriptionList[$i]->getQuantity());
     $total = number_format($updateQty * $erp_price, 2);
     $totalSavings = number_format($total * $discount, 2);
@@ -68,6 +68,7 @@ if ($provision == 1) {
 
     if ($conn->query($sqlInvoice) == TRUE) {
         $_SESSION['invoiceId'] = $tranId;
+        $_SESSION['paid'] = FALSE;
         header('Location: ../portal/displayInvoice.php');
     } else {
         echo "Error: " . $sqlInvoice . "<br>" . $conn->error;

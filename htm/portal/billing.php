@@ -333,11 +333,12 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
                 $order = new Order($tid);
                 $order->addOrderItem("$sku", "$name", $qty);
                 $order->submitOrder();
+                $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
+                VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
+                $resultInvoice = $conn->query($sqlInvoice);
             }
 
-            $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
-            VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
-            $resultInvoice = $conn->query($sqlInvoice);
+
 
             print '
         <div><strong>Item Number: ' . $itemNum . '</strong></div>
@@ -355,6 +356,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         </form>
         </div>';
         if ($update_qty == 1) {
+            $_SESSION['paid'] = TRUE;
             header("location: ../controllers/update-qty.php");
         }
         $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
