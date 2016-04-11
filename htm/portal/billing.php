@@ -350,12 +350,12 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
         <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
         }
-        print '
+        print "
         <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
         <div><strong>Total Savings: $' . $totalSavings . '</strong></div>
         <div><strong>Sale Total: ' . $amount . '</strong></div><br>
         </form>
-        </div>';
+        </div>";
         $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
         $resultDelete = $conn->query($sqlDelete);
     
@@ -383,6 +383,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     print " <p><h3>XML response was:</h3></p>\n";
     print '<pre>' . (htmlentities($data)) . '</pre>';
 } else {
+    echo 'Test';
     print " <p><h3><strong> Transaction caused an Error.</strong></h3>\n";
     print " Error Description: " . (string) $gwResponse->{'result-text'} . " </p>";
     print " <p><h3>XML response was:</h3></p>\n";
