@@ -307,6 +307,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?>></div>
     <?php
     print " <p><h3><strong>Transaction was Approved: </strong></h3></p>\n";
+    $customerTenantId = $_SESSION['tid'];
     $subscription = new Subscription($customerTenantId);
     $subscriptionList = $subscription->getSubscriptionList();
     $xml = simplexml_load_string($data);
