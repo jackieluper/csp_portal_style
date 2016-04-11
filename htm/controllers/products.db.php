@@ -62,13 +62,13 @@ while ($row = $result1->fetch_assoc()) {
         $caption = $row1['details'];
         $offers->setOfferImg($index, $tag);
         $offers->setOfferCaption($index, $caption);
+        
+        echo "test";
         }
     }
     else{
         $tag = "noImage.png";
         $offers->setOfferImg($index, $tag);
-        
-        echo "test";
     }
     $index++;
 }
