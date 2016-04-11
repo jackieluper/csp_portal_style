@@ -24,6 +24,7 @@ for ($i = 0; $i < count($hotOffers); $i++) {
         $name = $row['display_name'];
         $price = $row['erp_price'];
         $id = $row['id'];
+        echo "test";
     }
     $topOffers->setOffer($index, $offer);
     $topOffers->setOfferDetails($index, $name, $price);
