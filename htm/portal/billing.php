@@ -316,7 +316,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     print "            
         <div><strong>Order ID: . $orderId . </strong></div><br>";
 
-
     foreach ($xml->product as $product) {
         $lineItem = 0;
         $qty = (int) $product->quantity;
@@ -326,14 +325,14 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $itemNum = $product->{'unit-of-measure'};
         $sku = $product->{'product-code'};
         $name = $product->description;
-        $discountRate = $product->discount-rate;
+        $discountRate = $product->discount - rate;
         $totalSavings = $product->{'discount-amount'};
-        $order = new Order($tid);
-        $order->addOrderItem("$sku", "$name", $qty);
         if ($updat_qty = 1) {
             $totalToAdd = $subscriptionList[$i]->getQty() + $qty;
             $subscriptionList[$i]->update($qty);
         } else {
+            $order = new Order($tid);
+            $order->addOrderItem("$sku", "$name", $qty);
             $order->submitOrder();
         }
 
@@ -350,7 +349,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             <div><strong>Product Cost: </strong>$ . $costFormatted . </div>
             <div><strong>Product Quantity: </strong> . $qtyFormatted . </div><br>";
     }
-    
+
     print "
         <div><strong>Discount Rate:  . $discountRate . %</strong></div>
         <div><strong>Total Savings: $ . $totalSavings . </strong></div>
