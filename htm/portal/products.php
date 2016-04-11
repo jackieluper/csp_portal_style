@@ -91,7 +91,7 @@ require '../controllers/cart.db.php';
                 <?php
                 for ($i = 0; $i < count($topOffers->name); $i++) {
                     ?>
-                    <tr>
+                    <td>
                         <strong> <?php echo $topOffers->name[$i] ?> </strong></br></br>
                         <div class="item active" id="item">
                             <image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"><br></br>
@@ -102,7 +102,7 @@ require '../controllers/cart.db.php';
                         <strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></br>
                         <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
                         <strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong>
-                    </tr>
+                    </td>
                 <?php } ?>
             </tr>
         </table>
