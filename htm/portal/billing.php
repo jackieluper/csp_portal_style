@@ -21,7 +21,7 @@ $resultTran = $conn->query($sqlTran);
 if ($resultTran->num_rows > 0) {
     while ($row = $resultTran->fetch_assoc()) {
         $tranId = $row['transaction_id'];
-        $update_qty = $row['update_qty'];
+        $update_qty = $row['updat_qty'];
     }
 } else {
     echo "Failed to save transaction";
