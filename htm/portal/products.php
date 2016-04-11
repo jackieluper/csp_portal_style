@@ -84,28 +84,28 @@ require '../controllers/cart.db.php';
         </div>
 
         <div class="wrapOffers" style="margin-left: 90px">
-        <?php
-        for ($i = 0; $i < count($topOffers->name); $i++) {
-            ?>
-        <table  width="10%" style="display: inline-block">
-                <tr>
-                    <td><strong> <?php echo $topOffers->name[$i] ?> </strong></td>
-                </tr>
-                <tr>
-                    <td><div class="item active" id="item"><image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"></div></td>
-                </tr>
-                <tr>
-                    <td><strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></td>
-                </tr>
-                <tr>
-                    <td><strong> <?php echo $offers->unit[$i] ?> </strong></td>
-                </tr>
-                <tr>
-                    <td><strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong></td>
-                </tr>
-            </table>
-        <?php } ?>
-
+            <?php
+            for ($i = 0; $i < count($topOffers->name); $i++) {
+                ?>
+                <table  width="10%" style="display: inline-block">
+                    <tr>
+                        <td><strong> <?php echo $topOffers->name[$i] ?> </strong></td>
+                    </tr>
+                    <tr>
+                        <td><div class="item active" id="item"><image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"></div></td>
+                    </tr>
+                    <tr>
+                        <td><strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong> <?php echo $offers->unit[$i] ?> </strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong></td>
+                    </tr>
+                </table>
+            <?php } ?>
+        </div>
 
         <div class="page-header">
             <h2>CATALOG</h2>
