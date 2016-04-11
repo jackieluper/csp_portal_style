@@ -110,9 +110,7 @@ require '../controllers/cart.db.php';
                     <td><strong><?php echo $offers->name[$i] ?></strong></br></br>
                         <div class="item active" id="item">
                             <image src="<?php echo $offers->img_tag[$i] ?>" alt="Image not found"></br></br>
-                            <div class="carousel-caption" id="captionOverlay"><h3 class="detailsTitle"> <?php echo $offers->name[$i] ?></h3>
-                                <p> <?php echo $offers->caption[$i] ?> </p>
-                            </div>
+                            <div class="carousel-caption" id="captionOverlay"><h3 class="detailsTitle"> <?php echo $offers->name[$i] ?></h3></div>
                             <strong> <?php echo number_format($offers->price[$i], 2) ?> </strong></br>
                             <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
                             <strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $offers->id[$i] ?>">Add to Cart</a></strong></td>
