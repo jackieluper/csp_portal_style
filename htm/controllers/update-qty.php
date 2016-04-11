@@ -75,6 +75,7 @@ if ($provision == 1) {
 } else {
     $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
     if ($conn->query($sqlDeleteCart) == True) {
+        $_SESSION['i'] = $i;
         $updateQty = $qty - $subscriptionList[$i]->getQuantity();
         $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty)
                VALUES('$customer_id', '$subscription_id', '$subscription_name', '$list_price', '$erp_price', '$erp_price', '$updateQty', '$tranId', '1')";

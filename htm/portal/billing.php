@@ -332,8 +332,9 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
                 $order->addOrderItem("$sku", "$name", $qty);
                 $order->submitOrder();
             } else {
+                $i = $_SESSION['i'];
                 $totalQty = $qty + $subscriptionList[$i]->getQuantity();
-                $subscriptionList[$i]->updateQuantity($totalQty);
+                $subscriptionList[$i]->updateQuantity($qty);
             }
 
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
