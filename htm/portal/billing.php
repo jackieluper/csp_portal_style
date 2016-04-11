@@ -355,7 +355,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <div><strong>Sale Total: ' . $amount . '</strong></div><br>
         </form>
         </div>';
-        if ($update_qty == 1) {
+        if ($update_qty == '1') {
             $_SESSION['paid'] = TRUE;
             header("location: ../controllers/update-qty.php");
         }
