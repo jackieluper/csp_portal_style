@@ -45,7 +45,7 @@ for ($i = 0; $i < count($hotOffers); $i++) {
     $index++;
 }
 
-$result1 = $conn->query("select offer.id, offer.display_name, offer.license_agreement_type, offer.purchase_unit, offer.sku, offer_price.erp_price from offer, offer_price where offer.id=offer_price.id and offer.license_agreement_type='$entity'");
+$result1 = $conn->query("select offer.id, offer.display_name, offer.license_agreement_type, offer.purchase_unit, offer.sku, offer_price.erp_price from offer, offer_price where offer.id=offer_id and offer.license_agreement_type='$entity'");
 $index = 0;
 if ($result1->num_rows > 0) {
     while ($row = $result1->fetch_assoc()) {
