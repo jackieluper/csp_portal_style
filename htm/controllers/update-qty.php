@@ -1,6 +1,5 @@
 <?php
 require 'config.php';
-require "../api/client/_init.php";
 
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
