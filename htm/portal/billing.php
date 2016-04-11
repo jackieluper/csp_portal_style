@@ -307,6 +307,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?>></div>
     <?php
     print " <p><h3><strong>Transaction was Approved: </strong></h3></p>\n";
+    $subscription = new Subscription($customerTenantId);
+    $subscriptionList = $subscription->getSubscriptionList();
     $xml = simplexml_load_string($data);
     $amount = $xml->amount;
     $company = $xml->{'processor-id'};
@@ -328,8 +330,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $name = $product->description;
         $discountRate = $product->{'discount-rate'};
         $totalSavings = $product->{'discount-amount'};
-        $subscription = new Subscription($customerTenantId);
-        $subscriptionList = $subscription->getSubscriptionList();
+
         $totalToAdd = $subscriptionList[$i]->getQty() + $qty;
         $subscriptionList[$i]->update($totalToAdd);
 
