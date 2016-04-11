@@ -5,7 +5,7 @@ require "../api/client/_init.php";
 
 $i = $_SESSION['itemNum'];
 $customerTenantId = $_SESSION['tid'];
-
+$qty = $_SESSION['qty'];
 $subscription = new Subscription($customerTenantId);
 $subscriptionList = $subscription->getSubscriptionList();
 $subscription_id = $subscriptionList[$i]->getOfferId();
