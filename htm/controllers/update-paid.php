@@ -11,10 +11,7 @@ $subscriptionList = $subscription->getSubscriptionList();
 $subscription_id = $subscriptionList[$i]->getOfferId();
 $subscription_name = $subscriptionList[$i]->getOfferName();
 
-$updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
-$total = number_format($updateQty * $erp_price, 2);
-$totalSavings = number_format($total * $discount, 2);
-echo $subscriptionList[$i];
+echo $subscriptionList[$i]->qty;
 $subscriptionList[$i]->updateQuantity($qty); 
 
 $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
