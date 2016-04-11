@@ -61,17 +61,22 @@ if ($resProvision->num_rows > 0) {
 } else {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
-$updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
+$updateQty = $qty - $subscriptionList[$i]->getQuantity();
 $total = number_format($updateQty * $erp_price, 2);
 $totalSavings = number_format($total * $discount, 2);
 $subscriptionList[$i]->updateQuantity($qty);
-
+echo 'custId: '. $customer_id . '<br>';
+echo 'subscriptionID: ' . $subscription_id . '<br>';
+echo 'name: ' . $subscription_name . '<br>';
+echo 'total: ' . $total . '<br>';
+echo 'totalSavings: ' . $totalSavings . '<br>';
+/*
 $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$qty', '$updateQty', '$totalSavings', '$total', $tranId)";
 
 if ($conn->query($sqlInvoice) == TRUE) {
     $_SESSION['invoiceId'] = $tranId;
-    header('Location: ../portal/displayInvoice.php');
+   // header('Location: ../portal/displayInvoice.php');
 } else {
     echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
-}
+}*/
