@@ -72,19 +72,15 @@ if (isset($_POST['itemNum'])) {
                         <td class="subscriptionTitle">Effective start date: </td>
                         <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
                     </tr>
-                    <tr>
-                        <td class="subscriptionTitle">Commitment end date: </td>
-                        <td class="subscriptionInfo"><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
-                    </tr>
                     <form action="../controllers/update-qty.php" method="post">
                         <tr>
                             <td class="subscriptionTitle" ><input type="hidden" name="itemNum" value="<?php echo $i ?>">Quantity on record: </td>
                             <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getQuantity() ?></td>
                         </tr>
                         <tr>
-                            <td class="subscriptionTitle">Change total # subscriptions: </td>
+                            <td class="subscriptionTitle">Change total # license's: </td>
                             <td class="subscriptionInfo"><input step="1" name="qty" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
-                            <td style="align-content: left"><button class="updateQtyBtn" type="submit">Change # of subscriptions</button></td>
+                            <td style="align-content: left"><button class="updateQtyBtn" type="submit">Update License's</button></td>
                         </tr>
 
                     </form>
