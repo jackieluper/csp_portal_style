@@ -311,8 +311,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     $amount = $xml->amount;
     $company = $xml->{'processor-id'};
     $orderId = $xml->{'order-id'};
-    $discountRate = $xml->discount-rate;
-    $totalSavings = $xml->discount-amount;
+    $discountRate = $xml->{'discount-rate'};
+    $totalSavings = $xml->{'discount-amount'};
     print "            
         <div><strong>Order ID: . $orderId . </strong></div><br>";
 
@@ -325,7 +325,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $itemNum = $product->{'unit-of-measure'};
         $sku = $product->{'product-code'};
         $name = $product->description;
-        $discountRate = $product->discount - rate;
+        $discountRate = $product->{'discount - rate'};
         $totalSavings = $product->{'discount-amount'};
         if ($updat_qty = 1) {
             $totalToAdd = $subscriptionList[$i]->getQty() + $qty;
