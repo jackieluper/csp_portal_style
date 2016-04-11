@@ -67,10 +67,6 @@ require '../controllers/cart.db.php';
                     </tr>
                 <?php } ?>
                 <tr>
-                    <td colspan="2"><strong>Discount Amount</strong></td>
-                    <td colspan="2"><?php echo number_format($cart->discount, 2) ?></td>
-                </tr>
-                <tr>
                     <td colspan="2"><strong>TOTAL</strong></td>
                     <td colspan="2"><?php echo number_format($cart->total, 2) ?></td>
                 </tr>
@@ -95,10 +91,7 @@ require '../controllers/cart.db.php';
                         <strong> <?php echo $topOffers->name[$i] ?> </strong></br></br>
                         <div class="item active" id="item">
                             <image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"><br></br>
-                            <div class="carousel-caption" id="captionOverlay"><h3 class="detailsTitle"> <?php echo $topOffers->name[$i] ?></h3>
-                                <p> <?php echo $topOffers->caption[$i] ?> </p>
-                            </div>
-                        </div>
+                            <div class="carousel-caption" id="captionOverlay"><h3 class="detailsTitle"> <?php echo $topOffers->name[$i] ?></h3></div>
                         <strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></br>
                         <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
                         <strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong>
