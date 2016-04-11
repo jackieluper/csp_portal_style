@@ -334,7 +334,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
                 $order->addOrderItem("$sku", "$name", $qty);
                 $order->submitOrder();
             } else {
-                $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
+                $updateQty = (int)($qty - $subscriptionList[$i]->getQuantity());
                 $subscriptionList[$i]->updateQuantity($updateQty);
             }
 
