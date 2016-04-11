@@ -1,7 +1,8 @@
 <?php
-require "../controllers/config.php";
+require '../controllers/config.php';
 require '../controllers/products.db.php';
 require '../controllers/cart.db.php';
+require '../api/client/_init.php';
 
 ?>
 <head>
