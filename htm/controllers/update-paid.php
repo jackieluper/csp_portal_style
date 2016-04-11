@@ -12,7 +12,7 @@ $subscription = new Subscription($customerTenantId);
 $subscriptionList = $subscription->getSubscriptionList();
 $subscription_id = $subscriptionList[$i]->getOfferId();
 $subscription_name = $subscriptionList[$i]->getOfferName();
-
+$subscription_qty = $subscriptionList[$i]->getQuantity();
 echo $subscriptionList[$i]->getQuantity();
 $subscriptionList[$i]->updateQuantity($qty);
 
@@ -60,7 +60,7 @@ if ($resProvision->num_rows > 0) {
 } else {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
-$updateQty = $qty - $subscriptionList[$i]->getQuantity();
+$updateQty = ($qty - $subscription_qty);
 $total = number_format($updateQty * $erp_price, 2);
 $totalSavings = number_format($total * $discount, 2);
 $subscriptionList[$i]->updateQuantity($qty);
