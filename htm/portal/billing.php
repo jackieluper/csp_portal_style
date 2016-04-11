@@ -312,6 +312,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     $company = $xml->{'processor-id'};
     $orderId = $xml->{'order-id'};
     $discountRate = $xml->{'discount-rate'};
+    $totalSavings = $product->{'discount-amount'};
     print "            
         <div><strong>Order ID: . $orderId . </strong></div><br>";
 
