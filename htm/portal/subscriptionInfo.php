@@ -8,8 +8,7 @@ $subscription = new Subscription($customerTenantId);
 $subscriptionList = $subscription->getSubscriptionList();
 if (isset($_POST['itemNum'])) {
     $i = $_POST['itemNum'];
-}
-else{
+} else {
     $i = $_SESSION['itemNum'];
 }
 ?>
@@ -80,10 +79,13 @@ else{
                     <form action="../controllers/update-qty.php" method="post">
                         <tr>
                             <td class="subscriptionTitle" ><input type="hidden" name="itemNum" value="<?php echo $i ?>">Quantity on record: </td>
-                            <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getQuantity()?></td> 
-                            <td class="subscriptionInfo">Input total licence's you wish to have: <input step="1" name="qty" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="border-style: groove; border-radius: 5px; width: 30%;"></input></td>                            <td style="align-content: left"><button class="updateQtyBtn" type="submit">Add/Remove</button></td>
+                            <td class="subscriptionInfo"><?php echo $subscriptionList[$i]->getQuantity() ?></td>
                         </tr>
-                        
+                        <tr>
+                            <td class="subscriptionInfo">Input total licenses you wish to have: <input step="1" name="qty" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="border-style: groove; border-radius: 5px; width: 30%;"></input></td>
+                            <td style="align-content: left"><button class="updateQtyBtn" type="submit">Change # licenses</button></td>
+                        </tr>
+
                     </form>
                     <form action="suspendAllLicenses.php">
                         <tr>
