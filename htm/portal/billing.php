@@ -16,12 +16,12 @@ $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
 $APIKey = 'CkdE324pr5pYCn5B6aMyVpW2z7qtBK6M';
 
 //Getting transaction ID to add to reciept for customer reference
-$sqlTran = "SELECT transaction_id, update_qty FROM cart WHERE customer_id='" . $_SESSION['custId'] . "'";
+$sqlTran = "SELECT transaction_id, updat_qty FROM cart WHERE customer_id='" . $_SESSION['custId'] . "'";
 $resultTran = $conn->query($sqlTran);
 if ($resultTran->num_rows > 0) {
     while ($row = $resultTran->fetch_assoc()) {
         $tranId = $row['transaction_id'];
-        $update_qty = $row['update_qty'];
+        $update_qty = $row['updat_qty'];
     }
 } else {
     echo "Failed to save transaction";
