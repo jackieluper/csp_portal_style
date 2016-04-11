@@ -43,7 +43,7 @@ if ($resultId->num_rows > 0) {
 }
 
 //setting query to get our price, and resale price for the offer selected
-$sql1 = "SELECT list_price, erp_price from offer_price WHERE id='" . $offerID . "'";
+$sql1 = "SELECT list_price, erp_price from offer_price WHERE offer_id='" . $offerID . "'";
 $result1 = $conn->query($sql1);
 //grabbing our price and resale price(erp)
 if ($result1->num_rows > 0) {
