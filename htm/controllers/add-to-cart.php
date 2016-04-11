@@ -9,13 +9,13 @@ session_start();
 
 //getting the offer id which is the id of the item selected
 $offerID = $_GET['id'];
-echo 'offerid ' . $offerID;
 //getting last transaction id
 $sqlGetTran = "SELECT transaction_id FROM transactions ORDER BY transaction_id DESC LIMIT 1";
 $tranResult = $conn->query($sqlGetTran);
 if ($tranResult->num_rows > 0) {
     while ($row = $tranResult->fetch_assoc()) {
         $transactionId = $row['transaction_id'] + 2;
+        echo 'test';
     }
 } else {
     $transactionId = 1;
@@ -28,6 +28,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $custID = $row['customer_id'];
+         echo 'test1';
     }
 }
 //Grabbing the sku for the product selected
@@ -37,6 +38,7 @@ if ($resultId->num_rows > 0) {
     while ($row = $resultId->fetch_assoc()) {
         $offerSku = $row['sku'];
         $offerUri = $row['offer_uri'];
+         echo 'test2';
     }
 }
 
@@ -48,6 +50,7 @@ if ($result1->num_rows > 0) {
     while ($row = $result1->fetch_assoc()) {
         $erpPrice = $row['erp_price'];
         $listPrice = $row['list_price'];
+         echo 'test3';
     }
 }
 //setting query to get item already in cart and increment
@@ -61,6 +64,7 @@ $result5 = $conn->query($sql5);
 if ($result5->num_rows > 0) {
     while ($row = $result5->fetch_assoc()) {
         $offerName = $row['display_name'];
+         echo 'test4';
     }
 }
 
