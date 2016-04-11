@@ -83,11 +83,11 @@ require '../controllers/cart.db.php';
                 </small></h2>
         </div>
 
-
+        <div class="wrapOffers" style="margin-left: 100px">
         <?php
         for ($i = 0; $i < count($topOffers->name); $i++) {
             ?>
-        <table  width="10%" border="none" style="display: inline-block; margin-left: 100px">
+        <table  width="10%" border="none" style="display: inline-block">
                 <tr>
                     <td><strong> <?php echo $topOffers->name[$i] ?> </strong></td>
                 </tr>
