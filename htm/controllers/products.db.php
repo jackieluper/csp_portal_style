@@ -20,7 +20,7 @@ $offers = new offers();
 
 for ($i = 0; $i < count($hotOffers); $i++) {
 //Grabbing the product information to display in top offers
-    $resultOffer1 = $conn->query("select id, offer.display_name, erp_price from offer, offer_price where offer.id='$hotOffers[$i]' and offer_id='$hotOffers[$i]'");
+    $resultOffer1 = $conn->query("select offer.id, offer.display_name, erp_price from offer, offer_price where offer.id='$hotOffers[$i]' and offer_id='$hotOffers[$i]'");
     if ($resultOffer1->num_rows > 0) {
         while ($row = $resultOffer1->fetch_assoc()) {
             $name = $row['display_name'];
