@@ -355,8 +355,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         </form>
         </div>';
         if ($update_qty == 1) {
-            $updateQty = (int) ($qty - $subscriptionList[$i]->getQuantity());
-            $subscriptionList[$i]->updateQuantity($updateQty);
+            header("location: ../controllers/update-qty.php");
         }
         $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
         $resultDelete = $conn->query($sqlDelete);
