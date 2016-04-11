@@ -5,8 +5,8 @@ require "../api/client/_init.php";
 
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
-$_SESSION['itemNum'] = $_POST['itemNum'];
-$_SESSION['qty'] = $_POST['qty'];
+$_SESSION['itemNum'] = $i;
+$_SESSION['qty'] = $qty;
 $customer_id = $_SESSION['custId'];
 $customerTenantId = $_SESSION['tid'];
 $subscription = new Subscription($customerTenantId);
