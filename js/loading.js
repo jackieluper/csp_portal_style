@@ -1,4 +1,4 @@
-function onReady(callback) {
+function onClick(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
 
     function checkReady() {
@@ -13,7 +13,7 @@ function show(id, value) {
     document.getElementById(id).style.display = value ? 'block' : 'none';
 }
 
-onReady(function () {
+onClick(function () {
     show('page', true);
     show('loading', false);
 });
