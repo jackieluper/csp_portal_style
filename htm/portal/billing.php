@@ -298,9 +298,11 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
      </nav>
      <div class="transactionContent">
         <p><h2>Transaction Details<br /></h2></p>';
-}elseif ((string) $gwResponse->result == 1) {
+} elseif ((string) $gwResponse->result == 1) {
     //need to parse customer TID from login
-
+    if($update_qty == 1){
+        header("Location: ../controllers/update-paid.php");
+    }
     print '<div id="print-content">
                 <form>';
     ?>
