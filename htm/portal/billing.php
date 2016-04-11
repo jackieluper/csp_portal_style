@@ -327,15 +327,11 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $name = $product->description;
             $discountRate = $product->{'discount-rate'};
             $totalSavings = $product->{'discount-amount'};
-            if ($update_qty == 0) {
-                $order = new Order($tid);
-                $order->addOrderItem("$sku", "$name", $qty);
-                $order->submitOrder();
-            } else {
-                $i = $_SESSION['i'];
-                $totalQty = $qty + $subscriptionList[$i]->getQuantity();
-                $subscriptionList[$i]->updateQuantity($qty);
-            }
+
+            $i = $_SESSION['i'];
+            $totalQty = $qty + $subscriptionList[$i]->getQuantity();
+            $subscriptionList[$i]->updateQuantity($qty);
+
 
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
