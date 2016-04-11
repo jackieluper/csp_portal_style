@@ -312,8 +312,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $amount = $xml->amount;
         $company = $xml->{'processor-id'};
         $orderId = $xml->{'order-id'};
-        print '            
-        <div><strong>Order ID: ' . $orderId . '</strong></div><br>';
+        print "            
+        <div><strong>Order ID: ' . $orderId . '</strong></div><br>";
 
 
         foreach ($xml->product as $product) {
