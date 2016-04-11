@@ -8,8 +8,10 @@ require("../controllers/config.php");
 require '../controllers/cart.db.php';
 require '../api/client/_init.php';
 
+$i = $_SESSION['i'];
 $tid = $_SESSION['tid'];
-
+$subscription = new Subscription($tid);
+$subscriptionList = $subscription->getSubscriptionList();
 
 // API Setup parameters
 $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
