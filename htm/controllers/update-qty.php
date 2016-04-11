@@ -58,7 +58,7 @@ if ($resProvision->num_rows > 0) {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
 if ($provision == 1) { 
-    $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
+    $updateQty = intval($qty + $subscriptionList[$i]->getQuantity());
     $total = number_format($updateQty * $erp_price, 2);
     $totalSavings = number_format($total * $discount, 2);
     $subscriptionList[$i]->updateQuantity($qty);
