@@ -3,6 +3,7 @@ session_start();
 require "../controllers/config.php";
 require "../api/client/_init.php";
 
+$i = $_SESSION['itemNum'];
 $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
 $total = number_format($updateQty * $erp_price, 2);
 $totalSavings = number_format($total * $discount, 2);
