@@ -298,7 +298,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
      </nav>
      <div class="transactionContent">
         <p><h2>Transaction Details<br /></h2></p>';
-
+        echo $gwResponse->result;
     if ((string) $gwResponse->result == 1) {
         //need to parse customer TID from login
 
