@@ -1,9 +1,5 @@
 <?php
-session_start();
-require "../controllers/config.php";
-require '../controllers/products.db.php';
-require '../controllers/cart.db.php';
-require '../api/client/app/offer.class.php';
+
 ?>
 <head>
     <title>Products</title>
