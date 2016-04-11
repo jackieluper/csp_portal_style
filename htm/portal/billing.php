@@ -302,8 +302,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     if ((string) $gwResponse->result == 1) {
         //need to parse customer TID from login
 
-        print '<div id="print-content">
-                <form>';
+        print "<div id='print-content'>
+                <form>";
         ?>
         <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?>></div>
         <?php
@@ -341,14 +341,14 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
             $resultInvoice = $conn->query($sqlInvoice);
 
-            print '
+            print "
         <div><strong>Item Number: ' . $itemNum . '</strong></div>
         <div>--------------</div>
         <div><strong>Product Name: </strong>' . $name . '</div>
         <div><strong>Product ID: </strong>' . $sku . '</div>
         <div><strong>Subscription Length: </strong>1 Month(s) </div>
         <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
-        <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
+        <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>";
         }
         print "
         <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
