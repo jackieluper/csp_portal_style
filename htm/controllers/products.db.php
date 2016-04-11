@@ -24,7 +24,6 @@ for ($i = 0; $i < count($hotOffers); $i++) {
         $name = $row['display_name'];
         $price = $row['erp_price'];
         $id = $row['id'];
-        echo "test";
     }
     $topOffers->setOffer($index, $offer);
     $topOffers->setOfferDetails($index, $name, $price);
@@ -68,6 +67,8 @@ while ($row = $result1->fetch_assoc()) {
     else{
         $tag = "noImage.png";
         $offers->setOfferImg($index, $tag);
+        
+        echo "test";
     }
     $index++;
 }
