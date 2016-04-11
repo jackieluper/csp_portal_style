@@ -58,7 +58,6 @@ if ($result1->num_rows > 0) {
         $offers->setOfferPrice($index, $erp);
         $offers->setOfferUnit($index, $purchase_unit);
         $offers->setOfferId($index, $id);
-        echo $name;
         $resultImg = $conn->query("select img_tag, details from image where offer_name='$name'");
         if ($resultImg->num_rows > 0) {
             while ($row1 = $resultImg->fetch_assoc()) {
