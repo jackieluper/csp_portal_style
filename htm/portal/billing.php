@@ -327,13 +327,13 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $name = $product->description;
             $discountRate = $product->{'discount-rate'};
             $totalSavings = $product->{'discount-amount'};
-            if($update_qty == 0){
-            $order = new Order($tid);
-            $order->addOrderItem("$sku", "$name", $qty);
-            $order->submitOrder();
-            }
-            else{
-                echo "update";
+            if ($update_qty == 0) {
+                $order = new Order($tid);
+                $order->addOrderItem("$sku", "$name", $qty);
+                $order->submitOrder();
+            } else {
+                $totalQty = $qty + $subscriptionList[$i]->getQuantity();
+                $subscriptionList[$i]->updateQuantity($totalQty);
             }
 
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
@@ -374,8 +374,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             document.body.innerHTML = originalContents;
         }
     </script>";
-
-   
 } elseif ((string) $gwResponse->result == 2) {
     print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
     print " Decline Description : " . (string) $gwResponse->{'result-text'} . " </p>";
