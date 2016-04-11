@@ -161,7 +161,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 
             appendXmlNode($xmlRequest, $xmlProduct, 'tax-rate', 'NONE');
             appendXmlNode($xmlRequest, $xmlProduct, 'discount-amount', number_format($cart->discount, 2));
-            appendXmlNode($xmlRequest, $xmlProduct, 'discount-rate', number_format($cart->discountRate, 2));
+            appendXmlNode($xmlRequest, $xmlProduct, 'discount-rate', number_format($cart->getDiscountRate(), 2));
             appendXmlNode($xmlRequest, $xmlProduct, 'tax-type', 'NONE');
             appendXmlNode($xmlRequest, $xmlProduct, 'alternate-tax-id', 'N/A');
 
