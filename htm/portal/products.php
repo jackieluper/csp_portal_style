@@ -82,11 +82,12 @@ require '../controllers/cart.db.php';
                     <?php echo $_SESSION['user']; ?>
                 </small></h2>
         </div>
-        <table class="topOffers">
 
-            <?php
-            for ($i = 0; $i < count($topOffers->name); $i++) {
-                ?>
+
+        <?php
+        for ($i = 0; $i < count($topOffers->name); $i++) {
+            ?>
+            <table class="topOffers">
                 <tr>
                     <td><strong> <?php echo $topOffers->name[$i] ?> </strong></td>
                 </tr>
@@ -100,9 +101,10 @@ require '../controllers/cart.db.php';
                     <td><strong> <?php echo $offers->unit[$i] ?> </strong></td>
                     <td><strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong></td>
                 </tr>
-            <?php } ?>
+            </table>
+        <?php } ?>
 
-        </table>
+
         <div class="page-header">
             <h2>CATALOG</h2>
         </div>
