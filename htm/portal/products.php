@@ -83,7 +83,7 @@ require '../controllers/cart.db.php';
                 </small></h2>
         </div>
 
-        <div class="wrapOffers" style="margin-left: 100px">
+        <div class="wrapOffers" style="margin-left: 90px">
         <?php
         for ($i = 0; $i < count($topOffers->name); $i++) {
             ?>
