@@ -330,7 +330,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 
             $order = new Order($tid);
             $order->addOrderItem("$sku", "$name", $qty);
-            if ($update_qty = 1) {
+            if ($updat_qty = 1) {
                 $totalToAdd = $subscriptionList[$i]->getQty() + $qty;
                 $subscriptionList[$i]->update($qty);
             } else {

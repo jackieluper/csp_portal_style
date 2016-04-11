@@ -77,8 +77,7 @@ if ($result3->num_rows > 0) {
         $qty = $row['qty'] + 1;
         $sql4 = "UPDATE cart SET qty='" . $qty . "' where items='" . $offerID . "'";
         if ($conn->query($sql4) === TRUE) {
-            //header('Location: ../portal/products.php');
-            echo $erpPrice;
+            header('Location: ../portal/products.php');
         } else {
             echo "Error updating record: " . $conn->error;
         }
