@@ -299,7 +299,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
      <div class="transactionContent">
         <p><h2>Transaction Details<br /></h2></p>';
 
-    if ((string) $gwResponse->result == 1) {
+}if ((string) $gwResponse->result == 1) {
         //need to parse customer TID from login
         if($update_qty == 1){
             header("Location: ../controllers/update-paid.php");
@@ -355,7 +355,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         </div>';
         $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
         $resultDelete = $conn->query($sqlDelete);
-    }
+    
     print "
     <input type='button' class='receiptBtn' onclick='printDiv('print-content')' value='Print Receipt'/>
     </div>
