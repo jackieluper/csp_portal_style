@@ -11,7 +11,7 @@ $subscriptionList = $subscription->getSubscriptionList();
 $subscription_id = $subscriptionList[$i]->getOfferId();
 $subscription_name = $subscriptionList[$i]->getOfferName();
 
-echo $subscriptionList[$i]->qty;
+echo $subscriptionList[$i]->getQuantity();
 $subscriptionList[$i]->updateQuantity($qty); 
 
 $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
