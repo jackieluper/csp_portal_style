@@ -83,17 +83,19 @@ require '../controllers/cart.db.php';
                 </small></h2>
         </div>
         <table class="topOffers">
-            <tr>
-                <?php
-                for ($i = 0; $i < count($topOffers->name); $i++) {
-                    ?>
-                    <td><strong> <?php echo $topOffers->name[$i] ?> </strong><</td>
+
+            <?php
+            for ($i = 0; $i < count($topOffers->name); $i++) {
+                ?>
+                <tr>
+                    <td><strong> <?php echo $topOffers->name[$i] ?> </strong></td>
                     <td><div class="item active" id="item"><image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"></div></td>
                     <td><strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></td>
                     <td><strong> <?php echo $offers->unit[$i] ?> </strong></td>
                     <td><strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong></td>
+                </tr>
             <?php } ?>
-            </tr>
+
         </table>
         <div class="page-header">
             <h2>CATALOG</h2>
