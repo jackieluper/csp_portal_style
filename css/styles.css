@@ -767,33 +767,6 @@ a.logohover{
     height: 30px;
     color: #fff;
 }
-
-.item > #captionOverlay{
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 2px;
-    background: #ED8B22;
-    margin: auto auto -20px ;
-    position: fixed;
-    width: 50%;
-    visibility:hidden;
-    opacity:0;
-    transition:visibility 0s linear 0.5s, opacity 0.5s linear;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-
-}
-
-.item:hover > #captionOverlay{
-    visibility:visible;
-    opacity: .90;
-    transition-delay:0s;
-
-}
-.detailsTitle{
-    font-size: 28px;
-    font-weight: bold;
-}
 /*####################################################*/
 /**Display Subscription Details page  ***/
 /*####################################################*/
