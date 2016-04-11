@@ -57,8 +57,8 @@ if ($resProvision->num_rows > 0) {
 } else {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
-if ($provision == 1) {
-    $updateQty = intval($qty + $subscriptionList[$i]->getQuantity());
+if ($provision == 1) { 
+    $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
     $total = number_format($updateQty * $erp_price, 2);
     $totalSavings = number_format($total * $discount, 2);
     $subscriptionList[$i]->updateQuantity($qty);
@@ -72,29 +72,11 @@ if ($provision == 1) {
     } else {
         echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
     }
-} else if (isset($_SESSION['paid'])) {
-    if ($_SESSION['paid'] == true) {
-        $updateQty = intval($qty + $subscriptionList[$i]->getQuantity());
-        $total = number_format($updateQty * $erp_price, 2);
-        $totalSavings = number_format($total * $discount, 2);
-        $subscriptionList[$i]->updateQuantity($qty);
-
-        $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
-            VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total', $tranId)";
-
-        if ($conn->query($sqlInvoice) == TRUE) {
-            $_SESSION['invoiceId'] = $tranId;
-            header('Location: ../portal/displayInvoice.php');
-        } else {
-            echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
-        }
-    }
 } else {
     $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
     if ($conn->query($sqlDeleteCart) == True) {
-        $_SESSION['i'] = $i;
         $updateQty = $qty - $subscriptionList[$i]->getQuantity();
-        $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty)
+        $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, update_qty)
                VALUES('$customer_id', '$subscription_id', '$subscription_name', '$list_price', '$erp_price', '$erp_price', '$updateQty', '$tranId', '1')";
         if ($conn->query($sqlUpdateQty) == TRUE) {
             header("Location: ../portal/checkout.php");
