@@ -16,12 +16,12 @@ $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
 $APIKey = 'CkdE324pr5pYCn5B6aMyVpW2z7qtBK6M';
 
 //Getting transaction ID to add to reciept for customer reference
-$sqlTran = "SELECT transaction_id, updat_qty FROM cart WHERE customer_id='" . $_SESSION['custId'] . "'";
+$sqlTran = "SELECT transaction_id, update_qty FROM cart WHERE customer_id='" . $_SESSION['custId'] . "'";
 $resultTran = $conn->query($sqlTran);
 if ($resultTran->num_rows > 0) {
     while ($row = $resultTran->fetch_assoc()) {
         $tranId = $row['transaction_id'];
-        $update_qty = $row['updat_qty'];
+        $update_qty = $row['update_qty'];
     }
 } else {
     echo "Failed to save transaction";
@@ -97,21 +97,21 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     ';
 } else if (!empty($_POST['DO_STEP_1'])) {
 
-    // Initiate Step One: Now that we've collected the non-sensitive payment information, we can combine other order information and build the XML format.
+// Initiate Step One: Now that we've collected the non-sensitive payment information, we can combine other order information and build the XML format.
     $xmlRequest = new DOMDocument('1.0', 'UTF-8');
 
     $xmlRequest->formatOutput = true;
     $xmlSale = $xmlRequest->createElement('sale');
 
-    // Amount, authentication, and Redirect-URL are typically the bare minimum.
+// Amount, authentication, and Redirect-URL are typically the bare minimum.
     appendXmlNode($xmlRequest, $xmlSale, 'api-key', $APIKey);
     appendXmlNode($xmlRequest, $xmlSale, 'redirect-url', $_SERVER['HTTP_REFERER']);
     appendXmlNode($xmlRequest, $xmlSale, 'amount', number_format($cart->total, 2));
     appendXmlNode($xmlRequest, $xmlSale, 'ip-address', $_SERVER["REMOTE_ADDR"]);
-    //appendXmlNode($xmlRequest, $xmlSale, 'processor-id' , 'processor-a');
+//appendXmlNode($xmlRequest, $xmlSale, 'processor-id' , 'processor-a');
     appendXmlNode($xmlRequest, $xmlSale, 'currency', 'USD');
 
-    // Some additonal fields may have been previously decided by user
+// Some additonal fields may have been previously decided by user
     appendXmlNode($xmlRequest, $xmlSale, 'order-id', $tranId);
     appendXmlNode($xmlRequest, $xmlSale, 'order-description', 'Order');
     appendXmlNode($xmlRequest, $xmlSale, 'merchant-defined-field-1', 'Red');
@@ -127,7 +127,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
       } */
 
 
-    // Set the Billing from what was collected on initial shopping cart form
+// Set the Billing from what was collected on initial shopping cart form
     $xmlBillingAddress = $xmlRequest->createElement('billing');
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'first-name', $_POST['billing-address-first-name']);
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'last-name', $_POST['billing-address-last-name']);
@@ -135,7 +135,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'city', $_POST['billing-address-city']);
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'state', $_POST['billing-address-state']);
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'postal', $_POST['billing-address-zip']);
-    //billing-address-email
+//billing-address-email
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'country', $_POST['billing-address-country']);
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'email', $_POST['billing-address-email']);
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'phone', $_POST['billing-address-phone']);
@@ -143,12 +143,12 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     appendXmlNode($xmlRequest, $xmlBillingAddress, 'address2', $_POST['billing-address-address2']);
     $xmlSale->appendChild($xmlBillingAddress);
 
-    //Get cart items and add to reciept
+//Get cart items and add to reciept
     $sql = "SELECT item_name, sku, msrp, qty from cart where customer_id='" . $_SESSION['custId'] . "'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            // Products already chosen by user
+// Products already chosen by user
             $xmlProduct = $xmlRequest->createElement('product');
             appendXmlNode($xmlRequest, $xmlProduct, 'product-code', $row['sku']);
             appendXmlNode($xmlRequest, $xmlProduct, 'description', $row['item_name']);
@@ -171,21 +171,21 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 
     $xmlRequest->appendChild($xmlSale);
 
-    // Process Step One: Submit all transaction details to the Payment Gateway except the customer's sensitive payment information.
-    // The Payment Gateway will return a variable form-url.
+// Process Step One: Submit all transaction details to the Payment Gateway except the customer's sensitive payment information.
+// The Payment Gateway will return a variable form-url.
     $data = sendXMLviaCurl($xmlRequest, $gatewayURL);
 
-    // Parse Step One's XML response
+// Parse Step One's XML response
     $gwResponse = @new SimpleXMLElement($data);
     if ((string) $gwResponse->result == 1) {
-        // The form url for used in Step Two below
+// The form url for used in Step Two below
         $formURL = $gwResponse->{'form-url'};
     } else {
         throw New Exception(print " Error, received " . $data);
     }
 
-    // Initiate Step Two: Create an HTML form that collects the customer's sensitive payment information
-    // and use the form-url that the Payment Gateway returns as the submit action in that form.
+// Initiate Step Two: Create an HTML form that collects the customer's sensitive payment information
+// and use the form-url that the Payment Gateway returns as the submit action in that form.
     print '  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
 
 
@@ -206,8 +206,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             <title>Billing Info</title>
         </head>
         <body>';
-    // Uncomment the line below if you would like to print Step One's response
-    // print '<pre>' . (htmlentities($data)) . '</pre>';
+// Uncomment the line below if you would like to print Step One's response
+// print '<pre>' . (htmlentities($data)) . '</pre>';
     print '
         <div id="horizontalNav">
          <div id="horizontalNavWrapper">
@@ -244,9 +244,9 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
      </div> ';
 } elseif (!empty($_GET['token-id'])) {
 
-    // Step Three: Once the browser has been redirected, we can obtain the token-id and complete
-    // the transaction through another XML HTTPS POST including the token-id which abstracts the
-    // sensitive payment information that was previously collected by the Payment Gateway.
+// Step Three: Once the browser has been redirected, we can obtain the token-id and complete
+// the transaction through another XML HTTPS POST including the token-id which abstracts the
+// sensitive payment information that was previously collected by the Payment Gateway.
     $tokenId = $_GET['token-id'];
     $xmlRequest = new DOMDocument('1.0', 'UTF-8');
     $xmlRequest->formatOutput = true;
@@ -256,7 +256,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     $xmlRequest->appendChild($xmlCompleteTransaction);
 
 
-    // Process Step Three
+// Process Step Three
     $data = sendXMLviaCurl($xmlRequest, $gatewayURL);
 
 
@@ -298,47 +298,45 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
      </nav>
      <div class="transactionContent">
         <p><h2>Transaction Details<br /></h2></p>';
-}if ((string) $gwResponse->result == 1) {
-    //need to parse customer TID from login
-    if ($update_qty == 1) {
-        header("Location: ../controllers/update-paid.php");
-    } else {
-        print '<div id="print-content">
+} if ((string) $gwResponse->result == 1) {
+//need to parse customer TID from login
+
+    print '<div id="print-content">
                 <form>';
-        ?>
-        <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?>></div>
-        <?php
-        print " <p><h3><strong>Transaction was Approved: </strong></h3></p>\n";
-        $xml = simplexml_load_string($data);
-        $amount = $xml->amount;
-        $company = $xml->{'processor-id'};
-        $orderId = $xml->{'order-id'};
-        print '            
+    ?>
+    <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?>></div>
+    <?php
+    print " <p><h3><strong>Transaction was Approved: </strong></h3></p>\n";
+    $xml = simplexml_load_string($data);
+    $amount = $xml->amount;
+    $company = $xml->{'processor-id'};
+    $orderId = $xml->{'order-id'};
+    print '            
         <div><strong>Order ID: ' . $orderId . '</strong></div><br>';
 
 
-        foreach ($xml->product as $product) {
-            $lineItem = 0;
-            $qty = (int) $product->quantity;
-            $qtyFormatted = intval($qty);
-            $cost = (float) $product->{'unit-cost'};
-            $costFormatted = number_format($cost, 2);
-            $itemNum = $product->{'unit-of-measure'};
-            $sku = $product->{'product-code'};
-            $name = $product->description;
-            $discountRate = $product->{'discount-rate'};
-            $totalSavings = $product->{'discount-amount'};
+    foreach ($xml->product as $product) {
+        $lineItem = 0;
+        $qty = (int) $product->quantity;
+        $qtyFormatted = intval($qty);
+        $cost = (float) $product->{'unit-cost'};
+        $costFormatted = number_format($cost, 2);
+        $itemNum = $product->{'unit-of-measure'};
+        $sku = $product->{'product-code'};
+        $name = $product->description;
+        $discountRate = $product->{'discount-rate'};
+        $totalSavings = $product->{'discount-amount'};
 
-            $order = new Order($tid);
-            $order->addOrderItem("$sku", "$name", $qty);
-            $order->submitOrder();
+        $order = new Order($tid);
+        $order->addOrderItem("$sku", "$name", $qty);
+        $order->submitOrder();
 
 
-            $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
+        $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
-            $resultInvoice = $conn->query($sqlInvoice);
+        $resultInvoice = $conn->query($sqlInvoice);
 
-            print '
+        print '
         <div><strong>Item Number: ' . $itemNum . '</strong></div>
         <div>--------------</div>
         <div><strong>Product Name: </strong>' . $name . '</div>
@@ -346,17 +344,17 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <div><strong>Subscription Length: </strong>1 Month(s) </div>
         <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
         <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
-        }
-        print '
+    }
+    print '
         <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
         <div><strong>Total Savings: $' . $totalSavings . '</strong></div>
         <div><strong>Sale Total: ' . $amount . '</strong></div><br>
         </form>
         </div>';
-        $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
-        $resultDelete = $conn->query($sqlDelete);
+    $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
+    $resultDelete = $conn->query($sqlDelete);
 
-        print "
+    print "
     <input type='button' class='receiptBtn' onclick='printDiv('print-content')' value='Print Receipt'/>
     </div>
     <script type='text/javascript'>
@@ -372,7 +370,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             document.body.innerHTML = originalContents;
         }
     </script>";
-    }
 } elseif ((string) $gwResponse->result == 2) {
     print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
     print " Decline Description : " . (string) $gwResponse->{'result-text'} . " </p>";
@@ -387,7 +384,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
 print "</body></html>";
 
 function sendXMLviaCurl($xmlRequest, $gatewayURL) {
-    // helper function demonstrating how to send the xml with curl
+// helper function demonstrating how to send the xml with curl
     $ch = curl_init(); // Initialize curl handle
     curl_setopt($ch, CURLOPT_URL, $gatewayURL); // Set POST URL
 
@@ -403,8 +400,8 @@ function sendXMLviaCurl($xmlRequest, $gatewayURL) {
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $xmlString); // Add XML directly in POST
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-    // This should be unset in production use. With it on, it forces the ssl cert to be valid
-    // before sending info.
+// This should be unset in production use. With it on, it forces the ssl cert to be valid
+// before sending info.
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
     if (!($data = curl_exec($ch))) {
