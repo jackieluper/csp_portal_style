@@ -41,8 +41,29 @@ if ($resOfferData->num_rows > 0) {
     echo "Error: " . $sqlOfferData . "<br>" . $conn->error;
 }
 
+$sqlProvision = "SELECT is_provised, discount from customer where id='$customer_id'";
+$resProvision = $conn->query($sqlProvision);
+if ($resProvision->num_rows > 0) {
+    while ($row = $resProvision->fetch_assoc()) {
+        $provision = $row['is_provised'];
+        $discount = number_format($row['discount'], 2);
+    }
+    $sqlgetTranId = "SELECT transaction_id FROM transactions ORDER BY transaction_id DESC LIMIT 1";
+    $resTranId = $conn->query($sqlgetTranId);
+    if ($resTranId->num_rows > 0) {
+        while ($row = $resTranId->fetch_assoc()) {
+            $tranId = $row['transaction_id'] + 2;
+            echo "transaction id: " . $tranId . '<br>';
+        }
+    } else {
+        echo "Error: " . $sqlgetTranId . "<br>" . $conn->error;
+    }
+} else {
+    echo "Error: " . $sqlProvision . "<br>" . $conn->error;
+}
+
 $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
-            VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total', $tranId)";
+            VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$qty', '$discount', '$totalSavings', '$total', $tranId)";
 
 if ($conn->query($sqlInvoice) == TRUE) {
     $_SESSION['invoiceId'] = $tranId;

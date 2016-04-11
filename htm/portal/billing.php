@@ -16,12 +16,12 @@ $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
 $APIKey = 'CkdE324pr5pYCn5B6aMyVpW2z7qtBK6M';
 
 //Getting transaction ID to add to reciept for customer reference
-$sqlTran = "SELECT transaction_id, updat_qty FROM cart WHERE customer_id='" . $_SESSION['custId'] . "'";
+$sqlTran = "SELECT transaction_id, update_qty FROM cart WHERE customer_id='" . $_SESSION['custId'] . "'";
 $resultTran = $conn->query($sqlTran);
 if ($resultTran->num_rows > 0) {
     while ($row = $resultTran->fetch_assoc()) {
         $tranId = $row['transaction_id'];
-        $update_qty = $row['updat_qty'];
+        $update_qty = $row['update_qty'];
     }
 } else {
     echo "Failed to save transaction";
@@ -233,8 +233,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
              <form action="' . $formURL . '" method="POST">
              <h3> Payment Information</h3>
                  <table>
-                     <tr><td>Credit Card Number</td><td><input type ="text" id="billing-cc-number" name="billing-cc-number" value="4111111111111111" onkeyup="validateCardNumber()" placeholder="required" required> </td></tr>
-                     <tr><td>Expiration Date</td><td><input type ="text" id="billing-cc-exp" name="billing-cc-exp" value="1012" placeholder="required" onkeyup="validateCardDate()" required> </td></tr>
+                     <tr><td>Credit Card Number</td><td><input type ="text" id="billing-cc-number" name="billing-cc-number" value="" onkeyup="validateCardNumber()" placeholder="required" required> </td></tr>
+                     <tr><td>Expiration Date</td><td><input type ="text" id="billing-cc-exp" name="billing-cc-exp" value="" placeholder="required" onkeyup="validateCardDate()" required> </td></tr>
                      <tr><td>CVV</td><td><INPUT type ="text" name="cvv" placeholder="required" required> </td></tr>
                      <tr><td colspan="2" align=center><input  class="ccBtn" type ="submit" value="Submit Step Two"></td> </tr>
                  </table>
@@ -298,47 +298,44 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
      </nav>
      <div class="transactionContent">
         <p><h2>Transaction Details<br /></h2></p>';
+}elseif ((string) $gwResponse->result == 1) {
+    //need to parse customer TID from login
 
-}if ((string) $gwResponse->result == 1) {
-        //need to parse customer TID from login
-        if($update_qty == 1){
-            header("Location: ../controllers/update-paid.php");
-        }
-        print '<div id="print-content">
+    print '<div id="print-content">
                 <form>';
-        ?>
-        <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?>></div>
-        <?php
-        print " <p><h3><strong>Transaction was Approved: </strong></h3></p>\n";
-        $xml = simplexml_load_string($data);
-        $amount = $xml->amount;
-        $company = $xml->{'processor-id'};
-        $orderId = $xml->{'order-id'};
-        print '            
+    ?>
+    <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?>></div>
+    <?php
+    print " <p><h3><strong>Transaction was Approved: </strong></h3></p>\n";
+    $xml = simplexml_load_string($data);
+    $amount = $xml->amount;
+    $company = $xml->{'processor-id'};
+    $orderId = $xml->{'order-id'};
+    print '            
         <div><strong>Order ID: ' . $orderId . '</strong></div><br>';
 
 
-        foreach ($xml->product as $product) {
-            $lineItem = 0;
-            $qty = (int) $product->quantity;
-            $qtyFormatted = intval($qty);
-            $cost = (float) $product->{'unit-cost'};
-            $costFormatted = number_format($cost, 2);
-            $itemNum = $product->{'unit-of-measure'};
-            $sku = $product->{'product-code'};
-            $name = $product->description;
-            $discountRate = $product->{'discount-rate'};
-            $totalSavings = $product->{'discount-amount'};
+    foreach ($xml->product as $product) {
+        $lineItem = 0;
+        $qty = (int) $product->quantity;
+        $qtyFormatted = intval($qty);
+        $cost = (float) $product->{'unit-cost'};
+        $costFormatted = number_format($cost, 2);
+        $itemNum = $product->{'unit-of-measure'};
+        $sku = $product->{'product-code'};
+        $name = $product->description;
+        $discountRate = $product->{'discount-rate'};
+        $totalSavings = $product->{'discount-amount'};
 
-            $order = new Order($tid);
-            $order->addOrderItem("$sku", "$name", $qty);
-            $order->submitOrder();
+        $order = new Order($tid);
+        $order->addOrderItem("$sku", "$name", $qty);
+        $order->submitOrder();
 
-            $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
+        $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
-            $resultInvoice = $conn->query($sqlInvoice);
+        $resultInvoice = $conn->query($sqlInvoice);
 
-            print '
+        print '
         <div><strong>Item Number: ' . $itemNum . '</strong></div>
         <div>--------------</div>
         <div><strong>Product Name: </strong>' . $name . '</div>
@@ -346,16 +343,16 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <div><strong>Subscription Length: </strong>1 Month(s) </div>
         <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
         <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
-        }
-        print '
+    }
+    print '
         <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
         <div><strong>Total Savings: $' . $totalSavings . '</strong></div>
         <div><strong>Sale Total: ' . $amount . '</strong></div><br>
         </form>
         </div>';
-        $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
-        $resultDelete = $conn->query($sqlDelete);
-    
+    $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
+    $resultDelete = $conn->query($sqlDelete);
+
     print "
     <input type='button' class='receiptBtn' onclick='printDiv('print-content')' value='Print Receipt'/>
     </div>
