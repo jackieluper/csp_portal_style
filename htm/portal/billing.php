@@ -311,8 +311,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     $amount = $xml->amount;
     $company = $xml->{'processor-id'};
     $orderId = $xml->{'order-id'};
-    $discountRate = $xml->{'discount-rate'};
-    $totalSavings = $xml->{'discount-amount'};
+    $discountRate = $xml->discount-rate;
+    $totalSavings = $xml->discount-amount;
     print "            
         <div><strong>Order ID: . $orderId . </strong></div><br>";
 
@@ -341,14 +341,14 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $resultInvoice = $conn->query($sqlInvoice);
         echo "test1";
 
-        print "
-            <div><strong>Item Number:  . $itemNum . </strong></div>
+        print '
+            <div><strong>Item Number:'  . $itemNum . '</strong></div>
             <div>--------------</div>
-            <div><strong>Product Name: </strong> . $name . </div>
-            <div><strong>Product ID: </strong> . $sku . </div>
+            <div><strong>Product Name: </strong>' . $name . '</div>
+            <div><strong>Product ID: </strong>' . $sku . '</div>
             <div><strong>Subscription Length: </strong>1 Month(s) </div>
-            <div><strong>Product Cost: </strong>$ . $costFormatted . </div>
-            <div><strong>Product Quantity: </strong> . $qtyFormatted . </div><br>";
+            <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
+            <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
     }
 
     print "
