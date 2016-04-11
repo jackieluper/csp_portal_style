@@ -87,7 +87,7 @@ require '../controllers/cart.db.php';
         <?php
         for ($i = 0; $i < count($topOffers->name); $i++) {
             ?>
-        <table class="topOffers"  width="10%" border="1" style="float:left;">
+        <table  width="10%" border="1" style="float:left;">
                 <tr>
                     <td><strong> <?php echo $topOffers->name[$i] ?> </strong></td>
                 </tr>
