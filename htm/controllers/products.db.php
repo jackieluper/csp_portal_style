@@ -1,12 +1,7 @@
-<!--
-Author: Jason B. Smith
-Date: 3/21/16
-Managed Solution
--->
 <?php
 session_start();
 include 'config.php';
-include '../classes/offers.class.php';
+require "../api/client/_init.php";
 
 $index = 0;
 
