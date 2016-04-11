@@ -298,46 +298,46 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
      </nav>
      <div class="transactionContent">
         <p><h2>Transaction Details<br /></h2></p>';
-} elseif ((string) $gwResponse->result == 1) {
-    //need to parse customer TID from login
-    if($update_qty == 1){
-        header("Location: ../controllers/update-paid.php");
-    }
-    print '<div id="print-content">
+    if ((string) $gwResponse->result == 1) {
+        //need to parse customer TID from login
+        if ($update_qty == 1) {
+            header("Location: ../controllers/update-paid.php");
+        }
+        print '<div id="print-content">
                 <form>';
-    ?>
-    <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?>></div>
-    <?php
-    print " <p><h3><strong>Transaction was Approved: </strong></h3></p>\n";
-    $xml = simplexml_load_string($data);
-    $amount = $xml->amount;
-    $company = $xml->{'processor-id'};
-    $orderId = $xml->{'order-id'};
-    print '            
+        ?>
+        <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?>></div>
+        <?php
+        print " <p><h3><strong>Transaction was Approved: </strong></h3></p>\n";
+        $xml = simplexml_load_string($data);
+        $amount = $xml->amount;
+        $company = $xml->{'processor-id'};
+        $orderId = $xml->{'order-id'};
+        print '            
         <div><strong>Order ID: ' . $orderId . '</strong></div><br>';
 
 
-    foreach ($xml->product as $product) {
-        $lineItem = 0;
-        $qty = (int) $product->quantity;
-        $qtyFormatted = intval($qty);
-        $cost = (float) $product->{'unit-cost'};
-        $costFormatted = number_format($cost, 2);
-        $itemNum = $product->{'unit-of-measure'};
-        $sku = $product->{'product-code'};
-        $name = $product->description;
-        $discountRate = $product->{'discount-rate'};
-        $totalSavings = $product->{'discount-amount'};
+        foreach ($xml->product as $product) {
+            $lineItem = 0;
+            $qty = (int) $product->quantity;
+            $qtyFormatted = intval($qty);
+            $cost = (float) $product->{'unit-cost'};
+            $costFormatted = number_format($cost, 2);
+            $itemNum = $product->{'unit-of-measure'};
+            $sku = $product->{'product-code'};
+            $name = $product->description;
+            $discountRate = $product->{'discount-rate'};
+            $totalSavings = $product->{'discount-amount'};
 
-        $order = new Order($tid);
-        $order->addOrderItem("$sku", "$name", $qty);
-        $order->submitOrder();
+            $order = new Order($tid);
+            $order->addOrderItem("$sku", "$name", $qty);
+            $order->submitOrder();
 
-        $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
+            $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
-        $resultInvoice = $conn->query($sqlInvoice);
+            $resultInvoice = $conn->query($sqlInvoice);
 
-        print '
+            print '
         <div><strong>Item Number: ' . $itemNum . '</strong></div>
         <div>--------------</div>
         <div><strong>Product Name: </strong>' . $name . '</div>
@@ -345,17 +345,17 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <div><strong>Subscription Length: </strong>1 Month(s) </div>
         <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
         <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
-    }
-    print '
+        }
+        print '
         <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
         <div><strong>Total Savings: $' . $totalSavings . '</strong></div>
         <div><strong>Sale Total: ' . $amount . '</strong></div><br>
         </form>
         </div>';
-    $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
-    $resultDelete = $conn->query($sqlDelete);
+        $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
+        $resultDelete = $conn->query($sqlDelete);
 
-    print "
+        print "
     <input type='button' class='receiptBtn' onclick='printDiv('print-content')' value='Print Receipt'/>
     </div>
     <script type='text/javascript'>
@@ -371,18 +371,19 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             document.body.innerHTML = originalContents;
         }
     </script>";
-} elseif ((string) $gwResponse->result == 2) {
-    print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
-    print " Decline Description : " . (string) $gwResponse->{'result-text'} . " </p>";
-    print " <p><h3>XML response was:</h3></p>\n";
-    print '<pre>' . (htmlentities($data)) . '</pre>';
-} else {
-    print " <p><h3><strong> Transaction caused an Error.</strong></h3>\n";
-    print " Error Description: " . (string) $gwResponse->{'result-text'} . " </p>";
-    print " <p><h3>XML response was:</h3></p>\n";
-    print '<pre>' . (htmlentities($data)) . '</pre>';
+    } elseif ((string) $gwResponse->result == 2) {
+        print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
+        print " Decline Description : " . (string) $gwResponse->{'result-text'} . " </p>";
+        print " <p><h3>XML response was:</h3></p>\n";
+        print '<pre>' . (htmlentities($data)) . '</pre>';
+    } else {
+        print " <p><h3><strong> Transaction caused an Error.</strong></h3>\n";
+        print " Error Description: " . (string) $gwResponse->{'result-text'} . " </p>";
+        print " <p><h3>XML response was:</h3></p>\n";
+        print '<pre>' . (htmlentities($data)) . '</pre>';
+    }
+    print "</body></html>";
 }
-print "</body></html>";
 
 function sendXMLviaCurl($xmlRequest, $gatewayURL) {
     // helper function demonstrating how to send the xml with curl
