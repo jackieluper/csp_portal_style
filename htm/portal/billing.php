@@ -16,12 +16,12 @@ $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
 $APIKey = 'CkdE324pr5pYCn5B6aMyVpW2z7qtBK6M';
 
 //Getting transaction ID to add to reciept for customer reference
-$sqlTran = "SELECT transaction_id, updat_qty FROM cart WHERE customer_id='" . $_SESSION['custId'] . "'";
+$sqlTran = "SELECT transaction_id, update_qty FROM cart WHERE customer_id='" . $_SESSION['custId'] . "'";
 $resultTran = $conn->query($sqlTran);
 if ($resultTran->num_rows > 0) {
     while ($row = $resultTran->fetch_assoc()) {
         $tranId = $row['transaction_id'];
-        $update_qty = $row['updat_qty'];
+        $update_qty = $row['update_qty'];
     }
 } else {
     echo "Failed to save transaction";
@@ -233,8 +233,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
              <form action="' . $formURL . '" method="POST">
              <h3> Payment Information</h3>
                  <table>
-                     <tr><td>Credit Card Number</td><td><input type ="text" id="billing-cc-number" name="billing-cc-number" value="4111111111111111" onkeyup="validateCardNumber()" placeholder="required" required> </td></tr>
-                     <tr><td>Expiration Date</td><td><input type ="text" id="billing-cc-exp" name="billing-cc-exp" value="1012" placeholder="required" onkeyup="validateCardDate()" required> </td></tr>
+                     <tr><td>Credit Card Number</td><td><input type ="text" id="billing-cc-number" name="billing-cc-number" value="" onkeyup="validateCardNumber()" placeholder="required" required> </td></tr>
+                     <tr><td>Expiration Date</td><td><input type ="text" id="billing-cc-exp" name="billing-cc-exp" value="" placeholder="required" onkeyup="validateCardDate()" required> </td></tr>
                      <tr><td>CVV</td><td><INPUT type ="text" name="cvv" placeholder="required" required> </td></tr>
                      <tr><td colspan="2" align=center><input  class="ccBtn" type ="submit" value="Submit Step Two"></td> </tr>
                  </table>
@@ -298,12 +298,11 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
      </nav>
      <div class="transactionContent">
         <p><h2>Transaction Details<br /></h2></p>';
-
-    if ((string) $gwResponse->result == 1) {
-        //need to parse customer TID from login
-        if($update_qty == 1){
-            header("Location: ../controllers/update-paid.php");
-        }
+}if ((string) $gwResponse->result == 1) {
+    //need to parse customer TID from login
+    if ($update_qty == 1) {
+        header("Location: ../controllers/update-paid.php");
+    } else {
         print '<div id="print-content">
                 <form>';
         ?>
@@ -329,11 +328,11 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $name = $product->description;
             $discountRate = $product->{'discount-rate'};
             $totalSavings = $product->{'discount-amount'};
-            
+
             $order = new Order($tid);
             $order->addOrderItem("$sku", "$name", $qty);
             $order->submitOrder();
-            
+
 
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
@@ -356,8 +355,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         </div>';
         $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
         $resultDelete = $conn->query($sqlDelete);
-    }
-    print "
+
+        print "
     <input type='button' class='receiptBtn' onclick='printDiv('print-content')' value='Print Receipt'/>
     </div>
     <script type='text/javascript'>
@@ -373,8 +372,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             document.body.innerHTML = originalContents;
         }
     </script>";
-
-   
+    }
 } elseif ((string) $gwResponse->result == 2) {
     print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
     print " Decline Description : " . (string) $gwResponse->{'result-text'} . " </p>";
