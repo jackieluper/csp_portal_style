@@ -333,9 +333,6 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
                 $order = new Order($tid);
                 $order->addOrderItem("$sku", "$name", $qty);
                 $order->submitOrder();
-            } else {
-                $updateQty = (int)($qty - $subscriptionList[$i]->getQuantity());
-                $subscriptionList[$i]->updateQuantity($updateQty);
             }
 
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
@@ -357,6 +354,10 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <div><strong>Sale Total: ' . $amount . '</strong></div><br>
         </form>
         </div>';
+        if ($update_qty == 1) {
+            $updateQty = (int) ($qty - $subscriptionList[$i]->getQuantity());
+            $subscriptionList[$i]->updateQuantity($updateQty);
+        }
         $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
         $resultDelete = $conn->query($sqlDelete);
     }
