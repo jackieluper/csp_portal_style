@@ -81,7 +81,7 @@ $role = $_SESSION['role'];
                     <td class="total" colspan="4" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Total Price:</td>
                     <td colspan="1" style="background-color: #65B1E4">$<?php echo number_format($cart->total, 2) ?></td>
                 <tr>
-                    <td colspan="4" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right"><a href="billing.php"><button type="button" class="checkoutButton">Checkout</button></a></td>
+                    <td colspan="5" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right"><a href="billing.php"><button type="button" class="checkoutButton">Checkout</button></a></td>
                 </tr>
             </tbody>
         </table>
