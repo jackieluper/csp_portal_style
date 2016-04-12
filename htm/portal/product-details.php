@@ -65,14 +65,14 @@ if ($resOffer->num_rows > 0) {
             $tag = "noImage.png";
         }
         ?><div style="margin: 50px 0 0 100px; display: inline-block">
-            <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
+            <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" style="float:left">
             <table class="subscriptionDetails">
                 <tr>
-                    <td class="subscriptionTitle" colspan="3" style="font-size: 22px;"><strong><u><?php echo $product_name ?></u></strong></td>
+                    <td class="subscriptionTitle"  style="font-size: 24px; text-align:center" colspan="3"><strong><u><?php echo $product_name ?></u></strong></td>
                 </tr>
                 <form action="../controllers/update-qty.php" method="post">
                     <tr>
-                        <td class="subscriptionDetails" ><p><?php echo $details ?></p></td>
+                        <td class="subscriptionDetails"  style="font-size: 22px; text-align:center" colspan="3" ><p><?php echo $details ?></p></td>
                     </tr>
                     <tr>
                         <td class="subscriptionInfo"><input step="1" name="qty" value="" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
