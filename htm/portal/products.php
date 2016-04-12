@@ -87,9 +87,13 @@ require '../controllers/cart.db.php';
             <?php
             for ($i = 0; $i < count($topOffers->name); $i++) {
                 ?>
+            <!--table works finish adding qty, then check that add to cart works with qty and then do same to catalog offers -->
                 <table  width="8%" style="display: inline-block">
                     <tr>
                         <td><strong> <?php echo $topOffers->name[$i] ?> </strong></td>
+                    </tr>
+                     <tr>
+                        <td><strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong></td>
                     </tr>
                     <tr>
                         <td><div class="item active" id="item"><image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"></div></td>
@@ -99,10 +103,7 @@ require '../controllers/cart.db.php';
                     </tr>
                     <tr>
                         <td><strong> <?php echo $offers->unit[$i] ?> </strong></td>
-                    </tr>
-                    <tr>
-                        <td><strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong></td>
-                    </tr>
+                    </tr>                   
                 </table>
             <?php } ?>
         </div>
