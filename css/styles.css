@@ -182,7 +182,8 @@ body{
     background-color: #65B1E4;
     border-radius: 7px;
     text-align: center;
-    width: 100px;
+    padding-left: 10px;
+    width: 90px;
     height: 30px;
     color: #fff;
 }
