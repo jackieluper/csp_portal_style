@@ -98,15 +98,12 @@ require '../controllers/cart.db.php';
                             <td><div class="item active" id="item"><image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"></div></td>
                         </tr>
                         <tr>
-                            <td><strong> $<?php echo number_format($topOffers->price[$i], 2) ?> per <?php echo $offers->unit[$i] ?> </strong></td>
+                            <td><strong> $<?php echo number_format($topOffers->price[$i], 2) ?>  <?php echo $offers->unit[$i] ?> </strong></td>
                         </tr>
                         <tr>
                             <td><strong><a style="color: #258ED9;" href="../portal/product-details.php?id=<?php echo $topOffers->id[$i] ?>">More details</a></strong></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                        </tr>
-                          <tr>                            
+                        <tr>                            
                             <td><strong><input step="1" name="qty" value="0" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input><input type="hidden" name="id" value="<?php echo $topOffers->id[$i] ?>"></td>
                         </tr>
                         <tr>
