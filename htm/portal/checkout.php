@@ -62,28 +62,30 @@ $role = $_SESSION['role'];
                 <?php
                 for ($i = 0; $i < count($cart->name); $i++) {
                     ?>
-                
+                <form action="../controllers/add-to-cart.php" method="post">
                     <tr>
                         <td><span><?php echo $cart->name[$i] ?></span></td>
                         <td><?php echo $cart->msrp[$i] ?></td>
                         <td><input step="1" name="qty" value="<?php echo $cart->qty[$i] ?>" style="color: #000; text-align: right; border-style: none; border-radius: 5px; width: 20%;"></input></td>
-                        <td style="align-content: left"><button class="updateQtyBtn" type="submit">Save Changes</button></td>
+                        <td style="align-content: left"><button class="updateQtyBtn" type="submit">Update Qty</button></td>
                         <td ><a href="../controllers/remove-from-checkout.php?id=<?php echo $cart->item[$i] ?>" ><strong>Remove</strong></a></td>
-                    </tr>            
-                <?php } 
-                if($cart->discount > 0.00){?>
+                    </tr> 
+                </form>
+            <?php }
+            if ($cart->discount > 0.00) {
+                ?>
                 <tr>
                     <td class="total" colspan="3" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Discount Savings:</td>
                     <td class="total" colspan="1" style="background-color: #65B1E4">$<?php echo number_format($cart->discount, 2) ?></td>
                 </tr>
-                <?php } ?>
-                <tr>
-                    <td class="total" colspan="4" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Total Price:</td>
-                    <td colspan="1" style="background-color: #65B1E4">$<?php echo number_format($cart->total, 2) ?></td>
-                <tr>
-                     <td class="total" colspan="4" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;"></td>
-                    <td colspan="1" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right"><a href="billing.php"><button type="button" class="checkoutButton">Checkout</button></a></td>
-                </tr>
+<?php } ?>
+            <tr>
+                <td class="total" colspan="4" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Total Price:</td>
+                <td colspan="1" style="background-color: #65B1E4">$<?php echo number_format($cart->total, 2) ?></td>
+            <tr>
+                <td class="total" colspan="4" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;"></td>
+                <td colspan="1" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right"><a href="billing.php"><button type="button" class="checkoutButton">Checkout</button></a></td>
+            </tr>
             </tbody>
         </table>
     </div>
