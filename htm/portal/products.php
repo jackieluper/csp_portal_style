@@ -142,11 +142,6 @@ require '../controllers/cart.db.php';
                                     <tr>
                                         <td><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
                                     </tr>
-                                    <?php
-                                    if ($i % 3 == 2 && $i > 0) {
-                                        print '</tr> <tr>';
-                                    }
-                                    ?>
 
                                 <?php } ?>
                 </form>
