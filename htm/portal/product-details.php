@@ -68,7 +68,7 @@ if($resOffer->num_rows > 0){
             <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
             <div style="float:right">
                 <table class="subscriptionDetails">
-                    <th class="subscriptionHeader" colspan="2"><?php echo $product_name ?></th>
+                    <th class="subscriptionHeader" ><?php echo $product_name ?></th>
                     
                     <form action="../controllers/update-qty.php" method="post">
                         <tr>
