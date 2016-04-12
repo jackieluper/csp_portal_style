@@ -4,7 +4,7 @@ require "../controllers/config.php";
 require '../controllers/product.db.php';
 
 $i = $_GET['id'];
-
+$topOffers = new topOffers();
 ?>
 <head>
     <title><?php echo $topOffers->name[$i] ?></title>
