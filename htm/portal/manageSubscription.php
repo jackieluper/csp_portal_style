@@ -73,7 +73,6 @@ require "../api/client/_init.php";
                     <td><input type="hidden" name="itemNum" value="<?php echo $i ?>" style="background-color: #ED8B22; border: none" ><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
                     <td><?php echo $subscriptionList[$i]->getOfferId() ?></td>
                     <td style="width: 150px"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
-                    <td style="width: 150px"><?php echo substr($subscriptionList[$i]->getCommitmentEndDate(), 0, 10) ?></td>
                     <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
                     <td><button class="makeChanges" type="submit">Make Changes</button></td>
                 </tr>
