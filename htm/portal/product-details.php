@@ -1,7 +1,7 @@
 <?php
 session_start();
 require "../controllers/config.php";
-require '../classe/offers.class.php';
+require '../classes/offers.class.php';
 
 $i = $_GET['id'];
 
