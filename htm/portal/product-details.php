@@ -66,7 +66,7 @@ if ($resOffer->num_rows > 0) {
         }
         ?><div style="margin: 50px 0 0 100px">
             <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
-            <div style="float:right">
+            <div style="float:left">
                 <table class="subscriptionDetails">
                     <tr>
                         <td class="subscriptionTitle" colspan="3" style="font-size: 22px;"><strong><u><?php echo $product_name ?></u></strong></td>
