@@ -3,13 +3,12 @@ session_start();
 require "../controllers/config.php";
 
 $id = $_GET['id'];
-$sqlOffer = "SELECT display_name, purchase_unit, erp_price from offer and offer_price where id='$id' and offer_id='$id'";
+$sqlOffer = "SELECT display_name, purchase_unit from offerwhere id='$id'";
 $resOffer = $conn->query($sqlOffer);
 if($resOffer->num_rows > 0){
     while($row = $resOffer->fetch_assoc()){
         $product_name = $row['display_name'];
         $purchase_unit = $row['purchase_unit'];
-        $price = $row['erp_price'];
         echo $product_name;
     }
 }
