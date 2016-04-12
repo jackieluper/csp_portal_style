@@ -105,10 +105,10 @@ require '../controllers/cart.db.php';
                         </tr>
                         <tr>                            
                             <td><strong><input step="1" name="qty" value="0" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input><input type="hidden" name="id" value="<?php echo $topOffers->id[$i] ?>"></td>
-                        </tr>
-                        <tr>
-                            <td><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
-                        </tr>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
+                                    </tr>
                     </form>
                 </table>
 
@@ -118,26 +118,39 @@ require '../controllers/cart.db.php';
         <div class="page-header">
             <h2>CATALOG</h2>
         </div>
-        <table class="catalog" >
-            <tr>
-                <?php
-                for ($i = 0; $i < count($offers->name); $i++) {
-                    ?>
-                    <td><strong><?php echo $offers->name[$i] ?></strong></br></br>
-                        <div class="item active" id="item">
-                            <image src="<?php echo $offers->img_tag[$i] ?>" alt="Image not found"></br></br>
-                            <strong> <?php echo number_format($offers->price[$i], 2) ?> </strong></br>
-                            <strong> <?php echo $offers->unit[$i] ?> </strong></br></br>
-                            <strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $offers->id[$i] ?>">Add to Cart</a></strong></td>
-                    <?php
-                    if ($i % 3 == 2 && $i > 0) {
-                        print '</tr> <tr>';
-                    }
-                    ?>
+        <?php
+        for ($i = 0; $i < count($offers->name); $i++) {
+            ?>
+            <table  width="8%" style="display: inline-block">
+                <form action="../controllers/add-to-cart.php" method="post">
+                    <tr>
+                        <td><strong> <?php echo $offers->name[$i] ?> </strong></td>
+                    </tr>                                                
+                    <tr>
+                        <td><div class="item active" id="item"><image class="productImage" src="<?php echo $offers->img_tag[$i] ?>" alt="Image not found"></div></td>
+                    </tr>
+                    <tr>
+                        <td><strong> $<?php echo number_format($offers->price[$i], 2) ?>  <?php echo $offers->unit[$i] ?> </strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong><a style="color: #258ED9;" href="../portal/product-details.php?id=<?php echo $offers->id[$i] ?>">More details</a></strong></td>
+                    </tr>
+                    <tr>                            
+                        <td><strong><input step="1" name="qty" value="0" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input><input type="hidden" name="id" value="<?php echo $offers->id[$i] ?>"></td>
+                    </tr>
+                    <tr>
+                        <td><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
+                    </tr>
+                                <?php
+                                if ($i % 3 == 2 && $i > 0) {
+                                    print '</tr> <tr>';
+                                }
+                                ?>
 
-                <?php } ?>
-            </tr>
+                            <?php } ?>
+            </form>
         </table>
+
     </div>
 </div>
 <div id="loading"></div>
