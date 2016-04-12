@@ -104,7 +104,7 @@ require '../controllers/cart.db.php';
                             <td><div class="item active" id="item"><image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"></div></td>
                         </tr>
                         <tr>
-                            <td><strong><a style="color: #258ED9;" href="../portal/product-details.php?id=<?php echo $i ?>">More details</a></strong></td>
+                            <td><strong><a style="color: #258ED9;" href="../portal/product-details.php?id=<?php echo $topOffers->id[$i] ?>">More details</a></strong></td>
                         </tr>
                         <tr>
                             <td><strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></td>
