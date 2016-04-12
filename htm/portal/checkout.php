@@ -76,7 +76,7 @@ $role = $_SESSION['role'];
             if ($cart->discount > 0.00) {
                 ?>
                 <tr>
-                    <td class="total" colspan="3" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Discount Savings:</td>
+                    <td class="total" colspan="4" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Discount Savings:</td>
                     <td class="total" colspan="1" style="background-color: #65B1E4">$<?php echo number_format($cart->discount, 2) ?></td>
                 </tr>
 <?php } ?>
