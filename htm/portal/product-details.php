@@ -5,8 +5,8 @@ require "../controllers/config.php";
 $id = $_GET['id'];
 $sqlOffer = "SELECT display_name, purchase_unit from offer where id='$id'";
 $resOffer = $conn->query($sqlOffer);
-if($resOffer->num_rows > 0){
-    while($row = $resOffer->fetch_assoc()){
+if ($resOffer->num_rows > 0) {
+    while ($row = $resOffer->fetch_assoc()) {
         $product_name = $row['display_name'];
         $purchase_unit = $row['purchase_unit'];
         echo $product_name;
@@ -68,8 +68,9 @@ if($resOffer->num_rows > 0){
             <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
             <div style="float:right">
                 <table class="subscriptionDetails">
-                    <th class="subscriptionHeader" ><?php echo $product_name ?></th>
-                    
+                    <tr>
+                        <td class="subscriptionHeader" ><?php echo $product_name ?></td>  
+                    </tr>
                     <form action="../controllers/update-qty.php" method="post">
                         <tr>
                             <td class="subscriptionTitle" ><input type="hidden" name="itemNum" value="">Quantity on record: </td>
