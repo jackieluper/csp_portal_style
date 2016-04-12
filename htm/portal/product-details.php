@@ -3,11 +3,19 @@ session_start();
 require "../controllers/config.php";
 require '../classes/offers.class.php';
 
-$i = $_GET['id'];
-$topOffers = new topOffers();
+$id = $_GET['id'];
+$sqlOffer = "SELECT * from offer and offer_price where id='$id' and offer_id='$id'";
+$resOffer = $conn->query($sqlOffer);
+if($resOffer->num_rows > 0){
+    while($row = $resOffer->fetch_assoc()){
+        $product_name = $row['display_name'];
+        $purchase_unit = $row['purchase_unit'];
+        $price = $row['erp_price'];
+    }
+}
 ?>
 <head>
-    <title><?php echo $i ?></title>
+    <title>Product Details</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -22,7 +30,7 @@ $topOffers = new topOffers();
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
         <ul>
-            <li><?php echo $topOffers->name[$i] ?></li>
+            <li><?php echo $product_name ?></li>
         </ul>
     </div>
 </div>
@@ -48,7 +56,7 @@ $topOffers = new topOffers();
 <div id="page">
     <div class="subscriptionContent" >
         <?php
-        $resultImg = $conn->query("select img_tag, details from image where offer_name='" . $topOffers->name[$i] . "'");
+        $resultImg = $conn->query("select img_tag, details from image where offer_name='" . $product_name . "'");
         if ($resultImg->num_rows > 0) {
             while ($row = $resultImg->fetch_assoc()) {
                 $tag = $row['img_tag'];
@@ -57,16 +65,15 @@ $topOffers = new topOffers();
         } else {
             $tag = "noImage.png";
         }
-        echo "offername: " . $topOffers->name[$i];
         ?><div style="margin: 50px 0 0 100px">
             <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
             <div style="float:right">
                 <table class="subscriptionDetails">
-                    <th class="subscriptionHeader" colspan="2"><?php echo $topOffers->name[$i] ?></th>
+                    <th class="subscriptionHeader" colspan="2"><?php echo $product_name ?></th>
                     
                     <form action="../controllers/update-qty.php" method="post">
                         <tr>
-                            <td class="subscriptionTitle" ><input type="hidden" name="itemNum" value="<?php echo $i ?>">Quantity on record: </td>
+                            <td class="subscriptionTitle" ><input type="hidden" name="itemNum" value="">Quantity on record: </td>
                             <td class="subscriptionInfo"></td>
                         </tr>
                         <tr>
