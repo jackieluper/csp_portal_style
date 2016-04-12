@@ -72,20 +72,16 @@ if ($resOffer->num_rows > 0) {
                 </tr>
                 <form action="../controllers/update-qty.php" method="post">
                     <tr>
-                        <td class="subscriptionDetails"  style="font-size: 22px; text-align:center" colspan="3" ><p><?php echo $details ?></p></td>
+                        <td class="subscriptionDetails" style="font-size: 22px; text-align:center" colspan="3" ><p><?php echo $details ?></p></td>
                     </tr>
                     <tr>
                         <td class="subscriptionInfo"><input step="1" name="qty" value="" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
+                    </tr>
+                    <tr>
                         <td style="align-content: left"><button class="updateQtyBtn" type="submit">Update License's</button></td>
                     </tr>
+                    
 
-                </form>
-                <form action="suspendAllLicenses.php">
-                    <tr>
-                        <td class="subscriptionTitle">Status: </td>
-                        <td class="subscriptionInfo"></td>
-                        <td style="align-content: left"><button class="updateQtyBtn" type="submit">Suspend All Licenses</button></td>
-                    </tr>
                 </form>
             </table>
         </div>            
