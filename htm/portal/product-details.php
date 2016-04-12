@@ -75,7 +75,7 @@ if ($resOffer->num_rows > 0) {
                         <td class="subscriptionDetails" style="font-size: 22px; text-align:center" colspan="3" ><p><?php echo $details ?></p></td>
                     </tr>
                     <tr>
-                        <td class="subscriptionInfo"><input step="1" name="qty" value="" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
+                        <td class="subscriptionInfo" colspan="3" style="text-align: center"><input step="1" name="qty" value="" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
                     </tr>
                     <tr>
                         <td style="align-content: left"><button class="updateQtyBtn" type="submit">Update License's</button></td>
