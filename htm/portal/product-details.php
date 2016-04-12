@@ -73,7 +73,7 @@ if ($resOffer->num_rows > 0) {
                     </tr>
                     <form action="../controllers/update-qty.php" method="post">
                         <tr>
-                            <td class="subscriptionTitle" ><input type="hidden" name="itemNum" value="">Quantity on record: </td>
+                            <td class="subscriptionDetails" ><?php echo $details ?></td>
                             <td class="subscriptionInfo"></td>
                         </tr>
                         <tr>
@@ -91,8 +91,7 @@ if ($resOffer->num_rows > 0) {
                         </tr>
                     </form>
                 </table>
-            </div>
-            <div class="subscriptionCaption"><?php echo $details ?></div>
+            </div>            
         </div>
     </div>
 </div>
