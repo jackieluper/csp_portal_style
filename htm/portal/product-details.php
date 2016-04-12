@@ -3,7 +3,7 @@ session_start();
 require "../controllers/config.php";
 
 $id = $_GET['id'];
-$sqlOffer = "SELECT display_name, purchase_unit from offerwhere id='$id'";
+$sqlOffer = "SELECT display_name, purchase_unit from offer where id='$id'";
 $resOffer = $conn->query($sqlOffer);
 if($resOffer->num_rows > 0){
     while($row = $resOffer->fetch_assoc()){
