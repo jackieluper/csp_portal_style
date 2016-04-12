@@ -66,31 +66,30 @@ if ($resOffer->num_rows > 0) {
         }
         ?><div style="margin: 50px 0 0 100px; display: inline-block">
             <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
-            <div >
-                <table class="subscriptionDetails">
+            <table class="subscriptionDetails">
+                <tr>
+                    <td class="subscriptionTitle" colspan="3" style="font-size: 22px;"><strong><u><?php echo $product_name ?></u></strong></td>
+                </tr>
+                <form action="../controllers/update-qty.php" method="post">
                     <tr>
-                        <td class="subscriptionTitle" colspan="3" style="font-size: 22px;"><strong><u><?php echo $product_name ?></u></strong></td>
+                        <td class="subscriptionDetails" ><p><?php echo $details ?></p></td>
                     </tr>
-                    <form action="../controllers/update-qty.php" method="post">
-                        <tr>
-                            <td class="subscriptionDetails" ><p><?php echo $details ?></p></td>
-                        </tr>
-                        <tr>
-                            <td class="subscriptionInfo"><input step="1" name="qty" value="" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
-                            <td style="align-content: left"><button class="updateQtyBtn" type="submit">Update License's</button></td>
-                        </tr>
+                    <tr>
+                        <td class="subscriptionInfo"><input step="1" name="qty" value="" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
+                        <td style="align-content: left"><button class="updateQtyBtn" type="submit">Update License's</button></td>
+                    </tr>
 
-                    </form>
-                    <form action="suspendAllLicenses.php">
-                        <tr>
-                            <td class="subscriptionTitle">Status: </td>
-                            <td class="subscriptionInfo"></td>
-                            <td style="align-content: left"><button class="updateQtyBtn" type="submit">Suspend All Licenses</button></td>
-                        </tr>
-                    </form>
-                </table>
-            </div>            
-        </div>
+                </form>
+                <form action="suspendAllLicenses.php">
+                    <tr>
+                        <td class="subscriptionTitle">Status: </td>
+                        <td class="subscriptionInfo"></td>
+                        <td style="align-content: left"><button class="updateQtyBtn" type="submit">Suspend All Licenses</button></td>
+                    </tr>
+                </form>
+            </table>
+        </div>            
     </div>
 </div>
+
 <div id="loading"></div>
