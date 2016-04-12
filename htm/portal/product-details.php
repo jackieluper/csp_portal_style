@@ -69,7 +69,7 @@ if ($resOffer->num_rows > 0) {
             <div style="float:right">
                 <table class="subscriptionDetails">
                     <tr>
-                        <td class="subscriptionTitle" colspan="3"><strong><u><?php echo $product_name ?></u></strong></td>
+                        <td class="subscriptionTitle" colspan="3" style="font-size: 22px;"><strong><u><?php echo $product_name ?></u></strong></td>
                     </tr>
                     <form action="../controllers/update-qty.php" method="post">
                         <tr>
