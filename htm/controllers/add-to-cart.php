@@ -9,6 +9,7 @@ session_start();
 
 //getting the offer id which is the id of the item selected
 $offerID = $_GET['id'];
+$qty = $_POST['qty'];
 //getting last transaction id
 $sqlGetTran = "SELECT transaction_id FROM transactions ORDER BY transaction_id DESC LIMIT 1";
 $tranResult = $conn->query($sqlGetTran);
@@ -70,11 +71,11 @@ if ($result5->num_rows > 0) {
 
 //query to add the selected item to the cart with corresponding customer info
 $sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty, sku, offer_uri) 
-VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '1', '$transactionId', '0', '$offerSku', '$offerUri')" or die(mysql_error());
+VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '$qty', '$transactionId', '0', '$offerSku', '$offerUri')" or die(mysql_error());
 //if they already have in cart increment qty 
 if ($result3->num_rows > 0) {
     while ($row = $result3->fetch_assoc()) {
-        $qty = $row['qty'] + 1;
+        $qty = $row['qty'] + $qty;
         $sql4 = "UPDATE cart SET qty='" . $qty . "' where items='" . $offerID . "'";
         if ($conn->query($sql4) === TRUE) {
             header('Location: ../portal/products.php');
