@@ -9,7 +9,13 @@ if ($resOffer->num_rows > 0) {
     while ($row = $resOffer->fetch_assoc()) {
         $product_name = $row['display_name'];
         $purchase_unit = $row['purchase_unit'];
-        echo $product_name;
+        $sqlPrice = "SELECT erp_price from offer_price where offer_id='$id' ";
+        $resPrice = $conn->query($sqlPrice);
+        if($resPrice->num_rows > 0){
+            while($row = $resPrice->fetch_assoc()){
+                $price = $row['erp_price'];
+            }
+        }
     }
 }
 ?>
@@ -73,6 +79,12 @@ if ($resOffer->num_rows > 0) {
                 <form action="../controllers/update-qty.php" method="post">
                     <tr>
                         <td class="subscriptionDetails" style="font-size: 22px; text-align:center" colspan="3" ><p><?php echo $details ?></p></td>
+                    </tr>
+                     <tr>
+                        <td class="subscriptionDetails" style="font-size: 22px; text-align:center" colspan="3" ><?php echo $price ?> per <?php echo $purchase_unit ?></td>
+                    </tr>
+                    <tr>
+                        <td></td>
                     </tr>
                     <tr>
                         <td class="subscriptionInfo" colspan="3" style="text-align: center"><input step="1" name="qty" value="" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
