@@ -60,7 +60,6 @@ require "../api/client/_init.php";
                 <th>Product Name</th>
                 <th>Offer ID</th>
                 <th>Start Date</th>
-                <th>End Date</th>
                 <th>Qty on Record</th>
                 <th>Manage Subscription</th>
             </tr>
