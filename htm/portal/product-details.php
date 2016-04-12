@@ -3,7 +3,7 @@ session_start();
 require "../controllers/config.php";
 
 $id = $_GET['id'];
-
+echo $id;
 $sqlOffer = "SELECT display_name, purchase_unit, erp_price from offer and offer_price where id='$id' and offer_id='$id'";
 $resOffer = $conn->query($sqlOffer);
 if($resOffer->num_rows > 0){
