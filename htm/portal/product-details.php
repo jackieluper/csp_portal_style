@@ -1,7 +1,7 @@
 <?php
 session_start();
 require "../controllers/config.php";
-require '../controllers/product.db.php';
+require '../classes/offers.class.php';
 
 $i = $_GET['id'];
 $topOffers = new topOffers();
