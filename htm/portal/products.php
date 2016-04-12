@@ -98,7 +98,7 @@ require '../controllers/cart.db.php';
                             <td><strong><input step="1" name="qty" value="0" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input><input type="hidden" name="id" value="<?php echo $topOffers->id[$i] ?>"></td>
                         </tr>
                         <tr>
-                            <td><strong><button class="checkoutButton" type="submit">Add To Cart</button></strong></td>
+                            <td><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
                         </tr>                        
                         <tr>
                             <td><div class="item active" id="item"><image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"></div></td>
