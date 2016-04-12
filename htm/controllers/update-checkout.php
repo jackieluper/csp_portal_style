@@ -6,7 +6,7 @@ $id = $_POST['id'];
 $qty = $_POST['qty'];
 
 
-$sql4 = "UPDATE cart SET qty='" . $qty . "' where items='" . $offerID . "'";
+$sql4 = "UPDATE cart SET qty='" . $qty . "' where items='" . $id . "'";
         if ($conn->query($sql4) === TRUE) {
             header('Location: ../portal/checkout.php');
         } else {
