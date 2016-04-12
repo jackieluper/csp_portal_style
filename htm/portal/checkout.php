@@ -67,6 +67,7 @@ $role = $_SESSION['role'];
                         <td><span><?php echo $cart->name[$i] ?></span></td>
                         <td><?php echo $cart->msrp[$i] ?></td>
                         <td><input step="1" name="qty" value="<?php echo $cart->qty[$i] ?>" style="color: #000; text-align: right; border-style: none; border-radius: 5px; width: 20%;"></input></td>
+                        <input type="hidden" name="id" value="<?php echo $cart->item[$i] ?>">
                         <td style="align-content: left"><button class="updateQtyBtn" type="submit">Update Qty</button></td>
                         <td ><a href="../controllers/remove-from-checkout.php?id=<?php echo $cart->item[$i] ?>" ><strong>Remove</strong></a></td>
                     </tr> 
