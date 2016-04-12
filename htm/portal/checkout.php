@@ -54,6 +54,7 @@ $role = $_SESSION['role'];
                     <th>Item</th>
                     <th>Price</th>
                     <th>Qty</th>
+                    <th>Update QTy</th>
                     <th>Delete</th>
                 </tr>
             </thead>
@@ -61,17 +62,20 @@ $role = $_SESSION['role'];
                 <?php
                 for ($i = 0; $i < count($cart->name); $i++) {
                     ?>
+                
                     <tr>
                         <td><span><?php echo $cart->name[$i] ?></span></td>
                         <td><?php echo $cart->msrp[$i] ?></td>
-                        <td><?php echo $cart->qty[$i] ?></td>
+                        <td><input step="1" name="qty" value="<?php echo $cart->qty[$i] ?>" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
                         <td ><a href="../controllers/remove-from-checkout.php?id=<?php echo $cart->item[$i] ?>" ><strong>Delete</strong></a></td>
                     </tr>            
-                <?php } ?>
+                <?php } 
+                if($cart->discount > 0.00){?>
                 <tr>
                     <td class="total" colspan="3" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Discount Savings:</td>
                     <td class="total" colspan="1" style="background-color: #65B1E4">$<?php echo number_format($cart->discount, 2) ?></td>
                 </tr>
+                <?php } ?>
                 <tr>
                     <td class="total" colspan="3" style="border: none; border-collapse: collapse; background-color: #fff; text-align: right; color: #000; font-weight: bold; font-size: 20px;">Total Price:</td>
                     <td colspan="1" style="background-color: #65B1E4">$<?php echo number_format($cart->total, 2) ?></td>
