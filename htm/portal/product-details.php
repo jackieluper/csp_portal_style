@@ -1,10 +1,10 @@
 <?php
 session_start();
 require "../controllers/config.php";
-require '../classes/offers.class.php';
 
 $id = $_GET['id'];
-$sqlOffer = "SELECT * from offer and offer_price where id='$id' and offer_id='$id'";
+
+$sqlOffer = "SELECT display_name, purchase_unit, erp_price from offer and offer_price where id='$id' and offer_id='$id'";
 $resOffer = $conn->query($sqlOffer);
 if($resOffer->num_rows > 0){
     while($row = $resOffer->fetch_assoc()){
