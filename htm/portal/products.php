@@ -138,12 +138,13 @@ require '../controllers/cart.db.php';
                         </tr>
                         <tr>                            
                             <td><strong><input step="1" name="qty" value="1" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input><input type="hidden" name="id" value="<?php echo $offers->id[$i] ?>"></td>
-                        </tr>
-                        <tr>
-                            <td><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
-                        </tr>
-                     <?php } ?>
-                </form>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
+                                    </tr>
+                    </form>
+                <?php } ?>
+
             </table>
         </div>
     </div>
