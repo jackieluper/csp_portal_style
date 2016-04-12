@@ -118,39 +118,40 @@ require '../controllers/cart.db.php';
         <div class="page-header">
             <h2>CATALOG</h2>
         </div>
-        <?php
-        for ($i = 0; $i < count($offers->name); $i++) {
-            ?>
-            <table  width="8%" style="display: inline-block">
-                <form action="../controllers/add-to-cart.php" method="post">
-                    <tr>
-                        <td><strong> <?php echo $offers->name[$i] ?> </strong></td>
-                    </tr>                                                
-                    <tr>
-                        <td><div class="item active" id="item"><image class="productImage" src="<?php echo $offers->img_tag[$i] ?>" alt="Image not found"></div></td>
-                    </tr>
-                    <tr>
-                        <td><strong> $<?php echo number_format($offers->price[$i], 2) ?>  <?php echo $offers->unit[$i] ?> </strong></td>
-                    </tr>
-                    <tr>
-                        <td><strong><a style="color: #258ED9;" href="../portal/product-details.php?id=<?php echo $offers->id[$i] ?>">More details</a></strong></td>
-                    </tr>
-                    <tr>                            
-                        <td><strong><input step="1" name="qty" value="0" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input><input type="hidden" name="id" value="<?php echo $offers->id[$i] ?>"></td>
-                    </tr>
-                    <tr>
-                        <td><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
-                    </tr>
-                                <?php
-                                if ($i % 3 == 2 && $i > 0) {
-                                    print '</tr> <tr>';
-                                }
-                                ?>
+        <div class="wrapOffers" style="width: 100%; margin-left: 90px">
+            <?php
+            for ($i = 0; $i < count($offers->name); $i++) {
+                ?>
+                <table  width="8%" style="display: inline-block">
+                    <form action="../controllers/add-to-cart.php" method="post">
+                        <tr>
+                            <td><strong> <?php echo $offers->name[$i] ?> </strong></td>
+                        </tr>                                                
+                        <tr>
+                            <td><div class="item active" id="item"><image class="productImage" src="<?php echo $offers->img_tag[$i] ?>" alt="Image not found"></div></td>
+                        </tr>
+                        <tr>
+                            <td><strong> $<?php echo number_format($offers->price[$i], 2) ?>  <?php echo $offers->unit[$i] ?> </strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong><a style="color: #258ED9;" href="../portal/product-details.php?id=<?php echo $offers->id[$i] ?>">More details</a></strong></td>
+                        </tr>
+                        <tr>                            
+                            <td><strong><input step="1" name="qty" value="0" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input><input type="hidden" name="id" value="<?php echo $offers->id[$i] ?>"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
+                                    </tr>
+                                    <?php
+                                    if ($i % 3 == 2 && $i > 0) {
+                                        print '</tr> <tr>';
+                                    }
+                                    ?>
 
-                            <?php } ?>
-            </form>
-        </table>
-
+                                <?php } ?>
+                </form>
+            </table>
+        </div>
     </div>
 </div>
 <div id="loading"></div>
