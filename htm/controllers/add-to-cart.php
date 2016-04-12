@@ -8,7 +8,7 @@ require("config.php");
 session_start();
 
 //getting the offer id which is the id of the item selected
-$offerID = $_GET['id'];
+$offerID = $_POST['id'];
 $qty = $_POST['qty'];
 //getting last transaction id
 $sqlGetTran = "SELECT transaction_id FROM transactions ORDER BY transaction_id DESC LIMIT 1";

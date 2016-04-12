@@ -95,6 +95,7 @@ require '../controllers/cart.db.php';
                             <td><strong> <?php echo $topOffers->name[$i] ?> </strong></td>
                         </tr>
                         <tr>
+                            <td ><input type="hidden" name="itemNum" value="<?php echo $topOffers->id[$i] ?>"></td>
                             <td><strong><input step="1" name="qty" value="0" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input></td>
                         </tr>
                         <tr>
