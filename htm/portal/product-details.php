@@ -76,7 +76,7 @@ if ($resOffer->num_rows > 0) {
                 <tr>
                     <td class="subscriptionTitle"  style="font-size: 24px; text-align:center" colspan="3"><strong><u><?php echo $product_name ?></u></strong></td>
                 </tr>
-                <form action="../controllers/update-qty.php" method="post">
+                <form action="../controllers/add-to-cart.php" method="post">
                     <tr>
                         <td class="subscriptionDetails" style="font-size: 22px; text-align:center" colspan="3" ><p><?php echo $details ?></p></td>
                     </tr>
@@ -84,7 +84,7 @@ if ($resOffer->num_rows > 0) {
                          <td class="subscriptionDetails" style="font-size: 16px; text-align:center" colspan="3" ><strong>$<?php echo $price ?> per <?php echo $purchase_unit ?></strong></td>
                     </tr>
                     <tr>
-                        <td class="subscriptionInfo" colspan="3" style="text-align: center"><input step="1" name="qty" value="" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
+                        <td class="subscriptionInfo" colspan="3" style="text-align: center"><strong>Quantity: </strong><input step="1" name="qty" value="" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
                     </tr>
                     <tr>
                         <td style="align-content: left"><button class="updateQtyBtn" type="submit">Add To Cart</button></td>
