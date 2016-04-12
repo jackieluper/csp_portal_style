@@ -3,6 +3,27 @@
  Date: 2/17/16
  Managed Solution
  */
+
+$('body').click (function onClick(callback) {
+    var intervalID = window.setInterval(checkReady, 1000);
+
+    function checkReady() {
+        if (document.getElementsByTagName('div')[0] !== undefined) {
+            window.clearInterval(intervalID);
+            callback.call(this);
+        }
+    }
+});
+
+function show(id, value) {
+    document.getElementById(id).style.display = value ? 'block' : 'none';
+}
+
+onClick(function () {
+    show('page', true);
+    show('loading', false);
+});
+
 //Password check
 function validate() {
     var password1 = $("#password").val();
