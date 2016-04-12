@@ -57,6 +57,7 @@ $i = $_GET['id'];
         } else {
             $tag = "noImage.png";
         }
+        echo "offername: " . $topOffers->name[$i];
         ?><div style="margin: 50px 0 0 100px">
             <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
             <div style="float:right">
