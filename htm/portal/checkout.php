@@ -62,7 +62,7 @@ $role = $_SESSION['role'];
                 <?php
                 for ($i = 0; $i < count($cart->name); $i++) {
                     ?>
-                <form action="../controllers/add-to-cart.php" method="post">
+                <form action="../controllers/update-checkout.php" method="post">
                     <tr>
                         <td><span><?php echo $cart->name[$i] ?></span></td>
                         <td><?php echo $cart->msrp[$i] ?></td>
