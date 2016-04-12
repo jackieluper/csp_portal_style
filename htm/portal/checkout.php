@@ -66,7 +66,7 @@ $role = $_SESSION['role'];
                     <tr>
                         <td><span><?php echo $cart->name[$i] ?></span></td>
                         <td><?php echo $cart->msrp[$i] ?></td>
-                        <td><input step="1" name="qty" value="<?php echo $cart->qty[$i] ?>" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
+                        <td><input step="1" name="qty" value="<?php echo $cart->qty[$i] ?>" style="border-style: none; background-color:#ED8B22; width: 5%;"></input></td>
                         <td ><a href="../controllers/remove-from-checkout.php?id=<?php echo $cart->item[$i] ?>" ><strong>Delete</strong></a></td>
                     </tr>            
                 <?php } 
