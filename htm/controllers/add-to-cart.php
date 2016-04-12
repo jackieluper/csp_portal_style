@@ -16,7 +16,6 @@ $tranResult = $conn->query($sqlGetTran);
 if ($tranResult->num_rows > 0) {
     while ($row = $tranResult->fetch_assoc()) {
         $transactionId = $row['transaction_id'] + 2;
-        echo 'test';
     }
 } else {
     $transactionId = 1;
@@ -29,7 +28,6 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $custID = $row['customer_id'];
-         echo 'test1';
     }
 }
 //Grabbing the sku for the product selected
