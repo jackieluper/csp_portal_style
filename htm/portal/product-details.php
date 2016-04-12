@@ -64,9 +64,9 @@ if ($resOffer->num_rows > 0) {
         } else {
             $tag = "noImage.png";
         }
-        ?><div style="margin: 50px 0 0 100px">
+        ?><div style="margin: 50px 0 0 100px; display: inline-block">
             <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
-            <div style="float:left">
+            <div >
                 <table class="subscriptionDetails">
                     <tr>
                         <td class="subscriptionTitle" colspan="3" style="font-size: 22px;"><strong><u><?php echo $product_name ?></u></strong></td>
