@@ -83,11 +83,12 @@ require '../controllers/cart.db.php';
                 </small></h2>
         </div>
 
-        <div class="wrapOffers" style="margin-left: 90px">
+        <div class="wrapOffers" style="width: 100%; margin-left: 90px">
             <?php
             for ($i = 0; $i < count($topOffers->name); $i++) {
                 ?>
             <!--table works finish adding qty, then check that add to cart works with qty and then do same to catalog offers -->
+            <form action="../controllers/add-to-cart.php" method="post">
                 <table  width="8%" style="display: inline-block">
                     <tr>
                         <td><strong> <?php echo $topOffers->name[$i] ?> </strong></td>
@@ -95,8 +96,14 @@ require '../controllers/cart.db.php';
                      <tr>
                         <td><strong><a style="color: #258ED9;" href="../controllers/add-to-cart.php?id=<?php echo $topOffers->id[$i] ?>">Add to Cart</a></strong></td>
                     </tr>
+                     <tr>
+                        <td><strong><input step="1" name="qty" value="0" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
+                    </tr>
                     <tr>
                         <td><div class="item active" id="item"><image class="productImage" src="<?php echo $topOffers->img_tag[$i] ?>" alt="Image not found"></div></td>
+                    </tr>
+                     <tr>
+                        <td><strong><a style="color: #258ED9;" href="../portal/product-details.php?id=<?php echo $topOffers->id[$i] ?>">More details</a></strong></td>
                     </tr>
                     <tr>
                         <td><strong> $<?php echo number_format($topOffers->price[$i], 2) ?> </strong></td>
@@ -105,6 +112,7 @@ require '../controllers/cart.db.php';
                         <td><strong> <?php echo $offers->unit[$i] ?> </strong></td>
                     </tr>                   
                 </table>
+        </form>
             <?php } ?>
         </div>
 
