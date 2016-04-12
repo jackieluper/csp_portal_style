@@ -2,7 +2,7 @@
 session_start();
 require 'config.php';
 
-$id = $_GET['id'];
+$id = $_POST['id'];
 $qty = $_POST['qty'];
 
 echo 'id: ' . $id . '<br>';
