@@ -81,7 +81,7 @@ if ($resOffer->num_rows > 0) {
                         <td class="subscriptionDetails" style="font-size: 22px; text-align:center" colspan="3" ><p><?php echo $details ?></p></td>
                     </tr>
                      <tr>
-                         <td class="subscriptionDetails" style="font-size: 16px; text-align:center" colspan="3" ><strong>$<?php echo $price ?> per <?php echo $purchase_unit ?></strong></td>
+                         <td class="subscriptionDetails" style="font-size: 16px; text-align:center" colspan="3" ><strong>$<?php echo number_format($price, 2) ?> per <?php echo $purchase_unit ?></strong></td>
                     </tr>
                     <tr>
                         <td class="subscriptionInfo" colspan="3" style="text-align: center"><input type="hidden" name="id" value="<?php echo $id ?>"><strong>Quantity: </strong><input step="1" name="qty" value="" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
