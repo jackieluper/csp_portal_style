@@ -1,5 +1,5 @@
 function onClick(callback) {
-    var intervalID = window.setInterval(checkReady, 1000);
+    var intervalID = window.setInterval(checkReady, 100);
 
     function checkReady() {
         if (document.getElementsByTagName('div')[0] !== undefined) {
