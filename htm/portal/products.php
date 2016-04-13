@@ -14,6 +14,7 @@ require '../controllers/cart.db.php';
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
     <script src='../../js/ms-style-menu.js'></script>
     <script src='../../js/ms-style-cart.js'></script>
+    <script src="../../js/loading.js"></script>
     <script src='../../js/main.js'></script>
 </head>
 <div id="horizontalNav">

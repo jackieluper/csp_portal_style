@@ -23,7 +23,8 @@ if (isset($_SESSION['invoiceId'])) {
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
     <script src='../lib/ms-style-menu.js'></script>
-    <script src="../../js/main.js"></script>
+    <script src="../../js/loading.js"></script>
+    <script src='../../js/main.js'></script>
 </head>
 <body>
     <div id="horizontalNav">

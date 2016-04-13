@@ -4,7 +4,6 @@ Date: 2/09/16
 Managed Solution
 -->
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 require "../controllers/config.php";
 require '../controllers/admin.db.php';
@@ -19,6 +18,7 @@ require '../controllers/admin.db.php';
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
     <script src='../lib/ms-style-menu.js'></script>
     <script src="../../js/loading.js"></script>
+    <script src='../../js/main.js'></script>
 </head>
 <body>
     <div id="page">

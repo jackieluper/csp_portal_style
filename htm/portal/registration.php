@@ -13,10 +13,11 @@ require '../controllers/config.php'
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type= "text/javascript" src = "../../js/countries_dropdown.js"></script>
-    <script type= "text/javascript" src = "../../js/main.js"></script>
-    <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
+    <script src="../../js/loading.js"></script>
+    <script type= "text/javascript" src = "../../js/main.js"></script>    
 </head>
 <div class="header-white"></div>
 <div class="ss-stand-alone">
@@ -85,10 +86,10 @@ require '../controllers/config.php'
                 <td class="row3"><select class="countrySelect" name="state" id="state" onchange="(getState())" required></select></td>
                 <td class="row3" ><input class="form-control" type="text" name="zip" id="zip" placeholder="required" onkeyup="validateZip(this)" required></td>
                 <td class="row3">
-                    </td>
-                
+                </td>
+
             </tr>
-           
+
         </table>
         <div class="page-header">
             <h2>PRIMARY CONTACT</h2> 
