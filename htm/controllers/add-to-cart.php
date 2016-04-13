@@ -74,6 +74,7 @@ if ($result5->num_rows > 0) {
         echo 'test4';
     }
 }
+
 for ($i = 0; $i < count($subscriptionList); $i++) {
     $subscription_id = $subscriptionList[$i]->getOfferId();
     $subscription_name = $subscriptionList[$i]->getOfferName();
