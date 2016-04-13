@@ -3,8 +3,10 @@
  Date: 2/17/16
  Managed Solution
  */
-$("nav").click(function () {
-    
+$(document).click(function (e) {
+     if($(e.target).is('nav')){
+            return false;
+        }
     show('page', false);
     show('loading', true);
 
