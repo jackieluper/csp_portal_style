@@ -17,7 +17,6 @@ require '../controllers/cart.db.php';
     <script src="../../js/loading.js"></script>
     <script src='../../js/main.js'></script>
 </head>
-<body>
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
         <ul>
@@ -44,7 +43,9 @@ require '../controllers/cart.db.php';
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-<div id="page">
+
+<body>
+    <div id="loading"></div>
     <nav class="sidecart">
         <a href="#" class="cart-toggle-btn">Cart</a>
         <table class="cartTable" >
@@ -149,7 +150,6 @@ require '../controllers/cart.db.php';
             </table>
         </div>
     </div>
-</div>
-
-<div id="loading"></div>
 </body>
+
+
