@@ -73,7 +73,7 @@ if ($result5->num_rows > 0) {
         echo 'test4';
     }
 }
-for ($i = 0; $i < count($subscriptionList); $i++) {
+for($i = 0; $i < count($subscriptionList); $i++) {
     $subscription_id = $subscriptionList[$i]->getOfferId();
     $subscription_name = $subscriptionList[$i]->getOfferName();
     echo $subscription_name . '<br>';
@@ -83,6 +83,8 @@ for ($i = 0; $i < count($subscriptionList); $i++) {
         break;
     }
 }
+
+
 //query to add the selected item to the cart with corresponding customer info
 $sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty, sku, offer_uri) 
 VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '$qty', '$transactionId', '0', '$offerSku', '$offerUri')" or die(mysql_error());
