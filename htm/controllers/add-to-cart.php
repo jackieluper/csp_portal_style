@@ -8,6 +8,7 @@ session_start();
 require("config.php");
 require "../api/client/_init.php";
 
+$found = false;
 $customer_id = $_SESSION['custId'];
 $customerTenantId = $_SESSION['tid'];
 $subscription = new Subscription($customerTenantId);
@@ -73,38 +74,43 @@ if ($result5->num_rows > 0) {
         echo 'test4';
     }
 }
-for($i = 0; $i < count($subscriptionList); $i++) {
+for ($i = 0; $i < count($subscriptionList); $i++) {
     $subscription_id = $subscriptionList[$i]->getOfferId();
     $subscription_name = $subscriptionList[$i]->getOfferName();
     echo $subscription_name . '<br>';
     if ($subscription_name == "$offerName") {
+        $found = true;
         $_SESSION['itemNum'] = $i;
         header("Location: ../portal/subscriptionInfo.php");
+        break;
     }
 }
 
-
+if ($found = false) {
 //query to add the selected item to the cart with corresponding customer info
-$sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty, sku, offer_uri) 
+    $sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty, sku, offer_uri) 
+VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '$qty', '$transactionId', '0', '$offerSku', '$offerUri')" or die(mysql_error());
+//query to add the selected item to the cart with corresponding customer info
+    $sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty, sku, offer_uri) 
 VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '$qty', '$transactionId', '0', '$offerSku', '$offerUri')" or die(mysql_error());
 //if they already have in cart increment qty 
-if ($result3->num_rows > 0) {
-    while ($row = $result3->fetch_assoc()) {
-        $qty = $row['qty'] + $qty;
-        $sql4 = "UPDATE cart SET qty='" . $qty . "' where items='" . $offerID . "'";
-        if ($conn->query($sql4) === TRUE) {
-            //header('Location: ../portal/products.php');
-        } else {
-            echo "Error updating record: " . $conn->error;
+    if ($result3->num_rows > 0) {
+        while ($row = $result3->fetch_assoc()) {
+            $qty = $row['qty'] + $qty;
+            $sql4 = "UPDATE cart SET qty='" . $qty . "' where items='" . $offerID . "'";
+            if ($conn->query($sql4) === TRUE) {
+                //header('Location: ../portal/products.php');
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
         }
     }
-}
 //else just add to the cart and redirect back to product page
-else if ($conn->query($sql2) === TRUE) {
-    //header('Location: ../portal/products.php');
-} else {
-    echo "Error: " . $sql2 . "<br>" . $conn->error;
-}
+    else if ($conn->query($sql2) === TRUE) {
+        //header('Location: ../portal/products.php');
+    } else {
+        echo "Error: " . $sql2 . "<br>" . $conn->error;
+    }
 //close DB connection
-$conn->close();
-?>
+    $conn->close();
+    ?>
