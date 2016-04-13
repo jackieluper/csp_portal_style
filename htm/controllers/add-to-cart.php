@@ -78,6 +78,7 @@ for ($i = 0; $i < count($subscriptionList); $i++) {
     $subscription_name = $subscriptionList[$i]->getOfferName();
     echo $subscription_name . '<br>';
     if ($subscription_name == "$offerName") {
+        $_SESSION['itemNum'] = $i;
         header("Location: ../portal/subscriptionInfo.php");
         break;
     }
