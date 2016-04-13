@@ -79,6 +79,7 @@ for ($i = 0; $i < count($subscriptionList); $i++) {
     echo $subscription_name . '<br>';
     if ($subscription_name == "$offerName") {
         header("Location: ../portal/subscriptionInfo.php");
+        break;
     }
 }
 //query to add the selected item to the cart with corresponding customer info
