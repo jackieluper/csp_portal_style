@@ -816,12 +816,20 @@ a.logohover{
     height: 35px;
     color: #fff;
 }
-.loader {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    background: url('../htm/img/loading1.gif') 50% 50% no-repeat rgb(249,249,249);
+#page {
+    display: none;
+    
+}
+#loading {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    background-image: url("../htm/img/loading1.gif");
+    background-repeat: no-repeat;
+    background-position: center;
 }
