@@ -78,7 +78,7 @@ for ($i = 0; $i < count($subscriptionList); $i++) {
     $subscription_name = $subscriptionList[$i]->getOfferName();
     echo $subscription_name . '<br>';
     if ($subscription_name == "$offerName") {
-        echo 'its in the list.';
+        header("Location: ../portal/subscriptionInfo.php");
     }
 }
 //query to add the selected item to the cart with corresponding customer info
@@ -90,7 +90,7 @@ if ($result3->num_rows > 0) {
         $qty = $row['qty'] + $qty;
         $sql4 = "UPDATE cart SET qty='" . $qty . "' where items='" . $offerID . "'";
         if ($conn->query($sql4) === TRUE) {
-            //header('Location: ../portal/products.php');
+            header('Location: ../portal/products.php');
         } else {
             echo "Error updating record: " . $conn->error;
         }
@@ -98,7 +98,7 @@ if ($result3->num_rows > 0) {
 }
 //else just add to the cart and redirect back to product page
 else if ($conn->query($sql2) === TRUE) {
-    //header('Location: ../portal/products.php');
+    header('Location: ../portal/products.php');
 } else {
     echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
