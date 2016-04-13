@@ -9,10 +9,10 @@ $(document).click(function () {
 
 });
 
-window.onload = function () {
+$(document).onload(function () {
     show('page', true);
     show('loading', false);
-};
+});
 //Password check
 function validate() {
     var password1 = $("#password").val();
