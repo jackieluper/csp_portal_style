@@ -77,7 +77,7 @@ for ($i = 0; $i < count($subscriptionList); $i++) {
     $subscription_id = $subscriptionList[$i]->getOfferId();
     $subscription_name = $subscriptionList[$i]->getOfferName();
     echo $subscription_name . '<br>';
-    if ($subscription_name[$i] == $offerName) {
+    if ($subscription_name == "$offerName") {
         echo 'its in the list.';
     }
 }
