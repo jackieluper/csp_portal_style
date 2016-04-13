@@ -3,7 +3,11 @@
  Date: 2/17/16
  Managed Solution
  */
-$(document).click(function () {
+$(document).click(function (e) {
+    if($(e.target).is('nav')){
+            e.preventDefault();
+            return;
+        }
     show('page', false);
     show('loading', true);
 
