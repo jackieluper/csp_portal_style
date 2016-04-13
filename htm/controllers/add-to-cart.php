@@ -80,6 +80,7 @@ for ($i = 0; $i < count($subscriptionList); $i++) {
     echo $subscription_name . '<br>';
     if ($subscription_name == "$offerName") {
         $found = true;
+        $_SESSION['updateQty'] = $qty;
         $_SESSION['itemNum'] = $i;
         header("Location: ../portal/subscriptionInfo.php");
         break;

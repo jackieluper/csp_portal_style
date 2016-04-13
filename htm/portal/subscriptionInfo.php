@@ -11,6 +11,12 @@ if (isset($_POST['itemNum'])) {
 } else {
     $i = $_SESSION['itemNum'];
 }
+if(isset($_SESSION['updateQty'])){
+    $updateQty = $_SESSION['updateQty'];
+}
+else{
+    $updateQty = 0;
+}
 ?>
 <head>
     <title>My Subscriptions</title>
@@ -79,7 +85,7 @@ if (isset($_POST['itemNum'])) {
                         </tr>
                         <tr>
                             <td class="subscriptionTitle">Change total # license's: </td>
-                            <td class="subscriptionInfo"><input step="1" name="qty" value="<?php echo $subscriptionList[$i]->getQuantity() ?>" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
+                            <td class="subscriptionInfo"><input step="1" name="qty" value="<?php echo $subscriptionList[$i]->getQuantity() + $qty; ?>" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
                             <td style="align-content: left"><button class="updateQtyBtn" type="submit">Update License's</button></td>
                         </tr>
 
