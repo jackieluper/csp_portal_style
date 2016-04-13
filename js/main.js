@@ -3,7 +3,7 @@
  Date: 2/17/16
  Managed Solution
  */
-/*
+
 $('body').click (function onClick(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
 
@@ -14,12 +14,11 @@ $('body').click (function onClick(callback) {
         }
     }
 });
-*/
 function show(id, value) {
     document.getElementById(id).style.display = value ? 'block' : 'none';
 }
 
-onClick(function () {
+onReady(function () {
     show('page', true);
     show('loading', false);
 });
