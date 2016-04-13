@@ -9,7 +9,7 @@ $(document).click(function () {
 
 });
 
-$(document).onload(function () {
+$(window).bind("load", function() {
     show('page', true);
     show('loading', false);
 });
