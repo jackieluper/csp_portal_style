@@ -3,16 +3,20 @@
  Date: 2/17/16
  Managed Solution
  */
-function onClick(callback) {
-    var intervalID = window.setInterval(checkReady, 1000);
+$(document).click(function () {
+     show('page', false);
+    show('loading', true);
+    function onClick(callback) {
+        var intervalID = window.setInterval(checkReady, 1000);
 
-    function checkReady() {
-        if (document.getElementsByTagName('body')[0] !== undefined) {
-            window.clearInterval(intervalID);
-            callback.call(this);
+        function checkReady() {
+            if (document.getElementsByTagName('body')[0] !== undefined) {
+                window.clearInterval(intervalID);
+                callback.call(this);
+            }
         }
     }
-}
+});
 
 function show(id, value) {
     document.getElementById(id).style.display = value ? 'block' : 'none';
@@ -156,23 +160,21 @@ function validateCardNumber() {
 }
 function validateCardDate() {
     var text = document.getElementById("billing-cc-exp");
-    var x = $("#billing-cc-exp").val();    
+    var x = $("#billing-cc-exp").val();
     var date_array = x.split('/');
-    var month = date_array[0] -1;
+    var month = date_array[0] - 1;
     var year = date_array[1];
-    
+
     source_date = new Date();
     source_date.getFullYear();
-    
-    if(year >= source_date.getFullYear()){
-        if(month >= source_date.getMonth()){
+
+    if (year >= source_date.getFullYear()) {
+        if (month >= source_date.getMonth()) {
             text.setCustomValidity("");
-        }
-        else {
+        } else {
             text.setCustomValidity("Not a valid Expiration Date! \nEX:MM/YYYY");
         }
-    }
-    else {
+    } else {
         text.setCustomValidity("Not a valid Expiration Date!");
     }
 }
