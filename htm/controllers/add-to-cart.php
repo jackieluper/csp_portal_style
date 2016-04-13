@@ -4,8 +4,18 @@ Date: 2/17/16
 Managed Solution
 -->
 <?php
-require("config.php");
 session_start();
+require("config.php");
+require "../api/client/_init.php";
+
+$_SESSION['itemNum'] = $i;
+$_SESSION['qty'] = $qty;
+$customer_id = $_SESSION['custId'];
+$customerTenantId = $_SESSION['tid'];
+$subscription = new Subscription($customerTenantId);
+$subscriptionList = $subscription->getSubscriptionList();
+$subscription_id = $subscriptionList[$i]->getOfferId();
+$subscription_name = $subscriptionList[$i]->getOfferName();
 
 //getting the offer id which is the id of the item selected
 $offerID = $_POST['id'];
@@ -66,7 +76,11 @@ if ($result5->num_rows > 0) {
          echo 'test4';
     }
 }
-
+for($i = 0; $i < count($subscription_name); $i++){
+    if($subscription_name[$i] == $offerName){
+        echo 'its in the list.';
+    }
+}
 //query to add the selected item to the cart with corresponding customer info
 $sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty, sku, offer_uri) 
 VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '$qty', '$transactionId', '0', '$offerSku', '$offerUri')" or die(mysql_error());
