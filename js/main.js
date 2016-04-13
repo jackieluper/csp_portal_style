@@ -16,11 +16,7 @@ $(document).click(function () {
         }
     });
 
-function show(id, value) {
-    document.getElementById(id).style.display = value ? 'block' : 'none';
-}
-
-onReady(function () {
+$(document).ready(function () {
     show('page', true);
     show('loading', false);
 });
