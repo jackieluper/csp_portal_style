@@ -17,6 +17,7 @@ require '../controllers/cart.db.php';
     <script src="../../js/loading.js"></script>
     <script src='../../js/main.js'></script>
 </head>
+<body>
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
         <ul>
@@ -149,4 +150,5 @@ require '../controllers/cart.db.php';
         </div>
     </div>
 </div>
+</body>
 <div id="loading"></div>

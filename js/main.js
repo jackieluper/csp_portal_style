@@ -4,7 +4,7 @@
  Managed Solution
  */
 
-$('body').click (function onReady(callback) {
+$('body').click(function onReady(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
 
     function checkReady() {
