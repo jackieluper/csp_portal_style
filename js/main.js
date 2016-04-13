@@ -5,6 +5,8 @@
  */
 
 $('body').click (function onClick(callback) {
+    show('page', false);
+    show('loading', true);
     var intervalID = window.setInterval(checkReady, 1000);
 
     function checkReady() {
