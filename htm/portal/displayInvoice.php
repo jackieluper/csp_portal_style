@@ -80,8 +80,7 @@ if (isset($_SESSION['invoiceId'])) {
                 </div>
             </div>
         </div>
-    </div>
-    <div id="loading"></div>
+    
     <script type="text/javascript">
         function printDiv(divName) {
             var printContents = document.getElementById(divName).innerHTML;
@@ -94,3 +93,5 @@ if (isset($_SESSION['invoiceId'])) {
             document.body.innerHTML = originalContents;
         }
     </script>
+    </div>
+    <div id="loading"></div>
