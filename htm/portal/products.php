@@ -150,5 +150,6 @@ require '../controllers/cart.db.php';
         </div>
     </div>
 </div>
-</body>
+
 <div id="loading"></div>
+</body>
