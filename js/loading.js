@@ -11,4 +11,9 @@ function onClick(callback) {
 
 function show(id, value) {
     document.getElementById(id).style.display = value ? 'block' : 'none';
-};
+}
+
+onClick(function () {
+    show('page', true);
+    show('loading', false);
+});
