@@ -2,8 +2,8 @@ $(function () {
     $("li").on("click", function () {
         var intervalID = window.setInterval(checkReady, 1000);
 
-        show('page', false);
-        show('loading', true);
+        show('page', true);
+        show('loading', false);
     });
 });
 
