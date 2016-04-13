@@ -4,9 +4,7 @@
  Managed Solution
  */
 
-$('body').click (function onClick(callback) {
-    show('page', false);
-    show('loading', true);
+$('body').click (function onReady(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
 
     function checkReady() {
@@ -16,11 +14,12 @@ $('body').click (function onClick(callback) {
         }
     }
 });
+
 function show(id, value) {
     document.getElementById(id).style.display = value ? 'block' : 'none';
 }
 
-$(document).ready(function (){
+onReady(function () {
     show('page', true);
     show('loading', false);
 });
