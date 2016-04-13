@@ -12,8 +12,7 @@ $customer_id = $_SESSION['custId'];
 $customerTenantId = $_SESSION['tid'];
 $subscription = new Subscription($customerTenantId);
 $subscriptionList = $subscription->getSubscriptionList();
-$subscription_id = $subscriptionList[$i]->getOfferId();
-$subscription_name = $subscriptionList[$i]->getOfferName();
+
 
 //getting the offer id which is the id of the item selected
 $offerID = $_POST['id'];
@@ -45,7 +44,7 @@ if ($resultId->num_rows > 0) {
     while ($row = $resultId->fetch_assoc()) {
         $offerSku = $row['sku'];
         $offerUri = $row['offer_uri'];
-         echo 'test2';
+        echo 'test2';
     }
 }
 
@@ -57,7 +56,7 @@ if ($result1->num_rows > 0) {
     while ($row = $result1->fetch_assoc()) {
         $erpPrice = $row['erp_price'];
         $listPrice = $row['list_price'];
-         echo 'test3';
+        echo 'test3';
     }
 }
 //setting query to get item already in cart and increment
@@ -71,11 +70,13 @@ $result5 = $conn->query($sql5);
 if ($result5->num_rows > 0) {
     while ($row = $result5->fetch_assoc()) {
         $offerName = $row['display_name'];
-         echo 'test4';
+        echo 'test4';
     }
 }
-for($i = 0; $i < count($subscription_name); $i++){
-    if($subscription_name[$i] == $offerName){
+for ($i = 0; $i < count($subscription_name); $i++) {
+    $subscription_id = $subscriptionList[$i]->getOfferId();
+    $subscription_name = $subscriptionList[$i]->getOfferName();
+    if ($subscription_name[$i] == $offerName) {
         echo 'its in the list.';
     }
 }
