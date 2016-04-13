@@ -1,19 +1,9 @@
-function onClick(callback) {
-    var intervalID = window.setInterval(checkReady, 1000);
+$(document).live("onchange", function () {
+    show('page', false);
+    show('loading', true);
+});
 
-    function checkReady() {
-        if (document.getElementsByTagName('div')[0] !== undefined) {
-            window.clearInterval(intervalID);
-            callback.call(this);
-        }
-    }
-}
-
-function show(id, value) {
-    document.getElementById(id).style.display = value ? 'block' : 'none';
-}
-
-onClick(function () {
+$(window).load(function () {
     show('page', true);
     show('loading', false);
 });
