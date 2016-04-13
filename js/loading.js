@@ -3,7 +3,11 @@ $(document).live("onchange", function () {
     show('loading', true);
 });
 
-$(window).load(function () {
-    show('page', true);
+$(document).ready(function()
+{
+    $(document).live("onchange",function()
+    {
+        show('page', true);
     show('loading', false);
+    });
 });
