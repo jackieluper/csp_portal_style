@@ -6,7 +6,6 @@
 $(document).click(function () {
      show('page', false);
     show('loading', true);
-    function onClick(callback) {
         var intervalID = window.setInterval(checkReady, 1000);
 
         function checkReady() {
@@ -15,8 +14,7 @@ $(document).click(function () {
                 callback.call(this);
             }
         }
-    }
-});
+    });
 
 function show(id, value) {
     document.getElementById(id).style.display = value ? 'block' : 'none';
