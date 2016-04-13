@@ -11,12 +11,6 @@ require '../controllers/cart.db.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(window).load(function () {
-            $(".loader").fadeOut("slow");
-        })
-    </script>
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
     <script src='../../js/ms-style-menu.js'></script>
     <script src='../../js/ms-style-cart.js'></script>
@@ -49,9 +43,7 @@ require '../controllers/cart.db.php';
         <li><img class='icon' src='../img/icons/logout.png' alt='Logout' ><a href='../controllers/logout.php'>Logout</a><br></li>
     </ul>
 </nav>
-
-<body>
-    <div id="loading"></div>
+<div id="page">
     <nav class="sidecart">
         <a href="#" class="cart-toggle-btn">Cart</a>
         <table class="cartTable" >
@@ -156,6 +148,5 @@ require '../controllers/cart.db.php';
             </table>
         </div>
     </div>
-</body>
-
-
+</div>
+<div id="loading"></div>
