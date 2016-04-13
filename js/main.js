@@ -3,14 +3,10 @@
  Date: 2/17/16
  Managed Solution
  */
-$(document).click(function () {
-    if ($(this.target).is('nav')) {
-        this.preventDefault();
-        return;
-    } else {
-        show('page', false);
-        show('loading', true);
-    }
+$('nav').click(function () {
+    
+    show('page', false);
+    show('loading', true);
 
 });
 
