@@ -3,7 +3,7 @@
  Date: 2/17/16
  Managed Solution
  */
-$('nav').click(function () {
+$("nav").click(function () {
     
     show('page', false);
     show('loading', true);
