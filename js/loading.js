@@ -17,8 +17,8 @@ $(document).ready(function () {
         }
 
         onClick(function () {
-            show('page', true);
-            show('loading', false);
+            show('page', false);
+            show('loading', true);
         });
         alert('ho ho ho');
     });
