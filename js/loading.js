@@ -1,4 +1,5 @@
-window.onbeforeunload = function onClick(callback) {
+
+function onClick(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
 
     function checkReady() {
