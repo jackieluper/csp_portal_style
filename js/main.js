@@ -3,17 +3,7 @@
  Date: 2/17/16
  Managed Solution
  */
-$(document).click(function () {
-    if (event.target.matches('.icon')){
-    show('page', false);
-    show('loading', true);
-    }
-});
 
-$(window).load(function () {
-    show('page', true);
-    show('loading', false);
-})
 //Password check
 function validate() {
     var password1 = $("#password").val();
