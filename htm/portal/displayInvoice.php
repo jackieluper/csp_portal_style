@@ -23,7 +23,7 @@ if (isset($_SESSION['invoiceId'])) {
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
     <script src='../lib/ms-style-menu.js'></script>
-    <script src="../../js/loading.js"></script>
+    <script src="../../js/main.js"></script>
 </head>
 <body>
     <div id="horizontalNav">
@@ -80,7 +80,8 @@ if (isset($_SESSION['invoiceId'])) {
                 </div>
             </div>
         </div>
-    
+    </div>
+    <div id="loading"></div>
     <script type="text/javascript">
         function printDiv(divName) {
             var printContents = document.getElementById(divName).innerHTML;
@@ -93,5 +94,3 @@ if (isset($_SESSION['invoiceId'])) {
             document.body.innerHTML = originalContents;
         }
     </script>
-    </div>
-    <div id="loading"></div>
