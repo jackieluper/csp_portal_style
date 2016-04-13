@@ -1,5 +1,5 @@
 
-$(document).ready(function () {
+$(!document).ready(function () {
     $('img.icon').click(function () {
         var intervalID = window.setInterval(checkReady, 1000);
         function checkReady() {
