@@ -8,8 +8,6 @@ session_start();
 require("config.php");
 require "../api/client/_init.php";
 
-$_SESSION['itemNum'] = $i;
-$_SESSION['qty'] = $qty;
 $customer_id = $_SESSION['custId'];
 $customerTenantId = $_SESSION['tid'];
 $subscription = new Subscription($customerTenantId);
