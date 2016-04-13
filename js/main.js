@@ -3,8 +3,7 @@
  Date: 2/17/16
  Managed Solution
  */
-
-$('body').click(function onReady(callback) {
+function onClick(callback) {
     var intervalID = window.setInterval(checkReady, 1000);
 
     function checkReady() {
@@ -13,17 +12,16 @@ $('body').click(function onReady(callback) {
             callback.call(this);
         }
     }
-});
+}
 
 function show(id, value) {
     document.getElementById(id).style.display = value ? 'block' : 'none';
 }
 
-onReady(function () {
+onClick(function () {
     show('page', true);
     show('loading', false);
 });
-
 //Password check
 function validate() {
     var password1 = $("#password").val();
