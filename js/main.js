@@ -4,17 +4,10 @@
  Managed Solution
  */
 $(document).click(function () {
-     show('page', false);
+    show('page', false);
     show('loading', true);
-        var intervalID = window.setInterval(checkReady, 1000);
 
-        function checkReady() {
-            if (document.getElementsByTagName('body')[0] !== undefined) {
-                window.clearInterval(intervalID);
-                onReady(this);
-            }
-        }
-    });
+});
 
 $(document).ready(function () {
     show('page', true);
