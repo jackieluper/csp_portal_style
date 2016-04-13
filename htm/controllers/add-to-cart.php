@@ -97,7 +97,7 @@ VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPri
             $qty = $row['qty'] + $qty;
             $sql4 = "UPDATE cart SET qty='" . $qty . "' where items='" . $offerID . "'";
             if ($conn->query($sql4) === TRUE) {
-                //header('Location: ../portal/products.php');
+                header('Location: ../portal/products.php');
             } else {
                 echo "Error updating record: " . $conn->error;
             }
@@ -105,7 +105,7 @@ VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPri
     }
 //else just add to the cart and redirect back to product page
     else if ($conn->query($sql2) === TRUE) {
-        //header('Location: ../portal/products.php');
+        header('Location: ../portal/products.php');
     } else {
         echo "Error: " . $sql2 . "<br>" . $conn->error;
     }
