@@ -25,7 +25,6 @@ require '../controllers/cart.db.php';
     </div>
 </div>
 <nav class="menu">
-    <a href="#" class="nav-toggle-btn">Menu</a>
     <ul>
         <?php if ($_SESSION['role'] >= $userRole) { ?>
             <li><img class='icon' src='../img/icons/software.png' alt='Products' ><a href='../portal/products.php'>Products</a><br></li>
