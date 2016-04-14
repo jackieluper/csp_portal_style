@@ -58,9 +58,7 @@ $newCustomerStmt = "INSERT INTO customer (customer_name, entity_type, billing_id
 $newCustRes = $conn->query($newCustomerStmt);
 
 if ($newCustRes) {
-    
-    $conn->close();
-    
+        
     $compIdStmt = "Select id from customer where customer_name='$sf_company_name'";
     $compIdRes = $conn->query($compIdStmt);
     
@@ -68,7 +66,6 @@ if ($newCustRes) {
         
         $sf_company_id = $row['id'];
         
-        $conn->close();
     }
     
     $checkUserStmt = "Select username from user where username='$sf_user_name'";
@@ -77,7 +74,6 @@ if ($newCustRes) {
     if ($checkUserRes->num_rows > 0) {
         
         echo "User already exists";
-        $conn->close();
         
     } else {
         
@@ -86,19 +82,17 @@ if ($newCustRes) {
         
         if ($newCustRes) {
             
-            $conn->close();
             header("Location: ../portal/regSuccess.phtml");
             
         } else {
             
             echo "Error: " . $newUserStmt . "<br>" . $conn->error;
-            $conn->close();
+            
         }
     }
 } else {
     
     echo "Error: " . $newCustomerStmt . "<br>" . $conn->error;
-    $conn->close();
     
 }
   
