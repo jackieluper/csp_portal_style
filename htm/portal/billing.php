@@ -14,9 +14,9 @@ $tid = $_SESSION['tid'];
 // API Setup parameters
 $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
 $APIKey = 'CkdE324pr5pYCn5B6aMyVpW2z7qtBK6M';
-
+$sf_cust_id =  $conn->real_escape_string($_SESSION['custId']);
 //Getting transaction ID to add to reciept for customer reference
-$sqlTran = "SELECT transaction_id, updat_qty FROM cart WHERE customer_id='" . $_SESSION['custId'] . "'";
+$sqlTran = "SELECT transaction_id, updat_qty FROM cart WHERE customer_id='$sf_cust_id'";
 $resultTran = $conn->query($sqlTran);
 if ($resultTran->num_rows > 0) {
     while ($row = $resultTran->fetch_assoc()) {
@@ -144,7 +144,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     $xmlSale->appendChild($xmlBillingAddress);
 
     //Get cart items and add to reciept
-    $sql = "SELECT item_name, sku, msrp, qty from cart where customer_id='" . $_SESSION['custId'] . "'";
+    $sql = "SELECT item_name, sku, msrp, qty from cart where customer_id='$sf_cust_id'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -334,7 +334,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             $order->submitOrder();
 
             $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
-            VALUES(" . $_SESSION['custId'] . ", '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
+            VALUES('$sf_cust_id', '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
             $resultInvoice = $conn->query($sqlInvoice);
 
             print '
@@ -352,7 +352,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <div><strong>Sale Total: ' . $amount . '</strong></div><br>
         </form>
         </div>';
-        $sqlDelete = "DELETE FROM cart where customer_id='" . $_SESSION['custId'] . "'";
+        $sqlDelete = "DELETE FROM cart where customer_id='$sf_cust_id'";
         $resultDelete = $conn->query($sqlDelete);
 
         print "
