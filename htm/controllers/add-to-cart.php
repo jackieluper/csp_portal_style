@@ -16,8 +16,9 @@ $subscriptionList = $subscription->getSubscriptionList();
 
 
 //getting the offer id which is the id of the item selected
-$offerID = $_POST['id'];
-$qty = $_POST['qty'];
+$sf_offer_id = $conn->real_escape_string($_POST['id']);
+$sf_user_name = $conn->real_escape_string($_SESSION['user']);
+$qty = intval($_POST['qty']);
 //getting last transaction id
 $sqlGetTran = "SELECT transaction_id FROM transactions ORDER BY transaction_id DESC LIMIT 1";
 $tranResult = $conn->query($sqlGetTran);
@@ -29,7 +30,7 @@ if ($tranResult->num_rows > 0) {
     $transactionId = 1;
 }
 //setting query to get customer id for the user that has logged on
-$sql = "SELECT customer_id from user WHERE username='" . $_SESSION['user'] . "'";
+$sql = "SELECT customer_id from user WHERE username='$sf_user_name'";
 $result = $conn->query($sql);
 
 //grabbing the customer id if exists and storing it to php variable
@@ -39,7 +40,7 @@ if ($result->num_rows > 0) {
     }
 }
 //Grabbing the sku for the product selected
-$sqlId = "SELECT sku, offer_uri from offer WHERE id='" . $offerID . "'";
+$sqlId = "SELECT sku, offer_uri from offer WHERE id='$sf_offer_id'";
 $resultId = $conn->query($sqlId);
 if ($resultId->num_rows > 0) {
     while ($row = $resultId->fetch_assoc()) {
@@ -50,7 +51,7 @@ if ($resultId->num_rows > 0) {
 }
 
 //setting query to get our price, and resale price for the offer selected
-$sql1 = "SELECT list_price, erp_price from offer_price WHERE offer_id='" . $offerID . "'";
+$sql1 = "SELECT list_price, erp_price from offer_price WHERE offer_id='$sf_offer_id'";
 $result1 = $conn->query($sql1);
 //grabbing our price and resale price(erp)
 if ($result1->num_rows > 0) {
@@ -61,11 +62,11 @@ if ($result1->num_rows > 0) {
     }
 }
 //setting query to get item already in cart and increment
-$sql3 = "SELECT qty from cart where items='" . $offerID . "'";
+$sql3 = "SELECT qty from cart where items='$sf_offer_id'";
 $result3 = $conn->query($sql3);
 
 //setting query to get the display name from offers
-$sql5 = "SELECT display_name from offer where id='" . $offerID . "'";
+$sql5 = "SELECT display_name from offer where id='$sf_offer_id'";
 $result5 = $conn->query($sql5);
 //grabbing the display name from offers
 if ($result5->num_rows > 0) {
@@ -91,7 +92,7 @@ for ($i = 0; $i < count($subscriptionList); $i++) {
 if ($found == false) {
 //query to add the selected item to the cart with corresponding customer info
     $sql2 = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty, sku, offer_uri) 
-VALUES ('$custID', '$offerID', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '$qty', '$transactionId', '0', '$offerSku', '$offerUri')" or die(mysql_error());
+VALUES ('$custID', '$sf_offer_id', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '$qty', '$transactionId', '0', '$offerSku', '$offerUri')" or die(mysql_error());
 
 //if they already have in cart increment qty 
     if ($result3->num_rows > 0) {
