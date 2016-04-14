@@ -44,43 +44,37 @@ $_SESSION['username'] = $userName;
 $_SESSION['pwd'] = $customer->getPassword();
 
 
-$stmt = $conn->prepare("INSERT INTO customer set customer_name= ?, entity_type=?, billing_id=?, company_tid=?, is_provised=?, primary_domain=?, relationship=?, discount=?, active=?");
-$stmt->bind_prepare($companyName, $entity, $billing_id, $tid, '0', $primary_domain, 'Cloud Reseller', '0', '1');
+$newCustStmt = $conn->prepare("INSERT INTO customer set customer_name= ?, entity_type=?, billing_id=?, company_tid=?, is_provised=?, primary_domain=?, relationship=?, discount=?, active=?");
+$newCustStmt->bindParam($companyName, $entity, $billing_id, $tid, '0', $primary_domain, 'Cloud Reseller', '0', '1');
 
-if ($stmt->execute()) {
-    $stmt->close();
-    
-    $stmt = $conn->prepare("Select id from customer where customer_name=?");
-    $stmt->bind_prepare($companyName);
-    $stmt->execute();
+if ($newCustStmt->execute()) {
 
-    if ($stmt->num_rows > 0) {
+    $companyIdStmt = $conn->prepare("Select id from customer where customer_name=?");
+    $companyIdStmt->bind_prepare($companyName);
+    $companyIdStmt->execute();
 
-        $stmt->bind_result($company_id);
-        $stmt->close();
-        
-        $stmt = $conn->prepare("Select username from user where username=?");
-        $stmt->bind_prepare($userName);
-        $stmt->execute();
+    if ($companyIdStmt->num_rows > 0) {
 
-        if ($stmt->num_rows > 0) {
+        $companyIdStmt->bind_result($company_id);
+
+        $userNameStmt = $conn->prepare("Select username from user where username=?");
+        $userNameStmt->bind_prepare($userName);
+        $userNameStmt->execute();
+
+        if ($userNameStmt->num_rows > 0) {
             echo "User already exists";
-            $stmt->close();
         } else {
-            $stmt = $conn->prepare("INSERT INTO user set username='$userName', customer_id='$company_id', commerce_id='$commerce_id', email='$email', role='10', tid='$tid'");
-            $stmt->bind_prepare($userName, $company_id, $commerce_id, $email, '10', $tid);
+            $newUserStmt = $conn->prepare("INSERT INTO user set username='$userName', customer_id='$company_id', commerce_id='$commerce_id', email='$email', role='10', tid='$tid'");
+            $newUserStmt->bind_prepare($userName, $company_id, $commerce_id, $email, '10', $tid);
 
-            if ($stmt->execute()) {
-                $stmt->close();
+            if ($newUserStmt->execute()) {
                 header("Location: ../portal/regSuccess.phtml");
             } else {
-                echo "Error: " . $stmt . "<br>" . $conn->error;
-                $stmt->close();
+                echo "Error: " . $newUserStm . "<br>" . $conn->error;
             }
         }
     } else {
-        echo "Error: " . $stmt . "<br>" . $conn->error;
-        $stmt->close();
+        echo "Error: " . $newCustStmt . "<br>" . $conn->error;
     }
 }
     
