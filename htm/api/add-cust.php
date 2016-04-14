@@ -51,7 +51,7 @@ $sf_entity = $conn->real_escape_string($entity);
 $sf_billing_id =  $conn->real_escape_string($billing_id);
 $sf_tid = $conn->real_escape_string($tid);
 $sf_primary_domain =  $conn->real_escape_string($primary_domain);
-$sql2 = "INSERT INTO customer (customer_name, entity_type, billing_id, company_tid, is_provised, primary_domain, relationship, discount, active 
+$sql2 = "INSERT INTO customer (customer_name, entity_type, billing_id, company_tid, is_provised, primary_domain, relationship, discount, active) 
         VALUES ( '$sf_company_name', '$sf_billing_id', '$sf_tid', '0', '$sf_primary_domain', 'Cloud Reseller', '0', '1')";
 $res = $conn->query($sql2);
 if ($res) {
