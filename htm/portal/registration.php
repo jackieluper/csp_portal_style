@@ -83,7 +83,7 @@ require '../controllers/config.php'
             <tr >
                 <td class="row3"><select class="countrySelect" onload="print_state('state', this.selectedIndex);" id="country" name ="country" required></select>
                     <script language="javascript">print_country("country");</script></td>
-                <td class="row3"><select class="countrySelect" name="state" id="state" onchange="(getState())" required></select></td>
+                <td class="row3"><select class="countrySelect" name="state" id="state" onload="(getState())" required></select></td>
                 <td class="row3" ><input class="form-control" type="text" name="zip" id="zip" placeholder="required" onkeyup="validateZip(this)" required></td>
                 <td class="row3">
                 </td>
