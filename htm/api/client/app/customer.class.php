@@ -215,7 +215,7 @@ class Customer {
 		$this->_billingProfile['Attributes'] = array();
 		$this->_billingProfile['Attributes']['ObjectType'] = 'CustomerBillingProfile';
 		// $this->_userCredentials['userName'] = $this->_username;
-		// $this->_userCredentials['password'] = $this->_password;
+		$this->_userCredentials['password'] = $this->_password;
 		$this->_attributes['ObjectType'] = 'Customer';
 	}
 
