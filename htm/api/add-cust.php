@@ -7,9 +7,12 @@ Managed Solution
 session_start();
 require '../controllers/config.php';
 require_once '../api/client/_init.php';
-
-//Setting form variables to customer object
+//Setting session variables to variable
 //Getting information from new user, setting it to a session variable, and variable
+
+
+
+
 $customer = new Customer();
 
 // optional params: billingCulture, billingLanguage, billingAddressCountry, billingAddressRegion
@@ -43,38 +46,33 @@ $primary_domain = $customer->getCompanyDomain();
 $_SESSION['username'] = $userName;
 $_SESSION['pwd'] = $customer->getPassword();
 
-
-$newCustStmt = $conn->prepare("INSERT INTO customer set customer_name= ?, entity_type=?, billing_id=?, company_tid=?, is_provised=?, primary_domain=?, relationship=?, discount=?, active=?");
-$newCustStmt->bindParam($companyName, $entity, $billing_id, $tid, '0', $primary_domain, 'Cloud Reseller', '0', '1');
-
-if ($newCustStmt->execute()) {
-
-    $companyIdStmt = $conn->prepare("Select id from customer where customer_name=?");
-    $companyIdStmt->bind_prepare($companyName);
-    $companyIdStmt->execute();
-
-    if ($companyIdStmt->num_rows > 0) {
-
-        $companyIdStmt->bind_result($company_id);
-
-        $userNameStmt = $conn->prepare("Select username from user where username=?");
-        $userNameStmt->bind_prepare($userName);
-        $userNameStmt->execute();
-
-        if ($userNameStmt->num_rows > 0) {
-            echo "User already exists";
-        } else {
-            $newUserStmt = $conn->prepare("INSERT INTO user set username='$userName', customer_id='$company_id', commerce_id='$commerce_id', email='$email', role='10', tid='$tid'");
-            $newUserStmt->bind_prepare($userName, $company_id, $commerce_id, $email, '10', $tid);
-
-            if ($newUserStmt->execute()) {
-                header("Location: ../portal/regSuccess.phtml");
-            } else {
-                echo "Error: " . $newUserStm . "<br>" . $conn->error;
-            }
-        }
-    } else {
-        echo "Error: " . $newCustStmt . "<br>" . $conn->error;
+$sf_company_name =  $mysqli->real_escape_string($companyName);
+$sf_entity = $mysqli->real_escape_string($entity);
+$sf_billing_id =  $mysqli->real_escape_string($billing_id);
+$sf_tid = $mysqli->real_escape_string($tid);
+$sf_primary_domain =  $conn->real_escape_string($primary_domain);
+$sql2 = "INSERT INTO customer (customer_name, entity_type, billing_id, company_tid, is_provised, primary_domain, relationship, discount, active 
+        VALUES ( '$sf_company_name', '$sf_billing_id', '$sf_tid', '0', '$sf_primary_domain', 'Cloud Reseller', '0', '1')";
+$res = $conn->query($sql2);
+if ($res) {
+    $sqlCompanyName = "Select id from customer where customer_name='$companyName'";
+    $results = $conn->query($sqlCompanyName);
+    while ($row = $results->fetch_assoc()) {
+        $company_id = $row['id'];
     }
+    $sql1 = "Select * from user where username='$userName'";
+    $results = $conn->query($sql1);
+    if ($results->num_rows > 0) {
+        echo "User already exists";
+    } else {
+        $sql = "INSERT INTO user set username='$userName', customer_id='$company_id', commerce_id='$commerce_id', email='$email', role='10', tid='$tid'";
+        if ($conn->query($sql) == TRUE) {
+            header("Location: ../portal/regSuccess.phtml");
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+} else {
+    echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
-    
+  
