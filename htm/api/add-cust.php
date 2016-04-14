@@ -27,9 +27,7 @@ $customer->
         setBillingAddressPostalCode($_POST['zip'])->
         setBillingAddressFirstName($_POST['fname'])->
         setBillingAddressLastName($_POST['lname'])->
-        setBillingAddressPhoneNumber($_POST['phoneNum'])->
-        setUsername("")->
-        setPassword("");
+        setBillingAddressPhoneNumber($_POST['phoneNum']);
 $customer->createCustomer();
 
 $sf_user_name = 'admin@' . $customer->getCompanyDomain();
