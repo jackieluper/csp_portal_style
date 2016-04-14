@@ -85,7 +85,7 @@ else{
                         </tr>
                         <tr>
                             <td class="subscriptionTitle">Change total # license's: </td>
-                            <td class="subscriptionInfo"><input type="number" step="1" name="qty" value="<?php echo $subscriptionList[$i]->getQuantity() + $updateQty ?>" style="border-style: groove; border-radius: 5px; width: 30%;"></input></td>
+                            <td class="subscriptionInfo"><input type="number" step="1" name="qty" value="<?php echo $subscriptionList[$i]->getQuantity() + $updateQty ?>" style="border-style: groove; border-radius: 5px; width: 35%;"></input></td>
                             <td style="align-content: left"><button class="updateQtyBtn" type="submit">Update License's</button></td>
                         </tr>
 
