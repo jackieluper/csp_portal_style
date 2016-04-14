@@ -13,7 +13,7 @@ function print_country(country_id){
 	var option_str = document.getElementById(country_id);
 	option_str.length=0;
 	option_str.options[0] = new Option('Select Country','');
-	option_str.selectedIndex = 0;
+	option_str.selectedIndex = 1;
 	for (var i=0; i<country_arr.length; i++) {
 		option_str.options[option_str.length] = new Option(country_arr[i],country_arr[i]);
 	}
