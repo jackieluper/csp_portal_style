@@ -98,7 +98,7 @@ VALUES ('$custID', '$sf_offer_id', '$offerName', '$listPrice', '$erpPrice', '$er
     if ($result3->num_rows > 0) {
         while ($row = $result3->fetch_assoc()) {
             $qty = $row['qty'] + $qty;
-            $sql4 = "UPDATE cart SET qty='" . $qty . "' where items='" . $offerID . "'";
+            $sql4 = "UPDATE cart SET qty='" . $qty . "' where items='" . $sf_offer_id . "'";
             if ($conn->query($sql4) === TRUE) {
                 header('Location: ../portal/products.php');
             } else {
