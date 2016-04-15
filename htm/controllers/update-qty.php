@@ -99,7 +99,7 @@ if ($provision == 1) {
                 $tranTotal = $row['total'];
                 $discount = $row['discount_rate'];
                 $totalSavings = $row['total_savings'];
-                $message = $message + "$itemNum "
+                $message1 = "$itemNum "
                         . "--------------"
                         . "Product Name: $productName"
                         . "Product ID: $subscriptionId"
@@ -107,7 +107,7 @@ if ($provision == 1) {
                         . "Product Cost: $ $productCost "
                         . "Product Quantity: $qty ";
             }
-            $message = $message +
+            $message = $message1 .
                     "Discount Rate:  $discount % "
                     . "Total Savings: $totalSavings "
                     . "Sale Total: $ $tranTotal ";
