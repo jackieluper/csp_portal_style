@@ -9,5 +9,5 @@ function mail_utf8($email, $subject, $message)
                "MIME-Version: 1.0" . "\r\n" . 
                "Content-type: text/html; charset=UTF-8" . "\r\n"; 
 
-     return mail($to, $subject, $message, $headers); 
+     return mail($email, $subject, $message, $headers); 
    }
