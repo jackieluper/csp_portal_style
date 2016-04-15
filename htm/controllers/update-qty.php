@@ -47,7 +47,7 @@ $resProvision = $conn->query($sqlProvision);
 if ($resProvision->num_rows > 0) {
     while ($row = $resProvision->fetch_assoc()) {
         $provision = $row['is_provised'];
-        $discount = number_format($row['discount'], 2);
+        $discount = number_format($row['discount'] / 100, 2);
     }
     $sqlgetTranId = "SELECT transaction_id FROM transactions ORDER BY transaction_id DESC LIMIT 1";
     $resTranId = $conn->query($sqlgetTranId);
@@ -83,8 +83,7 @@ if ($provision == 1) {
             $_SESSION['invoiceId'] = $tranId;
 
             $subject = "Invoice #$tranId";
-            $message = "<div ><img class='invoiceLogo' src='../img/MS_Logo_orange_small.png' alt=' $companyName '></div>
-                    <div style='font-size: 24px;'><strong>Order ID: '$invoiceId' </strong></div><br>";
+            $message = "<div style='font-size: 24px;'><strong>Order ID: $invoiceId </strong></div><br>";
 
             $invoiceReceipt = new invoiceReceipt();
 
@@ -97,16 +96,16 @@ if ($provision == 1) {
                 $productCost = $row['product_cost'];
                 $qty = $row['qty'];
                 $tranTotal = $row['total'];
-                $discount = $row['discount_rate'];
+                $discount = $row['discount_rate'] / 100;
                 $totalSavings = $row['total_savings'];
                 $message1 = "$message"
-                        . "$itemNum "
-                        . "--------------"
-                        . "Product Name: $productName"
-                        . "Product ID: $subscriptionId"
-                        . "Subscription Length: $subscriptionLength "
-                        . "Product Cost: $ $productCost "
-                        . "Product Quantity: $qty ";
+                        . "<div style='font-size: 20px; '><strong>Item Number: $itemNum </strong></div>
+                        <div> --------------</div>
+                        <div><strong>Product Name: </strong>$productName</div>
+                        <div><strong>Product ID: </strong>$subscriptionId</div>
+                        <div><strong>Subscription Length: </strong>$subscriptionLength </div>
+                        <div><strong>Product Cost: </strong>$productCost</div>
+                        <div><strong>Product Quantity: </strong>$qty</div><br>";
             }
             $message = $message1 .
                     "Discount Rate:  $discount % "
