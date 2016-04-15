@@ -2,6 +2,7 @@
 
 session_start();
 require 'config.php';
+require '../controllers/email.php';
 require "../api/client/_init.php";
 
 $qty = $_POST['qty'];
