@@ -84,7 +84,8 @@ if ($provision == 1) {
             $_SESSION['invoiceId'] = $tranId;
 
             $subject = "Invoice #$tranId";
-            $message = "<div style='font-size: 24px;'><strong>Order ID: $tranId </strong></div><br>";
+            $message = "<div ><img class='invoiceLogo' src='http://www.msolcsptest.com/htm/img/MS_Logo_orange_small.png' alt='Managed Solution'></div>"
+                    . "<div style='font-size: 24px;'><strong>Order ID: $tranId </strong></div><br>";
 
             $invoiceReceipt = new invoiceReceipt();
 
@@ -109,9 +110,9 @@ if ($provision == 1) {
                         <div><strong>Product Quantity: </strong>$qty</div><br>";
             }
             $message = "$message1"
-                    .  "<div><strong>Discount Rate: $discount%</div>
+                    . "<div><strong>Discount Rate: $discount%</div>
                     <div><strong>Total Savings: </strong>$ $totalSavings </div>
-                    <div><strong>Sale Total: </strong>$ $tranTotal </div> <br>"; 
+                    <div><strong>Sale Total: </strong>$ $tranTotal </div> <br>";
 
             $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
             mail_utf8($email, $subject, $message, $bcc);
