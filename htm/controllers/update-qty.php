@@ -69,12 +69,10 @@ if ($provision == 1) {
             VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total', $tranId)";
 
     if ($conn->query($sqlInvoice) == TRUE) {
-        $getEmailStmt = "SELECT email from user wher user where customer_id= $customer_id";
+        $getEmailStmt = "SELECT email from user where customer_id= $customer_id";
         $getEmailRes = $conn->query($getEmailStmt);
-        if ($getEmailRes->num_rows > 0) {
-            while ($row = $getEmailRes->fetch_assoc()) {
-                $email = $row['email'];
-            }
+        if($getEmailRes->num_rows > 0){
+            $email = $row['email'];
         }
         $_SESSION['invoiceId'] = $tranId;
         $subject = "Invoice #$tranId";
