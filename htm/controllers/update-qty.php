@@ -65,7 +65,7 @@ if ($resProvision->num_rows > 0) {
 if ($provision == 1) {
     $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
     $total1 = number_format($updateQty * $erp_price, 2);
-    $totalSavings = number_format($total1 * $discount, 2);
+    $totalSavings = number_format($total1 * $discount / 100, 2);
     $total = $total1 - $totalSavings;
     $subscriptionList[$i]->updateQuantity($qty);
 
