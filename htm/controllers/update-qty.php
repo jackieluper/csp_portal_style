@@ -17,7 +17,6 @@ $subscription = new Subscription($customerTenantId);
 $subscriptionList = $subscription->getSubscriptionList();
 $subscription_id = $subscriptionList[$i]->getOfferId();
 $subscription_name = $subscriptionList[$i]->getOfferName();
-$updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
 
 $sqlOfferId = "SELECT id from offer where sku='$subscription_id'";
 $resOfferId = $conn->query($sqlOfferId);
@@ -63,8 +62,8 @@ if ($resProvision->num_rows > 0) {
 } else {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
-if ($provision == 1 && $updateQty > 0) {
-    
+if ($provision == 1) {
+    $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
     $total1 = number_format($updateQty * $erp_price, 2);
     $totalSavings = number_format($total1 * $discount / 100, 2);
     $total = $total1 - $totalSavings;
