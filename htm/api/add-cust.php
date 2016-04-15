@@ -6,6 +6,7 @@ Managed Solution
 <?php
 session_start();
 require '../controllers/config.php';
+require '../controllers/email.php';
 require_once '../api/client/_init.php';
 
 //Setting session variables to variable
@@ -29,7 +30,7 @@ $customer->
         setBillingAddressLastName($_POST['lname'])->
         setBillingAddressPhoneNumber($_POST['phoneNum']);
 $customer->createCustomer();
-
+$name = "$customer->getBillingFirstName()  $customer->getBillingLastName()";
 $sf_user_name = 'admin@' . $customer->getCompanyDomain();
 $commerce_id = $customer->getCommerceId();
 $email = $customer->getBillingEmail();
@@ -79,7 +80,11 @@ if ($newCustRes) {
         $newUserRes = $conn->query($newUserStmt);
         
         if ($newCustRes) {
-            
+            $mail = new PHPMailer;
+            $subject = "Registration Information";
+            $message = "Please save your username: $password "
+                    . "and your Password: $password";
+            $mail($email, $name, $subject, $message);
             header("Location: ../portal/regSuccess.phtml");
             
         } else {
