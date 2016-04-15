@@ -73,8 +73,10 @@ if ($provision == 1) {
         $getEmailStmt = "SELECT email from user where customer_id='$customer_id'";
         $getEmailRes = $conn->query($getEmailStmt);
         if ($getEmailRes->num_rows > 0) {
-            $email = $row['email'];
-            echo $email;
+            while ($row = $resProvision->fetch_assoc()) {
+                $email = $row['email'];
+                echo $email;
+            }
             $_SESSION['invoiceId'] = $tranId;
             $subject = "Invoice #$tranId";
             $message = "It worked!";
