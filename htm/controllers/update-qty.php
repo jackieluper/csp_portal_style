@@ -47,7 +47,7 @@ $resProvision = $conn->query($sqlProvision);
 if ($resProvision->num_rows > 0) {
     while ($row = $resProvision->fetch_assoc()) {
         $provision = $row['is_provised'];
-        $discount = number_format($row['discount'] / 100, 2);
+        $discount = number_format($row['discount'], 2);
     }
     $sqlgetTranId = "SELECT transaction_id FROM transactions ORDER BY transaction_id DESC LIMIT 1";
     $resTranId = $conn->query($sqlgetTranId);
@@ -109,7 +109,7 @@ if ($provision == 1) {
             }
             $message = "$message1"
                     .  "<div><strong>Discount Rate: $discount%</div>
-                    <div><strong>Total Savings: </strong>$ $totalSavings ?></div>
+                    <div><strong>Total Savings: </strong>$ $totalSavings </div>
                     <div><strong>Sale Total: </strong>$ $tranTotal </div> <br>"; 
 
             $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
