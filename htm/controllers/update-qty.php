@@ -70,7 +70,7 @@ if ($provision == 1) {
             VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total', $tranId)";
 
     if ($conn->query($sqlInvoice) == TRUE) {
-        $getEmailStmt = "SELECT email from user where customer_id= $customer_id";
+        $getEmailStmt = "SELECT email from user where customer_id='$customer_id'";
         $getEmailRes = $conn->query($getEmailStmt);
         if ($getEmailRes->num_rows > 0) {
             $email = $row['email'];
@@ -78,7 +78,7 @@ if ($provision == 1) {
             $subject = "Invoice #$tranId";
             $message = "It worked!";
             $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
-            mail_utf8('jasonbsmith1568@gmail.com', $subject, $message, $bcc);
+            mail_utf8($email, $subject, $message, $bcc);
             header('Location: ../portal/displayInvoice.php');
         }
     } else {
