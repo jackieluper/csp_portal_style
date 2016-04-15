@@ -64,18 +64,13 @@ if ($resProvision->num_rows > 0) {
 }
 if ($provision == 1) {
     if ($qty > $subscriptionList[$i]->getQuantity()) {
-        $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
-        $total1 = number_format($updateQty * $erp_price, 2);
-        $totalSavings = number_format($total1 * $discount / 100, 2);
-        $total = $total1 - $totalSavings;
-        $qty = $updateQty;
-        $subscriptionList[$i]->updateQuantity($qty);
-    } else {
-        $updateQty = $qty;
-        $total = '0.00';
-        $totalSavings = '0.00';
-        $subscriptionList[$i]->updateQuantity($qty);
+        $qty = $qty + $subscriptionList[$i]->getQuantity();
     }
+    $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
+    $total1 = number_format($updateQty * $erp_price, 2);
+    $totalSavings = number_format($total1 * $discount / 100, 2);
+    $total = $total1 - $totalSavings;
+    $subscriptionList[$i]->updateQuantity($qty);
 
     $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total', $tranId)";
