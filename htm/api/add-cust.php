@@ -31,7 +31,6 @@ $customer->
         setBillingAddressLastName($_POST['lname'])->
         setBillingAddressPhoneNumber($_POST['phoneNum']);
 $customer->createCustomer();
-$name = "$customer->getBillingFirstName()  $customer->getBillingLastName()";
 $sf_user_name = 'admin@' . $customer->getCompanyDomain();
 $commerce_id = $customer->getCommerceId();
 $email = $customer->getBillingEmail();
