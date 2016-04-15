@@ -80,7 +80,7 @@ if ($newCustRes) {
         $newUserRes = $conn->query($newUserStmt);
         
         if ($newCustRes) {
-            $mail = new PHPMailer;
+            
             $subject = "Registration Information";
             $message = "Please save your username: $password "
                     . "and your Password: $password";
