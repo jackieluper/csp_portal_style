@@ -72,15 +72,15 @@ if ($provision == 1) {
     if ($conn->query($sqlInvoice) == TRUE) {
         $getEmailStmt = "SELECT email from user where customer_id= $customer_id";
         $getEmailRes = $conn->query($getEmailStmt);
-        if($getEmailRes->num_rows > 0){
+        if ($getEmailRes->num_rows > 0) {
             $email = $row['email'];
+            $_SESSION['invoiceId'] = $tranId;
+            $subject = "Invoice #$tranId";
+            $message = "It worked!";
+            $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
+            mail_utf8($email, $subject, $message, $bcc);
+            header('Location: ../portal/displayInvoice.php');
         }
-        $_SESSION['invoiceId'] = $tranId;
-        $subject = "Invoice #$tranId";
-        $message = "It worked!";
-        $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
-        mail_utf8($email, $subject, $message, $bcc);
-        header('Location: ../portal/displayInvoice.php');
     } else {
         echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
     }
