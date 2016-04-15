@@ -39,8 +39,9 @@ $companyName = $customer->getCompanyName();
 $entity = $_POST['businessType'];
 $billing_id = $customer->getBillingId();
 $primary_domain = $customer->getCompanyDomain();
+$sf_pass = $customer->getPassword();
 $_SESSION['username'] = $sf_user_name;
-$_SESSION['pwd'] = $customer->getPassword();
+$_SESSION['pwd'] = $sf_pass;
 
 //sanitizing input data from user
 $sf_company_name = $conn->real_escape_string($companyName);
@@ -83,7 +84,7 @@ if ($newCustRes) {
             
             $subject = "Registration Information";
             $message = "Please save your username: $sf_user_name "
-                    . "and your Password: $customer->getPassword();";
+                    . "and your Password: $sf_pass";
             mail_utf8($email, $subject, $message);
             header("Location: ../portal/regSuccess.phtml");
             
