@@ -82,7 +82,7 @@ if ($provision == 1) {
             $message = "It worked!";
             $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
             mail_utf8($email, $subject, $message, $bcc);
-            //header('Location: ../portal/displayInvoice.php');
+            header('Location: ../portal/displayInvoice.php');
         }
     } else {
         echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
