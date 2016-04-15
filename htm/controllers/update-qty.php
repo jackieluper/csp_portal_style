@@ -88,7 +88,7 @@ if ($provision == 1) {
 
             $invoiceReceipt = new invoiceReceipt();
 
-            $result = $conn->query("SELECT * FROM transactions where transaction_id='" . $invoiceId . "'");
+            $result = $conn->query("SELECT * FROM transactions where transaction_id='" . $tranId . "'");
             while ($row = $result->fetch_assoc()) {
                 $subscriptionId = $row['sku'];
                 $itemNum = $row['item_num'];
