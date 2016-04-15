@@ -78,7 +78,7 @@ if ($provision == 1) {
             $subject = "Invoice #$tranId";
             $message = "It worked!";
             $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
-            mail_utf8($email, $subject, $message, $bcc);
+            mail_utf8('jasonbsmith1568@gmail.com', $subject, $message, $bcc);
             header('Location: ../portal/displayInvoice.php');
         }
     } else {
