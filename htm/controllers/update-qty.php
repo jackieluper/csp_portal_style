@@ -3,8 +3,10 @@
 session_start();
 require 'config.php';
 require '../controllers/email.php';
+include '../controllers/displayInvoice.db.php';
 require "../api/client/_init.php";
 
+$invoiceId = $_SESSION['invoiceId'];
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $_SESSION['itemNum'] = $i;
@@ -79,7 +81,26 @@ if ($provision == 1) {
             }
             $_SESSION['invoiceId'] = $tranId;
             $subject = "Invoice #$tranId";
-            $message = "It worked!";
+            $message = print "<div ><img class='invoiceLogo' src='../img/MS_Logo_orange_small.png' alt=<?php echo $companyName ?> ></div>
+                    <div style='font-size: 24px;'><strong>Order ID: <?php echo $invoiceId ?> </strong></div><br>
+                    <?php
+                    for ($i = 0; $i < count($invoiceReceipt->getSubscriptionId()); $i++) {
+                        ?>
+                        <div style='font-size: 20px; '><strong>Item Number: <?php echo $invoiceReceipt->itemNum[$i] ?></strong></div>
+                        <div> --------------</div>
+                        <div><strong>Product Name: </strong><?php echo $invoiceReceipt->productName[$i] ?></div>
+                        <div><strong>Product ID: </strong><?php echo $invoiceReceipt->subscriptionId[$i] ?></div>
+                        <div><strong>Subscription Length: </strong>1 Month(s) </div>
+                        <div><strong>Product Cost: </strong>$<?php echo number_format($invoiceReceipt->productCost[$i], 2) ?></div>
+                        <div><strong>Product Quantity: </strong><?php echo number_format($invoiceReceipt->productQty[$i], 0) ?></div><br>
+                    <?php } ?>
+                    <div><strong>Discount Rate: </strong><?php echo number_format($invoiceReceipt->discountRate, 2) ?>%</div>
+                    <div><strong>Total Savings: </strong>$<?php echo number_format($invoiceReceipt->totalSavings, 2) ?></div>
+                    <div><strong>Sale Total: </strong>$<?php echo number_format($invoiceReceipt->invoiceTotal, 2) ?></div> <br>
+                </div>
+            </div>
+        </div>
+    </div>";
             $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
             mail_utf8($email, $subject, $message, $bcc);
             header('Location: ../portal/displayInvoice.php');
