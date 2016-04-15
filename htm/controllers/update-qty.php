@@ -84,7 +84,7 @@ if ($provision == 1) {
             $_SESSION['invoiceId'] = $tranId;
 
             $subject = "Invoice #$tranId";
-            $message = "<div style='font-size: 24px;'><strong>Order ID: $invoiceId </strong></div><br>";
+            $message = "<div style='font-size: 24px;'><strong>Order ID: $tranId </strong></div><br>";
 
             $invoiceReceipt = new invoiceReceipt();
 
