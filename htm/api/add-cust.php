@@ -82,8 +82,8 @@ if ($newCustRes) {
         if ($newCustRes) {
             
             $subject = "Registration Information";
-            $message = "Please save your username: $password "
-                    . "and your Password: $password";
+            $message = "Please save your username: $sf_user_name "
+                    . "and your Password: $customer->getPassword();";
             mail_utf8($email, $subject, $message);
             header("Location: ../portal/regSuccess.phtml");
             
