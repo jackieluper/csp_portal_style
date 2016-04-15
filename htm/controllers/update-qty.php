@@ -63,7 +63,11 @@ if ($resProvision->num_rows > 0) {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
 if ($provision == 1) {
-    $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
+    if ($qty > $subscriptionList[$i]->getQuantity()) {
+        $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
+    } else {
+        $updateQty = $qty;
+    }
     $total1 = number_format($updateQty * $erp_price, 2);
     $totalSavings = number_format($total1 * $discount / 100, 2);
     $total = $total1 - $totalSavings;
@@ -72,7 +76,7 @@ if ($provision == 1) {
     $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total', $tranId)";
     echo $customer_id;
-    if ($conn->query($sqlInvoice) == TRUE ) {
+    if ($conn->query($sqlInvoice) == TRUE) {
         $getEmailStmt = "SELECT email from user where customer_id='$customer_id'";
         $getEmailRes = $conn->query($getEmailStmt);
         if ($getEmailRes->num_rows > 0) {
