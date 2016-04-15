@@ -131,8 +131,7 @@ if ($provision == 1) {
         $updateQty = $qty - $subscriptionList[$i]->getQuantity();
         if ($updateQty <= 0) {
             $subscriptionList[$i]->updateQuantity($qty);
-            echo $qty;
-            //header("Location: ../portal/subscriptionInfo.php");
+            header("Location: ../portal/subscriptionInfo.php");
         } else {
             $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty)
                VALUES('$customer_id', '$subscription_id', '$subscription_name', '$list_price', '$erp_price', '$erp_price', '$updateQty', '$tranId', '1')";
