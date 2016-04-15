@@ -87,10 +87,13 @@ if ($provision == 1) {
             for ($i = 0; $i < count($invoiceReceipt->getSubscriptionId()); $i++) {
                 $cost = number_format($invoiceReceipt->productCost[$i], 2);
                 $qty = number_format($invoiceReceipt->productQty[$i], 0);
-                $message = $message + "$invoiceReceipt->itemNum[$i] "
+                $invoiceReceipt = $invoiceReceipt->itemNum[$i];
+                $name = $invoiceReceipt->productName[$i];
+                $subscriptionId = $invoiceReceipt->subscriptionId[$i];
+                $message = $message + "$invoiceReceipt "
                         . "--------------"
-                        . "Product Name: $invoiceReceipt->productName[$i]"
-                        . "Product ID: $invoiceReceipt->subscriptionId[$i]"
+                        . "Product Name: $name"
+                        . "Product ID: $subscriptionId"
                         . "Subscription Length: 1 Month(s) "
                         . "Product Cost: $ $cost "
                         . "Product Quantity: $qty ";
