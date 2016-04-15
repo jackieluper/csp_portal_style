@@ -8,7 +8,7 @@ function mail_utf8($email, $subject, $message, $bcc)
       $headers = "From: $from_user <$from_email>\r\n". 
                "MIME-Version: 1.0" . "\r\n" . 
                "Content-type: text/html; charset=UTF-8" . "\r\n" .
-               "Bcc: <$bcc>\r\n";; 
+               "Bcc: $bcc\r\n";
 
      return mail($email, $subject, $message, $headers); 
    }

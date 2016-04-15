@@ -78,7 +78,7 @@ if ($provision == 1) {
         $_SESSION['invoiceId'] = $tranId;
         $subject = "Invoice #$tranId";
         $message = "It worked!";
-        $bcc = 'jsmith@managedsolution.com, jasonbsmith1568@yahoo.com';
+        $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
         mail_utf8($email, $subject, $message, $bcc);
         header('Location: ../portal/displayInvoice.php');
     } else {
