@@ -1,26 +1,13 @@
 <?php
-require_once '../lib/phpmailer/class.phpmailer.php';
 
-$mail = new PHPMailer;
+function mail_utf8($email, $subject, $message)
+   { 
+      $from_user = "=?UTF-8?B?".base64_encode('Managed Solution')."?=";
+      $subject = "=?UTF-8?B?".base64_encode($subject)."?=";
+      $from_email = 'billing@managedsolution.com';
+      $headers = "From: $from_user <$from_email>\r\n". 
+               "MIME-Version: 1.0" . "\r\n" . 
+               "Content-type: text/html; charset=UTF-8" . "\r\n"; 
 
-function email($email, $name, $subject, $message) {
-    
-    $mail->From = "billing@managedsolution.com";
-    $mail->FromName = "Managed Solution";
-
-    $mail->addAddress("$email", "$name");
-
-//Provide file path and name of the attachments
-
-    $mail->isHTML(true);
-
-    $mail->Subject = "$subject";
-    $mail->Body = "<i>$message</i>";
-    $mail->AltBody = "$message";
-
-    if (!$mail->send()) {
-        echo "Mailer Error: " . $mail->ErrorInfo;
-    } else {
-        echo "Message has been sent successfully";
-    }
-}
+     return mail($to, $subject, $message, $headers); 
+   }
