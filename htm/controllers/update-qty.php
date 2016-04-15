@@ -81,51 +81,51 @@ if ($provision == 1) {
             }
             $_SESSION['invoiceId'] = $tranId;
             $subject = "Invoice #$tranId";
-            $message = print "<div ><img class='invoiceLogo' src='../img/MS_Logo_orange_small.png' alt=<?php echo $companyName ?> ></div>
-                    <div style='font-size: 24px;'><strong>Order ID: <?php echo $invoiceId ?> </strong></div><br>
-                    <?php
-                    for ($i = 0; $i < count($invoiceReceipt->getSubscriptionId()); $i++) {
-                        ?>
-                        <div style='font-size: 20px; '><strong>Item Number: <?php echo $invoiceReceipt->itemNum[$i] ?></strong></div>
+            $message = print "<div ><img class='invoiceLogo' src='../img/MS_Logo_orange_small.png' alt=' $companyName '></div>
+                    <div style='font-size: 24px;'><strong>Order ID: '$invoiceId' </strong></div><br>";
+
+            for ($i = 0; $i < count($invoiceReceipt->getSubscriptionId()); $i++) {
+                print "
+                        <div style='font-size: 20px; '><strong>Item Number: '$invoiceReceipt->itemNum[$i] '</strong></div>
                         <div> --------------</div>
-                        <div><strong>Product Name: </strong><?php echo $invoiceReceipt->productName[$i] ?></div>
-                        <div><strong>Product ID: </strong><?php echo $invoiceReceipt->subscriptionId[$i] ?></div>
+                        <div><strong>Product Name: </strong>' $invoiceReceipt->productName[$i] '</div>
+                        <div><strong>Product ID: </strong>' $invoiceReceipt->subscriptionId[$i] '</div>
                         <div><strong>Subscription Length: </strong>1 Month(s) </div>
-                        <div><strong>Product Cost: </strong>$<?php echo number_format($invoiceReceipt->productCost[$i], 2) ?></div>
-                        <div><strong>Product Quantity: </strong><?php echo number_format($invoiceReceipt->productQty[$i], 0) ?></div><br>
+                        <div><strong>Product Cost: </strong>$' number_format($invoiceReceipt->productCost[$i], 2) '</div>
+                        <div><strong>Product Quantity: </strong>' number_format($invoiceReceipt->productQty[$i], 0) '</div><br>
                     <?php } ?>
-                    <div><strong>Discount Rate: </strong><?php echo number_format($invoiceReceipt->discountRate, 2) ?>%</div>
-                    <div><strong>Total Savings: </strong>$<?php echo number_format($invoiceReceipt->totalSavings, 2) ?></div>
-                    <div><strong>Sale Total: </strong>$<?php echo number_format($invoiceReceipt->invoiceTotal, 2) ?></div> <br>
+                    <div><strong>Discount Rate: </strong>' number_format($invoiceReceipt->discountRate, 2) '%</div>
+                    <div><strong>Total Savings: </strong>' number_format($invoiceReceipt->totalSavings, 2) '</div>
+                    <div><strong>Sale Total: </strong>$' number_format($invoiceReceipt->invoiceTotal, 2) '</div> <br>
                 </div>
             </div>
         </div>
     </div>";
-            $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
-            mail_utf8($email, $subject, $message, $bcc);
-            header('Location: ../portal/displayInvoice.php');
-        }
-    } else {
-        echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
-    }
-} else {
-    $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
-    if ($conn->query($sqlDeleteCart) == True) {
-        $updateQty = $qty - $subscriptionList[$i]->getQuantity();
-        if ($updateQty <= 0) {
-            $subscriptionList[$i]->updateQuantity($qty);
-            header("Location: ../portal/subscriptionInfo.php");
-        } else {
-            $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty)
-               VALUES('$customer_id', '$subscription_id', '$subscription_name', '$list_price', '$erp_price', '$erp_price', '$updateQty', '$tranId', '1')";
-            if ($conn->query($sqlUpdateQty) == TRUE) {
-                header("Location: ../portal/checkout.php");
-            } else {
-                echo "Error: " . $sqlUpdateQty . "<br>" . $conn->error;
+                $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
+                mail_utf8($email, $subject, $message, $bcc);
+                header('Location: ../portal/displayInvoice.php');
             }
+        } else {
+            echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
         }
     } else {
-        echo "Error: " . $sqlDeleteCart . "<br>" . $conn->error;
+        $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
+        if ($conn->query($sqlDeleteCart) == True) {
+            $updateQty = $qty - $subscriptionList[$i]->getQuantity();
+            if ($updateQty <= 0) {
+                $subscriptionList[$i]->updateQuantity($qty);
+                header("Location: ../portal/subscriptionInfo.php");
+            } else {
+                $sqlUpdateQty = "INSERT into cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty)
+               VALUES('$customer_id', '$subscription_id', '$subscription_name', '$list_price', '$erp_price', '$erp_price', '$updateQty', '$tranId', '1')";
+                if ($conn->query($sqlUpdateQty) == TRUE) {
+                    header("Location: ../portal/checkout.php");
+                } else {
+                    echo "Error: " . $sqlUpdateQty . "<br>" . $conn->error;
+                }
+            }
+        } else {
+            echo "Error: " . $sqlDeleteCart . "<br>" . $conn->error;
+        }
     }
 }
-?>
