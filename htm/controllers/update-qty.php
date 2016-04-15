@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require 'config.php';
 require '../controllers/email.php';
@@ -98,7 +99,8 @@ if ($provision == 1) {
                 $tranTotal = $row['total'];
                 $discount = $row['discount_rate'];
                 $totalSavings = $row['total_savings'];
-                $message1 = "$itemNum "
+                $message1 = "$message"
+                        . "$itemNum "
                         . "--------------"
                         . "Product Name: $productName"
                         . "Product ID: $subscriptionId"
