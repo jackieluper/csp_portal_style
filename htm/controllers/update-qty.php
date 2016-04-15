@@ -69,6 +69,7 @@ if ($provision == 1) {
         $total = $total1 - $totalSavings;
         $qty = $updateQty;
     } else {
+        $updateQty = $qty;
         $total = '0.00';
         $totalSavings = '0.00';
     }
