@@ -73,7 +73,7 @@ if ($provision == 1) {
         $getEmailStmt = "SELECT email from user where customer_id='$customer_id'";
         $getEmailRes = $conn->query($getEmailStmt);
         if ($getEmailRes->num_rows > 0) {
-            while ($row = $resProvision->fetch_assoc()) {
+            while ($row = $getEmailRes->fetch_assoc()) {
                 $email = $row['email'];
                 echo $email;
             }
