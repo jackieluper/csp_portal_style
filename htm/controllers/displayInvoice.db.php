@@ -12,6 +12,7 @@ if(isset($_SESSION['invoiceId'])){
 }
 else{
 $invoiceId = $_POST['invoiceId'];
+$_SESSION['invoiceId'] = $invoiceId;
 }
 $index = 0;
 
