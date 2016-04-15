@@ -96,8 +96,8 @@ if ($provision == 1) {
                 $productCost = $row['product_cost'];
                 $qty = $row['qty'];
                 $tranTotal = $row['total'];
-                $discount = $row['discount_rate'] / 100;
-                $totalSavings = $row['total_savings'];
+                $discount = number_format($row['discount_rate'] / 100, 2);
+                $totalSavings = number_format($row['total_savings'], 2);
                 $message1 = "$message"
                         . "<div style='font-size: 20px; '><strong>Item Number: $itemNum </strong></div>
                         <div> --------------</div>
@@ -107,10 +107,10 @@ if ($provision == 1) {
                         <div><strong>Product Cost: </strong>$productCost</div>
                         <div><strong>Product Quantity: </strong>$qty</div><br>";
             }
-            $message = $message1 .
-                    "Discount Rate:  $discount % "
-                    . "Total Savings: $totalSavings "
-                    . "Sale Total: $ $tranTotal ";
+            $message = "$message1"
+                    .  "<div><strong>Discount Rate: $discount%</div>
+                    <div><strong>Total Savings: </strong>$ $totalSavings ?></div>
+                    <div><strong>Sale Total: </strong>$ $tranTotal </div> <br>"; 
 
             $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
             mail_utf8($email, $subject, $message, $bcc);
