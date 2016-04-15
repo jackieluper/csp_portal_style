@@ -72,44 +72,7 @@ if ($provision == 1) {
             VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total', $tranId)";
     echo $customer_id;
     if ($conn->query($sqlInvoice) == TRUE) {
-        $getEmailStmt = "SELECT email from user where customer_id='$customer_id'";
-        $getEmailRes = $conn->query($getEmailStmt);
-        if ($getEmailRes->num_rows > 0) {
-            while ($row = $getEmailRes->fetch_assoc()) {
-                $email = $row['email'];
-                echo $email;
-            }
-            $_SESSION['invoiceId'] = $tranId;
-            $subject = "Invoice #$tranId";
-            $message = "<div ><img class='invoiceLogo' src='../img/MS_Logo_orange_small.png' alt=' $companyName '></div>
-                    <div style='font-size: 24px;'><strong>Order ID: '$invoiceId' </strong></div><br>";
-
-            for ($i = 0; $i < count($invoiceReceipt->getSubscriptionId()); $i++) {
-                $cost = number_format($invoiceReceipt->productCost[$i], 2);
-                $qty = number_format($invoiceReceipt->productQty[$i], 0);
-                $invoiceReceipt = $invoiceReceipt->itemNum[$i];
-                $name = $invoiceReceipt->productName[$i];
-                $subscriptionId = $invoiceReceipt->subscriptionId[$i];
-                $message = $message + "$invoiceReceipt "
-                        . "--------------"
-                        . "Product Name: $name"
-                        . "Product ID: $subscriptionId"
-                        . "Subscription Length: 1 Month(s) "
-                        . "Product Cost: $ $cost "
-                        . "Product Quantity: $qty ";
-            }
-            $rate = number_format($invoiceReceipt->discountRate, 2);
-            $savings = number_format($invoiceReceipt->totalSavings, 2);
-            $total = number_format($invoiceReceipt->invoiceTotal, 2);
-            $message = $message +
-                    "Discount Rate:  $rate % "
-                    . "Total Savings: $savings "
-                    . "Sale Total: $ $total ";
-
-            $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
-            mail_utf8($email, $subject, $message, $bcc);
-            header('Location: ../portal/displayInvoice.php');
-        }
+        header('Location: ../portal/displayInvoice.php');
     } else {
         echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
     }
