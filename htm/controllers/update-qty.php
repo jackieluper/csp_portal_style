@@ -81,15 +81,15 @@ if ($provision == 1) {
             }
             $_SESSION['invoiceId'] = $tranId;
             $subject = "Invoice #$tranId";
-            $message = print "<div ><img class='invoiceLogo' src='../img/MS_Logo_orange_small.png' alt=' $companyName '></div>
+            $message = "<div ><img class='invoiceLogo' src='../img/MS_Logo_orange_small.png' alt=' $companyName '></div>
                     <div style='font-size: 24px;'><strong>Order ID: '$invoiceId' </strong></div><br>";
 
             for ($i = 0; $i < count($invoiceReceipt->getSubscriptionId()); $i++) {
-                print "
-                        <div style='font-size: 20px; '><strong>Item Number: '$invoiceReceipt->itemNum[$i] '</strong></div>
+                $message = $message + "
+                        <div style='font-size: 20px; '><strong>Item Number: $invoiceReceipt->itemNum[$i] </strong></div>
                         <div> --------------</div>
-                        <div><strong>Product Name: </strong>' $invoiceReceipt->productName[$i] '</div>
-                        <div><strong>Product ID: </strong>' $invoiceReceipt->subscriptionId[$i] '</div>
+                        <div><strong>Product Name: </strong> $invoiceReceipt->productName[$i] </div>
+                        <div><strong>Product ID: </strong> $invoiceReceipt->subscriptionId[$i] </div>
                         <div><strong>Subscription Length: </strong>1 Month(s) </div>
                         <div><strong>Product Cost: </strong>$' number_format($invoiceReceipt->productCost[$i], 2) '</div>
                         <div><strong>Product Quantity: </strong>' number_format($invoiceReceipt->productQty[$i], 0) '</div><br>
