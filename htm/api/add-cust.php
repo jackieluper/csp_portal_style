@@ -6,8 +6,9 @@ Managed Solution
 <?php
 session_start();
 require '../controllers/config.php';
-require '../controllers/email.php';
 require_once '../api/client/_init.php';
+require '../controllers/email.php';
+
 echo 'test';
 //Setting session variables to variable
 //Getting information from new user, setting it to a session variable, and variable
