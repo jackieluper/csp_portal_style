@@ -118,7 +118,7 @@ if ($provision == 1) {
                     <div><strong>Total Savings: </strong>$ $totalSavings </div>
                     <div><strong>Sale Total: </strong>$ $tranTotal </div> <br>";
 
-                $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
+                $bcc = 'jsmith@managedsolution.com,pkay@managedsolution.com';
                 mail_utf8($email, $subject, $message, $bcc);
                 header('Location: ../portal/displayInvoice.php');
             }
