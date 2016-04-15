@@ -63,66 +63,67 @@ if ($resProvision->num_rows > 0) {
     echo "Error: " . $sqlProvision . "<br>" . $conn->error;
 }
 if ($provision == 1) {
-    if ($qty > $subscriptionList[$i]->getQuantity()) {
-        $qty = $qty + $subscriptionList[$i]->getQuantity();
-    }
     $updateQty = intval($qty - $subscriptionList[$i]->getQuantity());
     $total1 = number_format($updateQty * $erp_price, 2);
     $totalSavings = number_format($total1 * $discount / 100, 2);
     $total = $total1 - $totalSavings;
     $subscriptionList[$i]->updateQuantity($qty);
-
-    $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
+    if ($updateQty <= 0) {
+        $subscriptionList[$i]->updateQuantity($qty);
+        header("Location: ../portal/subscriptionInfo.php");
+    } else {
+        $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total', $tranId)";
-    echo $customer_id;
-    if ($conn->query($sqlInvoice) == TRUE) {
-        $getEmailStmt = "SELECT email from user where customer_id='$customer_id'";
-        $getEmailRes = $conn->query($getEmailStmt);
-        if ($getEmailRes->num_rows > 0) {
-            while ($row = $getEmailRes->fetch_assoc()) {
-                $email = $row['email'];
-                echo $email;
-            }
+        echo $customer_id;
+        if ($conn->query($sqlInvoice) == TRUE) {
+            $getEmailStmt = "SELECT email from user where customer_id='$customer_id'";
+            $getEmailRes = $conn->query($getEmailStmt);
+            if ($getEmailRes->num_rows > 0) {
+                while ($row = $getEmailRes->fetch_assoc()) {
+                    $email = $row['email'];
+                    echo $email;
+                }
 
-            $_SESSION['invoiceId'] = $tranId;
+                $_SESSION['invoiceId'] = $tranId;
 
-            $subject = "Invoice #$tranId";
-            $message = "<div ><img class='invoiceLogo' src='http://www.msolcsptest.com/htm/img/MS_Logo_orange_small.png' alt='Managed Solution'></div>"
-                    . "<div style='font-size: 24px;'><strong>Order ID: $tranId </strong></div><br>";
+                $subject = "Invoice #$tranId";
+                $message = "<div ><img class='invoiceLogo' src='http://www.msolcsptest.com/htm/img/MS_Logo_orange_small.png' alt='Managed Solution'></div>"
+                        . "<div style='font-size: 24px;'><strong>Order ID: $tranId </strong></div><br>";
 
-            $invoiceReceipt = new invoiceReceipt();
+                $invoiceReceipt = new invoiceReceipt();
 
-            $result = $conn->query("SELECT * FROM transactions where transaction_id='" . $tranId . "'");
-            while ($row = $result->fetch_assoc()) {
-                $subscriptionId = $row['sku'];
-                $itemNum = $row['item_num'];
-                $productName = $row['product_name'];
-                $subscriptionLength = $row['subscription_length'];
-                $productCost = $row['product_cost'];
-                $qty = $row['qty'];
-                $tranTotal = $row['total'];
-                $discount = number_format($row['discount_rate'] / 100, 2);
-                $totalSavings = number_format($row['total_savings'], 2);
-                $message1 = "$message"
-                        . "<div style='font-size: 20px; '><strong>Item Number: $itemNum </strong></div>
+                $result = $conn->query("SELECT * FROM transactions where transaction_id='" . $tranId . "'");
+                while ($row = $result->fetch_assoc()) {
+                    $subscriptionId = $row['sku'];
+                    $itemNum = $row['item_num'];
+                    $productName = $row['product_name'];
+                    $subscriptionLength = $row['subscription_length'];
+                    $productCost = $row['product_cost'];
+                    $qty = $row['qty'];
+                    $tranTotal = $row['total'];
+                    $discount = number_format($row['discount_rate'] / 100, 2);
+                    $totalSavings = number_format($row['total_savings'], 2);
+                    $message1 = "$message"
+                            . "<div style='font-size: 20px; '><strong>Item Number: $itemNum </strong></div>
                         <div> --------------</div>
                         <div><strong>Product Name: </strong>$productName</div>
                         <div><strong>Product ID: </strong>$subscriptionId</div>
                         <div><strong>Subscription Length: </strong>$subscriptionLength </div>
                         <div><strong>Product Cost: </strong>$productCost</div>
                         <div><strong>Product Quantity: </strong>$qty</div><br>";
-            }
-            $message = "$message1"
-                    . "<div><strong>Discount Rate: $discount%</div>
+                }
+                $message = "$message1"
+                        . "<div><strong>Discount Rate: $discount%</div>
                     <div><strong>Total Savings: </strong>$ $totalSavings </div>
                     <div><strong>Sale Total: </strong>$ $tranTotal </div> <br>";
 
-            $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
-            mail_utf8($email, $subject, $message, $bcc);
-            header('Location: ../portal/displayInvoice.php');
+                $bcc = 'jsmith@managedsolution.com,jasonbsmith1568@yahoo.com';
+                mail_utf8($email, $subject, $message, $bcc);
+                header('Location: ../portal/displayInvoice.php');
+            }
+        } else {
+            echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
         }
-    } else {
-        echo "Error: " . $sqlInvoice . "<br>" . $conn->error;
     }
 } else {
     $sqlDeleteCart = "DELETE from cart where customer_id='$customer_id'";
