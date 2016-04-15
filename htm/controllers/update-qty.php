@@ -74,7 +74,7 @@ if ($provision == 1) {
         $totalSavings = '0.00';
     }
 
-    $subscriptionList[$i]->updateQuantity($qty);
+    $subscriptionList[$i]->updateQuantity($updateQty);
 
     $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total', $tranId)";
