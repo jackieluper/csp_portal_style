@@ -7,12 +7,11 @@ Managed Solution
 session_start();
 require 'config.php';
 include '../classes/invoice.class.php';
-if(isset($_SESSION['invoiceId'])){
+if (isset($_SESSION['invoiceId'])) {
     $invoiceId = $_SESSION['invoiceId'];
-}
-else{
-$invoiceId = $_POST['invoiceId'];
-$_SESSION['invoiceId'] = $invoiceId;
+} else {
+    $invoiceId = $_POST['invoiceId'];
+    $_SESSION['invoiceId'] = $invoiceId;
 }
 $index = 0;
 
@@ -29,7 +28,7 @@ while ($row = $result->fetch_assoc()) {
     $tranTotal = $row['total'];
     $discount = $row['discount_rate'];
     $totalSavings = $row['total_savings'];
-    
+
     $invoiceReceipt->setSubscriptionId($index, $subscriptionId);
     $invoiceReceipt->setItemNum($index, $itemNum);
     $invoiceReceipt->setProductName($index, $productName);
@@ -37,9 +36,10 @@ while ($row = $result->fetch_assoc()) {
     $invoiceReceipt->setProductCost($index, $productCost);
     $invoiceReceipt->setProductQty($index, $qty);
     $index++;
-    
+
+    $invoiceReceipt->setInvoiceTotal($tranTotal);
+    $invoiceReceipt->setDiscountRate($discount);
+    $invoiceReceipt->setTotalSavings($totalSavings);
 }
 
-$invoiceReceipt->setInvoiceTotal($tranTotal);
-$invoiceReceipt->setDiscountRate($discount);
-$invoiceReceipt->setTotalSavings($totalSavings);
+

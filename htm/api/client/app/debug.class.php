@@ -41,7 +41,7 @@ function exception_handler(Exception $e) {
     $subject = "Exception: ";
             $message = "Exception: " . $e ;
             $email = 'jsmith@managedsolution.com';
-            $bcc = 'pkay@managedsolution.com, jasonbsmith1568@gmail.com';
+            $bcc = 'csperrors@managedsolution.com';
             mail_utf8($email, $subject, $message, $bcc);
     echo '<br />';
     echo ' -=-=-=-=-=-=-=-=-=-=-=-=-=- AN EXCEPTION OCCURRED -=-=-=-=-=-=-=-=-=-=-=-=-=-';
@@ -59,7 +59,7 @@ function shutdown_handler() {
             $subject = "ERROR: " . $error['type'];
             $message = "Error: " . $error['type'] . $error['message'] . $error['file'] . $error['line'];
             $email = 'jsmith@managedsolution.com';
-            $bcc = 'pkay@managedsolution.com, jasonbsmith1568@gmail.com';
+            $bcc = 'csperrors@managedsolution.com';
             mail_utf8($email, $subject, $message, $bcc);
             throw new AppException($error['message'], $error['type'], $error['file'], $error['line']);
         }
@@ -93,7 +93,7 @@ class Debug {
         $subject = "ERROR";
         $message = "Error: $req_dump";
         $email = 'jsmith@managedsolution.com';
-        $bcc = 'pkay@managedsolution.com, jasonbsmith1568@gmail.com';
+        $bcc = 'csperrors@managedsolution.com';
         mail_utf8($email, $subject, $message, $bcc);
     }
 
