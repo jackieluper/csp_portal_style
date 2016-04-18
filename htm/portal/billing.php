@@ -316,41 +316,48 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $amount = $xml->amount;
         $company = $xml->{'processor-id'};
         $orderId = $xml->{'order-id'};
-        $message = "<div ><img class='invoiceLogo' src='http://www.msolcsptest.com/htm/img/MS_Logo_orange_small.png' alt='Managed Solution'></div>"
-                . "<div style='font-size: 24px;'><strong>Order ID: $orderId </strong></div><br>";
-        print '            
+        $getEmailStmt = "SELECT email from user where customer_id='$sf_cust_id'";
+        $getEmailRes = $conn->query($getEmailStmt);
+        if ($getEmailRes->num_rows > 0) {
+            while ($row = $getEmailRes->fetch_assoc()) {
+                $email = $row['email'];
+                echo $email;
+            }
+            $message = "<div ><img class='invoiceLogo' src='http://www.msolcsptest.com/htm/img/MS_Logo_orange_small.png' alt='Managed Solution'></div>"
+                    . "<div style='font-size: 24px;'><strong>Order ID: $orderId </strong></div><br>";
+            print '            
         <div><strong>Order ID: ' . $orderId . '</strong></div><br>';
 
 
-        foreach ($xml->product as $product) {
-            $lineItem = 0;
-            $qty = (int) $product->quantity;
-            $qtyFormatted = intval($qty);
-            $cost = (float) $product->{'unit-cost'};
-            $costFormatted = number_format($cost, 2);
-            $itemNum = $product->{'unit-of-measure'};
-            $sku = $product->{'product-code'};
-            $name = $product->description;
-            $discountRate = $product->{'discount-rate'};
-            $totalSavings = $product->{'discount-amount'};
+            foreach ($xml->product as $product) {
+                $lineItem = 0;
+                $qty = (int) $product->quantity;
+                $qtyFormatted = intval($qty);
+                $cost = (float) $product->{'unit-cost'};
+                $costFormatted = number_format($cost, 2);
+                $itemNum = $product->{'unit-of-measure'};
+                $sku = $product->{'product-code'};
+                $name = $product->description;
+                $discountRate = $product->{'discount-rate'};
+                $totalSavings = $product->{'discount-amount'};
 
-            $order = new Order($tid);
-            $order->addOrderItem("$sku", "$name", $qty);
-            $order->submitOrder();
+                $order = new Order($tid);
+                $order->addOrderItem("$sku", "$name", $qty);
+                $order->submitOrder();
 
-            $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
+                $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES('$sf_cust_id', '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
-            $resultInvoice = $conn->query($sqlInvoice);
+                $resultInvoice = $conn->query($sqlInvoice);
 
-            $message1 = "$message"
-                    . "<div style='font-size: 20px; '><strong>Item Number: $itemNum </strong></div>
+                $message1 = "$message"
+                        . "<div style='font-size: 20px; '><strong>Item Number: $itemNum </strong></div>
                         <div> --------------</div>
                         <div><strong>Product Name: </strong>$name</div>
                         <div><strong>Product ID: </strong>$sku</div>
                         <div><strong>Subscription Length: </strong>1 month(s)</div>
                         <div><strong>Product Cost: </strong>$costFormatted</div>
                         <div><strong>Product Quantity: </strong>$qtyFormatted</div><br>";
-            print '
+                print '
         <div><strong>Item Number: ' . $itemNum . '</strong></div>
         <div>--------------</div>
         <div><strong>Product Name: </strong>' . $name . '</div>
@@ -358,24 +365,24 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <div><strong>Subscription Length: </strong>1 Month(s) </div>
         <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
         <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
-        }
-        $message = "$message1"
-                . "<div><strong>Discount Rate: $discountRate%</div>
+            }
+            $message = "$message1"
+                    . "<div><strong>Discount Rate: $discountRate%</div>
                     <div><strong>Total Savings: </strong>$ $totalSavings </div>
                     <div><strong>Sale Total: </strong>$ $amount </div> <br>";
 
-        $bcc = 'jsmith@managedsolution.com,pkay@managedsolution.com';
-        mail_utf8($email, $subject, $message, $bcc);
-        print '
+            $bcc = 'jsmith@managedsolution.com,pkay@managedsolution.com';
+            mail_utf8($email, $subject, $message, $bcc);
+            print '
         <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
         <div><strong>Total Savings: $' . $totalSavings . '</strong></div>
         <div><strong>Sale Total: ' . $amount . '</strong></div><br>
         </form>
         </div>';
-        $sqlDelete = "DELETE FROM cart where customer_id='$sf_cust_id'";
-        $resultDelete = $conn->query($sqlDelete);
+            $sqlDelete = "DELETE FROM cart where customer_id='$sf_cust_id'";
+            $resultDelete = $conn->query($sqlDelete);
 
-        print "
+            print "
     <input type='button' class='receiptBtn' onclick='printDiv('print-content')' value='Print Receipt'/>
     </div>
     <script type='text/javascript'>
@@ -391,6 +398,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             document.body.innerHTML = originalContents;
         }
     </script>";
+        }
     } elseif ((string) $gwResponse->result == 2) {
         print " <p><h3><strong> Transaction was Declined.</strong></h3>\n";
         print " Decline Description : " . (string) $gwResponse->{'result-text'} . " </p>";
