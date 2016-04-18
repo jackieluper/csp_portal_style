@@ -34,6 +34,7 @@ function error_handler($errno, $error, $file, $line, $vars) {
     if ($errno === 0 || ($errno & error_reporting()) === 0) {
         return;
     }
+    echo $error;
     throw new AppException($error, $errno, $file, $line);
 }
 
