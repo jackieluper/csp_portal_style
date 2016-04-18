@@ -101,9 +101,9 @@ if ($provision == 1) {
                     $subscriptionLength = $row['subscription_length'];
                     $productCost = $row['product_cost'];
                     $qty = $row['qty'];
-                    $tranTotal = $row['total'];
-                    $discount = $row['discount_rate'];
-                    $totalSavings = $row['total_savings'];
+                    $tranTotal = number_format($row['total'], 2);
+                    $discount = number_format($row['discount_rate'], 2);
+                    $totalSavings = number_format($row['total_savings'], 2);
                     $message1 = "$message"
                             . "<div style='font-size: 20px; '><strong>Item Number: $itemNum </strong></div>
                         <div> --------------</div>
