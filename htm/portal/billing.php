@@ -6,6 +6,7 @@ Managed Solution
 <?php
 require("../controllers/config.php");
 require '../controllers/cart.db.php';
+require '../controllers/email.php';
 require '../api/client/_init.php';
 
 $tid = $_SESSION['tid'];
