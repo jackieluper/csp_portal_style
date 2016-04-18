@@ -4,7 +4,9 @@ Date: 3/21/16
 Managed Solution
 -->
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require 'config.php';
 include '../classes/invoice.class.php';
 if (isset($_SESSION['invoiceId'])) {
