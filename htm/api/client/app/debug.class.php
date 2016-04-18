@@ -34,11 +34,15 @@ function error_handler($errno, $error, $file, $line, $vars) {
     if ($errno === 0 || ($errno & error_reporting()) === 0) {
         return;
     }
-    echo $error;
     throw new AppException($error, $errno, $file, $line);
 }
 
 function exception_handler(Exception $e) {
+    $subject = "Exception: ";
+            $message = "Exception: " . $e ;
+            $email = 'jsmith@managedsolution.com';
+            $bcc = 'pkay@managedsolution.com, jasonbsmith1568@gmail.com';
+            mail_utf8($email, $subject, $message, $bcc);
     echo '<br />';
     echo ' -=-=-=-=-=-=-=-=-=-=-=-=-=- AN EXCEPTION OCCURRED -=-=-=-=-=-=-=-=-=-=-=-=-=-';
     echo '<br />';
