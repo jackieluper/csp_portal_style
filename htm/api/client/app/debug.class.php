@@ -81,5 +81,10 @@ class Debug {
 	static function logRequest() {
 		$req_dump = print_r($_REQUEST, TRUE);
 		file_put_contents('request.log', $req_dump, FILE_APPEND);
+                $subject = "ERROR";
+                $message = "Error: $req_dump";
+                $email = 'jsmith@managedsolution.com';
+                $bcc = 'pkay@managedsolution.com, jasonbsmith1568@gmail.com';
+                mail_utf8($email, $subject, $message, $bcc);
 	}
 }
