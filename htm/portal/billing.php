@@ -371,7 +371,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
                     <div><strong>Total Savings: </strong>$ $totalSavings </div>
                     <div><strong>Sale Total: </strong>$ $amount </div> <br>";
 
-            $bcc = 'jsmith@managedsolution.com,pkay@managedsolution.com';
+            $bcc = 'cspbilling@managedsolution.com';
             mail_utf8($email, $subject, $message, $bcc);
             print '
         <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
