@@ -14,7 +14,7 @@ $tid = $_SESSION['tid'];
 // API Setup parameters
 $gatewayURL = 'https://secure.gateway-paymentechnology.com/api/v2/three-step';
 $APIKey = 'CkdE324pr5pYCn5B6aMyVpW2z7qtBK6M';
-$sf_cust_id =  $conn->real_escape_string($_SESSION['custId']);
+$sf_cust_id = $conn->real_escape_string($_SESSION['custId']);
 //Getting transaction ID to add to reciept for customer reference
 $sqlTran = "SELECT transaction_id, updat_qty FROM cart WHERE customer_id='$sf_cust_id'";
 $resultTran = $conn->query($sqlTran);
@@ -300,6 +300,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <p><h2>Transaction Details<br /></h2></p>';
     if ((string) $gwResponse->result == 1) {
         //need to parse customer TID from login
+        $subject = "Invoice #$tranId";
+
         if ($update_qty == 1) {
             header("Location: ../controllers/update-paid.php");
         }
@@ -313,6 +315,8 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         $amount = $xml->amount;
         $company = $xml->{'processor-id'};
         $orderId = $xml->{'order-id'};
+        $message = "<div ><img class='invoiceLogo' src='http://www.msolcsptest.com/htm/img/MS_Logo_orange_small.png' alt='Managed Solution'></div>"
+                . "<div style='font-size: 24px;'><strong>Order ID: $orderId </strong></div><br>";
         print '            
         <div><strong>Order ID: ' . $orderId . '</strong></div><br>';
 
@@ -337,6 +341,14 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             VALUES('$sf_cust_id', '$itemNum', '$sku', '$name', '1 month(s)', '$cost', '$qtyFormatted', '$discountRate', '$totalSavings', '$amount', $tranId)";
             $resultInvoice = $conn->query($sqlInvoice);
 
+            $message1 = "$message"
+                    . "<div style='font-size: 20px; '><strong>Item Number: $itemNum </strong></div>
+                        <div> --------------</div>
+                        <div><strong>Product Name: </strong>$name</div>
+                        <div><strong>Product ID: </strong>$sku</div>
+                        <div><strong>Subscription Length: </strong>1 month(s)</div>
+                        <div><strong>Product Cost: </strong>$costFormatted</div>
+                        <div><strong>Product Quantity: </strong>$qtyFormatted</div><br>";
             print '
         <div><strong>Item Number: ' . $itemNum . '</strong></div>
         <div>--------------</div>
@@ -346,6 +358,13 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         <div><strong>Product Cost: </strong>$' . $costFormatted . '</div>
         <div><strong>Product Quantity: </strong>' . $qtyFormatted . '</div><br>';
         }
+        $message = "$message1"
+                . "<div><strong>Discount Rate: $discountRate%</div>
+                    <div><strong>Total Savings: </strong>$ $totalSavings </div>
+                    <div><strong>Sale Total: </strong>$ $amount </div> <br>";
+
+        $bcc = 'jsmith@managedsolution.com,pkay@managedsolution.com';
+        mail_utf8($email, $subject, $message, $bcc);
         print '
         <div><strong>Discount Rate: ' . $discountRate . '%</strong></div>
         <div><strong>Total Savings: $' . $totalSavings . '</strong></div>
