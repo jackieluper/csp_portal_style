@@ -85,7 +85,7 @@ if ($newCustRes) {
             $subject = "Registration Information";
             $message = "Please save your username: $sf_user_name "
                     . "and your Password: $sf_pass";
-            $bcc = '';
+            $bcc = 'cspregistration@managedsolution.com';
             mail_utf8($email, $subject, $message, $bcc);
             header("Location: ../portal/regSuccess.phtml");
             
