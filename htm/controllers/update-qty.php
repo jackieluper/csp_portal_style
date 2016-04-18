@@ -102,8 +102,8 @@ if ($provision == 1) {
                     $productCost = $row['product_cost'];
                     $qty = $row['qty'];
                     $tranTotal = $row['total'];
-                    $discount = number_format($row['discount_rate'], 1);
-                    $totalSavings = number_format($row['total_savings'], 2);
+                    $discount = $row['discount_rate'];
+                    $totalSavings = $row['total_savings'];
                     $message1 = "$message"
                             . "<div style='font-size: 20px; '><strong>Item Number: $itemNum </strong></div>
                         <div> --------------</div>
