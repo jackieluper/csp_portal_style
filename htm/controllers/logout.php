@@ -4,7 +4,7 @@ Date: 2/17/16
 Managed Solution
 -->
 <?php
-require("config.php");
+require 'config.php';
 
 //Removes everything from cart on sign out
 $sql = "DELETE from cart";
