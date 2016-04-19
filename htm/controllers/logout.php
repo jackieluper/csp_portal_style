@@ -1,11 +1,6 @@
-<!--
-Author: Jason B. Smith
-Date: 2/17/16
-Managed Solution
--->
 <?php
 require 'config.php';
-
+echo 'test';
 //Removes everything from cart on sign out
 $sql = "DELETE from cart";
 $result = $conn->query($sql);
