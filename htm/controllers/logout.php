@@ -1,15 +1,22 @@
+<!--
+Author: Jason B. Smith
+Date: 2/17/16
+Managed Solution
+-->
 <?php
-require 'config.php';
-echo 'test';
+require("config.php");
+session_start();
 //Removes everything from cart on sign out
 $sql = "DELETE from cart";
 $result = $conn->query($sql);
-
-//If removing from cart fails through error
-if (!$conn->query($sql) === TRUE) {
+//If succesful do nothing
+if ($conn->query($sql) === TRUE) {
+    
+}
+//Errors out if does not remove cart items
+else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
 //Error reporting
 error_reporting(0);
 ob_start("ob_gzhandler");
