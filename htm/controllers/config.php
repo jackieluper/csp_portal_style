@@ -4,13 +4,17 @@ Date: 2/29/16
 Managed Solution
 -->
 <?php
-//top offers figured by entity type
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 //Sets admin role so it is not visible;
 $adminRole = 30;
 //Sets user role for comparison
 $userRole = 10;
+
+//************************************
 //Company specific info for config
+//************************************
 //client id is our app id TODO: NEEDS TO BE CHANGED TO OUR APP ID ON CSP API WHEN WE GO LIVE
 $clientID = "c9d95c0e-8d97-4bba-b3a1-05bad83f7300";
 //TODO CLIENT SECRET KEY NEEDS TO BE CHANGED AS WELL WHEN WE GO LIVE
@@ -28,7 +32,10 @@ $companyName = "Managed Solution";
 $companyLogo = "http://www.managedsolution.com";
 //Setting up homepage for vertical menu
 $homePage = "http://www.managedsolution.com";
+
+//***********************
 //DB configs
+//***********************
 //where your hosting
 $servername = "127.0.0.1";
 //Your username for DB

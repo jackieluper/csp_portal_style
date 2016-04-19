@@ -21,7 +21,7 @@ $index = 0;
 $invoiceReceipt = new invoiceReceipt();
 
 try {
-    $getTranDetails = "SELECT * FROM transactions where transaction_id=NULL";
+    $getTranDetails = "SELECT * FROM transactions where transaction_id='null'";
     $tranDetailRes = $conn->query($getTranDetails);
     if ($tranDetailRes->num_rows > 0) {
         while ($row = $tranDetailRes->fetch_assoc()) {
