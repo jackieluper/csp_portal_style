@@ -5,9 +5,8 @@ Managed Solution
 -->
 <?php
 session_start();
-include 'config.php';
-require "../api/client/_init.php";
-include '../classes/invoice.class.php';
+require 'config.php';
+require '../classes/invoice.class.php';
 
 $invoice = new invoice();
 $index = 0;

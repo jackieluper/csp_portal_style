@@ -4,7 +4,7 @@ Date: 2/29/16
 Managed Solution
 -->
 <?php
-
+require "../api/client/_init.php";
 //top offers figured by entity type
 
 //Sets admin role so it is not visible;
