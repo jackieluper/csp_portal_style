@@ -13,11 +13,6 @@ if (!empty($_GET['code'])) {
     $adAuth = new AdAuth();
     $adAuth->requestAdTokenForAuthCode($_GET['code']);
 
-    // FIXME --- remove this debugging code
-    var_dump($adAuth->getIdToken());
-    die();
-    // FIXME --- end of remove this debugging code
-
     $customer = new Customer();
     $customer->loadCustomerFromIdToken($adAuth->getIdToken());
 }
@@ -67,7 +62,7 @@ if (!empty($_GET['code'])) {
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active" id="item">
-                        <img src="../img/log-in_page/promo/office365.jpg" alt="Office365" style=" height: 100%;">
+                        <img src="../img/microsoft_img/MicrosoftOffice365.jpg" alt="Office365" style=" height: 100%;">
                         <div class="carousel-caption" id="imgOverlay">
                             <h3>Office 365</h3>
                             <p>Microsoft Office 365 is a cloud-based service that is designed to help <br>
@@ -77,7 +72,7 @@ if (!empty($_GET['code'])) {
                     </div>
 
                     <div class="item" id="item">
-                        <img src="../img/log-in_page/promo/EMS.jpg" alt="Microsoft EMS" style="padding-top: 10%;">
+                        <img src="../img/microsoft_img/enterprise_mobility_suite.jpg" alt="Microsoft EMS" style="padding-top: 10%;">
                         <div class="carousel-caption" id="imgOverlay">
                             <h3>Microsoft Enterprise Mobility Suite</h3>
                             <p>Keep your employees productive on their favorite apps and devices<br>
@@ -87,7 +82,7 @@ if (!empty($_GET['code'])) {
                     </div>
 
                     <div class="item" id="item">
-                        <img src="../img/log-in_page/promo/crmOnline.jpg" alt="Microsoft Dynamics" style=" height: 100%;">
+                        <img src="../img/microsoft_img/microsoft_dynamics_crm.jpg" alt="Microsoft Dynamics" style=" height: 100%;">
                         <div class="carousel-caption" id="imgOverlay">
                             <h3>Microsoft Dynamics</h3>
                             <p>Grow your business with Microsoft Dynamics.<br>
