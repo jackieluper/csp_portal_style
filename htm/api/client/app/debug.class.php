@@ -1,5 +1,4 @@
 <?php
-require '../../controllers/email.php';
 
 class AppException extends Exception {
 
