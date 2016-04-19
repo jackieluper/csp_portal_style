@@ -1,5 +1,4 @@
 <?php
-require '../../controllers/email.php';
 
 class AppException extends Exception {
 
@@ -39,6 +38,7 @@ function error_handler($errno, $error, $file, $line, $vars) {
 }
 
 function exception_handler(Exception $e) {
+    require '../../controllers/email.php';
     $subject = "Exception: ";
             $message = "Exception: " . $e ;
             $email = 'jsmith@managedsolution.com';
