@@ -4,7 +4,6 @@ Date: 3/21/16
 Managed Solution
 -->
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 include '../controllers/invoice.db.php';
 ?>

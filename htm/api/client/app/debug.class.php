@@ -1,5 +1,6 @@
 <?php
 require '../../controllers/email.php';
+
 class AppException extends Exception {
 
     function __construct($message, $code, $file, $line) {
