@@ -4,7 +4,9 @@ Date: 3/21/16
 Managed Solution
 -->
 <?php
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
+}
 require 'config.php';
 require '../classes/invoice.class.php';
 
@@ -19,7 +21,7 @@ $index = 0;
 $invoiceReceipt = new invoiceReceipt();
 
 try {
-    $getTranDetails = "SELECT * FROM transactions where transaction_id='null'";
+    $getTranDetails = "SELECT * FROM transactions where transaction_id='$invoiceId'";
     $tranDetailRes = $conn->query($getTranDetails);
     if ($tranDetailRes->num_rows > 0) {
         while ($row = $tranDetailRes->fetch_assoc()) {
