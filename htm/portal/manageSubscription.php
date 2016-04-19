@@ -20,7 +20,7 @@ require "../api/client/_init.php";
 <div id="horizontalNav">
     <div id="horizontalNavWrapper">
         <ul>
-            <li>Manage Subscriptions</li>
+            <li>Manage Licenses</li>
         </ul>
     </div>
 </div>
@@ -29,7 +29,7 @@ require "../api/client/_init.php";
     <ul>
         <?php if ($_SESSION['role'] >= $userRole) { ?>
             <li><img class='icon' src='../img/icons/software.png' alt='Products' ><a href='../portal/products.php'>Products</a><br></li>
-            <li><img class='icon' src='../img/icons/subscriptions.png' alt='Manage Subscription'><a href="../portal/manageSubscription.php">Manage Subscriptions</a><br></li>
+            <li><img class='icon' src='../img/icons/subscriptions.png' alt='Manage Subscription'><a href="../portal/manageSubscription.php">Manage Licenses</a><br></li>
             <li><img class='icon' src='../img/icons/invoice.jpg' alt='Invoice'><a href='../portal/invoice.php'>Invoice</a><br></li>
             <li><img class='icon' src='../img/icons/checkout.png' alt='Checkout' ><a href='../portal/checkout.php'>Checkout</a><br></li>
             <li><img class='icon' src='../img/icons/home.png' alt='Home' ><a href='<?php echo $homePage ?>'><?php echo $companyName ?></a><br></li>
@@ -45,7 +45,11 @@ require "../api/client/_init.php";
 </nav>
 <div id="loading"></div>
 <div id="page">
+    <div class="page-header">            
+        <h2>Licenses</h2>
+    </div>    
     <div class="contentCheckout" style="margin-left: 200px">
+
         <?php
         $customerTenantId = $_SESSION['tid'];
 //business logic is in just for demo purpose
