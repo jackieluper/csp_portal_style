@@ -87,14 +87,14 @@ for ($i = 0; $i < count($subscriptionList); $i++) {
 }
 
 if ($found == false) {
-//query to add the selected item to the cart with corresponding customer info
+    //query to add the selected item to the cart with corresponding customer info
     $insCart = "INSERT INTO cart (customer_id, items, item_name, our_cost, msrp, proposed_cost, qty, transaction_id, updat_qty, sku, offer_uri) 
              VALUES ('$custID', '$sf_offer_id', '$offerName', '$listPrice', '$erpPrice', '$erpPrice', '$qty', '$transactionId', '0', '$offerSku', '$offerUri')" or die(mysql_error());
 
-//setting query to get item already in cart and increment
+    //setting query to get item already in cart and increment
     $getQtyCart = "SELECT qty from cart where items='$sf_offer_id'";
     $qtyCartRes = $conn->query($getQtyCart);
-//if they already have in cart increment qty 
+    //if they already have in cart increment qty 
     if ($qtyCartRes->num_rows > 0) {
         while ($row = $qtyCartRes->fetch_assoc()) {
             $qty = $row['qty'] + $qty;
@@ -106,7 +106,7 @@ if ($found == false) {
             }
         }
     }
-//else just add to the cart and redirect back to product page
+    //else just add to the cart and redirect back to product page
     else if ($conn->query($insCart) === TRUE) {
         header('Location: ../portal/products.php');
     } else {
