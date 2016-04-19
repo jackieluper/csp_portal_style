@@ -56,7 +56,6 @@ require "../api/client/_init.php";
         /* @var Subscription[] $subscriptionList */
         $subscriptionList = $subscription->getSubscriptionList();
 
-        // echo $subscriptionList[$i]->getFriendlyName() . ' ' . $subscriptionList[$i]->getQuantity() . '<br>' ;
         print '<table id="checkoutTable" >
         <thead>
             <tr class="ui-widget-header ">
