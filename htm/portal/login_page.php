@@ -62,17 +62,16 @@ if (!empty($_GET['code'])) {
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active" id="item">
-                        <img src="../img/microsoft_img/MicrosoftOffice365.jpg" alt="Office365" style=" height: 100%;">
+                        <img src="../img/microsoft_img/office_365_e3.jpg" alt="Office365" style=" height: 100%;">
                         <div class="carousel-caption" id="imgOverlay">
                             <h3>Office 365</h3>
-                            <p>Microsoft Office 365 is a cloud-based service that is designed to help <br>
-                                meet your organization’s needs for robust security, reliability, and user productivity.<br>
-                                Check out our special pricing.</p>
+                            <p>The best plan for businesses that need full productivity, communication and collaboration <br>
+                                tools with the familiar Office suit; including Office Online.<br></p>
                         </div>
                     </div>
 
                     <div class="item" id="item">
-                        <img src="../img/microsoft_img/enterprise_mobility_suite.jpg" alt="Microsoft EMS" style="padding-top: 10%;">
+                        <img src="../img/microsoft_img/enterprise_mobility_suite.jpg" alt="Microsoft EMS" style="height: 100%;">
                         <div class="carousel-caption" id="imgOverlay">
                             <h3>Microsoft Enterprise Mobility Suite</h3>
                             <p>Keep your employees productive on their favorite apps and devices<br>
