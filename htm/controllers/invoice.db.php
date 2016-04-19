@@ -13,9 +13,6 @@ $index = 0;
 try{
 $getCustTran = "SELECT total, transaction_id FROM transactions where customer_ids='" . $_SESSION['custId'] . "' GROUP BY transaction_id ORDER BY transaction_id";
 $custTransRes = $conn->query($getCustTran);
-}catch(Exception $e){
-     echo $e->errorMessage();
-}
 
 while ($row = $custTransRes->fetch_assoc()) {
     $tranTotal = $row['total'];
@@ -25,3 +22,6 @@ while ($row = $custTransRes->fetch_assoc()) {
     $index++;
 }
 
+}catch(Exception $e){
+     echo $e->errorMessage();
+}
