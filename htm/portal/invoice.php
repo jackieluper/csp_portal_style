@@ -47,7 +47,7 @@ include '../controllers/invoice.db.php';
         </ul>
     </nav>
     <div id="page">
-        <div class="content">
+        <div class="contentCheckout">
             <div class="page-header">            
                 <h2>Invoice's</h2>
             </div>       

@@ -51,7 +51,7 @@ require "../api/client/_init.php";
         </div>    
         <?php
         $customerTenantId = $_SESSION['tid'];
-//business logic is in just for demo purpose
+        //business logic is in just for demo purpose
         $subscription = new Subscription($customerTenantId);
         /* @var Subscription[] $subscriptionList */
         $subscriptionList = $subscription->getSubscriptionList();
