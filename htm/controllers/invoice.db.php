@@ -10,13 +10,17 @@ include '../classes/invoice.class.php';
 
 $invoice = new invoice();
 $index = 0;
-$result = $conn->query("SELECT total, transaction_id FROM transactions where customer_id='" . $_SESSION['custId'] . "' ORDER BY transaction_id");
-error_reporting(E_ALL ^ E_NOTICE);
-while ($row = $result->fetch_assoc()) {
+try{
+$getCustTran = "SELECT total, transaction_id FROM transactions where customer_id='" . $_SESSION['custId'] . "' GROUP BY transaction_id ORDER BY transaction_id";
+$custTransRes = $conn->query($getCustTran);
+while ($row = $custTransRes->fetch_assoc()) {
     $tranTotal = $row['total'];
     $tranId = $row['transaction_id'];
     $invoice->setInvoiceTotal($index, $tranTotal);
     $invoice->setInvoiceTranId($index, $tranId);
     $index++;
+}
+}catch(mysqli_sql_exception $e){
+     echo $e->errorMessage();
 }
 
