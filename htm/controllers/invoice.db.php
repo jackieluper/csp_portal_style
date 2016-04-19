@@ -13,7 +13,7 @@ $index = 0;
 try{
 $getCustTran = "SELECT total, transaction_id FROM transactions where customer_ids='" . $_SESSION['custId'] . "' GROUP BY transaction_id ORDER BY transaction_id";
 $custTransRes = $conn->query($getCustTran);
-}catch(mysqli_sql_exception $e){
+}catch(exception $e){
      echo $e->errorMessage();
 }
 
