@@ -63,7 +63,7 @@ include '../controllers/invoice.db.php';
                     for ($i = 0; $i < count($invoice->invoiceTotal); $i++) {
                         ?>
                         <tr>
-                            <td><?php echo $invoice->invoiceTranId[$i] ?></td>
+                            <td style="width: 20%"><?php echo $invoice->invoiceTranId[$i] ?></td>
                             <td >$<?php echo number_format($invoice->invoiceTotal[$i], 2) ?></td>                            
                             <td><button class="invoiceButton" type="submit" name="invoiceId" value=<?php echo $invoice->invoiceTranId[$i] ?> id="submit">Display Invoice</button></td>                 
                         </tr>
