@@ -45,11 +45,10 @@ require "../api/client/_init.php";
 </nav>
 <div id="loading"></div>
 <div id="page">
-    <div class="page-header">            
-        <h2>Licenses</h2>
-    </div>    
     <div class="contentCheckout" style="margin-left: 200px">
-
+        <div class="page-header">            
+            <h2>Licenses</h2>
+        </div>    
         <?php
         $customerTenantId = $_SESSION['tid'];
 //business logic is in just for demo purpose
