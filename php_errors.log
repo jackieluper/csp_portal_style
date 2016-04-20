@@ -7316,9 +7316,9 @@ Stack trace:
 [22-Mar-2016 10:46:34 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
 [22-Mar-2016 10:46:36 America/Los_Angeles] PHP Notice:  Undefined index: sa_token in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 9
 [22-Mar-2016 10:46:36 America/Los_Angeles] PHP Notice:  Undefined index: resellerId in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 10
-[22-Mar-2016 10:46:40 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\portal\login_page.php on line 10
-[22-Mar-2016 10:46:42 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\portal\login_page.php on line 10
-[22-Mar-2016 10:46:44 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\portal\login_page.php on line 10
+[22-Mar-2016 10:46:40 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\portal\login.php on line 10
+[22-Mar-2016 10:46:42 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\portal\login.php on line 10
+[22-Mar-2016 10:46:44 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\portal\login.php on line 10
 [22-Mar-2016 10:48:12 America/Los_Angeles] PHP Notice:  A session had already been started - ignoring session_start() in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 7
 [22-Mar-2016 10:48:12 America/Los_Angeles] PHP Notice:  Undefined index: entity in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\controllers\config.php on line 9
 [22-Mar-2016 11:16:42 America/Los_Angeles] PHP Notice:  Array to string conversion in C:\Users\jsmith\Documents\NetBeansProjects\billing_portal_php\htm\api\add-cust.php on line 87

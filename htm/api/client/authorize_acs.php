@@ -10,12 +10,12 @@ function base64DecodeUrlSafe($b64) {
 $privateKey = 'hWFZPHCWgZSXCZapw/lv04l+8GIekVbks6WT7EeCmgc=';
 
 if (!isset($_POST['wa']) || empty($_POST['wa'])) {
-	header("Location: htm/portal/login_page.php?error=1");
+	header("Location: htm/portal/login.php?error=1");
 	exit;
 }
 
 if (!isset($_POST['wresult']) || empty($_POST['wresult'])) {
-	header("Location: htm/portal/login_page.php?error=1");
+	header("Location: htm/portal/login.php?error=1");
 	exit;
 }
 
