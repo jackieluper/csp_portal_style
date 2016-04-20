@@ -6,7 +6,7 @@ Managed Solution
 <?php
 session_start();
 require("../controllers/config.php");
-include '../controllers/displayInvoice.db.php';
+include '../controllers/display-invoice.db.php';
 if (isset($_SESSION['invoiceId'])) {
     $invoiceId = $_SESSION['invoiceId'];
 } else {

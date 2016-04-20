@@ -3,7 +3,7 @@
 session_start();
 require 'config.php';
 require '../controllers/email.php';
-include '../controllers/displayInvoice.db.php';
+include '../controllers/display-invoice.db.php';
 require "../api/client/_init.php";
 
 $invoiceId = $_SESSION['invoiceId'];
