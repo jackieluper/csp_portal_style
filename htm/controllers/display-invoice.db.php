@@ -10,11 +10,8 @@ if (session_status() == PHP_SESSION_NONE) {
 require 'config.php';
 require '../classes/invoice.class.php';
 
-if (isset($_SESSION['invoiceId'])) {
-    $invoice = $_SESSION['invoiceId'];
-} else {
-   echo 'error';
-}
+$invoice = $_POST['invoiceId'];
+
 
 $index = 0;
 $invoiceReceipt = new invoiceReceipt();
