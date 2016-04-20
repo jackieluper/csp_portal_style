@@ -101,7 +101,7 @@ require '../controllers/cart.db.php';
                                 <td><strong> $<?php echo number_format($offers->price[$i], 2) ?>  <?php echo $offers->unit[$i] ?> </strong></td>
                             </tr>
                             <tr>
-                                <td><strong><a style="color: #258ED9;" href="../portal/product-details.php?id=<?php echo $offers->id[$i] ?>">More details</a></strong></td>
+                                <td><strong><a style="color: #258ED9;" href="../portal/productDetails.php?id=<?php echo $offers->id[$i] ?>">More details</a></strong></td>
                             </tr>
                             <tr>                            
                                 <td><strong><input type="number" step="1" name="qty" value="1" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input><input type="hidden" name="id" value="<?php echo $offers->id[$i] ?>"></td>
@@ -136,7 +136,7 @@ require '../controllers/cart.db.php';
                             <td><strong> $<?php echo number_format($offers->price[$i], 2) ?>  <?php echo $offers->unit[$i] ?> </strong></td>
                         </tr>
                         <tr>
-                            <td><strong><a style="color: #258ED9;" href="../portal/product-details.php?id=<?php echo $offers->id[$i] ?>">More details</a></strong></td>
+                            <td><strong><a style="color: #258ED9;" href="../portal/productDetails.php?id=<?php echo $offers->id[$i] ?>">More details</a></strong></td>
                         </tr>
                         <tr>                            
                             <td><strong><input type="number" step="1" name="qty" value="1" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input><input type="hidden" name="id" value="<?php echo $offers->id[$i] ?>"></td>
