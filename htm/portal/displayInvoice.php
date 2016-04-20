@@ -4,11 +4,8 @@ Date: 3/21/16
 Managed Solution
 -->
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 require("../controllers/config.php");
-include '../controllers/display-invoice.db.php';
+require '../controllers/display-invoice.db.php';
 
 $invoiceId = $_POST['invoiceId'];
 
