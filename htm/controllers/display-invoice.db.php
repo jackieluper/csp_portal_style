@@ -13,8 +13,7 @@ require '../classes/invoice.class.php';
 if (isset($_SESSION['invoiceId'])) {
     $invoice = $_SESSION['invoiceId'];
 } else {
-    $invoiceId = $_POST['invoiceId'];
-    $_SESSION['invoiceId'] = $invoiceId;
+   echo 'error';
 }
 
 $index = 0;
