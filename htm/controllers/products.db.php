@@ -16,7 +16,7 @@ try {
             $erp = $row['erp_price'];
             $purchase_unit = $row['purchase_unit'];
             $id = $row['id'];
-            $topOffers = $row['top_offer'];
+            $topOffer = $row['top_offer'];
             $offers->setOfferName($index, $name);
             $offers->setOfferPrice($index, $erp);
             $offers->setOfferUnit($index, $purchase_unit);
