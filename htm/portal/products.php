@@ -98,7 +98,7 @@ require '../controllers/cart.db.php';
                                 <td><div class="item active" id="item"><image class="productImage" src="<?php echo $offers->img_tag[$i] ?>" alt="Image not found"></div></td>
                             </tr>
                             <tr>
-                                <td><strong> $<?php echo number_format($offers->price[$i], 2) ?>  <?php echo $offers->unit[$i] ?> </strong></td>
+                                <td><strong> $<?php echo number_format($offers->price[$i], 2) ?>  <?php echo $offers->topOffer[$i] ?> </strong></td>
                             </tr>
                             <tr>
                                 <td><strong><a style="color: #258ED9;" href="../portal/product-details.php?id=<?php echo $offers->id[$i] ?>">More details</a></strong></td>
