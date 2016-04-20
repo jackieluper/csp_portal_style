@@ -1,9 +1,9 @@
-$( window ).click(function(){ 
+$(window).click(function () {
     show('page', false);
     show('loading', true);
+    $(window).ready(function () {
+        show('page', true);
+        show('loading', false);
+    });
 });
 
-$( window ).ready(function(){ 
-    show('page', true);
-    show('loading', false);
-});
