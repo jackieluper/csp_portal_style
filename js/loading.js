@@ -13,7 +13,7 @@ function show(id, value) {
     document.getElementById(id).style.display = value ? 'block' : 'none';
 }
 
-$(window).ready(function(){
+onClick(function () {
     show('page', true);
     show('loading', false);
 });
