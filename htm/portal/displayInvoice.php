@@ -11,7 +11,6 @@ require("../controllers/config.php");
 include '../controllers/display-invoice.db.php';
 
 $invoiceId = $_POST['invoiceId'];
-$_SESSION['invoiceId'] = $invoiceId;
 
 ?>
 <head>
