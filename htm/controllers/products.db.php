@@ -1,12 +1,11 @@
 <?php
-
 include 'config.php';
 include '../classes/offers.class.php';
 
 $index = 0;
 $entity = $_SESSION['entity'];
 $offers = new offers();
-
+echo $entity;
 try {
     $getOfferDetails = "SELECT offer.top_offer, offer.id, offer.display_name, offer.license_agreement_type, offer.purchase_unit, offer.sku, offer_price.erp_price FROM offer, offer_price WHERE offer.id=offer_id AND offer.license_agreement_type='$entity'";
     $offerDetailsRes = $conn->query($getOfferDetails);
