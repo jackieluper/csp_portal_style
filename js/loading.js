@@ -4,6 +4,6 @@ $( window ).click(function(){
 });
 
 $( window ).ready(function(){ 
-    show('page', false);
-    show('loading', true);
+    show('page', true);
+    show('loading', false);
 });
