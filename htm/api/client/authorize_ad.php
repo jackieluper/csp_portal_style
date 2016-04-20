@@ -14,7 +14,7 @@ $_SESSION['tid'] = $userAuth->getIdToken()->tid;
 $company_domain = substr($userAuth->getIdToken()->unique_name, strpos($userAuth->getIdToken()->unique_name, "@") + 1); 
 $_SESSION['company_domain'] = $company_domain;
 
-header('Location: ../htm/controllers/validateUser.php');
+header('Location: ../htm/controllers/validate-user.php');
 die();
 
 //
