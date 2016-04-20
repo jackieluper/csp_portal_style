@@ -45,7 +45,7 @@ $role = $_SESSION['role'];
     </ul>
 </nav>
 <div id="page">
-    <div class="contentCheckout">
+    <div class="contentWide">
         <div class="page-header">
             <h2>CHECKOUT</h2>
         </div>

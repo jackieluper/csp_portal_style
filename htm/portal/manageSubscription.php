@@ -45,7 +45,7 @@ require "../api/client/_init.php";
 </nav>
 <div id="loading"></div>
 <div id="page">
-    <div class="contentCheckout" style="margin-left: 200px">
+    <div class="contentWide" style="margin-left: 200px">
         <div class="page-header">            
             <h2>Licenses</h2>
         </div>    
