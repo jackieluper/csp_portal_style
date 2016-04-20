@@ -11,7 +11,7 @@ require 'config.php';
 require '../classes/invoice.class.php';
 
 if (isset($_SESSION['invoiceId'])) {
-    $invoiceId = $_SESSION['invoiceId'];
+    $invoice = $_SESSION['invoiceId'];
 } else {
     $invoiceId = $_POST['invoiceId'];
     $_SESSION['invoiceId'] = $invoiceId;
@@ -19,6 +19,8 @@ if (isset($_SESSION['invoiceId'])) {
 
 $index = 0;
 $invoiceReceipt = new invoiceReceipt();
+$invoice = new invoice();
+
 
 try {
     $getTranDetails = "SELECT * FROM transactions WHERE transaction_id='$invoiceId'";
@@ -47,6 +49,7 @@ try {
             $invoiceReceipt->setDiscountRate($discount);
             $invoiceReceipt->setTotalSavings($totalSavings);
         }
+        $invoice->setInvoiceTranId($index, $invoiceId);
     }
     else{
         throw new Exception("MySql Error: " . $getTranDetails . "<br>" . $conn->error);

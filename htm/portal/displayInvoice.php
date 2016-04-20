@@ -4,14 +4,14 @@ Date: 3/21/16
 Managed Solution
 -->
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require("../controllers/config.php");
 include '../controllers/display-invoice.db.php';
-if (isset($_SESSION['invoiceId'])) {
-    $invoiceId = $_SESSION['invoiceId'];
-} else {
-    $invoiceId = $_POST['invoiceId'];
-}
+
+$invoiceId = $_POST['invoiceId'];
+
 ?>
 <head>
     <title>Display Invoice</title>
