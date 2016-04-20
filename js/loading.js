@@ -1,4 +1,4 @@
-$( window ).unload(function(callback){ 
+$( window ).change(function(callback){ 
     var intervalID = window.setInterval(checkReady, 500);
 
     function checkReady() {
