@@ -35,7 +35,7 @@ try {
             } else {
                 $tag = "noImage.png";
                 $offers->setOfferImg($index, $tag);
-                throw new Exception("MySql Error: " . $imgSetRes . "<br>" . $conn->error);
+                throw new Exception("MySql Error: " . $getImgSet . "<br>" . $conn->error);
             }
             $index++;
         }
