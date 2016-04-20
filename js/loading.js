@@ -1,4 +1,4 @@
-$(window).click(function () {
+$(document).click(function () {
     show('page', false);
     show('loading', true);
 
