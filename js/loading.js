@@ -1,4 +1,4 @@
-function onClick(callback) {
+$('icon').click(function(callback){ 
     var intervalID = window.setInterval(checkReady, 500);
 
     function checkReady() {
@@ -7,7 +7,7 @@ function onClick(callback) {
             callback.call(this);
         }
     }
-}
+});
 
 function show(id, value) {
     document.getElementById(id).style.display = value ? 'block' : 'none';
