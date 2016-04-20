@@ -7,7 +7,7 @@ $entity = $_SESSION['entity'];
 $offers = new offers();
 
 try {
-    $getOfferDetails = "SELECT offer.id, offer.display_name, offer.license_agreement_type, offer.purchase_unit, offer.sku, offer_price.erp_price FROM offer, offer_price WHERE offer.id=offer_id AND offer.license_agreement_type='$entity'";
+    $getOfferDetails = "SELECT offer.top_offer, offer.id, offer.display_name, offer.license_agreement_type, offer.purchase_unit, offer.sku, offer_price.erp_price FROM offer, offer_price WHERE offer.id=offer_id AND offer.license_agreement_type='$entity'";
     $offerDetailsRes = $conn->query($getOfferDetails);
     $index = 0;
     if ($offerDetailsRes->num_rows > 0) {
