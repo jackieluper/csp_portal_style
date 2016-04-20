@@ -1,4 +1,4 @@
-$('icon').click(function(callback){ 
+$( window ).unload(function(callback){ 
     var intervalID = window.setInterval(checkReady, 500);
 
     function checkReady() {
