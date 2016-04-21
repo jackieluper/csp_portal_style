@@ -101,7 +101,7 @@ if (isset($_SESSION['updateQty'])) {
             <div class="subscriptionCaption"><?php echo $details ?></div>
         </div>
         <div class="page-header">
-            <?php echo $subscription->getAddOnList();
+            <?php echo $subscription[0]->getAddOnList();
  echo var_dump($addon);
                     ?>
                 </small></h2>
