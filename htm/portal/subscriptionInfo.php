@@ -101,10 +101,12 @@ if (isset($_SESSION['updateQty'])) {
             <div class="subscriptionCaption"><?php echo $details ?></div>
         </div>
         <div class="page-header">
-            <h2>Add On's<small> 
-                    <?php
-                    for ($i = 0; $i < count($subscription->getAddOnList()); $i++) {
-                        echo $subscription[$i]->getAddOnList();
+            <?php if (count($subscriptionList[$i]->getAddOnList() > 0)) { ?>
+                <h2>Add On's<small> 
+                        <?php
+                        for ($i = 0; $i < count($subscriptionList->getAddOnList()); $i++) {
+                            echo $subscriptionList->getAddOnList();
+                        }
                     }
                     ?>
                 </small></h2>
