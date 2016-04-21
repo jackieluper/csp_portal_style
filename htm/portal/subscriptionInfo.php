@@ -100,15 +100,15 @@ if (isset($_SESSION['updateQty'])) {
             </div>
             <div class="subscriptionCaption"><?php echo $details ?></div>
         </div>
-    </div>
-    <div class="page-header">
-        <h2>Add On's<small> 
-                <?php
-                for ($i = 0; $i < count($subscription->getAddOnList()); $i++) {
-                    echo $subscription->getAddOnList();
-                }
-                ?>
-            </small></h2>
+        <div class="page-header">
+            <h2>Add On's<small> 
+                    <?php
+                    for ($i = 0; $i < count($subscription->getAddOnList()); $i++) {
+                        echo $subscription[$i]->getAddOnList();
+                    }
+                    ?>
+                </small></h2>
+        </div>
     </div>
 </div>
 <div id="loading"></div>
