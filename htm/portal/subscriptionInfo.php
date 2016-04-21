@@ -102,14 +102,7 @@ if (isset($_SESSION['updateQty'])) {
         </div>
         <div class="page-header">
             <?php $addon = $subscription->getAddOnList();
-            if (count($addon[$i] > 0)) { ?>
-                <h2>Add On's<small> 
-                        <?php
-                        for ($i = 0; $i < count($addon); $i++) {
-                            echo var_dump($addon);
-                            echo $addon;
-                        }
-                    }
+ echo var_dump($addon);
                     ?>
                 </small></h2>
         </div>
