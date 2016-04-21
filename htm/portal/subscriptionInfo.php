@@ -11,10 +11,9 @@ if (isset($_POST['itemNum'])) {
 } else {
     $i = $_SESSION['itemNum'];
 }
-if(isset($_SESSION['updateQty'])){
+if (isset($_SESSION['updateQty'])) {
     $updateQty = $_SESSION['updateQty'];
-}
-else{
+} else {
     $updateQty = 0;
 }
 ?>
@@ -101,6 +100,11 @@ else{
             </div>
             <div class="subscriptionCaption"><?php echo $details ?></div>
         </div>
+    </div>
+    <div class="page-header">
+        <h2>Add On's<small> 
+                <?php echo $subscriptionList[$i]->getAddOnList(); ?>
+            </small></h2>
     </div>
 </div>
 <div id="loading"></div>

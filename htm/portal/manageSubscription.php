@@ -85,7 +85,7 @@ require "../api/client/_init.php";
 
 //$subscriptionList[0]->updateFriendlyName();
 //
-//$subscriptionList[0]->getAddOnList();
+//
 //$subscriptionList[0]->suspendSubscription();
     ?>
 </div>
