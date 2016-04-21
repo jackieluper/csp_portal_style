@@ -72,6 +72,7 @@ if (isset($_SESSION['updateQty'])) {
             <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" >
             <div style="float:right">
                 <table class="subscriptionDetails">
+                    <th></th>
                     <th class="subscriptionHeader" colspan="2"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
                     <tr>
                         <td class="subscriptionTitle">Effective start date: </td>
