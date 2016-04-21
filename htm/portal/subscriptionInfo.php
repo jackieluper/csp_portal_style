@@ -73,7 +73,7 @@ if (isset($_SESSION['updateQty'])) {
             <div style="float:right">
                 <table class="subscriptionDetails">
                     <tr>
-                    <th class="subscriptionHeader" colspan="2"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
+                    <th class="subscriptionHeader" colspan="3"><?php echo $subscriptionList[$i]->getOfferName() ?></th>
                     </tr>
                     <tr>
                         <td class="subscriptionTitle">Effective start date: </td>
