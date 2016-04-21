@@ -104,8 +104,8 @@ if (isset($_SESSION['updateQty'])) {
             <?php if (count($subscriptionList[$i]->getAddOnList() > 0)) { ?>
                 <h2>Add On's<small> 
                         <?php
-                        for ($i = 0; $i < count($subscriptionList->getAddOnList()); $i++) {
-                            echo $subscriptionList->getAddOnList();
+                        for ($i = 0; $i < count($subscriptionList[$i]->getAddOnList()); $i++) {
+                            echo $subscriptionList[$i]->getAddOnList();
                         }
                     }
                     ?>
