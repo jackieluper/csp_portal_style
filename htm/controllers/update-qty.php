@@ -1,6 +1,4 @@
 <?php
-
-session_start();
 require 'config.php';
 require '../controllers/email.php';
 include '../controllers/display-invoice.db.php';
