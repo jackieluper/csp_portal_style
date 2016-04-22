@@ -6,7 +6,7 @@ require '../controllers/email.php';
 include '../controllers/display-invoice.db.php';
 require "../api/client/_init.php";
 
-$invoiceId = $_SESSION['invoiceId'];
+
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $_SESSION['itemNum'] = $i;
