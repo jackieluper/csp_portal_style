@@ -6,7 +6,6 @@ require '../controllers/email.php';
 include '../controllers/display-invoice.db.php';
 require "../api/client/_init.php";
 
-
 $qty = $_POST['qty'];
 $i = $_POST['itemNum'];
 $_SESSION['itemNum'] = $i;
@@ -53,7 +52,7 @@ if ($resProvision->num_rows > 0) {
     $resTranId = $conn->query($sqlgetTranId);
     if ($resTranId->num_rows > 0) {
         while ($row = $resTranId->fetch_assoc()) {
-            $tranId = $row['transaction_id'] + 2;
+            $tranId = $row['transaction_id'] + 1;
             echo "transaction id: " . $tranId . '<br>';
         }
     } else {
