@@ -236,7 +236,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
                  <table>
                      <tr><td>Credit Card Number</td><td><input type ="text" id="billing-cc-number" name="billing-cc-number" value="" onkeyup="validateCardNumber()" placeholder="required" required> </td></tr>
                      <tr><td>Expiration Date</td><td><input type ="text" id="billing-cc-exp" name="billing-cc-exp" value="" placeholder="required" onkeyup="validateCardDate()" required> </td></tr>
-                     <tr><td>CVV</td><td><INPUT type ="text" name="cvv" placeholder="required" value="999" required> </td></tr>
+                     <tr><td>CVV</td><td><INPUT type ="text" name="cvv" placeholder="required" value="" required> </td></tr>
                      <tr><td colspan="2" align=center><input  class="ccBtn" type ="submit" value="Submit Step Two"></td> </tr>
                  </table>
              </form>
