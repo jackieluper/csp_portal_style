@@ -1,15 +1,16 @@
 <?php
 require 'config.php';
 require '../classes/offers.class.php';
-
+//Checking if session is still active
 if (session_status() == PHP_SESSION_NONE) {
     header("Location: logout.php");
 }
-
+//setting initial variables/objects
 $entity = $_SESSION['entity'];
 $offers = new offers();
 
 try {
+    //query to get offer details and to determine if it is a top offer or not
     $getOfferDetails = "SELECT top_offer, offer.id, offer.display_name, offer.license_agreement_type, offer.purchase_unit, offer.secondary_license_type, offer.sku, offer_price.erp_price FROM offer, offer_price WHERE offer.id=offer_id AND offer.license_agreement_type='$entity'";
     $offerDetailsRes = $conn->query($getOfferDetails);
     $index = 0;
@@ -22,13 +23,13 @@ try {
                 $purchase_unit = $row['purchase_unit'];
                 $id = $row['id'];
                 $topOffer = $row['top_offer'];
-                
+                //setting DB data to offers object
                 $offers->setOfferName($index, $name);
                 $offers->setOfferPrice($index, $erp);
                 $offers->setOfferUnit($index, $purchase_unit);
                 $offers->setOfferId($index, $id);
                 $offers->setTopOffer($index, $topOffer);
-
+                //setting the img to the name of the corresponding offer
                 $getImgSet = "SELECT img_tag, details FROM image WHERE offer_name='$name'";
                 $imgSetRes = $conn->query($getImgSet);
                 if ($imgSetRes->num_rows > 0) {
@@ -39,6 +40,7 @@ try {
                         $offers->setOfferImg($index, $tag);
                         $offers->setOfferCaption($index, $caption);
                     }
+                //if not
                 } else {
                     $tag = "noImage.png";
                     $offers->setOfferImg($index, $tag);
