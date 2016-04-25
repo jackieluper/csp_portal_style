@@ -39,6 +39,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
          <title>Products</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="refresh" content="180;url=http://www.msolcsptest.com/htm/controllers/logout.php" >
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>      
@@ -197,6 +198,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta http-equiv="refresh" content="180;url=http://www.msolcsptest.com/htm/controllers/logout.php" >
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
             <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
             <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>      
@@ -267,6 +269,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     <html>
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="refresh" content="180;url=http://www.msolcsptest.com/htm/controllers/logout.php" >
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
             <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
             <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>      
@@ -309,7 +312,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         print '<div id="print-content">
                 <form>';
         ?>
-        <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?>></div>
+        <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $ownerName ?>></div>
         <?php
         print " <p><h3><strong>Transaction was Approved: </strong></h3></p>\n";
         $xml = simplexml_load_string($data);
