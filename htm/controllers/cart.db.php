@@ -14,6 +14,7 @@ if(isset($_SESSION['company_name'])){
 }
 else{
     $companyName = null;
+    $custId = null;
 }
 $index = 0;
 $cart = new cart();
