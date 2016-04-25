@@ -62,12 +62,9 @@ require '../controllers/product-details-db.php';
                     <tr>
                         <td style="align-content: left"><button class="updateQtyBtn" type="submit">Add To Cart</button></td>
                     </tr>
-
-
                 </form>
             </table>
         </div>            
     </div>
 </div>
-
 <div id="loading"></div>
