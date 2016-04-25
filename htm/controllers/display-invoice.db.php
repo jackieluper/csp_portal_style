@@ -12,17 +12,15 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 if (isset($_POST['invoiceId'])) {
     $invoiceId = $_POST['invoiceId'];
-} else if(isset($_SESSION['invoiceId'])){
+} else if (isset($_SESSION['invoiceId'])) {
     $invoiceId = $_SESSION['invoiceId'];
-}
-else{
+} else {
     $invoiceId = null;
 }
 
 $index = 0;
 $invoiceReceipt = new invoiceReceipt();
 $invoice = new invoice();
-
 
 try {
     $getTranDetails = "SELECT * FROM transactions WHERE transaction_id='$invoiceId'";

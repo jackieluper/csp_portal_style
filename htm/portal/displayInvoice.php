@@ -7,8 +7,6 @@ Managed Solution
 require("../controllers/config.php");
 require '../controllers/display-invoice.db.php';
 
-$invoiceId = $_POST['invoiceId'];
-
 ?>
 <head>
     <title>Display Invoice</title>
