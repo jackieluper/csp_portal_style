@@ -10,7 +10,7 @@ $offers = new offers();
 
 try {
     //query to get offer details and to determine if it is a top offer or not
-    $getOfferDetails = "SELECT top_offer, offer.id, offer.display_name, offer.license_agreement_type, offer.purchase_unit, offer.secondary_license_type, offer.sku, offer_price.erp_price FROM offer, offer_price WHERE offer.id=offer_id AND offer.license_agreement_type='$entity'";
+    $getOfferDetails = "SELECT top_offer, offer.id, offer.display_name, offer.license_agreement_type, offer.purchase_unit, offer.secondary_license_type, offer.sku, offer_price.erp_price FROM offer, offer_price WHERE offer.id=offer_id AND offer.license_agreement_type='$entity' AND active='1'";
     $offerDetailsRes = $conn->query($getOfferDetails);
     $index = 0;
     if ($offerDetailsRes->num_rows > 0) {
