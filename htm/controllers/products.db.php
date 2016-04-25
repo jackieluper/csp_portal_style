@@ -50,7 +50,6 @@ try {
                     $email = 'jsmith@managedsolution.com';
                     $bcc = "csperrors@managedsolution.com";
                     mail_utf8($email, $subject, $message, $bcc);
-                    throw new Exception("MySql Error: " . $getImgSet . "<br>" . $conn->error);
                 }
                 $index++;
             }
