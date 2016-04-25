@@ -10,10 +10,9 @@ if (session_status() == PHP_SESSION_NONE) {
 require 'config.php';
 require '../classes/invoice.class.php';
 
-if(isset($_POST['invoiceId'])){
-$invoiceId = $_POST['invoiceId'];
-}
-else{
+if (isset($_POST['invoiceId'])) {
+    $invoiceId = $_POST['invoiceId'];
+} else {
     $invoiceId = $_SESSION['invoiceId'];
 }
 
@@ -50,8 +49,7 @@ try {
             $invoiceReceipt->setTotalSavings($totalSavings);
         }
         $invoice->setInvoiceTranId($index, $invoiceId);
-    }
-    else{
+    } else {
         throw new Exception("MySql Error: " . $getTranDetails . "<br>" . $conn->error);
     }
 } catch (Exception $e) {
