@@ -4,12 +4,12 @@ Date: 3/21/16
 Managed Solution
 -->
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 require 'config.php';
 require '../classes/invoice.class.php';
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 if (isset($_POST['invoiceId'])) {
     $invoiceId = $_POST['invoiceId'];
 } else if(isset($_SESSION['invoiceId'])){
