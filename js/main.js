@@ -140,7 +140,7 @@ function validateCardDate() {
     var text = document.getElementById("billing-cc-exp");
     var x = $("#billing-cc-exp").val();
     var date_array = x.split('/');
-    var month = date_array[0] - 1;
+    var month = date_array[0];
     var year = date_array[1];
 
     source_date = new Date();
