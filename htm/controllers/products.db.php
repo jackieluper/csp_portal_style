@@ -49,7 +49,6 @@ try {
                     $message = "NO IMMAGE EXCEPTION: " . $e;
                     $bcc = "csperrors@managedsolution.com";
                     mail_utf8($email, $subject, $message, $bcc);
-                    throw new Exception("Image Error: " . $getImgSet . "<br>" . $conn->error);
                 }
                 $index++;
             }
