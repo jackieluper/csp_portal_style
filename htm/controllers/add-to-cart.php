@@ -102,7 +102,7 @@ if ($found == false) {
             if ($conn->query($updQtyCart) === TRUE) {
                 //header('Location: ../portal/products.php');
                 echo "Micro: $subscription_name <br>";
-                echo "Ours : $name";
+                echo "Ours : $offerName";
             } else {
                 echo "Error updating record: " . $conn->error;
             }
