@@ -1,23 +1,5 @@
 <?php
-session_start();
-require "../controllers/config.php";
-
-$id = $_GET['id'];
-$sqlOffer = "SELECT display_name, purchase_unit from offer where id='$id'";
-$resOffer = $conn->query($sqlOffer);
-if ($resOffer->num_rows > 0) {
-    while ($row = $resOffer->fetch_assoc()) {
-        $product_name = $row['display_name'];
-        $purchase_unit = $row['purchase_unit'];
-        $sqlPrice = "SELECT erp_price from offer_price where offer_id='$id' ";
-        $resPrice = $conn->query($sqlPrice);
-        if($resPrice->num_rows > 0){
-            while($row = $resPrice->fetch_assoc()){
-                $price = $row['erp_price'];
-            }
-        }
-    }
-}
+require '../controllers/product-details-db.php';
 ?>
 <head>
     <title>Product Details</title>
@@ -61,17 +43,7 @@ if ($resOffer->num_rows > 0) {
 </nav>
 <div id="page">
     <div class="subscriptionContent" >
-        <?php
-        $resultImg = $conn->query("select img_tag, details from image where offer_name='" . $product_name . "'");
-        if ($resultImg->num_rows > 0) {
-            while ($row = $resultImg->fetch_assoc()) {
-                $tag = $row['img_tag'];
-                $details = $row['details'];
-            }
-        } else {
-            $tag = "noImage.png";
-        }
-        ?><div style="margin: 50px 0 0 100px; display: inline-block">
+        <div style="margin: 50px 0 0 100px; display: inline-block">
             <image src="../img/microsoft_img/<?php echo $tag ?>" alt="Image not found" style="float:left">
             <table class="subscriptionDetails" style="width: 60%; float: right">
                 <tr>
@@ -81,8 +53,8 @@ if ($resOffer->num_rows > 0) {
                     <tr>
                         <td class="subscriptionDetails" style="font-size: 22px; text-align:center" colspan="3" ><p><?php echo $details ?></p></td>
                     </tr>
-                     <tr>
-                         <td class="subscriptionDetails" style="font-size: 16px; text-align:center" colspan="3" ><strong>$<?php echo number_format($price, 2) ?> per <?php echo $purchase_unit ?></strong></td>
+                    <tr>
+                        <td class="subscriptionDetails" style="font-size: 16px; text-align:center" colspan="3" ><strong>$<?php echo number_format($price, 2) ?> per <?php echo $purchase_unit ?></strong></td>
                     </tr>
                     <tr>
                         <td class="subscriptionInfo" colspan="3" style="text-align: center"><input type="hidden" name="id" value="<?php echo $id ?>"><strong>Quantity: </strong><input step="1" name="qty" value="1" style="border-style: groove; border-radius: 5px; width: 20%;"></input></td>
@@ -90,7 +62,7 @@ if ($resOffer->num_rows > 0) {
                     <tr>
                         <td style="align-content: left"><button class="updateQtyBtn" type="submit">Add To Cart</button></td>
                     </tr>
-                    
+
 
                 </form>
             </table>
