@@ -38,19 +38,20 @@ function error_handler($errno, $error, $file, $line, $vars) {
 }
 
 function exception_handler(Exception $e) {
-    $subject = "Exception: ";
+            $subject = "Exception: ";
             $message = "Exception: " . $e ;
             $email = 'jsmith@managedsolution.com';
             $bcc = 'csperrors@managedsolution.com';
             mail_utf8($email, $subject, $message, $bcc);
-    echo '<br />';
-    echo ' -=-=-=-=-=-=-=-=-=-=-=-=-=- AN EXCEPTION OCCURRED -=-=-=-=-=-=-=-=-=-=-=-=-=-';
-    echo '<br />';
-    echo '<pre>', print_r($e, true), '</pre>';
-    echo '<br />';
-    echo ' -=-=-=-=-=-=-=-=-=-=-=-=-=- END OF EXCEPTION DATA -=-=-=-=-=-=-=-=-=-=-=-=-=-';
-    echo '<br /><br />';
-    exit;
+            
+            echo '<br />';
+            echo ' -=-=-=-=-=-=-=-=-=-=-=-=-=- AN EXCEPTION OCCURRED -=-=-=-=-=-=-=-=-=-=-=-=-=-';
+            echo '<br />';
+            echo '<pre>', print_r($e, true), '</pre>';
+            echo '<br />';
+            echo ' -=-=-=-=-=-=-=-=-=-=-=-=-=- END OF EXCEPTION DATA -=-=-=-=-=-=-=-=-=-=-=-=-=-';
+            echo '<br /><br />';
+            exit;
 }
 
 function shutdown_handler() {
