@@ -76,7 +76,7 @@ if ($prodNameRes->num_rows > 0) {
 for ($i = 0; $i < count($subscriptionList); $i++) {
     $subscription_id = $subscriptionList[$i]->getOfferId();
     $subscription_name = $subscriptionList[$i]->getOfferName();
-    if (strcmp($subscription_name, $offerName)) {
+    if ($subscription_name === $offerName) {
         $found = true;
         $_SESSION['updateQty'] = $qty;
         $_SESSION['itemNum'] = $i;
