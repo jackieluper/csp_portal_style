@@ -6,7 +6,6 @@ Managed Solution
 <?php
 require("../controllers/config.php");
 require '../controllers/display-invoice.db.php';
-
 ?>
 <head>
     <title>Display Invoice</title>
