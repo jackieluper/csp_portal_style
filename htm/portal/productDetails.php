@@ -57,7 +57,7 @@ require '../controllers/product-details-db.php';
                         <td class="subscriptionDetails" style="font-size: 16px; text-align:center" colspan="3" ><strong>$<?php echo number_format($price, 2) ?> per <?php echo $purchase_unit ?></strong></td>
                     </tr>
                     <tr>
-                        <td class="subscriptionInfo" colspan="3" style="text-align: center"><input type="hidden" name="id" value="<?php echo $id ?>"><strong>Quantity: </strong><input step="1" name="qty" value="1" style="border-style: groove; border-radius: 5px; width: 10%; text-align: center;"></input></td>
+                        <td class="subscriptionInfo" colspan="3" style="text-align: center"><input type="hidden" name="id" value="<?php echo $id ?>"><strong>Quantity: </strong><input type="number" step="1" name="qty" value="1" style="border-style: groove; border-radius: 5px; width: 10%; text-align: center;"></input></td>
                     </tr>
                     <tr>
                         <td style="align-content: left"><button class="updateQtyBtn" type="submit">Add To Cart</button></td>
