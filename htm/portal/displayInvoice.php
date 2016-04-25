@@ -4,7 +4,6 @@ Date: 3/21/16
 Managed Solution
 -->
 <?php
-require("../controllers/config.php");
 require '../controllers/display-invoice.db.php';
 ?>
 <head>

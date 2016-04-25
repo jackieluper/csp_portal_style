@@ -1,5 +1,5 @@
 <?php
-require "../controllers/manage-subscriptions-db.php";
+require "../controllers/manage-subscriptions.php";
 ?>
 <head>
     <title>My Subscriptions</title>
