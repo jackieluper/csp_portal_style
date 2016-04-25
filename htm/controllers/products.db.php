@@ -1,8 +1,8 @@
 <?php
-
 require 'config.php';
 require 'email.php';
 require '../classes/offers.class.php';
+
 //Checking if session is still active
 if (session_status() == PHP_SESSION_NONE) {
     header("Location: logout.php");
