@@ -1,5 +1,4 @@
 <?php
-
 require 'config.php';
 require 'email.php';
 require '../classes/offers.class.php';

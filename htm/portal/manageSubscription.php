@@ -1,7 +1,5 @@
 <?php
-session_start();
-require "../controllers/config.php";
-require "../api/client/_init.php";
+require "../controllers/manage-subscriptions-db.php";
 ?>
 <head>
     <title>My Subscriptions</title>
@@ -50,43 +48,30 @@ require "../api/client/_init.php";
         <div class="page-header">            
             <h2>Licenses</h2>
         </div>    
-        <?php
-        $customerTenantId = $_SESSION['tid'];
-        //business logic is in just for demo purpose
-        $subscription = new Subscription($customerTenantId);
-        /* @var Subscription[] $subscriptionList */
-        $subscriptionList = $subscription->getSubscriptionList();
-
-        print '<table id="checkoutTable" >
-        <thead>
-            <tr class="ui-widget-header ">
-                <th>Product Name</th>
-                <th>Start Date</th>
-                <th>Qty on Record</th>
-                <th>Manage Subscription</th>
-            </tr>
-        </thead>
-        <tbody>';
-        for ($i = 0; $i < count($subscriptionList); $i++) {
-            ?>
-            <form action="subscriptionInfo.php" method="post">
-                <tr>
-                    <td><input type="hidden" name="itemNum" value="<?php echo $i ?>" style="background-color: #ED8B22; border: none" ><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
-                    <td style="width: 150px"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
-                    <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
-                    <td><button class="makeChanges" type="submit">Make Changes</button></td>
+        <table id="checkoutTable" >
+            <thead>
+                <tr class="ui-widget-header ">
+                    <th>Product Name</th>
+                    <th>Start Date</th>
+                    <th>Qty on Record</th>
+                    <th>Manage Subscription</th>
                 </tr>
-            </form>
+            </thead>
+            <tbody>
+                <?php
+                for ($i = 0; $i < count($subscriptionList); $i++) {
+                    ?>
+                <form action="subscriptionInfo.php" method="post">
+                    <tr>
+                        <td><input type="hidden" name="itemNum" value="<?php echo $i ?>" style="background-color: #ED8B22; border: none" ><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
+                        <td style="width: 150px"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
+                        <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
+                        <td><button class="makeChanges" type="submit">Make Changes</button></td>
+                    </tr>
+                </form>
         </div>
 
         <?php
     }
-
-
-
-//$subscriptionList[0]->updateFriendlyName();
-//
-//
-//$subscriptionList[0]->suspendSubscription();
     ?>
 </div>
