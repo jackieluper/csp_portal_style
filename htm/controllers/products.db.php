@@ -39,14 +39,14 @@ try {
                         $offers->setOfferImg($index, $tag);
                         $offers->setOfferCaption($index, $caption);
                     }
-                    //if not
+                    //if img not in DB grab no image available and send email notifying us
                 } else {
                     $tag = "noImage.png";
                     $offers->setOfferImg($index, $tag);
                     
                     $email = "jsmith@managedsolution.com";
-                    $subject = "NO IMAGE FOR: $name";
-                    $message = "NO IMMAGE EXCEPTION: $e";                    
+                    $subject = "NO IMAGE FOR: ";
+                    $message = "NO IMMAGE EXCEPTION: ";                    
                     $bcc = "csperrors@managedsolution.com";
                     mail_utf8($email, $subject, $message, $bcc);
                 }
