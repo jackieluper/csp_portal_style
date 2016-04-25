@@ -76,7 +76,7 @@ if ($prodNameRes->num_rows > 0) {
 for ($i = 0; $i < count($subscriptionList); $i++) {
     $subscription_id = $subscriptionList[$i]->getOfferId();
     $subscription_name = $subscriptionList[$i]->getOfferName();
-    if ($subscription_name === $offerName) {
+    if ($subscription_id === $$offerSku) {
         $found = true;
         $_SESSION['updateQty'] = $qty;
         $_SESSION['itemNum'] = $i;
@@ -99,7 +99,9 @@ if ($found == false) {
             $qty = $row['qty'] + $qty;
             $updQtyCart = "UPDATE cart SET qty='" . $qty . "' where items='" . $sf_offer_id . "'";
             if ($conn->query($updQtyCart) === TRUE) {
-                header('Location: ../portal/products.php');
+                //header('Location: ../portal/products.php');
+                echo $offerSku . '<br>';
+                echo $subscriptionId . '<br>';
             } else {
                 echo "Error updating record: " . $conn->error;
             }
