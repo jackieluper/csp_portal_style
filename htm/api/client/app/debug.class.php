@@ -38,12 +38,6 @@ function error_handler($errno, $error, $file, $line, $vars) {
 }
 
 function exception_handler(Exception $e) {
-            $subject = "Exception: ";
-            $message = "Exception: " . $e ;
-            $email = 'jsmith@managedsolution.com';
-            $bcc = 'csperrors@managedsolution.com';
-            mail_utf8($email, $subject, $message, $bcc);
-            
             echo '<br />';
             echo ' -=-=-=-=-=-=-=-=-=-=-=-=-=- AN EXCEPTION OCCURRED -=-=-=-=-=-=-=-=-=-=-=-=-=-';
             echo '<br />';
@@ -57,16 +51,11 @@ function exception_handler(Exception $e) {
 function shutdown_handler() {
     try {
         if (null !== $error = error_get_last()) {
-            require '../../../controllers/email.php';
-            $subject = "ERROR: " . $error['type'];
-            $message = "Error: " . $error['type'] . $error['message'] . $error['file'] . $error['line'];
-            $email = 'jsmith@managedsolution.com';
-            $bcc = 'csperrors@managedsolution.com';
-            mail_utf8($email, $subject, $message, $bcc);
+           
             throw new AppException($error['message'], $error['type'], $error['file'], $error['line']);
         }
-    } catch (Exception $e) {
-        exception_handler($e);
+    } catch (Exception $e) {      
+        exception_handler($e);     
     }
 }
 
