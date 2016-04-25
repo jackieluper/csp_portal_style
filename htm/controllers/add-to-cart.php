@@ -100,7 +100,9 @@ if ($found == false) {
             $qty = $row['qty'] + $qty;
             $updQtyCart = "UPDATE cart SET qty='" . $qty . "' where items='" . $sf_offer_id . "'";
             if ($conn->query($updQtyCart) === TRUE) {
-                header('Location: ../portal/products.php');
+                echo "Microsoft: $subscription_id <br>";
+                echo "Ours: $offerSku";
+                //header('Location: ../portal/products.php');
             } else {
                 echo "Error updating record: " . $conn->error;
             }
