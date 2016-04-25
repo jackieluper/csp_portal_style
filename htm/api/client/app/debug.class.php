@@ -57,7 +57,7 @@ function exception_handler(Exception $e) {
 function shutdown_handler() {
     try {
         if (null !== $error = error_get_last()) {
-            require '../../controllers/email.php';
+            require '../../../controllers/email.php';
             $subject = "ERROR: " . $error['type'];
             $message = "Error: " . $error['type'] . $error['message'] . $error['file'] . $error['line'];
             $email = 'jsmith@managedsolution.com';
