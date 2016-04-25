@@ -43,12 +43,6 @@ try {
                 } else {
                     $tag = "noImage.png";
                     $offers->setOfferImg($index, $tag);
-
-                    $email = "jsmith@managedsolution.com";
-                    $subject = "NO IMAGE FOR: " . $name;
-                    $message = "NO IMMAGE EXCEPTION: " . $e;
-                    $bcc = "csperrors@managedsolution.com";
-                    mail_utf8($email, $subject, $message, $bcc);
                 }
                 $index++;
             }
