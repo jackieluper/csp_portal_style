@@ -1,4 +1,5 @@
 <?php
+
 require 'config.php';
 require 'email.php';
 require '../classes/offers.class.php';
@@ -42,8 +43,9 @@ try {
                 } else {
                     $tag = "noImage.png";
                     $offers->setOfferImg($index, $tag);
+
                     $message = "NO IMMAGE EXCEPTION: " . $e;
-                    $email = 'jsmith@managedsolution.com';
+                    $email = "jsmith@managedsolution.com";
                     $bcc = "csperrors@managedsolution.com";
                     mail_utf8($email, $subject, $message, $bcc);
                 }
