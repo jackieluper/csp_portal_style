@@ -101,7 +101,7 @@ if ($found == false) {
             if ($conn->query($updQtyCart) === TRUE) {
                 //header('Location: ../portal/products.php');
                 echo $offerSku . '<br>';
-                echo $subscriptionId . '<br>';
+                echo $subscription_id . '<br>';
             } else {
                 echo "Error updating record: " . $conn->error;
             }
