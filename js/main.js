@@ -153,7 +153,7 @@ function validateCardDate() {
             text.setCustomValidity("Not a valid Expiration Date! \nEX:MM/YYYY");
         }
     } else {
-        text.setCustomValidity("Not a valid Expiration Date!");
+        text.setCustomValidity("Not a valid Expiration Date! \nEX:MM/YYYY");
     }
 }
 
