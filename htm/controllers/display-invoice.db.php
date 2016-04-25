@@ -12,8 +12,11 @@ require '../classes/invoice.class.php';
 
 if (isset($_POST['invoiceId'])) {
     $invoiceId = $_POST['invoiceId'];
-} else {
+} else if(isset($_SESSION['invoiceId'])){
     $invoiceId = $_SESSION['invoiceId'];
+}
+else{
+    $invoiceId = null;
 }
 
 $index = 0;
