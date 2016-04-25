@@ -27,7 +27,7 @@ $authUrl = "https://login.microsoftonline.com/managedsolutioncsptesting.onmicros
 //Application Scope Url
 $resource = "https://graph.windows.net";
 //Set company name 
-$companyName = "Managed Solution";
+$ownerName = "Managed Solution";
 //Setting logo for company
 $companyLogo = "http://www.managedsolution.com";
 //Setting up homepage for vertical menu
