@@ -4,7 +4,6 @@ Date: 2/29/16
 Managed Solution
 -->
 <?php
-require 'email.php';
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
