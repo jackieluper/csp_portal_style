@@ -3,7 +3,7 @@ require 'config.php';
 require '../classes/offers.class.php';
 
 if (session_status() == PHP_SESSION_NONE) {
-    
+    header("Location: logout.php");
 }
 $index = 0;
 $entity = $_SESSION['entity'];
