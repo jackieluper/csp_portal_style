@@ -1,4 +1,5 @@
 <?php
+
 require 'config.php';
 require '../classes/offers.class.php';
 //Checking if session is still active
@@ -36,14 +37,18 @@ try {
                     while ($row1 = $imgSetRes->fetch_assoc()) {
                         $tag = $row1['img_tag'];
                         $caption = $row1['details'];
-                        
+
                         $offers->setOfferImg($index, $tag);
                         $offers->setOfferCaption($index, $caption);
                     }
-                //if not
+                    //if not
                 } else {
                     $tag = "noImage.png";
                     $offers->setOfferImg($index, $tag);
+                    $message = "Exception: " . $e;
+                    $email = 'jsmith@managedsolution.com';
+                    $bcc = "csperrors@managedsolution.com";
+                    mail_utf8($email, $subject, $message, $bcc);
                     throw new Exception("MySql Error: " . $getImgSet . "<br>" . $conn->error);
                 }
                 $index++;
