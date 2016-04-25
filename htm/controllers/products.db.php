@@ -6,7 +6,6 @@ if (session_status() == PHP_SESSION_NONE) {
     header("Location: logout.php");
 }
 
-$index = 0;
 $entity = $_SESSION['entity'];
 $offers = new offers();
 
@@ -23,6 +22,7 @@ try {
                 $purchase_unit = $row['purchase_unit'];
                 $id = $row['id'];
                 $topOffer = $row['top_offer'];
+                
                 $offers->setOfferName($index, $name);
                 $offers->setOfferPrice($index, $erp);
                 $offers->setOfferUnit($index, $purchase_unit);
@@ -35,6 +35,7 @@ try {
                     while ($row1 = $imgSetRes->fetch_assoc()) {
                         $tag = $row1['img_tag'];
                         $caption = $row1['details'];
+                        
                         $offers->setOfferImg($index, $tag);
                         $offers->setOfferCaption($index, $caption);
                     }
