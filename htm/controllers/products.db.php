@@ -1,5 +1,4 @@
 <?php
-
 require 'config.php';
 require '../classes/offers.class.php';
 //Checking if session is still active
