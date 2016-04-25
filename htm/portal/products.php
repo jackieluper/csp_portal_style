@@ -5,9 +5,9 @@ require '../controllers/cart.db.php';
 ?>
 <head>
     <title>Products</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="refresh" content="180;url=http://www.msolcsptest.com/htm/controllers/logout.php" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
