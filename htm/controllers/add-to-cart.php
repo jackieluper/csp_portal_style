@@ -77,7 +77,7 @@ for ($i = 0; $i < count($subscriptionList); $i++) {
     $subscription_id = $subscriptionList[$i]->getOfferId();
     $subscription_name = $subscriptionList[$i]->getOfferName();
     echo $subscription_name . '<br>';
-    if ($subscription_id == $offerSku) {
+    if ($subscription_name == $offerName) {
         $found = true;
         $_SESSION['updateQty'] = $qty;
         $_SESSION['itemNum'] = $i;
@@ -100,9 +100,9 @@ if ($found == false) {
             $qty = $row['qty'] + $qty;
             $updQtyCart = "UPDATE cart SET qty='" . $qty . "' where items='" . $sf_offer_id . "'";
             if ($conn->query($updQtyCart) === TRUE) {
-                echo "Microsoft: $subscription_id <br>";
-                echo "Ours: $offerSku";
                 //header('Location: ../portal/products.php');
+                echo "Micro: $subscription_name <br>";
+                echo "Ours : $name";
             } else {
                 echo "Error updating record: " . $conn->error;
             }
