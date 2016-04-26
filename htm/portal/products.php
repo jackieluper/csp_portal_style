@@ -94,8 +94,6 @@ require '../controllers/cart.db.php';
                         <form action="../controllers/add-to-cart.php" method="post">
                             <tr>
                                 <td><strong> <?php echo $offers->name[$i] ?> </strong></td>
-                            </tr>                                                
-                            <tr>
                                 <td><div class="item active" id="item"><image class="productImage" src="<?php echo $offers->img_tag[$i] ?>" alt="Image not found"></div></td>
                             </tr>
                             <tr>
