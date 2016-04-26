@@ -125,7 +125,7 @@ require '../controllers/cart.db.php';
             <?php
             for ($i = 0; $i < count($offers->name); $i++) {
                 ?>
-                <table width="30%" style="display: inline-block; table-layout: fixed">
+                <table width="30%" style="display: inline-table; margin: auto auto">
                     <form action="../controllers/add-to-cart.php" method="post">
                         <tr>
                             <td><strong> <?php echo $offers->name[$i] ?> </strong></td>
