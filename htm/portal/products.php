@@ -5,8 +5,9 @@ require '../controllers/cart.db.php';
 ?>
 <head>
     <title>Products</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="180;url=http://www.msolcsptest.com/htm/controllers/logout.php" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -31,7 +32,7 @@ require '../controllers/cart.db.php';
             <li><img class='icon' src='../img/icons/subscriptions.png' alt='Manage Subscription'><a href="../portal/manageSubscription.php">Manage Licenses</a><br></li>
             <li><img class='icon' src='../img/icons/invoice.jpg' alt='Invoice'><a href='../portal/invoice.php'>Invoice</a><br></li>
             <li><img class='icon' src='../img/icons/checkout.png' alt='Checkout' ><a href='../portal/checkout.php'>Checkout</a><br></li>
-            <li><img class='icon' src='../img/icons/home.png' alt='Home' ><a href='<?php echo $homePage ?>'><?php echo $companyName ?></a><br></li>
+            <li><img class='icon' src='../img/icons/home.png' alt='Home' ><a href='<?php echo $homePage ?>'><?php echo $ownerName ?></a><br></li>
             <?php if ($_SESSION['role'] == $adminRole) { ?>
                 <li><img class='icon' src='../img/icons/Admin.png' alt='Admin' ><a href='../portal/admin.php'>Administration</a><br></li>
                 <?php
@@ -112,7 +113,7 @@ require '../controllers/cart.db.php';
                         </form>
                     </table>
 
-                <?php
+                    <?php
                 }
             }
             ?>
@@ -140,13 +141,13 @@ require '../controllers/cart.db.php';
                         </tr>
                         <tr>                            
                             <td><strong><input type="number" step="1" name="qty" value="1" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input><input type="hidden" name="id" value="<?php echo $offers->id[$i] ?>"></td>
-                        </tr>
-                        <tr>
-                            <td><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
-                        </tr>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
+                                    </tr>
                     </form>
-            <?php } ?>
-                </table>
+                <?php } ?>
+            </table>
         </div>
     </div>
 </div>

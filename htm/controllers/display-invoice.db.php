@@ -4,19 +4,23 @@ Date: 3/21/16
 Managed Solution
 -->
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 require 'config.php';
 require '../classes/invoice.class.php';
 
-$invoiceId = $_POST['invoiceId'];
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (isset($_POST['invoiceId'])) {
+    $invoiceId = $_POST['invoiceId'];
+} else if (isset($_SESSION['invoiceId'])) {
+    $invoiceId = $_SESSION['invoiceId'];
+} else {
+    $invoiceId = null;
+}
 
 $index = 0;
 $invoiceReceipt = new invoiceReceipt();
 $invoice = new invoice();
-
 
 try {
     $getTranDetails = "SELECT * FROM transactions WHERE transaction_id='$invoiceId'";
@@ -46,8 +50,7 @@ try {
             $invoiceReceipt->setTotalSavings($totalSavings);
         }
         $invoice->setInvoiceTranId($index, $invoiceId);
-    }
-    else{
+    } else {
         throw new Exception("MySql Error: " . $getTranDetails . "<br>" . $conn->error);
     }
 } catch (Exception $e) {

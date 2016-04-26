@@ -39,6 +39,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
          <title>Products</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="refresh" content="180;url=http://www.msolcsptest.com/htm/controllers/logout.php" >
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>      
@@ -197,6 +198,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta http-equiv="refresh" content="180;url=http://www.msolcsptest.com/htm/controllers/logout.php" >
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
             <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
             <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>      
@@ -234,9 +236,9 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
              <form action="' . $formURL . '" method="POST">
              <h3> Payment Information</h3>
                  <table>
-                     <tr><td>Credit Card Number</td><td><input type ="text" id="billing-cc-number" name="billing-cc-number" value="4111111111111111" onkeyup="validateCardNumber()" placeholder="required" required> </td></tr>
-                     <tr><td>Expiration Date</td><td><input type ="text" id="billing-cc-exp" name="billing-cc-exp" value="1012" placeholder="required" onkeyup="validateCardDate()" required> </td></tr>
-                     <tr><td>CVV</td><td><INPUT type ="text" name="cvv" placeholder="required" value="999" required> </td></tr>
+                     <tr><td>Credit Card Number</td><td><input type ="text" id="billing-cc-number" name="billing-cc-number" value="" onkeyup="validateCardNumber()" placeholder="required" required> </td></tr>
+                     <tr><td>Expiration Date</td><td><input type ="text" id="billing-cc-exp" name="billing-cc-exp" value="" placeholder="required" onkeyup="validateCardDate()" required> </td></tr>
+                     <tr><td>CVV</td><td><INPUT type ="text" name="cvv" placeholder="required" value="" required> </td></tr>
                      <tr><td colspan="2" align=center><input  class="ccBtn" type ="submit" value="Submit Step Two"></td> </tr>
                  </table>
              </form>
@@ -267,6 +269,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
     <html>
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="refresh" content="180;url=http://www.msolcsptest.com/htm/controllers/logout.php" >
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
             <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
             <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>      
@@ -309,7 +312,7 @@ if (empty($_POST['DO_STEP_1']) && empty($_GET['token-id'])) {
         print '<div id="print-content">
                 <form>';
         ?>
-        <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $companyName ?>></div>
+        <div><img class='invoiceLogo' src="../img/MS_Logo_orange_small.png" alt=<?php echo $ownerName ?>></div>
         <?php
         print " <p><h3><strong>Transaction was Approved: </strong></h3></p>\n";
         $xml = simplexml_load_string($data);

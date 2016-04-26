@@ -1,7 +1,6 @@
 <?php
 
-function mail_utf8($email, $subject, $message, $bcc)
-   { 
+function mail_utf8($email, $subject, $message, $bcc) { 
       $from_user = "=?UTF-8?B?".base64_encode('Managed Solution')."?=";
       $subject = "=?UTF-8?B?".base64_encode($subject)."?=";
       $from_email = 'billing@managedsolution.com';

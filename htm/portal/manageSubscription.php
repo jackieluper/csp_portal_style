@@ -1,12 +1,11 @@
 <?php
-session_start();
-require "../controllers/config.php";
-require "../api/client/_init.php";
+require "../controllers/manage-subscriptions.php";
 ?>
 <head>
     <title>My Subscriptions</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="180;url=http://www.msolcsptest.com/htm/controllers/logout.php" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
@@ -32,7 +31,7 @@ require "../api/client/_init.php";
             <li><img class='icon' src='../img/icons/subscriptions.png' alt='Manage Subscription'><a href="../portal/manageSubscription.php">Manage Licenses</a><br></li>
             <li><img class='icon' src='../img/icons/invoice.jpg' alt='Invoice'><a href='../portal/invoice.php'>Invoice</a><br></li>
             <li><img class='icon' src='../img/icons/checkout.png' alt='Checkout' ><a href='../portal/checkout.php'>Checkout</a><br></li>
-            <li><img class='icon' src='../img/icons/home.png' alt='Home' ><a href='<?php echo $homePage ?>'><?php echo $companyName ?></a><br></li>
+            <li><img class='icon' src='../img/icons/home.png' alt='Home' ><a href='<?php echo $homePage ?>'><?php echo $ownerName ?></a><br></li>
             <?php if ($_SESSION['role'] == $adminRole) { ?>
                 <li><img class='icon' src='../img/icons/Admin.png' alt='Admin' ><a href='../portal/admin.php'>Administration</a><br></li>
                 <?php
@@ -49,43 +48,30 @@ require "../api/client/_init.php";
         <div class="page-header">            
             <h2>Licenses</h2>
         </div>    
-        <?php
-        $customerTenantId = $_SESSION['tid'];
-        //business logic is in just for demo purpose
-        $subscription = new Subscription($customerTenantId);
-        /* @var Subscription[] $subscriptionList */
-        $subscriptionList = $subscription->getSubscriptionList();
-
-        print '<table id="checkoutTable" >
-        <thead>
-            <tr class="ui-widget-header ">
-                <th>Product Name</th>
-                <th>Start Date</th>
-                <th>Qty on Record</th>
-                <th>Manage Subscription</th>
-            </tr>
-        </thead>
-        <tbody>';
-        for ($i = 0; $i < count($subscriptionList); $i++) {
-            ?>
-            <form action="subscriptionInfo.php" method="post">
-                <tr>
-                    <td><input type="hidden" name="itemNum" value="<?php echo $i ?>" style="background-color: #ED8B22; border: none" ><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
-                    <td style="width: 150px"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
-                    <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
-                    <td><button class="makeChanges" type="submit">Make Changes</button></td>
+        <table id="checkoutTable" >
+            <thead>
+                <tr class="ui-widget-header ">
+                    <th>Product Name</th>
+                    <th>Start Date</th>
+                    <th>Qty on Record</th>
+                    <th>Manage Subscription</th>
                 </tr>
-            </form>
+            </thead>
+            <tbody>
+                <?php
+                for ($i = 0; $i < count($subscriptionList); $i++) {
+                    ?>
+                <form action="subscriptionInfo.php" method="post">
+                    <tr>
+                        <td><input type="hidden" name="itemNum" value="<?php echo $i ?>" style="background-color: #ED8B22; border: none" ><?php echo $subscriptionList[$i]->getFriendlyName() ?></td>
+                        <td style="width: 150px"><?php echo substr($subscriptionList[$i]->getEffectiveStartDate(), 0, 10) ?></td>
+                        <td><?php echo $subscriptionList[$i]->getQuantity() ?></td>
+                        <td><button class="makeChanges" type="submit">Make Changes</button></td>
+                    </tr>
+                </form>
         </div>
 
         <?php
     }
-
-
-
-//$subscriptionList[0]->updateFriendlyName();
-//
-//
-//$subscriptionList[0]->suspendSubscription();
     ?>
 </div>

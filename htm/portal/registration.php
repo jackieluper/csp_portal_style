@@ -4,13 +4,13 @@ Date: 2/09/16
 Managed Solution
 -->
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
-require '../controllers/config.php'
+require '../controllers/config.php';
 ?>
 <head>
     <title>Register</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="180;url=http://www.msolcsptest.com/htm/controllers/logout.php" >
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <link href="../../css/styles.css" type="text/css" rel="stylesheet"/>
@@ -46,7 +46,7 @@ require '../controllers/config.php'
 </div>
 <div class="container">
     <div class="page-header">
-        <h2>ACCOUNT INFORMATION <br><small>You will need to <strong>AUTHORIZE <?php echo $companyName ?></strong> to be your cloud service provider.</small></h2>
+        <h2>ACCOUNT INFORMATION <br><small>You will need to <strong>AUTHORIZE <?php echo $ownerName ?></strong> to be your cloud service provider.</small></h2>
     </div>
     <form class="regForm" id="formRegistration" action="../api/add-cust.php" method="post">
         <table class="regTop">
@@ -104,7 +104,7 @@ require '../controllers/config.php'
                 <td class="row4"><input class="form-control" type="text" id='fname' name="fname" placeholder="required" required></td>
                 <td class="row4"><input class="form-control" type="text" id='lname' name="lname" placeholder="required" required></td>
                 <td class="row4"><div class="checkbox">
-                        <label><input type="checkbox" id="cb-delegation" name="delegation" value="accepted" data-toggle="modal" data-target="#myModal" required>Authorize <?php echo $companyName ?> to be your Cloud Service Provider!</label>
+                        <label><input type="checkbox" id="cb-delegation" name="delegation" value="accepted" data-toggle="modal" data-target="#myModal" required>Authorize <?php echo $ownerName ?> to be your Cloud Service Provider!</label>
                     </div></td>
             </tr>
             <tr>
@@ -127,7 +127,7 @@ require '../controllers/config.php'
                     <h4 class="modal-title">Modal Header</h4>
                 </div>
                 <div class="modal-body">
-                    <p>You are <strong>Authorizing <?php echo $companyName ?></strong> to be your Cloud Service Provider.<br><br>
+                    <p>You are <strong>Authorizing <?php echo $ownerName ?></strong> to be your Cloud Service Provider.<br><br>
                         By continuing, you agree that Microsoft can share your ongoing contact and subscription information with this partner. For more information, please review the
                         <strong><a class="microsoftLink" target="new" href="http://g.microsoftonline.com/0BX20en/328">Privacy Notice</a></strong><br><br>
 

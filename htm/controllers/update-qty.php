@@ -1,6 +1,4 @@
 <?php
-
-session_start();
 require 'config.php';
 require '../controllers/email.php';
 include '../controllers/display-invoice.db.php';
@@ -52,7 +50,7 @@ if ($resProvision->num_rows > 0) {
     $resTranId = $conn->query($sqlgetTranId);
     if ($resTranId->num_rows > 0) {
         while ($row = $resTranId->fetch_assoc()) {
-            $tranId = $row['transaction_id'] + 2;
+            $tranId = $row['transaction_id'] + 1;
             echo "transaction id: " . $tranId . '<br>';
         }
     } else {
@@ -74,7 +72,7 @@ if ($provision == 1) {
         
         $sqlInvoice = "INSERT INTO transactions(customer_id, item_num, sku, product_name, subscription_length, product_cost, qty, discount_rate, total_savings, total, transaction_id)
             VALUES('$customer_id', '1', '$subscription_id', '$subscription_name', '1 month(s)', '$erp_price', '$updateQty', '$discount', '$totalSavings', '$total', $tranId)";
-        echo $customer_id;
+        
         if ($conn->query($sqlInvoice) == TRUE) {
             $getEmailStmt = "SELECT email from user where customer_id='$customer_id'";
             $getEmailRes = $conn->query($getEmailStmt);
