@@ -45,8 +45,9 @@ require '../controllers/cart.db.php';
 </nav>
 <div id="page">
     <nav class="sidecart">
-        <a href="#" class="cart-toggle-btn">Cart</a>
+        
         <table class="cartTable" >
+            <a href="#" class="cart-toggle-btn">Cart</a>
             <thead>
                 <tr class="ui-widget-header ">
                     <th>Item</th>
