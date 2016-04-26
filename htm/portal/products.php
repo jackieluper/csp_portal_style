@@ -90,7 +90,7 @@ require '../controllers/cart.db.php';
                     ?>
                     <!--table works finish adding qty, then check that add to cart works with qty and then do same to catalog offers -->
 
-                    <table width="30%" style="display: inline-table; table-layout: fixed; padding: 5px">
+                    <table width="30%" style="display: inline-table; table-layout: fixed; margin: auto auto">
                         <form action="../controllers/add-to-cart.php" method="post">
                             <tr>
                                 <td ><strong> <?php echo $offers->name[$i] ?> </strong></td>
