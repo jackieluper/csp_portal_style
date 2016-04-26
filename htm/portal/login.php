@@ -62,7 +62,7 @@ if (!empty($_GET['code'])) {
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active" id="item">
-                        <img src="../img/microsoft_img/office_365_e3.jpg" alt="Office365" style=" height: 100%;">
+                        <img src="../img/microsoft_img/office_365_e3.jpg" alt="Office365" style=" height: 50%;">
                         <div class="carousel-caption" id="imgOverlay">
                             <h3>Office 365</h3>
                             <p>The best plan for businesses that need full productivity, communication and collaboration <br>
@@ -71,7 +71,7 @@ if (!empty($_GET['code'])) {
                     </div>
 
                     <div class="item" id="item">
-                        <img src="../img/microsoft_img/enterprise_mobility_suite.jpg" alt="Microsoft EMS" style="height: 100%;">
+                        <img src="../img/microsoft_img/enterprise_mobility_suite.jpg" alt="Microsoft EMS" style="height: 50%;">
                         <div class="carousel-caption" id="imgOverlay">
                             <h3>Microsoft Enterprise Mobility Suite</h3>
                             <p>Keep your employees productive on their favorite apps and devices<br>
@@ -81,7 +81,7 @@ if (!empty($_GET['code'])) {
                     </div>
 
                     <div class="item" id="item">
-                        <img src="../img/microsoft_img/microsoft_dynamics_crm.jpg" alt="Microsoft Dynamics" style=" height: 100%;">
+                        <img src="../img/microsoft_img/microsoft_dynamics_crm.jpg" alt="Microsoft Dynamics" style=" height: 50%;">
                         <div class="carousel-caption" id="imgOverlay">
                             <h3>Microsoft Dynamics</h3>
                             <p>Grow your business with Microsoft Dynamics.<br>
