@@ -128,22 +128,22 @@ require '../controllers/cart.db.php';
                 <table width="25%" style="display: inline-table;">
                     <form action="../controllers/add-to-cart.php" method="post">
                         <tr>
-                            <td align="center"><strong> <?php echo $offers->name[$i] ?> </strong></td>
+                            <td><strong> <?php echo $offers->name[$i] ?> </strong></td>
                         </tr>                                                
                         <tr>
-                            <td align="center"><div class="item active" id="item"><image class="productImage" src="<?php echo $offers->img_tag[$i] ?>" alt="Image not found"></div></td>
+                            <td><div class="item active" id="item"><image class="productImage" src="<?php echo $offers->img_tag[$i] ?>" alt="Image not found"></div></td>
                         </tr>
                         <tr>
-                            <td align="center"><strong> $<?php echo number_format($offers->price[$i], 2) ?>  <?php echo $offers->unit[$i] ?> </strong></td>
+                            <td><strong> $<?php echo number_format($offers->price[$i], 2) ?>  <?php echo $offers->unit[$i] ?> </strong></td>
                         </tr>
                         <tr>
-                            <td align="center"><strong><a style="color: #258ED9;" href="../portal/productDetails.php?id=<?php echo $offers->id[$i] ?>">More details</a></strong></td>
+                            <td><strong><a style="color: #258ED9;" href="../portal/productDetails.php?id=<?php echo $offers->id[$i] ?>">More details</a></strong></td>
                         </tr>
                         <tr>                            
-                            <td align="center"><strong><input type="number" step="1" name="qty" value="1" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input><input type="hidden" name="id" value="<?php echo $offers->id[$i] ?>"></td>
+                            <td><strong><input type="number" step="1" name="qty" value="1" style="text-align: right; border-style: groove; border-radius: 5px; width: 20%;"></input><input type="hidden" name="id" value="<?php echo $offers->id[$i] ?>"></td>
                                     </tr>
                                     <tr>
-                                        <td align="center"><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
+                                        <td><strong><button class="updateQtyBtn" type="submit">Add To Cart</button></strong></td>
                                     </tr>
                     </form>
                 <?php } ?>
