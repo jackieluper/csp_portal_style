@@ -90,7 +90,7 @@ require '../controllers/cart.db.php';
                     ?>
                     <!--table works finish adding qty, then check that add to cart works with qty and then do same to catalog offers -->
 
-                    <table  style="display: inline-table; table-layout: fixed">
+                    <table width="30%" style="display: inline-table; table-layout: fixed">
                         <form action="../controllers/add-to-cart.php" method="post">
                             <tr>
                                 <td ><strong> <?php echo $offers->name[$i] ?> </strong></td>
@@ -125,7 +125,7 @@ require '../controllers/cart.db.php';
             <?php
             for ($i = 0; $i < count($offers->name); $i++) {
                 ?>
-                <table style="display: inline-table; table-layout: fixed">
+                <table width="30%" style="display: inline-block; table-layout: fixed">
                     <form action="../controllers/add-to-cart.php" method="post">
                         <tr>
                             <td><strong> <?php echo $offers->name[$i] ?> </strong></td>
