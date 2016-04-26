@@ -83,14 +83,14 @@ require '../controllers/cart.db.php';
                 </small></h2>
         </div>
 
-        <div class="wrapOffers" style="width: 100%; margin-left: 90px">
+        <div class="wrapOffers" style="margin-left: 90px">
             <?php
             for ($i = 0; $i < count($offers->topOffer); $i++) {
                 if ($offers->topOffer[$i] == '1') {
                     ?>
                     <!--table works finish adding qty, then check that add to cart works with qty and then do same to catalog offers -->
 
-                    <table width="40%" style="display: inline-block">
+                    <table style="display: inline-block">
                         <form action="../controllers/add-to-cart.php" method="post">
                             <tr>
                                 <td><strong> <?php echo $offers->name[$i] ?> </strong></td>
@@ -121,11 +121,11 @@ require '../controllers/cart.db.php';
         <div class="page-header">
             <h2>CATALOG</h2>
         </div>
-        <div class="wrapOffers" style="width: 100%; margin-left: 90px">
+        <div class="wrapOffers" style="margin-left: 90px">
             <?php
             for ($i = 0; $i < count($offers->name); $i++) {
                 ?>
-                <table width="40%" style="display: inline-block">
+                <table style="display: inline-block">
                     <form action="../controllers/add-to-cart.php" method="post">
                         <tr>
                             <td><strong> <?php echo $offers->name[$i] ?> </strong></td>
